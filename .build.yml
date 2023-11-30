@@ -31,12 +31,12 @@ requires:
     - libxt-dev
     - libxtst-dev
     - make
-    - cafe-common
     - xmlto
     - xsltproc
 
 before_scripts:
   - ./html-cppcheck
+  - ./install-from-git https://github.com/cafe-desktop/cafe-common master
 
 build_scripts:
   - ./before-build
