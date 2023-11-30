@@ -1,7 +1,7 @@
 [main]
 host = https://www.transifex.com
  
-[MATE.1-24--cafe-session-manager]
+[CAFE.1-24--cafe-session-manager]
 file_filter = po/<lang>.po
 source_file = cafe-session-manager.pot
 source_lang = en

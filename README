@@ -1,7 +1,7 @@
 cafe-session
 =============
 
-cafe-session contains the MATE session manager, as well as a
+cafe-session contains the CAFE session manager, as well as a
 configuration program to choose applications starting on login.
 
 You may download updates to the package from:

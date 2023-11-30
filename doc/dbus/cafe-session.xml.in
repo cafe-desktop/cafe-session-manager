@@ -9,7 +9,7 @@
 
 <book id="index">
   <bookinfo>
-    <title>MATE Session @VERSION@ Documentation</title>
+    <title>CAFE Session @VERSION@ Documentation</title>
     <releaseinfo>Version @VERSION@</releaseinfo>
     <authorgroup>
       <author>

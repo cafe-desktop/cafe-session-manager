@@ -72,7 +72,7 @@
 #define MOBILITY_KEY          "exec"
 #define MOBILITY_STARTUP_KEY  "startup"
 
-#define MATE_INTERFACE_SCHEMA "org.cafe.interface"
+#define CAFE_INTERFACE_SCHEMA "org.cafe.interface"
 #define GTK_OVERLAY_SCROLL    "gtk-overlay-scrolling"
 
 #define GSM_DBUS_NAME "org.gnome.SessionManager"
@@ -562,7 +562,7 @@ static void set_overlay_scroll (void)
 	GSettings *settings;
 	gboolean   enabled;
 
-	settings = g_settings_new (MATE_INTERFACE_SCHEMA);
+	settings = g_settings_new (CAFE_INTERFACE_SCHEMA);
 	enabled = g_settings_get_boolean (settings, GTK_OVERLAY_SCROLL);
 
 	if (enabled) {
@@ -632,7 +632,7 @@ int main(int argc, char** argv)
 	sigaction(SIGPIPE, &sa, 0);
 
 	error = NULL;
-	gtk_init_with_args(&argc, &argv, (char*) _(" - the MATE session manager"), entries, GETTEXT_PACKAGE, &error);
+	gtk_init_with_args(&argc, &argv, (char*) _(" - the CAFE session manager"), entries, GETTEXT_PACKAGE, &error);
 
 	if (error != NULL)
 	{
@@ -692,7 +692,7 @@ int main(int argc, char** argv)
 	}
 
 	if (g_getenv ("XDG_CURRENT_DESKTOP") == NULL)
-		gsm_util_setenv ("XDG_CURRENT_DESKTOP", "MATE");
+		gsm_util_setenv ("XDG_CURRENT_DESKTOP", "CAFE");
 
 	/* Set DISPLAY explicitly for all our children, in case --display
 	 * was specified on the command line.
@@ -700,10 +700,10 @@ int main(int argc, char** argv)
 	display_str = gdk_display_get_name (gdk_display_get_default());
 	gsm_util_setenv("DISPLAY", display_str);
 
-	/* Some third-party programs rely on MATE_DESKTOP_SESSION_ID to
-	 * detect if MATE is running. We keep this for compatibility reasons.
+	/* Some third-party programs rely on CAFE_DESKTOP_SESSION_ID to
+	 * detect if CAFE is running. We keep this for compatibility reasons.
 	 */
-	gsm_util_setenv("MATE_DESKTOP_SESSION_ID", "this-is-deprecated");
+	gsm_util_setenv("CAFE_DESKTOP_SESSION_ID", "this-is-deprecated");
 
 	/*
 	 * Make sure gsettings is set up correctly.  If not, then bail.

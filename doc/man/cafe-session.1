@@ -1,22 +1,22 @@
 .\" Manual page for cafe-session
 .\" (C) 2000 Miguel de Icaza (miguel@helixcode.com)
 .\" (C) 2009-2010 Vincent Untz (vuntz@gnome.org)
-.TH MATE-SESSION 1 "11 February 2014" "MATE Desktop Environment"
+.TH CAFE-SESSION 1 "11 February 2014" "CAFE Desktop Environment"
 .\" Please adjust this date when revising the manpage.
 .\"
 .SH "NAME"
-cafe-session \- Start the MATE Desktop Environment.
+cafe-session \- Start the CAFE Desktop Environment.
 .SH "SYNOPSIS"
 .B cafe-session [OPTIONS]
 .SH "DESCRIPTION"
-The \fBcafe-session\fP program starts up the MATE desktop environment. This command is typically executed by your Login/Display Manager (like GDM, LXDM, XDM, SLiM, or from your X startup scripts like .xinitrc). It will load either your saved session, or it will provide a default session for the user as defined by the system administrator (or the default MATE installation on your system).
+The \fBcafe-session\fP program starts up the CAFE desktop environment. This command is typically executed by your Login/Display Manager (like GDM, LXDM, XDM, SLiM, or from your X startup scripts like .xinitrc). It will load either your saved session, or it will provide a default session for the user as defined by the system administrator (or the default CAFE installation on your system).
 .PP
 The default session is defined in the dconf keys under
 .BI / org / cafe / desktop / session /
 .br
 When saving a session, \fBcafe-session\fP saves the currently running applications in the \fB~/.config/cafe-session/saved-session\fP directory of the users /home.
 .PP
-\fBcafe-session\fP is an X11 session manager. It can manage MATE applications as well as any other X11 SM compliant ones.
+\fBcafe-session\fP is an X11 session manager. It can manage CAFE applications as well as any other X11 SM compliant ones.
 
 .SH "OPTIONS"
 .SS The following options are supported:
@@ -78,7 +78,7 @@ http://github.com/cafe-desktop/cafe-session-manager/issues
 Miguel de Icaza <miguel@helixcode.com> (2000)
 Vincent Untz <vuntz@gnome.org> (2009-2010)
 .fi
-.SS It has been updated for the MATE Desktop Environment by:
+.SS It has been updated for the CAFE Desktop Environment by:
 Adam Erdman <hekel@archlinux.info> (2014)
 .SH "SEE ALSO"
 .SS Further information may also be available at: http://wiki.cafe-desktop.org/docs

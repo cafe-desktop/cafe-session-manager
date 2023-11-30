@@ -5,7 +5,7 @@ noinst_PROGRAMS = 		\
 	test-inhibit
 
 AM_CPPFLAGS =					\
-	$(MATE_SESSION_CFLAGS)		\
+	$(CAFE_SESSION_CFLAGS)		\
 	$(SYSTEMD_CFLAGS)			\
 	$(LIBELOGIND_CFLAGS)			\
 	$(DISABLE_DEPRECATED_CFLAGS)
@@ -79,7 +79,7 @@ cafe_session_LDADD =				\
 	$(XRENDER_LIBS)				\
 	$(XTEST_LIBS)				\
 	$(XEXT_LIBS)				\
-	$(MATE_SESSION_LIBS)			\
+	$(CAFE_SESSION_LIBS)			\
 	$(SYSTEMD_LIBS)				\
 	$(LIBELOGIND_LIBS)			\
 	$(EXECINFO_LIBS)
@@ -89,13 +89,13 @@ libgsmutil_la_SOURCES =				\
 	gsm-util.h
 
 libgsmutil_la_LIBADD = 				\
-	$(MATE_SESSION_LIBS)
+	$(CAFE_SESSION_LIBS)
 
 test_inhibit_SOURCES = test-inhibit.c
-test_inhibit_LDADD = $(MATE_SESSION_LIBS)
+test_inhibit_LDADD = $(CAFE_SESSION_LIBS)
 
 test_client_dbus_SOURCES = test-client-dbus.c
-test_client_dbus_LDADD = $(MATE_SESSION_LIBS)
+test_client_dbus_LDADD = $(CAFE_SESSION_LIBS)
 
 gsm-marshal.c: gsm-marshal.list
 	$(AM_V_GEN)echo "#include \"gsm-marshal.h\"" > $@ && \

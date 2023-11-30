@@ -870,7 +870,7 @@ gsp_app_can_launch (GKeyFile *keyfile)
                                                    NULL, NULL);
         if (only_show_in) {
                 for (i = 0, found = FALSE; only_show_in[i] && !found; i++) {
-                        if (!strcmp (only_show_in[i], "MATE"))
+                        if (!strcmp (only_show_in[i], "CAFE"))
                                 found = TRUE;
                 }
                 g_strfreev (only_show_in);
@@ -883,7 +883,7 @@ gsp_app_can_launch (GKeyFile *keyfile)
                                                   NULL, NULL);
         if (not_show_in) {
                 for (i = 0, found = FALSE; not_show_in[i] && !found; i++) {
-                        if (!strcmp (not_show_in[i], "MATE"))
+                        if (!strcmp (not_show_in[i], "CAFE"))
                                 found = TRUE;
                 }
                 g_strfreev (not_show_in);

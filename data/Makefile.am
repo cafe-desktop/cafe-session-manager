@@ -18,7 +18,7 @@ desktopdir = $(datadir)/applications
 desktop_in_files = cafe-session-properties.desktop.in cafe-wm.desktop.in
 desktop_DATA = cafe-session-properties.desktop
 
-if USE_MATE_WM
+if USE_CAFE_WM
 desktop_DATA += cafe-wm.desktop
 endif
 

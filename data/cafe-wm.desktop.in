@@ -3,8 +3,8 @@ Type=Application
 Name=Window Manager
 Exec=cafe-wm
 # Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-Keywords=MATE;window;manager;launch;MDM;
+Keywords=CAFE;window;manager;launch;MDM;
 NoDisplay=true
-X-MATE-Autostart-Phase=WindowManager
-X-MATE-Provides=windowmanager
-X-MATE-Autostart-Notify=true
+X-CAFE-Autostart-Phase=WindowManager
+X-CAFE-Provides=windowmanager
+X-CAFE-Autostart-Notify=true
