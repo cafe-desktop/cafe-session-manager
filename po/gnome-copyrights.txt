@@ -290,9 +290,9 @@
 # Comment: Simos did 6 new/unfuzzy 8.
 # Comment: Simos did 2 new/unfuzzy 5.
 # Split from gnome-core as gnome-session.
-# kostas: 10Dec2002, updated translation for Mate 2.1x
+# kostas: 10Dec2002, updated translation for Cafe 2.1x
 # kostas: 26Jan2003, one more update.
-# kostas:03Aug2003, updated translation for Mate2.4
+# kostas:03Aug2003, updated translation for Cafe2.4
 # nikos: 06Sep2003, review
 # kostas:12Nov2003.fixes
 #
@@ -572,7 +572,7 @@
 # Andras Timar <timar at gnome dot hu>, 2001, 2002, 2003.
 # Laszlo Dvornik <dvornik at gnome dot hu>, 2004.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
-# Mate ORY <orygnome at gmail d0t com>, 2006, 2008.
+# Cafe ORY <orygnome at gmail d0t com>, 2006, 2008.
 
 
 
@@ -647,7 +647,7 @@
 ========== ka.po ==========
 # translation of gnome-sessions.po to Georgian
 # Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>, 2007.
-# Georgian translation for Mate Session.
+# Georgian translation for Cafe Session.
 # Copyright © 2006 Ubuntu Georgian Translators.
 # Vladimer Sichinava  ვლადიმერ სიჭინავა <vsichi@gnome.org>, 2008.
 
@@ -702,8 +702,8 @@
 
 ========== lv.po ==========
 # translation of lv.po to Latvian
-# Latvian translation for Mate Session.
-# Copyright © 2006 Mate i18n Project for Latvian.
+# Latvian translation for Cafe Session.
+# Copyright © 2006 Cafe i18n Project for Latvian.
 #
 # P�eris Krij�is <peterisk@apollo.lv>, 2000.
 # Artis Trops <hornet@navigators.lv>, 2000.
@@ -1052,7 +1052,7 @@
 # This file is distributed under the same license as the gnome-session package.
 #
 # Andraž Tori <andraz.tori1@guest.arnes.si> 2000.
-# Matej Urbančič <gnomeju@svn.gnome.org>, 2007 - 2010.
+# Cafej Urbančič <gnomeju@svn.gnome.org>, 2007 - 2010.
 #
 
 
@@ -1117,7 +1117,7 @@
 ========== ta.po ==========
 # translation of gnome-session.HEAD.ta.po to Tamil
 # translation of ta.po to
-# Tamil translation of Mate-Session messages.
+# Tamil translation of Cafe-Session messages.
 # Copyright (C) 2001, 2004, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
 #
 # Dinesh Nadarajah <dinesh_list@sbcglobal.net>, 2004.
@@ -1234,7 +1234,7 @@
 ========== wa.po ==========
 # Traduction into the walloon language.
 #
-# Si vos voloz donner on côp di spale pol ratournaedje di Mate (ou des
+# Si vos voloz donner on côp di spale pol ratournaedje di Cafe (ou des
 # ôtes libes programes) sicrijhoz-mu a l' adresse emile
 # <srtxg@chanae.alphanet.ch>; nos avons co bråmint di l' ovraedje a fé.
 #

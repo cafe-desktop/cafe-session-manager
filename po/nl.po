@@ -257,7 +257,7 @@ msgstr "CAFE"
 
 #: data/cafe.desktop.in:4
 msgid "This session logs you into CAFE"
-msgstr "Deze sessie laat u in Mate aanmelden"
+msgstr "Deze sessie laat u in Cafe aanmelden"
 
 #: data/cafe.desktop.in:8
 msgid "Type=Application"
