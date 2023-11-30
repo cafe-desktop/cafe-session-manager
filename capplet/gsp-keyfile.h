@@ -33,8 +33,8 @@
 extern "C" {
 #endif
 
-#define GSP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLED "X-MATE-Autostart-enabled"
-#define GSP_KEY_FILE_DESKTOP_KEY_DELAY             "X-MATE-Autostart-Delay"
+#define GSP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLED "X-CAFE-Autostart-enabled"
+#define GSP_KEY_FILE_DESKTOP_KEY_DELAY             "X-CAFE-Autostart-Delay"
 
 void      gsp_key_file_populate        (GKeyFile *keyfile);
 

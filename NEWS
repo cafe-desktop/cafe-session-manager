@@ -4,7 +4,7 @@
   * Using #include with system libraries
   * build: silent build warnings for distcheck
   * Accept Desktop Entry Specification v1.1
-  * use default MATE_COMPILE_WARNINGS for stable branch
+  * use default CAFE_COMPILE_WARNINGS for stable branch
   * build: make libglesv2 optional
 
 ### cafe-session-manager 1.24.0
@@ -15,7 +15,7 @@
   * desktop files: add translator hints
   * Fix timeout with gnome-keyring 3.34
   * Remove GNOME_KEYRING_LIFETIME_FD
-  * po/Makevars: Set COPYRIGHT_HOLDER to The MATE Team
+  * po/Makevars: Set COPYRIGHT_HOLDER to The CAFE Team
   * Fix cafe-session-properties vertical scaling
 
 ### cafe-session-manager 1.23.0
@@ -156,7 +156,7 @@
 ### cafe-session-manager 1.10.2
 
   * Reintroduce missing help in session properties dialog
-  * Set XDG_CURRENT_DESKTOP env var to MATE
+  * Set XDG_CURRENT_DESKTOP env var to CAFE
   * Some bugfixes
   * Translations update
 
@@ -179,7 +179,7 @@
   * Show a progress bar in logout dialog
   * Add GTK3 support
   * Add gnome keyring support
-  * Add support for X-MATE-Autostart-Delay in desktop files
+  * Add support for X-CAFE-Autostart-Delay in desktop files
 
 ### cafe-session-manager 1.6.0
 

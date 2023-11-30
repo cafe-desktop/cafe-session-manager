@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -247,12 +247,12 @@ msgstr ""
 "melancar dan menukar aplikasi."
 
 #: data/cafe.desktop.in:3
-msgid "MATE"
-msgstr "MATE"
+msgid "CAFE"
+msgstr "CAFE"
 
 #: data/cafe.desktop.in:4
-msgid "This session logs you into MATE"
-msgstr "Sesi ini mendaftar anda masuk ke MATE"
+msgid "This session logs you into CAFE"
+msgstr "Sesi ini mendaftar anda masuk ke CAFE"
 
 #: data/cafe.desktop.in:8
 msgid "Type=Application"
@@ -261,14 +261,14 @@ msgstr "Type=Application"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
-msgid "launch;MATE;desktop;session;"
-msgstr "lancar;MATE;desktop;sesi;"
+msgid "launch;CAFE;desktop;session;"
+msgstr "lancar;CAFE;desktop;sesi;"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
-msgid "MATE;window;manager;launch;MDM;"
-msgstr "MATE;tetingkap;pengurus;lancar;MDM;"
+msgid "CAFE;window;manager;launch;MDM;"
+msgstr "CAFE;tetingkap;pengurus;lancar;MDM;"
 
 #: data/gsm-inhibit-dialog.ui:14
 msgid "<b>Some programs are still running:</b>"
@@ -299,8 +299,8 @@ msgstr "cafe-session-properties"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
-msgid "MATE;session;properties;applications;login;start;"
-msgstr "MATE;sesi;sifat;aplikasi;daftarmasuk;mula;"
+msgid "CAFE;session;properties;applications;login;start;"
+msgstr "CAFE;sesi;sifat;aplikasi;daftarmasuk;mula;"
 
 #: data/session-properties.ui:35
 msgid "Additional startup _programs:"
@@ -568,8 +568,8 @@ msgid "Disable hardware acceleration check"
 msgstr "Lumpuhkan semakan pemecutan perkakasan"
 
 #: cafe-session/main.c:635
-msgid " - the MATE session manager"
-msgstr "- pengurus sesi MATE"
+msgid " - the CAFE session manager"
+msgstr "- pengurus sesi CAFE"
 
 #: tools/cafe-session-save.c:66
 msgid "Log out"

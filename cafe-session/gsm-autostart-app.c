@@ -49,7 +49,7 @@ enum {
         GSM_CONDITION_NONE          = 0,
         GSM_CONDITION_IF_EXISTS     = 1,
         GSM_CONDITION_UNLESS_EXISTS = 2,
-        GSM_CONDITION_MATE          = 3,
+        GSM_CONDITION_CAFE          = 3,
         GSM_CONDITION_GSETTINGS     = 4,
         GSM_CONDITION_UNKNOWN       = 5
 };
@@ -133,8 +133,8 @@ is_disabled (GsmApp *app)
         }
 
         /* Check OnlyShowIn/NotShowIn/TryExec */
-        if (!egg_desktop_file_can_launch (priv->desktop_file, "MATE")) {
-                g_debug ("app %s not installed or not for MATE",
+        if (!egg_desktop_file_can_launch (priv->desktop_file, "CAFE")) {
+                g_debug ("app %s not installed or not for CAFE",
                          gsm_app_peek_id (app));
                 return TRUE;
         }
@@ -166,8 +166,8 @@ parse_condition_string (const char *condition_string,
                 kind = GSM_CONDITION_IF_EXISTS;
         } else if (!g_ascii_strncasecmp (condition_string, "unless-exists", len) && key) {
                 kind = GSM_CONDITION_UNLESS_EXISTS;
-        } else if (!g_ascii_strncasecmp (condition_string, "MATE", len)) {
-                kind = GSM_CONDITION_MATE;
+        } else if (!g_ascii_strncasecmp (condition_string, "CAFE", len)) {
+                kind = GSM_CONDITION_CAFE;
         } else if (!g_ascii_strncasecmp (condition_string, "GSettings", len)) {
                 kind = GSM_CONDITION_GSETTINGS;
         } else {
@@ -397,7 +397,7 @@ setup_condition_monitor (GsmAutostartApp *app)
 
                 g_object_unref (file);
                 g_free (file_path);
-        } else if (kind == GSM_CONDITION_MATE) {
+        } else if (kind == GSM_CONDITION_CAFE) {
                 disabled = !setup_gsettings_condition_monitor (app, key);
         } else if (kind == GSM_CONDITION_GSETTINGS) {
                 disabled = !setup_gsettings_condition_monitor (app, key);
@@ -703,7 +703,7 @@ is_conditionally_disabled (GsmApp *app)
                 file_path = g_build_filename (g_get_user_config_dir (), key, NULL);
                 disabled = g_file_test (file_path, G_FILE_TEST_EXISTS);
                 g_free (file_path);
-        } else if (kind == GSM_CONDITION_MATE && priv->condition_settings != NULL) {
+        } else if (kind == GSM_CONDITION_CAFE && priv->condition_settings != NULL) {
                 char **elems;
                 elems = g_strsplit (key, " ", 2);
                 disabled = !g_settings_get_boolean (priv->condition_settings, elems[1]);

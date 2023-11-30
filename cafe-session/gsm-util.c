@@ -404,7 +404,7 @@ gsm_util_generate_startup_id (void)
          * XSMP client IDs are supposed to be globally unique: if
          * SmsGenerateClientID() is unable to determine a network
          * address for the machine, it gives up and returns %NULL.
-         * MATE and KDE have traditionally used a fourth address
+         * CAFE and KDE have traditionally used a fourth address
          * format in this case:
          *   "0" + 16 random hex digits
          *

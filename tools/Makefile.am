@@ -4,7 +4,7 @@ libexec_PROGRAMS = \
 	cafe-session-check-accelerated-gl-helper
 
 AM_CPPFLAGS =					\
-	$(MATE_SESSION_CFLAGS)			\
+	$(CAFE_SESSION_CFLAGS)			\
 	-DLOCALE_DIR=\""$(datadir)/locale"\"	\
 	$(DISABLE_DEPRECATED_CFLAGS)
 
@@ -16,19 +16,19 @@ cafe_session_save_SOURCES =			\
 cafe_session_save_LDADD =			\
 	$(SM_LIBS)				\
 	$(ICE_LIBS)				\
-	$(MATE_SESSION_LIBS)
+	$(CAFE_SESSION_LIBS)
 
 cafe_session_inhibit_SOURCES =			\
 	cafe-session-inhibit.c
 
 cafe_session_inhibit_CPPFLAGS =			\
 	$(AM_CPPFLAGS)				\
-	$(MATE_SESSION_CFLAGS)			\
+	$(CAFE_SESSION_CFLAGS)			\
 	-DLOCALE_DIR=\""$(datadir)/locale"\"	\
 	$(DISABLE_DEPRECATED_CFLAGS)
 
 cafe_session_inhibit_LDADD =			\
-	$(MATE_SESSION_LIBS)
+	$(CAFE_SESSION_LIBS)
 
 if HAVE_GLESV2
 libexec_PROGRAMS += cafe-session-check-accelerated-gles-helper

@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -248,12 +248,12 @@ msgstr ""
 "կիրառական ծրագրերի փոխանջատելու համար։"
 
 #: data/cafe.desktop.in:3
-msgid "MATE"
-msgstr "MATE"
+msgid "CAFE"
+msgstr "CAFE"
 
 #: data/cafe.desktop.in:4
-msgid "This session logs you into MATE"
-msgstr "Այս նիստը գրանցում է քեզ MATE֊ի մեջ"
+msgid "This session logs you into CAFE"
+msgstr "Այս նիստը գրանցում է քեզ CAFE֊ի մեջ"
 
 #: data/cafe.desktop.in:8
 msgid "Type=Application"
@@ -262,13 +262,13 @@ msgstr ""
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
-msgid "launch;MATE;desktop;session;"
+msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
-msgid "MATE;window;manager;launch;MDM;"
+msgid "CAFE;window;manager;launch;MDM;"
 msgstr ""
 
 #: data/gsm-inhibit-dialog.ui:14
@@ -300,7 +300,7 @@ msgstr ""
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
-msgid "MATE;session;properties;applications;login;start;"
+msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
 
 #: data/session-properties.ui:35
@@ -572,8 +572,8 @@ msgid "Disable hardware acceleration check"
 msgstr ""
 
 #: cafe-session/main.c:635
-msgid " - the MATE session manager"
-msgstr "- MATE աշխատաշրջանի կառավարիչը"
+msgid " - the CAFE session manager"
+msgstr "- CAFE աշխատաշրջանի կառավարիչը"
 
 #: tools/cafe-session-save.c:66
 msgid "Log out"

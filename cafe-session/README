@@ -25,7 +25,7 @@ Startup is divided into 6 phases (GsmSessionPhase):
       Apps in this phase can make use of a D-Bus interface
       (org.gnome.SessionManager.Setenv) to set environment variables
       in cafe-session's environment. This can be used for things like
-      $GTK_MODULES, $MATE_KEYRING_SOCKET, etc
+      $GTK_MODULES, $CAFE_KEYRING_SOCKET, etc
 
     * GSM_SESSION_PHASE_WINDOW_MANAGER includes window managers and
       compositing managers, and anything else that has to be running

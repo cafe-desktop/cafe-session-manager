@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -233,11 +233,11 @@ msgid ""
 msgstr "도크는 실행하거나 바꿀 수 있는 어플리케이션들을 둘 수 있는, 패널과 비슷한, 자리를 제공합니다."
 
 #: data/cafe.desktop.in:3
-msgid "MATE"
+msgid "CAFE"
 msgstr "마테"
 
 #: data/cafe.desktop.in:4
-msgid "This session logs you into MATE"
+msgid "This session logs you into CAFE"
 msgstr "이 세션을 사용하면 마테에 로그인합니다"
 
 #: data/cafe.desktop.in:8
@@ -247,13 +247,13 @@ msgstr ""
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
-msgid "launch;MATE;desktop;session;"
+msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
-msgid "MATE;window;manager;launch;MDM;"
+msgid "CAFE;window;manager;launch;MDM;"
 msgstr ""
 
 #: data/gsm-inhibit-dialog.ui:14
@@ -283,7 +283,7 @@ msgstr ""
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
-msgid "MATE;session;properties;applications;login;start;"
+msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
 
 #: data/session-properties.ui:35
@@ -549,7 +549,7 @@ msgid "Disable hardware acceleration check"
 msgstr ""
 
 #: cafe-session/main.c:635
-msgid " - the MATE session manager"
+msgid " - the CAFE session manager"
 msgstr "- 마테 세션 관리자"
 
 #: tools/cafe-session-save.c:66

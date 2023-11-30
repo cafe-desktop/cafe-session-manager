@@ -8,8 +8,8 @@ AC_CONFIG_MACRO_DIR([m4])
 
 AM_MAINTAINER_MODE
 
-MATE_COMMON_INIT
-MATE_DEBUG_CHECK
+CAFE_COMMON_INIT
+CAFE_DEBUG_CHECK
 
 AC_PROG_CC
 AC_STDC_HEADERS
@@ -21,9 +21,9 @@ AM_GNU_GETTEXT([external])
 dnl make sure we keep ACLOCAL_FLAGS around for maintainer builds to work
 AC_SUBST(ACLOCAL_AMFLAGS, "\${ACLOCAL_FLAGS}")
 
-MATE_MAINTAINER_MODE_DEFINES
+CAFE_MAINTAINER_MODE_DEFINES
 
-MATE_COMPILE_WARNINGS
+CAFE_COMPILE_WARNINGS
 
 AC_ARG_ENABLE(deprecations,
               [AC_HELP_STRING([--enable-deprecations],
@@ -45,7 +45,7 @@ dnl Dependency Checks
 dnl ====================================================================
 PKG_PROG_PKG_CONFIG()
 
-PKG_CHECK_MODULES(MATE_SESSION,
+PKG_CHECK_MODULES(CAFE_SESSION,
         glib-2.0 >= $GLIB_REQUIRED
         gio-2.0 >= $GIO_REQUIRED
         gtk+-3.0 >= $GTK_REQUIRED
@@ -92,7 +92,7 @@ AC_ARG_WITH(default-wm,
 
 DEFAULT_WM=$with_default_wm
 AC_SUBST(DEFAULT_WM)
-AM_CONDITIONAL(USE_MATE_WM, test x$with_default_wm = xcafe-wm)
+AM_CONDITIONAL(USE_CAFE_WM, test x$with_default_wm = xcafe-wm)
 
 dnl ====================================================================
 dnl GSettings

@@ -75,7 +75,7 @@ if [ -z "$WINDOW_MANAGER" ] ; then
   if [ $IS_X_COMPOSITED -eq 0 ] ; then
     KNOWN_WM="mutter compiz-manager compiz beryl $KNOWN_WM"
   fi
-  # marco is still the default wm in MATE
+  # marco is still the default wm in CAFE
   KNOWN_WM="marco $KNOWN_WM"
 
   OLDIFS=$IFS

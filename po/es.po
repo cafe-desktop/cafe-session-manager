@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -258,12 +258,12 @@ msgstr ""
 "intercambiar aplicaciones."
 
 #: data/cafe.desktop.in:3
-msgid "MATE"
-msgstr "MATE"
+msgid "CAFE"
+msgstr "CAFE"
 
 #: data/cafe.desktop.in:4
-msgid "This session logs you into MATE"
-msgstr "Esta sesión le permite acceder a MATE"
+msgid "This session logs you into CAFE"
+msgstr "Esta sesión le permite acceder a CAFE"
 
 #: data/cafe.desktop.in:8
 msgid "Type=Application"
@@ -272,14 +272,14 @@ msgstr "Type=Application"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
-msgid "launch;MATE;desktop;session;"
-msgstr "iniciar;MATE;escritorio,sesión;"
+msgid "launch;CAFE;desktop;session;"
+msgstr "iniciar;CAFE;escritorio,sesión;"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
-msgid "MATE;window;manager;launch;MDM;"
-msgstr "MATE;ventana;gestor;iniciar;MDM;"
+msgid "CAFE;window;manager;launch;MDM;"
+msgstr "CAFE;ventana;gestor;iniciar;MDM;"
 
 #: data/gsm-inhibit-dialog.ui:14
 msgid "<b>Some programs are still running:</b>"
@@ -310,8 +310,8 @@ msgstr "cafe-session-properties"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
-msgid "MATE;session;properties;applications;login;start;"
-msgstr "MATE;sesión;propiedades;aplicaciones;acceso;iniciar;"
+msgid "CAFE;session;properties;applications;login;start;"
+msgstr "CAFE;sesión;propiedades;aplicaciones;acceso;iniciar;"
 
 #: data/session-properties.ui:35
 msgid "Additional startup _programs:"
@@ -584,8 +584,8 @@ msgid "Disable hardware acceleration check"
 msgstr "Desactivar la verificación de la aceleración por hardware "
 
 #: cafe-session/main.c:635
-msgid " - the MATE session manager"
-msgstr " - El gestor de sesiones de MATE"
+msgid " - the CAFE session manager"
+msgstr " - El gestor de sesiones de CAFE"
 
 #: tools/cafe-session-save.c:66
 msgid "Log out"
