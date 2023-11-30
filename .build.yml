@@ -24,6 +24,7 @@ requires:
     - libsm-dev
     - libstartup-notification0-dev
     - libsystemd-dev
+    - libtool
     - libx11-dev
     - libxau-dev
     - libxext-dev
