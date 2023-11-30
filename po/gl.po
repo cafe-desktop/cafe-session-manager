@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
-# This file is distributed under the same license as the mate-session-manager package.
+# This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -10,12 +10,12 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-session-manager 1.23.0\n"
-"Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
+"Project-Id-Version: cafe-session-manager 1.23.0\n"
+"Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
 "POT-Creation-Date: 2019-11-19 13:25+0100\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2020\n"
-"Language-Team: Galician (https://www.transifex.com/mate/teams/13566/gl/)\n"
+"Language-Team: Galician (https://www.transifex.com/cafe/teams/13566/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,8 +34,8 @@ msgstr "segundo"
 msgid "seconds"
 msgstr "segundos"
 
-#: capplet/gsm-app-dialog.c:218 mate-session/gsm-logout-dialog.c:452
-#: mate-session/gsm-logout-dialog.c:485
+#: capplet/gsm-app-dialog.c:218 cafe-session/gsm-logout-dialog.c:452
+#: cafe-session/gsm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -95,7 +95,7 @@ msgstr "Sen nome"
 msgid "No description"
 msgstr "Sen descrición"
 
-#: capplet/main.c:35 mate-session/main.c:614
+#: capplet/main.c:35 cafe-session/main.c:614
 msgid "Version of this application"
 msgstr "Versión desta aplicación"
 
@@ -103,50 +103,50 @@ msgstr "Versión desta aplicación"
 msgid "Could not display help document"
 msgstr "Non foi posíbel amosar o documento de axuda"
 
-#: data/org.mate.session.gschema.xml.in:5
+#: data/org.cafe.session.gschema.xml.in:5
 msgid "Current session start time"
 msgstr "Hora de comezo da sesión actual"
 
-#: data/org.mate.session.gschema.xml.in:6
+#: data/org.cafe.session.gschema.xml.in:6
 msgid "Unix time of the start of the current session."
 msgstr "Hora Unix de comezo da sesión actual."
 
-#: data/org.mate.session.gschema.xml.in:10
+#: data/org.cafe.session.gschema.xml.in:10
 msgid "Save sessions"
 msgstr "Gardar as sesións"
 
-#: data/org.mate.session.gschema.xml.in:11
-msgid "If enabled, mate-session will save the session automatically."
+#: data/org.cafe.session.gschema.xml.in:11
+msgid "If enabled, cafe-session will save the session automatically."
 msgstr ""
-"Se está activada, o mate-session (sesión do Mate) gardará a sesión "
+"Se está activada, o cafe-session (sesión do Mate) gardará a sesión "
 "automaticamente."
 
-#: data/org.mate.session.gschema.xml.in:15
+#: data/org.cafe.session.gschema.xml.in:15
 msgid "Show hidden autostart applications"
 msgstr "Amosar as aplicacións de inicio automático agochadas"
 
-#: data/org.mate.session.gschema.xml.in:16
+#: data/org.cafe.session.gschema.xml.in:16
 msgid ""
-"If enabled, mate-session-properties will show hidden autostart applications."
+"If enabled, cafe-session-properties will show hidden autostart applications."
 msgstr ""
-"Se está activado, o mate-session-properties (propiedades da sesión do Mate) "
+"Se está activado, o cafe-session-properties (propiedades da sesión do Mate) "
 "amosará as aplicacións de inicio automático agochadas."
 
-#: data/org.mate.session.gschema.xml.in:20
+#: data/org.cafe.session.gschema.xml.in:20
 msgid "Logout prompt"
 msgstr "Preguntar ao terminar a sesión"
 
-#: data/org.mate.session.gschema.xml.in:21
-msgid "If enabled, mate-session will prompt the user before ending a session."
+#: data/org.cafe.session.gschema.xml.in:21
+msgid "If enabled, cafe-session will prompt the user before ending a session."
 msgstr ""
-"Se está activada, o mate-session (sesión do Mate) preguntará ao usuario "
+"Se está activada, o cafe-session (sesión do Mate) preguntará ao usuario "
 "antes de terminar unha sesión."
 
-#: data/org.mate.session.gschema.xml.in:26
+#: data/org.cafe.session.gschema.xml.in:26
 msgid "Logout timeout"
 msgstr "Tempo de espera de saída"
 
-#: data/org.mate.session.gschema.xml.in:27
+#: data/org.cafe.session.gschema.xml.in:27
 msgid ""
 "If logout prompt is enabled, this set the timeout in seconds before logout "
 "automatically. If 0, automatic logout is disabled."
@@ -155,58 +155,58 @@ msgstr ""
 "segundos antes de pechar a sesión automaticamente. Se é 0, o peche de sesión"
 " automático está desactivado."
 
-#: data/org.mate.session.gschema.xml.in:31
+#: data/org.cafe.session.gschema.xml.in:31
 msgid "Time before session is considered idle"
 msgstr "Tempo antes de que a sesión se considere inactiva"
 
-#: data/org.mate.session.gschema.xml.in:32
+#: data/org.cafe.session.gschema.xml.in:32
 msgid ""
 "The number of minutes of inactivity before the session is considered idle."
 msgstr ""
 "O número de minutos de tempo inactivo antes de considerar a sesión como "
 "inactiva."
 
-#: data/org.mate.session.gschema.xml.in:36
+#: data/org.cafe.session.gschema.xml.in:36
 msgid "Default session"
 msgstr "Sesión predeterminada"
 
-#: data/org.mate.session.gschema.xml.in:37
+#: data/org.cafe.session.gschema.xml.in:37
 msgid "List of applications that are part of the default session."
 msgstr "Lista de aplicacións que forman parte da sesión predeterminada."
 
-#: data/org.mate.session.gschema.xml.in:41
+#: data/org.cafe.session.gschema.xml.in:41
 msgid "Required session components"
 msgstr "Compoñentes requiridos na sesión"
 
-#: data/org.mate.session.gschema.xml.in:42
+#: data/org.cafe.session.gschema.xml.in:42
 msgid ""
 "List of components that are required as part of the session. (Each element "
-"names a key under \"/org/mate/desktop/session/required_components\"). The "
+"names a key under \"/org/cafe/desktop/session/required_components\"). The "
 "Startup Applications preferences tool will not normally allow users to "
 "remove a required component from the session, and the session manager will "
 "automatically add the required components back to the session at login time "
 "if they do get removed."
 msgstr ""
 "Lista de compoñentes que se requiren como parte da sesión. (Cada elemento "
-"nomea unha chave baixo «/org/mate/desktop/session/required_components»). "
+"nomea unha chave baixo «/org/cafe/desktop/session/required_components»). "
 "Xeralmente, a ferramenta Preferencias de aplicacións de inicio non permitirá"
 " que os usuarios eliminen un compoñente requirido da sesión, polo que o "
 "xestor de sesións engadirá automaticamente os compoñentes á sesión cando "
 "esta se inicie, en caso de que sexan eliminados."
 
-#: data/org.mate.session.gschema.xml.in:46
+#: data/org.cafe.session.gschema.xml.in:46
 msgid "Control gnome compatibility component startup"
 msgstr "Controlar o inicio do compoñente de compatibilidade do Gnome"
 
-#: data/org.mate.session.gschema.xml.in:47
+#: data/org.cafe.session.gschema.xml.in:47
 msgid "Control which compatibility components to start."
 msgstr "Controlar que compoñentes de compatibilidade iniciar."
 
-#: data/org.mate.session.gschema.xml.in:54 data/mate-wm.desktop.in:4
+#: data/org.cafe.session.gschema.xml.in:54 data/cafe-wm.desktop.in:4
 msgid "Window Manager"
 msgstr "Xestor de xanelas"
 
-#: data/org.mate.session.gschema.xml.in:55
+#: data/org.cafe.session.gschema.xml.in:55
 msgid ""
 "The window manager is the program that draws the title bar and borders "
 "around windows, and allows you to move and resize windows."
@@ -214,11 +214,11 @@ msgstr ""
 "O xestor de xanelas é o programa que debuxa a barra de título e os bordos "
 "das xanelas e que lle permite mover e redimensionar as xanelas."
 
-#: data/org.mate.session.gschema.xml.in:59
+#: data/org.cafe.session.gschema.xml.in:59
 msgid "Panel"
 msgstr "Panel"
 
-#: data/org.mate.session.gschema.xml.in:60
+#: data/org.cafe.session.gschema.xml.in:60
 msgid ""
 "The panel provides the bar at the top or bottom of the screen containing "
 "menus, the window list, status icons, the clock, etc."
@@ -226,11 +226,11 @@ msgstr ""
 "O panel amosa a barra ao principio ou ao final da pantalla que contén os "
 "menús, a lista de xanelas, as iconas de estado, o reloxo etc."
 
-#: data/org.mate.session.gschema.xml.in:64
+#: data/org.cafe.session.gschema.xml.in:64
 msgid "File Manager"
 msgstr "Xestor de ficheiros"
 
-#: data/org.mate.session.gschema.xml.in:65
+#: data/org.cafe.session.gschema.xml.in:65
 msgid ""
 "The file manager provides the desktop icons and allows you to interact with "
 "your saved files."
@@ -238,11 +238,11 @@ msgstr ""
 "O xestor de ficheiros proporciona as iconas de escritorio e permítelle "
 "realizar accións cos ficheiros que teña gardados."
 
-#: data/org.mate.session.gschema.xml.in:69
+#: data/org.cafe.session.gschema.xml.in:69
 msgid "Dock"
 msgstr "Doca"
 
-#: data/org.mate.session.gschema.xml.in:70
+#: data/org.cafe.session.gschema.xml.in:70
 msgid ""
 "A dock provides a dockable area, similar to a panel, for launching and "
 "switching applications."
@@ -250,27 +250,27 @@ msgstr ""
 "Unha doca fornece unha área ancorábel, semellante ao panel para iniciar e "
 "alternar aplicacións."
 
-#: data/mate.desktop.in:3
+#: data/cafe.desktop.in:3
 msgid "MATE"
 msgstr "MATE"
 
-#: data/mate.desktop.in:4
+#: data/cafe.desktop.in:4
 msgid "This session logs you into MATE"
 msgstr "Esta sesión iniciará en MATE"
 
-#: data/mate.desktop.in:8
+#: data/cafe.desktop.in:8
 msgid "Type=Application"
 msgstr "Tipo=Aplicación"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/mate.desktop.in:11
+#: data/cafe.desktop.in:11
 msgid "launch;MATE;desktop;session;"
 msgstr "iniciar;MATE;escritorio;sesión;"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/mate-wm.desktop.in:7
+#: data/cafe-wm.desktop.in:7
 msgid "MATE;window;manager;launch;MDM;"
 msgstr "MATE;xanela;xestor;iniciar;MDM;"
 
@@ -278,31 +278,31 @@ msgstr "MATE;xanela;xestor;iniciar;MDM;"
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>Algúns programas aínda están executandose:</b>"
 
-#: data/gsm-inhibit-dialog.ui:52 mate-session/gsm-inhibit-dialog.c:633
+#: data/gsm-inhibit-dialog.ui:52 cafe-session/gsm-inhibit-dialog.c:633
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
 msgstr ""
-"Agardando a que os programas rematen.  Se interrompe este programa pode "
+"Agardando a que os programas recafen.  Se interrompe este programa pode "
 "causar a perda do seu traballo."
 
-#: data/mate-session-properties.desktop.in:3
+#: data/cafe-session-properties.desktop.in:3
 msgid "Startup Applications"
 msgstr "Aplicacións de inicio"
 
-#: data/mate-session-properties.desktop.in:4
+#: data/cafe-session-properties.desktop.in:4
 msgid "Choose what applications to start when you log in"
 msgstr "Seleccione que aplicacións se iniciaran coa sesión"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
-#: data/mate-session-properties.desktop.in:7
-msgid "mate-session-properties"
-msgstr "mate-session-properties"
+#: data/cafe-session-properties.desktop.in:7
+msgid "cafe-session-properties"
+msgstr "cafe-session-properties"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/mate-session-properties.desktop.in:13
+#: data/cafe-session-properties.desktop.in:13
 msgid "MATE;session;properties;applications;login;start;"
 msgstr "MATE;sesión;propiedades;aplicacións;acceso;inicio;"
 
@@ -419,130 +419,130 @@ msgstr "Amosar as opcións da xestión de sesión:"
 msgid "Show session management options"
 msgstr "Amosar as opcións da xestión de sesións"
 
-#: mate-session/gsm-inhibit-dialog.c:251
+#: cafe-session/gsm-inhibit-dialog.c:251
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "Non foi posíbel atopar a icona «%s»"
 
-#: mate-session/gsm-inhibit-dialog.c:581
+#: cafe-session/gsm-inhibit-dialog.c:581
 msgid "Unknown"
 msgstr "Descoñecido"
 
-#: mate-session/gsm-inhibit-dialog.c:632
+#: cafe-session/gsm-inhibit-dialog.c:632
 msgid "A program is still running:"
 msgstr "Aínda está executandose un programa:"
 
-#: mate-session/gsm-inhibit-dialog.c:636
+#: cafe-session/gsm-inhibit-dialog.c:636
 msgid "Some programs are still running:"
 msgstr "Aínda están executandose algúns programas:"
 
-#: mate-session/gsm-inhibit-dialog.c:637
+#: cafe-session/gsm-inhibit-dialog.c:637
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
 msgstr ""
-"Agardando a que os programas rematen. A interrupción destes programas "
+"Agardando a que os programas recafen. A interrupción destes programas "
 "podería causar a perda do seu traballo."
 
-#: mate-session/gsm-inhibit-dialog.c:867
+#: cafe-session/gsm-inhibit-dialog.c:867
 msgid "Switch User Anyway"
 msgstr "Cambiar de usuario de todas formas"
 
-#: mate-session/gsm-inhibit-dialog.c:870
+#: cafe-session/gsm-inhibit-dialog.c:870
 msgid "Log Out Anyway"
 msgstr "Saír da sesión de todas formas"
 
-#: mate-session/gsm-inhibit-dialog.c:873
+#: cafe-session/gsm-inhibit-dialog.c:873
 msgid "Suspend Anyway"
 msgstr "Suspender de todas formas"
 
-#: mate-session/gsm-inhibit-dialog.c:876
+#: cafe-session/gsm-inhibit-dialog.c:876
 msgid "Hibernate Anyway"
 msgstr "Hibernar de todas formas"
 
-#: mate-session/gsm-inhibit-dialog.c:879
+#: cafe-session/gsm-inhibit-dialog.c:879
 msgid "Shut Down Anyway"
 msgstr "Apagar de todas formas"
 
-#: mate-session/gsm-inhibit-dialog.c:882
+#: cafe-session/gsm-inhibit-dialog.c:882
 msgid "Reboot Anyway"
 msgstr "Reiniciar de todas formas"
 
-#: mate-session/gsm-inhibit-dialog.c:890
+#: cafe-session/gsm-inhibit-dialog.c:890
 msgid "Lock Screen"
 msgstr "Bloquear a pantalla"
 
-#: mate-session/gsm-inhibit-dialog.c:893
+#: cafe-session/gsm-inhibit-dialog.c:893
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: mate-session/gsm-logout-dialog.c:307
+#: cafe-session/gsm-logout-dialog.c:307
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
 msgstr[0] "A súa sesión terminará automaticamente en %d segundo"
 msgstr[1] "A súa sesión terminará automaticamente en %d segundos"
 
-#: mate-session/gsm-logout-dialog.c:315
+#: cafe-session/gsm-logout-dialog.c:315
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
 msgstr[0] "Este sistema apagarase automaticamente en %d segundo"
 msgstr[1] "Este sistema apagarase automaticamente en %d segundos"
 
-#: mate-session/gsm-logout-dialog.c:361
+#: cafe-session/gsm-logout-dialog.c:361
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr "Actualmente ten unha sesión iniciada como «%s»."
 
-#: mate-session/gsm-logout-dialog.c:441
+#: cafe-session/gsm-logout-dialog.c:441
 msgid "Log out of this system now?"
 msgstr "Quere rematar a sesión neste sistema agora?"
 
-#: mate-session/gsm-logout-dialog.c:447
+#: cafe-session/gsm-logout-dialog.c:447
 msgid "_Switch User"
 msgstr "_Cambiar de usuario"
 
-#: mate-session/gsm-logout-dialog.c:456
+#: cafe-session/gsm-logout-dialog.c:456
 msgid "_Log Out"
 msgstr "_Saír da sesión"
 
-#: mate-session/gsm-logout-dialog.c:462
+#: cafe-session/gsm-logout-dialog.c:462
 msgid "Shut down this system now?"
 msgstr "Quere apagar o sistema agora?"
 
-#: mate-session/gsm-logout-dialog.c:468
+#: cafe-session/gsm-logout-dialog.c:468
 msgid "S_uspend"
 msgstr "S_uspender"
 
-#: mate-session/gsm-logout-dialog.c:474
+#: cafe-session/gsm-logout-dialog.c:474
 msgid "_Hibernate"
 msgstr "_Hibernar"
 
-#: mate-session/gsm-logout-dialog.c:480
+#: cafe-session/gsm-logout-dialog.c:480
 msgid "_Restart"
 msgstr "_Reiniciar"
 
-#: mate-session/gsm-logout-dialog.c:490
+#: cafe-session/gsm-logout-dialog.c:490
 msgid "_Shut Down"
 msgstr "_Apagar"
 
-#: mate-session/gsm-manager.c:1515 mate-session/gsm-manager.c:2339
+#: cafe-session/gsm-manager.c:1515 cafe-session/gsm-manager.c:2339
 msgid "Not responding"
 msgstr "Non responde"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
-#: mate-session/gsm-xsmp-client.c:595
+#: cafe-session/gsm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr "Aplicación lembrada"
 
-#: mate-session/gsm-xsmp-client.c:1262
+#: cafe-session/gsm-xsmp-client.c:1262
 msgid "This program is blocking logout."
-msgstr "Este programa está bloqueando o remate da sesión."
+msgstr "Este programa está bloqueando o recafe da sesión."
 
-#: mate-session/gsm-xsmp-server.c:324
+#: cafe-session/gsm-xsmp-server.c:324
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
@@ -550,84 +550,84 @@ msgstr ""
 "Rexeitouse a conexión co novo cliente porque neste momento a sesión está "
 "sendo apagada\n"
 
-#: mate-session/gsm-xsmp-server.c:586
+#: cafe-session/gsm-xsmp-server.c:586
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "Non foi posíbel crear o conectador de escoita ICE: %s"
 
 #. Oh well, no X for you!
-#: mate-session/gsm-util.c:355
+#: cafe-session/gsm-util.c:355
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr ""
 "Non é posíbel iniciar a sesión (e non é posíbel conectar co servidor X)"
 
-#: mate-session/main.c:611
+#: cafe-session/main.c:611
 msgid "Override standard autostart directories"
 msgstr "Ignorar os directorios de inicio automático estándares"
 
-#: mate-session/main.c:612
+#: cafe-session/main.c:612
 msgid "Enable debugging code"
 msgstr "Activar o código de depuración"
 
-#: mate-session/main.c:613
+#: cafe-session/main.c:613
 msgid "Do not load user-specified applications"
 msgstr "Non cargar as aplicacións especificadas polo usuario"
 
-#: mate-session/main.c:615
+#: cafe-session/main.c:615
 msgid "Disable hardware acceleration check"
 msgstr "Desactivar a comprobación da aceleración por hardware"
 
-#: mate-session/main.c:635
+#: cafe-session/main.c:635
 msgid " - the MATE session manager"
 msgstr "- o xestor de sesións do MATE"
 
-#: tools/mate-session-save.c:66
+#: tools/cafe-session-save.c:66
 msgid "Log out"
 msgstr "Saír da sesión"
 
-#: tools/mate-session-save.c:67
+#: tools/cafe-session-save.c:67
 msgid "Log out, ignoring any existing inhibitors"
 msgstr "Saír da sesión ignorando calquera inhibidor existente"
 
-#: tools/mate-session-save.c:68
+#: tools/cafe-session-save.c:68
 msgid "Show logout dialog"
 msgstr "Amosar o diálogo de fin de sesión"
 
-#: tools/mate-session-save.c:69
+#: tools/cafe-session-save.c:69
 msgid "Show shutdown dialog"
 msgstr "Amosar o diálogo de apagado"
 
-#: tools/mate-session-save.c:70
+#: tools/cafe-session-save.c:70
 msgid "Use dialog boxes for errors"
 msgstr "Usar as caixas de diálogo para os erros"
 
 #. deprecated options
-#: tools/mate-session-save.c:72
+#: tools/cafe-session-save.c:72
 msgid "Set the current session name"
 msgstr "Definir o nome da sesión actual"
 
-#: tools/mate-session-save.c:72
+#: tools/cafe-session-save.c:72
 msgid "NAME"
 msgstr "NOME"
 
-#: tools/mate-session-save.c:73
+#: tools/cafe-session-save.c:73
 msgid "Kill session"
 msgstr "Matar a sesión"
 
-#: tools/mate-session-save.c:74
+#: tools/cafe-session-save.c:74
 msgid "Do not require confirmation"
 msgstr "Non requirir confirmación"
 
 #. Okay, it wasn't the upgrade case, so now we can give up.
-#: tools/mate-session-save.c:126
+#: tools/cafe-session-save.c:126
 msgid "Could not connect to the session manager"
 msgstr "Non foi posíbel conectar co xestor de sesión"
 
-#: tools/mate-session-save.c:251
+#: tools/cafe-session-save.c:251
 msgid "Program called with conflicting options"
 msgstr "Chamouse un programa con opcións en conflito"
 
-#: tools/mate-session-inhibit.c:115
+#: tools/cafe-session-inhibit.c:115
 #, c-format
 msgid ""
 "%s [OPTION...] COMMAND\n"
@@ -659,13 +659,13 @@ msgstr ""
 "Se non se especifica a opción --inhibit asúmese «idle».\n"
 "\n"
 
-#: tools/mate-session-inhibit.c:169 tools/mate-session-inhibit.c:179
-#: tools/mate-session-inhibit.c:189
+#: tools/cafe-session-inhibit.c:169 tools/cafe-session-inhibit.c:179
+#: tools/cafe-session-inhibit.c:189
 #, c-format
 msgid "%s requires an argument\n"
 msgstr "%s require un argumento\n"
 
-#: tools/mate-session-inhibit.c:225
+#: tools/cafe-session-inhibit.c:225
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Produciuse un fallo ao executar %s\n"

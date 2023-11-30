@@ -38,10 +38,10 @@
 #define GSM_ICON_LOGOUT   "system-log-out"
 #define GSM_ICON_SHUTDOWN "system-shutdown"
 
-#define SESSION_SCHEMA     "org.mate.session"
+#define SESSION_SCHEMA     "org.cafe.session"
 #define KEY_LOGOUT_TIMEOUT "logout-timeout"
 
-#define LOCKDOWN_SCHEMA            "org.mate.lockdown"
+#define LOCKDOWN_SCHEMA            "org.cafe.lockdown"
 #define KEY_USER_SWITCHING_DISABLE "disable-user-switching"
 
 typedef enum {
@@ -121,7 +121,7 @@ gsm_logout_dialog_class_init (GsmLogoutDialogClass *klass)
 
         gobject_class = G_OBJECT_CLASS (klass);
 
-        /* This is a workaround to avoid a stupid crash: libmateui
+        /* This is a workaround to avoid a stupid crash: libcafeui
          * listens for the "show" signal on all GtkMessageDialog and
          * gets the "message-type" of the dialogs. We will crash when
          * it accesses this property if we don't override it since we

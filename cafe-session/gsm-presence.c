@@ -35,9 +35,9 @@
 
 #define GSM_PRESENCE_DBUS_PATH "/org/gnome/SessionManager/Presence"
 
-#define GS_NAME      "org.mate.ScreenSaver"
-#define GS_PATH      "/org/mate/ScreenSaver"
-#define GS_INTERFACE "org.mate.ScreenSaver"
+#define GS_NAME      "org.cafe.ScreenSaver"
+#define GS_PATH      "/org/cafe/ScreenSaver"
+#define GS_INTERFACE "org.cafe.ScreenSaver"
 
 #define MAX_STATUS_TEXT 140
 

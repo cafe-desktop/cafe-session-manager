@@ -1,6 +1,6 @@
 SUBDIRS = icons
 
-bin_SCRIPTS = mate-wm
+bin_SCRIPTS = cafe-wm
 
 uidir = $(pkgdatadir)
 ui_DATA = \
@@ -11,26 +11,26 @@ hwcompatdir = $(pkgdatadir)
 hwcompat_DATA = hardware-compatibility
 
 xsessiondir = $(datadir)/xsessions
-xsession_in_files = mate.desktop.in
+xsession_in_files = cafe.desktop.in
 xsession_DATA = $(xsession_in_files:.desktop.in=.desktop)
 
 desktopdir = $(datadir)/applications
-desktop_in_files = mate-session-properties.desktop.in mate-wm.desktop.in
-desktop_DATA = mate-session-properties.desktop
+desktop_in_files = cafe-session-properties.desktop.in cafe-wm.desktop.in
+desktop_DATA = cafe-session-properties.desktop
 
 if USE_MATE_WM
-desktop_DATA += mate-wm.desktop
+desktop_DATA += cafe-wm.desktop
 endif
 
 %.desktop: %.desktop.in Makefile
 	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
-gsettingsschema_in_files = org.mate.session.gschema.xml.in
+gsettingsschema_in_files = org.cafe.session.gschema.xml.in
 gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
 @GSETTINGS_RULES@
 
 EXTRA_DIST =					\
-	mate-wm				\
+	cafe-wm				\
 	$(xsession_in_files)			\
 	$(gsettingsschema_in_files)		\
 	$(hwcompat_DATA)			\

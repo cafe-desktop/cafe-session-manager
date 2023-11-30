@@ -83,16 +83,16 @@
 #define GDM_FLEXISERVER_ARGS    "--startnew Standard"
 
 
-#define LOCKDOWN_SCHEMA              "org.mate.lockdown"
+#define LOCKDOWN_SCHEMA              "org.cafe.lockdown"
 #define KEY_LOCK_DISABLE             "disable-lock-screen"
 #define KEY_LOG_OUT_DISABLE          "disable-log-out"
 #define KEY_USER_SWITCH_DISABLE      "disable-user-switching"
 
-#define SESSION_SCHEMA               "org.mate.session"
+#define SESSION_SCHEMA               "org.cafe.session"
 #define KEY_IDLE_DELAY               "idle-delay"
 #define KEY_AUTOSAVE                 "auto-save-session"
 
-#define SCREENSAVER_SCHEMA           "org.mate.screensaver"
+#define SCREENSAVER_SCHEMA           "org.cafe.screensaver"
 #define KEY_SLEEP_LOCK               "lock-enabled"
 
 #ifdef __GNUC__
@@ -1227,14 +1227,14 @@ manager_perhaps_lock (GsmManager *manager)
         GError   *error;
         gboolean  ret;
 
-        /* only lock if mate-screensaver is set to lock */
+        /* only lock if cafe-screensaver is set to lock */
         if (!sleep_lock_is_enabled (manager)) {
                 return;
         }
 
         /* do this sync to ensure it's on the screen when we start suspending */
         error = NULL;
-        ret = g_spawn_command_line_sync ("mate-screensaver-command --lock", NULL, NULL, NULL, &error);
+        ret = g_spawn_command_line_sync ("cafe-screensaver-command --lock", NULL, NULL, NULL, &error);
         if (!ret) {
                 g_warning ("Couldn't lock screen: %s", error->message);
                 g_error_free (error);
@@ -2834,7 +2834,7 @@ gsm_manager_init (GsmManager *manager)
         priv->settings_session = g_settings_new (SESSION_SCHEMA);
         priv->settings_lockdown = g_settings_new (LOCKDOWN_SCHEMA);
 
-        /* check if mate-screensaver is installed */
+        /* check if cafe-screensaver is installed */
         g_settings_schema_source_list_schemas (g_settings_schema_source_get_default (), TRUE, &schemas, NULL);
         schema_exists = FALSE;
         for (i = 0; schemas[i] != NULL; i++) {

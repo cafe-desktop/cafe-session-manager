@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
-# This file is distributed under the same license as the mate-session-manager package.
+# This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -19,12 +19,12 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-session-manager 1.23.0\n"
-"Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
+"Project-Id-Version: cafe-session-manager 1.23.0\n"
+"Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
 "POT-Creation-Date: 2019-11-19 13:25+0100\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Alkis Georgopoulos <alkisg@gmail.com>, 2020\n"
-"Language-Team: Greek (https://www.transifex.com/mate/teams/13566/el/)\n"
+"Language-Team: Greek (https://www.transifex.com/cafe/teams/13566/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,8 +43,8 @@ msgstr "δευτερόλεπτο"
 msgid "seconds"
 msgstr "δευτερόλεπτα"
 
-#: capplet/gsm-app-dialog.c:218 mate-session/gsm-logout-dialog.c:452
-#: mate-session/gsm-logout-dialog.c:485
+#: capplet/gsm-app-dialog.c:218 cafe-session/gsm-logout-dialog.c:452
+#: cafe-session/gsm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "Α_κύρωση"
 
@@ -104,7 +104,7 @@ msgstr "Χωρίς όνομα"
 msgid "No description"
 msgstr "Χωρίς περιγραφή"
 
-#: capplet/main.c:35 mate-session/main.c:614
+#: capplet/main.c:35 cafe-session/main.c:614
 msgid "Version of this application"
 msgstr "Η Έκδοση αυτής της εφαρμογής"
 
@@ -112,48 +112,48 @@ msgstr "Η Έκδοση αυτής της εφαρμογής"
 msgid "Could not display help document"
 msgstr "Δεν είναι δυνατή η προβολή του αρχείου βοήθειας"
 
-#: data/org.mate.session.gschema.xml.in:5
+#: data/org.cafe.session.gschema.xml.in:5
 msgid "Current session start time"
 msgstr "Χρόνος εκκίνησης της τρέχουσας συνεδρίας"
 
-#: data/org.mate.session.gschema.xml.in:6
+#: data/org.cafe.session.gschema.xml.in:6
 msgid "Unix time of the start of the current session."
 msgstr "Ώρα UNIX κατά την αρχή της τρέχουσας συνεδρίας."
 
-#: data/org.mate.session.gschema.xml.in:10
+#: data/org.cafe.session.gschema.xml.in:10
 msgid "Save sessions"
 msgstr "Αποθήκευση συνεδριών"
 
-#: data/org.mate.session.gschema.xml.in:11
-msgid "If enabled, mate-session will save the session automatically."
-msgstr "Αν ενεργοποιηθεί, το mate-session θα αποθηκεύει αυτόματα τη συνεδρία."
+#: data/org.cafe.session.gschema.xml.in:11
+msgid "If enabled, cafe-session will save the session automatically."
+msgstr "Αν ενεργοποιηθεί, το cafe-session θα αποθηκεύει αυτόματα τη συνεδρία."
 
-#: data/org.mate.session.gschema.xml.in:15
+#: data/org.cafe.session.gschema.xml.in:15
 msgid "Show hidden autostart applications"
 msgstr "Προβολή κρυφών προγραμμάτων εκκίνησης"
 
-#: data/org.mate.session.gschema.xml.in:16
+#: data/org.cafe.session.gschema.xml.in:16
 msgid ""
-"If enabled, mate-session-properties will show hidden autostart applications."
+"If enabled, cafe-session-properties will show hidden autostart applications."
 msgstr ""
-"Αν ενεργοποιηθεί, το mate-sesison-properties θα προβάλλει τα κρυφά "
+"Αν ενεργοποιηθεί, το cafe-sesison-properties θα προβάλλει τα κρυφά "
 "προγράμματα εκκίνησης"
 
-#: data/org.mate.session.gschema.xml.in:20
+#: data/org.cafe.session.gschema.xml.in:20
 msgid "Logout prompt"
 msgstr "Ειδοποίηση αποσύνδεσης"
 
-#: data/org.mate.session.gschema.xml.in:21
-msgid "If enabled, mate-session will prompt the user before ending a session."
+#: data/org.cafe.session.gschema.xml.in:21
+msgid "If enabled, cafe-session will prompt the user before ending a session."
 msgstr ""
-"Αν ενεργοποιηθεί, η συνεδρία του mate θα ειδοποιεί το χρήστη πριν το τέλος "
+"Αν ενεργοποιηθεί, η συνεδρία του cafe θα ειδοποιεί το χρήστη πριν το τέλος "
 "της συνεδρίας."
 
-#: data/org.mate.session.gschema.xml.in:26
+#: data/org.cafe.session.gschema.xml.in:26
 msgid "Logout timeout"
 msgstr "Τέλος χρόνου αποσύνδεσης. "
 
-#: data/org.mate.session.gschema.xml.in:27
+#: data/org.cafe.session.gschema.xml.in:27
 msgid ""
 "If logout prompt is enabled, this set the timeout in seconds before logout "
 "automatically. If 0, automatic logout is disabled."
@@ -162,32 +162,32 @@ msgstr ""
 "χρόνου σε δευτερόλεπτα πριν την αυτόματη αποσύνδεση. Εάν 0, η αυτόματη "
 "αποσύνδεση είναι απενεργοποιημένη."
 
-#: data/org.mate.session.gschema.xml.in:31
+#: data/org.cafe.session.gschema.xml.in:31
 msgid "Time before session is considered idle"
 msgstr "Ο χρόνος για να θεωρηθεί η συνεδρία αδρανής"
 
-#: data/org.mate.session.gschema.xml.in:32
+#: data/org.cafe.session.gschema.xml.in:32
 msgid ""
 "The number of minutes of inactivity before the session is considered idle."
 msgstr ""
 "Ο αριθμός των λεπτών της αδράνειας για να θεωρηθεί η συνεδρία αδρανής."
 
-#: data/org.mate.session.gschema.xml.in:36
+#: data/org.cafe.session.gschema.xml.in:36
 msgid "Default session"
 msgstr "Προεπιλεγμένη συνεδρία"
 
-#: data/org.mate.session.gschema.xml.in:37
+#: data/org.cafe.session.gschema.xml.in:37
 msgid "List of applications that are part of the default session."
 msgstr "Λίστα με εφαρμογές που είναι μέρος της προεπιλεγμένης συνεδρίας."
 
-#: data/org.mate.session.gschema.xml.in:41
+#: data/org.cafe.session.gschema.xml.in:41
 msgid "Required session components"
 msgstr "Απαιτούμενα στοιχεία συνεδρίας"
 
-#: data/org.mate.session.gschema.xml.in:42
+#: data/org.cafe.session.gschema.xml.in:42
 msgid ""
 "List of components that are required as part of the session. (Each element "
-"names a key under \"/org/mate/desktop/session/required_components\"). The "
+"names a key under \"/org/cafe/desktop/session/required_components\"). The "
 "Startup Applications preferences tool will not normally allow users to "
 "remove a required component from the session, and the session manager will "
 "automatically add the required components back to the session at login time "
@@ -195,24 +195,24 @@ msgid ""
 msgstr ""
 "Μια λίστα με εξαρτήματα που είναι απαιτούμενα μέρη της συνεδρίας. (Κάθε "
 "στοιχείο ονομάζει ένα κλειδί στο "
-"\"/desktop/mate/session/required_components\"). Οι προτιμήσεις Προγραμμάτων "
+"\"/desktop/cafe/session/required_components\"). Οι προτιμήσεις Προγραμμάτων "
 "Εκκίνησης κανονικά δεν επιτρέπουν στους χρήστες να αφαιρέσουν απαραίτητα "
 "εξαρτήματα από τη συνεδρία και ο διαχειριστής συνεδρίας θα τα προσθέσει "
 "αυτόματα κατά την επόμενη είσοδο του χρήστη αν αυτά έχουν αφαιρεθεί."
 
-#: data/org.mate.session.gschema.xml.in:46
+#: data/org.cafe.session.gschema.xml.in:46
 msgid "Control gnome compatibility component startup"
 msgstr "Έλεγχος συμβατότητας εκκινούμενου εξαρτήματος gnome"
 
-#: data/org.mate.session.gschema.xml.in:47
+#: data/org.cafe.session.gschema.xml.in:47
 msgid "Control which compatibility components to start."
 msgstr "Έλεγχος ποιανού συμβατού εξαρτήματος να εκκινηθεί."
 
-#: data/org.mate.session.gschema.xml.in:54 data/mate-wm.desktop.in:4
+#: data/org.cafe.session.gschema.xml.in:54 data/cafe-wm.desktop.in:4
 msgid "Window Manager"
 msgstr "Διαχειριστής Παραθύρων"
 
-#: data/org.mate.session.gschema.xml.in:55
+#: data/org.cafe.session.gschema.xml.in:55
 msgid ""
 "The window manager is the program that draws the title bar and borders "
 "around windows, and allows you to move and resize windows."
@@ -221,11 +221,11 @@ msgstr ""
 "τίτλων και τα περιγράμματα γύρω από τα παράθυρα, και σας επιτρέπει να "
 "μετακινείτε και να αλλάζετε το μέγεθος των παραθύρων."
 
-#: data/org.mate.session.gschema.xml.in:59
+#: data/org.cafe.session.gschema.xml.in:59
 msgid "Panel"
 msgstr "Πίνακας"
 
-#: data/org.mate.session.gschema.xml.in:60
+#: data/org.cafe.session.gschema.xml.in:60
 msgid ""
 "The panel provides the bar at the top or bottom of the screen containing "
 "menus, the window list, status icons, the clock, etc."
@@ -234,11 +234,11 @@ msgstr ""
 "που περιέχει τα μενού, τη λίστα παραθύρων, τα εικονίδια κατάστασης, το "
 "ρολόι, κτλ."
 
-#: data/org.mate.session.gschema.xml.in:64
+#: data/org.cafe.session.gschema.xml.in:64
 msgid "File Manager"
 msgstr "Διαχειριστής αρχείων"
 
-#: data/org.mate.session.gschema.xml.in:65
+#: data/org.cafe.session.gschema.xml.in:65
 msgid ""
 "The file manager provides the desktop icons and allows you to interact with "
 "your saved files."
@@ -246,11 +246,11 @@ msgstr ""
 "Ο διαχειριστής αρχείων παρέχει τα εικονίδια της επιφάνειας εργασίας σας και "
 "σας επιτρέπει να διαχειρίζεστε τα αποθηκευμένα σας αρχεία."
 
-#: data/org.mate.session.gschema.xml.in:69
+#: data/org.cafe.session.gschema.xml.in:69
 msgid "Dock"
 msgstr "Σύνδεση"
 
-#: data/org.mate.session.gschema.xml.in:70
+#: data/org.cafe.session.gschema.xml.in:70
 msgid ""
 "A dock provides a dockable area, similar to a panel, for launching and "
 "switching applications."
@@ -258,27 +258,27 @@ msgstr ""
 "Μια σύνδεση παρέχει μια συνδεόμενη περιοχή, παρόμοια σε ένα πάνελ, για "
 "εκκίνηση και εναλλαγή εφαρμογών."
 
-#: data/mate.desktop.in:3
+#: data/cafe.desktop.in:3
 msgid "MATE"
 msgstr "ΜΑΤΕ"
 
-#: data/mate.desktop.in:4
+#: data/cafe.desktop.in:4
 msgid "This session logs you into MATE"
 msgstr "Αυτή η συνεδρία σας συνδέει στο MATE"
 
-#: data/mate.desktop.in:8
+#: data/cafe.desktop.in:8
 msgid "Type=Application"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/mate.desktop.in:11
+#: data/cafe.desktop.in:11
 msgid "launch;MATE;desktop;session;"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/mate-wm.desktop.in:7
+#: data/cafe-wm.desktop.in:7
 msgid "MATE;window;manager;launch;MDM;"
 msgstr ""
 
@@ -286,7 +286,7 @@ msgstr ""
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>Μερικά προγράμματα εκτελούνται ακόμα:</b>"
 
-#: data/gsm-inhibit-dialog.ui:52 mate-session/gsm-inhibit-dialog.c:633
+#: data/gsm-inhibit-dialog.ui:52 cafe-session/gsm-inhibit-dialog.c:633
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -294,23 +294,23 @@ msgstr ""
 "Αναμονή τερματισμού του προγράμματος. Η διακοπή του προγράμματος μπορεί να "
 "προκαλέσει απώλεια δεδομένων."
 
-#: data/mate-session-properties.desktop.in:3
+#: data/cafe-session-properties.desktop.in:3
 msgid "Startup Applications"
 msgstr "Προγράμματα εκκίνησης"
 
-#: data/mate-session-properties.desktop.in:4
+#: data/cafe-session-properties.desktop.in:4
 msgid "Choose what applications to start when you log in"
 msgstr "Επιλέξτε τα προγράμματα που θα εκκινούνται όταν συνδέεστε στο σύστημα"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
-#: data/mate-session-properties.desktop.in:7
-msgid "mate-session-properties"
+#: data/cafe-session-properties.desktop.in:7
+msgid "cafe-session-properties"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/mate-session-properties.desktop.in:13
+#: data/cafe-session-properties.desktop.in:13
 msgid "MATE;session;properties;applications;login;start;"
 msgstr ""
 
@@ -427,24 +427,24 @@ msgstr "Επιλογές διαχείρισης συνεδρίας"
 msgid "Show session management options"
 msgstr "Εμφάνιση επιλογών διαχείρισης συνεδρίας"
 
-#: mate-session/gsm-inhibit-dialog.c:251
+#: cafe-session/gsm-inhibit-dialog.c:251
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "Το εικονίδιο '%s'  δεν βρέθηκε "
 
-#: mate-session/gsm-inhibit-dialog.c:581
+#: cafe-session/gsm-inhibit-dialog.c:581
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: mate-session/gsm-inhibit-dialog.c:632
+#: cafe-session/gsm-inhibit-dialog.c:632
 msgid "A program is still running:"
 msgstr "Ένα πρόγραμμα εκτελείται ήδη:"
 
-#: mate-session/gsm-inhibit-dialog.c:636
+#: cafe-session/gsm-inhibit-dialog.c:636
 msgid "Some programs are still running:"
 msgstr "Μερικά προγράμματα εκτελούνται ακόμη:"
 
-#: mate-session/gsm-inhibit-dialog.c:637
+#: cafe-session/gsm-inhibit-dialog.c:637
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
@@ -452,190 +452,190 @@ msgstr ""
 "Αναμονή για το κλείσιμο των προγραμμάτων. Η διακοπή αυτών των προγραμμάτων "
 "μπορεί να προκαλέσει απώλεια δεδομένων."
 
-#: mate-session/gsm-inhibit-dialog.c:867
+#: cafe-session/gsm-inhibit-dialog.c:867
 msgid "Switch User Anyway"
 msgstr "Αλλαγή χρήστη ούτως ή άλλως"
 
-#: mate-session/gsm-inhibit-dialog.c:870
+#: cafe-session/gsm-inhibit-dialog.c:870
 msgid "Log Out Anyway"
 msgstr "Αποσύνδεση ούτως ή άλλως"
 
-#: mate-session/gsm-inhibit-dialog.c:873
+#: cafe-session/gsm-inhibit-dialog.c:873
 msgid "Suspend Anyway"
 msgstr "Αναστολή ούτως ή άλλως"
 
-#: mate-session/gsm-inhibit-dialog.c:876
+#: cafe-session/gsm-inhibit-dialog.c:876
 msgid "Hibernate Anyway"
 msgstr "Αδρανοποίηση ούτως ή άλλως"
 
-#: mate-session/gsm-inhibit-dialog.c:879
+#: cafe-session/gsm-inhibit-dialog.c:879
 msgid "Shut Down Anyway"
 msgstr "Κλείσιμο ούτως ή άλλως"
 
-#: mate-session/gsm-inhibit-dialog.c:882
+#: cafe-session/gsm-inhibit-dialog.c:882
 msgid "Reboot Anyway"
 msgstr "Επανεκκίνηση ούτως ή άλλως"
 
-#: mate-session/gsm-inhibit-dialog.c:890
+#: cafe-session/gsm-inhibit-dialog.c:890
 msgid "Lock Screen"
 msgstr "Κλείδωμα οθόνης"
 
-#: mate-session/gsm-inhibit-dialog.c:893
+#: cafe-session/gsm-inhibit-dialog.c:893
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: mate-session/gsm-logout-dialog.c:307
+#: cafe-session/gsm-logout-dialog.c:307
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: mate-session/gsm-logout-dialog.c:315
+#: cafe-session/gsm-logout-dialog.c:315
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: mate-session/gsm-logout-dialog.c:361
+#: cafe-session/gsm-logout-dialog.c:361
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr "Είστε συνδεδεμένος ως  \"%s\"."
 
-#: mate-session/gsm-logout-dialog.c:441
+#: cafe-session/gsm-logout-dialog.c:441
 msgid "Log out of this system now?"
 msgstr "Να γίνει αποσύνδεση από το σύστημα τώρα;"
 
-#: mate-session/gsm-logout-dialog.c:447
+#: cafe-session/gsm-logout-dialog.c:447
 msgid "_Switch User"
 msgstr "_Αλλαγή χρήστη"
 
-#: mate-session/gsm-logout-dialog.c:456
+#: cafe-session/gsm-logout-dialog.c:456
 msgid "_Log Out"
 msgstr "_Αποσύνδεση"
 
-#: mate-session/gsm-logout-dialog.c:462
+#: cafe-session/gsm-logout-dialog.c:462
 msgid "Shut down this system now?"
 msgstr "Να κλείσει το σύστημα τώρα;"
 
-#: mate-session/gsm-logout-dialog.c:468
+#: cafe-session/gsm-logout-dialog.c:468
 msgid "S_uspend"
 msgstr "Α_ναστολή"
 
-#: mate-session/gsm-logout-dialog.c:474
+#: cafe-session/gsm-logout-dialog.c:474
 msgid "_Hibernate"
 msgstr "Α_δρανοποίηση"
 
-#: mate-session/gsm-logout-dialog.c:480
+#: cafe-session/gsm-logout-dialog.c:480
 msgid "_Restart"
 msgstr "Επα_νεκκίνηση"
 
-#: mate-session/gsm-logout-dialog.c:490
+#: cafe-session/gsm-logout-dialog.c:490
 msgid "_Shut Down"
 msgstr "Κ_λείσιμο συστήματος"
 
-#: mate-session/gsm-manager.c:1515 mate-session/gsm-manager.c:2339
+#: cafe-session/gsm-manager.c:1515 cafe-session/gsm-manager.c:2339
 msgid "Not responding"
 msgstr "Δεν ανταποκρίνεται"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
-#: mate-session/gsm-xsmp-client.c:595
+#: cafe-session/gsm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr "Αποθηκευμένη εφαρμογή."
 
-#: mate-session/gsm-xsmp-client.c:1262
+#: cafe-session/gsm-xsmp-client.c:1262
 msgid "This program is blocking logout."
 msgstr "Αυτό το πρόγραμμα εμποδίζει την αποσύνδεση."
 
-#: mate-session/gsm-xsmp-server.c:324
+#: cafe-session/gsm-xsmp-server.c:324
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr ""
 "Άρνηση σύνδεσης νέου πελάτη επειδή το σύστημα τερματίζεται αυτή τη στιγμή\n"
 
-#: mate-session/gsm-xsmp-server.c:586
+#: cafe-session/gsm-xsmp-server.c:586
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "Αδυναμία δημιουργίας ICE listening socket: %s"
 
 #. Oh well, no X for you!
-#: mate-session/gsm-util.c:355
+#: cafe-session/gsm-util.c:355
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr ""
 "Αδυναμία εκκίνησης συνεδρίας με σύνδεση ( και αδυναμία σύνδεσης με "
 "εξυπηρετητή X)"
 
-#: mate-session/main.c:611
+#: cafe-session/main.c:611
 msgid "Override standard autostart directories"
 msgstr "Παράκαμψη τυπικών καταλόγων αυτόματης εκκίνησης"
 
-#: mate-session/main.c:612
+#: cafe-session/main.c:612
 msgid "Enable debugging code"
 msgstr "Ενεργοποίηση κώδικα αποσφαλμάτωσης"
 
-#: mate-session/main.c:613
+#: cafe-session/main.c:613
 msgid "Do not load user-specified applications"
 msgstr "Να μην φορτώνονται εφαρμογές καθορισμένες από τον χρήστη"
 
-#: mate-session/main.c:615
+#: cafe-session/main.c:615
 msgid "Disable hardware acceleration check"
 msgstr "Απενεργοποίηση ελέγχου για επιτάχυνση υλικού"
 
-#: mate-session/main.c:635
+#: cafe-session/main.c:635
 msgid " - the MATE session manager"
 msgstr "- Διαχείριση της συνεδρίας του MATE"
 
-#: tools/mate-session-save.c:66
+#: tools/cafe-session-save.c:66
 msgid "Log out"
 msgstr "Αποσύνδεση"
 
-#: tools/mate-session-save.c:67
+#: tools/cafe-session-save.c:67
 msgid "Log out, ignoring any existing inhibitors"
 msgstr "Αποσύνδεση, αγνοώντας όποιες παραμένουσες διεργασίες"
 
-#: tools/mate-session-save.c:68
+#: tools/cafe-session-save.c:68
 msgid "Show logout dialog"
 msgstr "Προβολή διαλόγου αποσύνδεσης"
 
-#: tools/mate-session-save.c:69
+#: tools/cafe-session-save.c:69
 msgid "Show shutdown dialog"
 msgstr "Προβολή διαλόγου κλεισίματος"
 
-#: tools/mate-session-save.c:70
+#: tools/cafe-session-save.c:70
 msgid "Use dialog boxes for errors"
 msgstr "Χρήση κουτιών διαλόγων για σφάλματα"
 
 #. deprecated options
-#: tools/mate-session-save.c:72
+#: tools/cafe-session-save.c:72
 msgid "Set the current session name"
 msgstr "Ορισμός του ονόματος της τρέχουσας συνεδρίας"
 
-#: tools/mate-session-save.c:72
+#: tools/cafe-session-save.c:72
 msgid "NAME"
 msgstr "ΟΝΟΜΑ"
 
-#: tools/mate-session-save.c:73
+#: tools/cafe-session-save.c:73
 msgid "Kill session"
 msgstr "Τερματισμός συνεδρίας"
 
-#: tools/mate-session-save.c:74
+#: tools/cafe-session-save.c:74
 msgid "Do not require confirmation"
 msgstr "Να μην απαιτείται επιβεβαίωση"
 
 #. Okay, it wasn't the upgrade case, so now we can give up.
-#: tools/mate-session-save.c:126
+#: tools/cafe-session-save.c:126
 msgid "Could not connect to the session manager"
 msgstr "Αδύνατη η σύνδεση με το διαχειριστή συνεδρίας"
 
-#: tools/mate-session-save.c:251
+#: tools/cafe-session-save.c:251
 msgid "Program called with conflicting options"
 msgstr "Το πρόγραμμα κλήθηκε με συγκρουόμενες επιλογές"
 
-#: tools/mate-session-inhibit.c:115
+#: tools/cafe-session-inhibit.c:115
 #, c-format
 msgid ""
 "%s [OPTION...] COMMAND\n"
@@ -671,13 +671,13 @@ msgstr ""
 "αποσύνδεση, εναλλαγή χρήστη, αναμονή, αδρανοποίηση, αυτόματη ρύθμιση\n"
 "Εάν καμία επιλογή --inhibit δεν προσδιοριστεί, η αδρανοποίηση είναι υποτιθέμενη.\n"
 
-#: tools/mate-session-inhibit.c:169 tools/mate-session-inhibit.c:179
-#: tools/mate-session-inhibit.c:189
+#: tools/cafe-session-inhibit.c:169 tools/cafe-session-inhibit.c:179
+#: tools/cafe-session-inhibit.c:189
 #, c-format
 msgid "%s requires an argument\n"
 msgstr "%s απαιτεί ένα επιχείρημα \n"
 
-#: tools/mate-session-inhibit.c:225
+#: tools/cafe-session-inhibit.c:225
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Αποτυχία εκτέλεσης %s\n"

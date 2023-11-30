@@ -3,8 +3,8 @@
 ##########################################################
 requires:
   debian:
-    # Useful URL: https://github.com/mate-desktop/debian-packages
-    # Useful URL: https://salsa.debian.org/debian-mate-team/mate-session-manager
+    # Useful URL: https://github.com/cafe-desktop/debian-packages
+    # Useful URL: https://salsa.debian.org/debian-cafe-team/cafe-session-manager
     - aptitude
     - autoconf-archive
     - autopoint
@@ -31,7 +31,7 @@ requires:
     - libxt-dev
     - libxtst-dev
     - make
-    - mate-common
+    - cafe-common
     - xmlto
     - xsltproc
 

@@ -1,12 +1,12 @@
-mate-session
+cafe-session
 =============
 
-mate-session contains the MATE session manager, as well as a
+cafe-session contains the MATE session manager, as well as a
 configuration program to choose applications starting on login.
 
 You may download updates to the package from:
 
-   http://pub.mate-desktop.org/releases/
+   http://pub.cafe-desktop.org/releases/
 
 
 Design notes
@@ -26,9 +26,9 @@ make install
 How to report bugs
 ==================
 
-Bugs should be reported to mate-session's Github issue tracker:
+Bugs should be reported to cafe-session's Github issue tracker:
 
-   https://github.com/mate-desktop/mate-session-manager/issues?state=open
+   https://github.com/cafe-desktop/cafe-session-manager/issues?state=open
 
 Please read the HACKING file for information on where to send changes or
 bugfixes for this package.

@@ -1,4 +1,4 @@
-.\" mate-wm manual page.
+.\" cafe-wm manual page.
 .\" (C) 2000 Miguel de Icaza (miguel@helixcode.com)
 .\" (C) 2009-2010 Vincent Untz (vuntz@gnome.org)
 .\"
@@ -6,19 +6,19 @@
 .\" Please adjust this date when revising the manpage.
 .\"
 .SH "NAME"
-mate-wm \- Start the window manager configured by the user
+cafe-wm \- Start the window manager configured by the user
 .SH "SYNOPSIS"
 .PP
-.B mate-wm [--default-wm=WINDOWMANAGER] [--sm-client-id=ID]
+.B cafe-wm [--default-wm=WINDOWMANAGER] [--sm-client-id=ID]
 .SH "DESCRIPTION"
-The \fBmate-wm\fP program starts the window manager configured by the user. If the user has not chosen a window manager it will launch a MATE compliant window manager.
+The \fBcafe-wm\fP program starts the window manager configured by the user. If the user has not chosen a window manager it will launch a MATE compliant window manager.
 .SH "USAGE"
 The user can define his preferred window manager with the
-.BI / org / mate / desktop / session / required-components / windowmanager
-dconf key. The value of this key should be the name of the desktop file of the desired window manager, without its \fB.desktop\fP extension. If this key is set to \fBmate-wm\fP, then \fBmate-wm\fP will simply look for an appropriate window manager. The user can also override the selection of a window manager by setting the \fBWINDOW_MANAGER\fP environment variable.
+.BI / org / cafe / desktop / session / required-components / windowmanager
+dconf key. The value of this key should be the name of the desktop file of the desired window manager, without its \fB.desktop\fP extension. If this key is set to \fBcafe-wm\fP, then \fBcafe-wm\fP will simply look for an appropriate window manager. The user can also override the selection of a window manager by setting the \fBWINDOW_MANAGER\fP environment variable.
 .PP
-If the \fB\-\-default-wm\fP option is used, \fBmate-wm\fP will use \fBWINDOWMANAGER\fP as window manager if the \fBWINDOW_MANAGER\fP environment variable is not set and if the
-.BI / org / mate / desktop / session / required-components / windowmanager
+If the \fB\-\-default-wm\fP option is used, \fBcafe-wm\fP will use \fBWINDOWMANAGER\fP as window manager if the \fBWINDOW_MANAGER\fP environment variable is not set and if the
+.BI / org / cafe / desktop / session / required-components / windowmanager
 dconf key does not define a specific window manager, or if the configured window manager cannot be found.
 .PP
 The \fB\-\-sm-client-id\fP option is translated to an appropriate option depending on which window manager will be started.
@@ -31,10 +31,10 @@ Define the default window manager to start if no window manager is configured, o
 .B \-\-sm-client-id=ID
 Specify the session management \fIID\fP when connecting to the session manager.
 .SH "ENVIRONMENT"
-\fImate-wm\fP uses the value of the \fBWINDOW_MANAGER\fP environment variable to let the user override the configured window manager.
+\fIcafe-wm\fP uses the value of the \fBWINDOW_MANAGER\fP environment variable to let the user override the configured window manager.
 .SH "BUGS"
 .SS Should you encounter any bugs, they may be reported at:
-http://github.com/mate-desktop/mate-session-manager/issues
+http://github.com/cafe-desktop/cafe-session-manager/issues
 .SH "AUTHORS"
 .SS This Man Page has been updated for the MATE Desktop Environment by:
 Adam Erdman <hekel@archlinux.info> (2014)
@@ -45,8 +45,8 @@ Miguel de Icaza <miguel@helixcode.com> (2000)
 Vincent Untz <vuntz@gnome.org> (2009-2010)
 .fi
 .SH "SEE ALSO"
-.SS Further information may also be available at: http://wiki.mate-desktop.org/docs
+.SS Further information may also be available at: http://wiki.cafe-desktop.org/docs
 .P
-.BR mate-session-properties(1),
-.BR mate-session-save(1),
-.BR mate-session(1)
+.BR cafe-session-properties(1),
+.BR cafe-session-save(1),
+.BR cafe-session(1)

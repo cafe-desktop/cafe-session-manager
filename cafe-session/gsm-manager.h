@@ -56,7 +56,7 @@ struct _GsmManagerClass
 typedef enum {
         /* gsm's own startup/initialization phase */
         GSM_MANAGER_PHASE_STARTUP = 0,
-        /* xrandr setup, mate-settings-daemon, etc */
+        /* xrandr setup, cafe-settings-daemon, etc */
         GSM_MANAGER_PHASE_INITIALIZATION,
         /* window/compositing managers */
         GSM_MANAGER_PHASE_WINDOW_MANAGER,

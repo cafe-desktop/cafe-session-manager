@@ -1,4 +1,4 @@
-.\" mate-session-save manual page.
+.\" cafe-session-save manual page.
 .\" (C) 2000 Miguel de Icaza (miguel@helixcode.com)
 .\" (C) 2009-2010 Vincent Untz (vuntz@gnome.org)
 .\"
@@ -6,11 +6,11 @@
 .\" Please adjust this date when revising the manpage.
 .\"
 .SH "NAME"
-mate-session-save \- End or save the current MATE session
+cafe-session-save \- End or save the current MATE session
 .SH "SYNOPSIS"
-.B mate-session-save [\-\-logout] [\-\-force\-logout] [\-\-logout\-dialog] [\-\-shutdown\-dialog] [\-\-gui] [\-\-kill [\-\-silent]]
+.B cafe-session-save [\-\-logout] [\-\-force\-logout] [\-\-logout\-dialog] [\-\-shutdown\-dialog] [\-\-gui] [\-\-kill [\-\-silent]]
 .SH "DESCRIPTION"
-The \fBmate-session-save\fP program can be used from a MATE session to either end the current MATE session or save a snapshot of the currently running applications (but not both). This session will be later restored at your next MATE session.
+The \fBcafe-session-save\fP program can be used from a MATE session to either end the current MATE session or save a snapshot of the currently running applications (but not both). This session will be later restored at your next MATE session.
 .SH "USAGE"
 The \fB\-\-gui\fP option will report errors in dialog boxes instead of printing to stderr.
 .PP
@@ -20,7 +20,7 @@ When the \fB\-\-logout\-dialog\fP option is given, the standard dialog displayin
 .PP
 The \fB\-\-kill\fP and \fB\-\-silent\fP options are deprecated. The \fB\-\-kill\fP option is equivalent to the \fB\-\-logout\-dialog\fP option. If \fB\-\-silent\fP is used with \fB\-\-kill\fR, then it will behave as if \fB\-\-logout\fP was used.
 .PP
-The session is not saved when \fBmate-session-save\fP is called with any of the options ending the session.
+The session is not saved when \fBcafe-session-save\fP is called with any of the options ending the session.
 .SH "OPTIONS"
 .TP
 \fB\-\-logout\fR
@@ -52,7 +52,7 @@ Print standard command line options.
 Print all command line options.
 .SH "BUGS"
 .SS Should you encounter any bugs, they may be reported at:
-http://github.com/mate-desktop/mate-session-manager/issues
+http://github.com/cafe-desktop/cafe-session-manager/issues
 .SH "AUTHORS"
 .SS This Man Page has been updated/re-written for the MATE Desktop Environment by:
 Adam Erdman <hekel@archlinux.info> (2014)
@@ -63,8 +63,8 @@ Miguel de Icaza <miguel@helixcode.com> (2000)
 Vincent Untz <vuntz@gnome.org> (2009-2010)
 .fi
 .SH "SEE ALSO"
-.SS Further information may also be available at: http://wiki.mate-desktop.org/docs
+.SS Further information may also be available at: http://wiki.cafe-desktop.org/docs
 .P
-.BR mate-session-properties(1),
-.BR mate-wm(1),
-.BR mate-session(1)
+.BR cafe-session-properties(1),
+.BR cafe-wm(1),
+.BR cafe-session(1)

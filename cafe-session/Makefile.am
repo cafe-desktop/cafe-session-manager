@@ -1,4 +1,4 @@
-bin_PROGRAMS = mate-session
+bin_PROGRAMS = cafe-session
 noinst_LTLIBRARIES = libgsmutil.la
 noinst_PROGRAMS = 		\
 	test-client-dbus	\
@@ -12,7 +12,7 @@ AM_CPPFLAGS =					\
 
 AM_CFLAGS = $(WARN_CFLAGS)
 
-mate_session_SOURCES =				\
+cafe_session_SOURCES =				\
 	gsm-app.h				\
 	gsm-app.c				\
 	gsm-autostart-app.h			\
@@ -57,7 +57,7 @@ mate_session_SOURCES =				\
 	gsm-xsmp-server.c			\
 	gsm-xsmp-server.h
 
-mate_session_CPPFLAGS =			\
+cafe_session_CPPFLAGS =			\
 	$(AM_CPPFLAGS)				\
 	$(X11_CFLAGS)                           \
 	$(SM_CFLAGS)				\
@@ -65,12 +65,12 @@ mate_session_CPPFLAGS =			\
 	$(XEXT_CFLAGS)				\
 	-I$(top_srcdir)/egg			\
 	-DLOCALE_DIR=\""$(datadir)/locale"\"	\
-	-DDATA_DIR=\""$(datadir)/mate-session"\" \
+	-DDATA_DIR=\""$(datadir)/cafe-session"\" \
 	-DLIBEXECDIR=\"$(libexecdir)\"		\
 	-DGTKBUILDER_DIR=\""$(pkgdatadir)"\"	\
 	-DI_KNOW_THE_DEVICEKIT_POWER_API_IS_SUBJECT_TO_CHANGE
 
-mate_session_LDADD =				\
+cafe_session_LDADD =				\
 	libgsmutil.la 				\
 	$(X11_LIBS)                             \
 	$(top_builddir)/egg/libeggdesktopfile.la \

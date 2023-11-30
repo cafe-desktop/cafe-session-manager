@@ -1,7 +1,7 @@
 SUBDIRS = \
 	po \
 	egg \
-	mate-session \
+	cafe-session \
 	capplet \
 	tools \
 	data \

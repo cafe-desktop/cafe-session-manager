@@ -7,8 +7,8 @@
 # the first one that is found in the users's PATH
 #
 # NOTE: DON'T USE THIS.  Please have your window manager install
-# a desktop file and change the mateconf key
-# /desktop/mate/session/required_components/windowmanager
+# a desktop file and change the cafeconf key
+# /desktop/cafe/session/required_components/windowmanager
 
 # sm-client-id value
 SMID=
@@ -42,7 +42,7 @@ done
 
 # WINDOW_MANAGER overrides all
 if [ -z "$WINDOW_MANAGER" ] ; then
-    WINDOW_MANAGER=`gsettings get org.mate.session.required-components windowmanager 2> /dev/null | sed -r -e "s/^'([^']*)'$/\\1/"`
+    WINDOW_MANAGER=`gsettings get org.cafe.session.required-components windowmanager 2> /dev/null | sed -r -e "s/^'([^']*)'$/\\1/"`
 fi
 
 # Migrate compiz to compiz-manager if possible and needed
@@ -58,9 +58,9 @@ if [ "x$WINDOW_MANAGER" = "xcompiz" -o "x$DEFWM" = "xcompiz" ]; then
   fi
 fi
 
-# Avoid looping if the session configuration tells us to use mate-wm or if
-# the user forces mate-wm via WINDOW_MANAGER
-if [ "x$WINDOW_MANAGER" = "xmate-wm" ]; then
+# Avoid looping if the session configuration tells us to use cafe-wm or if
+# the user forces cafe-wm via WINDOW_MANAGER
+if [ "x$WINDOW_MANAGER" = "xcafe-wm" ]; then
   WINDOW_MANAGER=""
 fi
 
@@ -79,7 +79,7 @@ if [ -z "$WINDOW_MANAGER" ] ; then
   KNOWN_WM="marco $KNOWN_WM"
 
   OLDIFS=$IFS
-  if [ -z "$DEFWM" -o "x$DEFWM" = "xmate-wm" ]; then
+  if [ -z "$DEFWM" -o "x$DEFWM" = "xcafe-wm" ]; then
 
     for wm in $KNOWN_WM ; do
       IFS=":"
@@ -149,7 +149,7 @@ case `basename $WINDOW_MANAGER` in
     #export LIBGL_ALWAYS_INDIRECT=1
     gtk-window-decorator &
     #OPT3=glib
-    #OPT4=mateconf
+    #OPT4=cafeconf
     ;;
   beryl)
     emerald &
