@@ -33,7 +33,7 @@
 #include <X11/Xatom.h>
 #include <sys/wait.h>
 
-#include "mate-session-check-accelerated-common.h"
+#include "cafe-session-check-accelerated-common.h"
 
 /* Wait up to this long for a running check to finish */
 #define PROPERTY_CHANGE_TIMEOUT 5000
@@ -132,9 +132,9 @@ main (int argc, char **argv)
 {
         GdkDisplay *display = NULL;
         int estatus;
-        char *gl_helper_argv[] = { LIBEXECDIR "/mate-session-check-accelerated-gl-helper", "--print-renderer", NULL };
+        char *gl_helper_argv[] = { LIBEXECDIR "/cafe-session-check-accelerated-gl-helper", "--print-renderer", NULL };
 #ifdef HAVE_GLESV2
-        char *gles_helper_argv[] = { LIBEXECDIR "/mate-session-check-accelerated-gles-helper", "--print-renderer", NULL };
+        char *gles_helper_argv[] = { LIBEXECDIR "/cafe-session-check-accelerated-gles-helper", "--print-renderer", NULL };
         GError *gles_error = NULL;
         char *gles_renderer_string = NULL;
 #endif
@@ -147,7 +147,7 @@ main (int argc, char **argv)
 
         gtk_init (NULL, NULL);
 
-        /* mate-session-check-accelerated gets run before X is started in the wayland
+        /* cafe-session-check-accelerated gets run before X is started in the wayland
          * case, and it currently requires X. Until we have that working, just always
          * assume wayland will work.
          * Also make sure that we don't read cached information about the first GPU
@@ -167,7 +167,7 @@ main (int argc, char **argv)
          * so looking for X11 atoms will not work (and crash).
          */
         if (!GDK_IS_X11_DISPLAY (display)) {
-                g_printerr ("mate-session-check-accelerated: no X11 display found\n");
+                g_printerr ("cafe-session-check-accelerated: no X11 display found\n");
                 return 1;
         }
 
@@ -244,7 +244,7 @@ main (int argc, char **argv)
                         goto finish;
                 }
 
-                g_printerr ("mate-session-check-accelerated: GL Helper exited with code %d\n", estatus);
+                g_printerr ("cafe-session-check-accelerated: GL Helper exited with code %d\n", estatus);
         }
 
 #ifdef HAVE_GLESV2
@@ -258,7 +258,7 @@ main (int argc, char **argv)
                         goto finish;
                 }
 
-                g_printerr ("mate-session-check-accelerated: GLES Helper exited with code %d\n", estatus);
+                g_printerr ("cafe-session-check-accelerated: GLES Helper exited with code %d\n", estatus);
         }
 #endif
 
@@ -279,13 +279,13 @@ main (int argc, char **argv)
 
         /* Both helpers failed; print their error messages */
         if (gl_error != NULL) {
-                g_printerr ("mate-session-check-accelerated: Failed to run GL helper: %s\n", gl_error->message);
+                g_printerr ("cafe-session-check-accelerated: Failed to run GL helper: %s\n", gl_error->message);
                 g_clear_error (&gl_error);
         }
 
 #ifdef HAVE_GLESV2
         if (gles_error != NULL) {
-                g_printerr ("mate-session-check-accelerated: Failed to run GLES helper: %s\n", gles_error->message);
+                g_printerr ("cafe-session-check-accelerated: Failed to run GLES helper: %s\n", gles_error->message);
                 g_clear_error (&gles_error);
         }
 #endif

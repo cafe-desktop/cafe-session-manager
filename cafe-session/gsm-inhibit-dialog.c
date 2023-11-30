@@ -93,7 +93,7 @@ lock_screen (GsmInhibitDialog *dialog)
 {
         GError *error;
         error = NULL;
-        g_spawn_command_line_async ("mate-screensaver-command --lock", &error);
+        g_spawn_command_line_async ("cafe-screensaver-command --lock", &error);
         if (error != NULL) {
                 g_warning ("Couldn't lock screen: %s", error->message);
                 g_error_free (error);
@@ -163,7 +163,7 @@ find_inhibitor (GsmInhibitDialog *dialog,
         return found_item;
 }
 
-/* copied from mate-panel panel-util.c */
+/* copied from cafe-panel panel-util.c */
 static char *
 _util_icon_remove_extension (const char *icon)
 {
@@ -182,7 +182,7 @@ _util_icon_remove_extension (const char *icon)
         return icon_no_extension;
 }
 
-/* copied from mate-panel panel-util.c */
+/* copied from cafe-panel panel-util.c */
 static char *
 _find_icon (GtkIconTheme  *icon_theme,
             const char    *icon_name,
@@ -228,7 +228,7 @@ _find_icon (GtkIconTheme  *icon_theme,
         return retval;
 }
 
-/* copied from mate-panel panel-util.c */
+/* copied from cafe-panel panel-util.c */
 static GdkPixbuf *
 _load_icon (GtkIconTheme  *icon_theme,
             const char    *icon_name,
@@ -526,7 +526,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
                                            desktop_filename);
                         }
                         g_free (desktop_filename);
-                        desktop_filename = g_strdup_printf ("mate-%s.desktop", app_id);
+                        desktop_filename = g_strdup_printf ("cafe-%s.desktop", app_id);
                         error = NULL;
                         desktop_file = egg_desktop_file_new_from_dirs (desktop_filename,
                                                                        (const char **)search_dirs,
@@ -582,7 +582,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
 
         if (pixbuf == NULL) {
                 pixbuf = _load_icon (gtk_icon_theme_get_default (),
-                                     "mate-windows",
+                                     "cafe-windows",
                                      DEFAULT_ICON_SIZE,
                                      DEFAULT_ICON_SIZE,
                                      DEFAULT_ICON_SIZE,

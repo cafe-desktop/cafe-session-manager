@@ -41,7 +41,7 @@
 #include <EGL/eglext.h>
 #endif
 
-#include "mate-session-check-accelerated-common.h"
+#include "cafe-session-check-accelerated-common.h"
 
 #ifdef GDK_WINDOWING_X11
 static EGLDisplay

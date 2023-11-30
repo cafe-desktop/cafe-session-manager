@@ -1,5 +1,5 @@
-AC_INIT([mate-session-manager], [1.24.1], [https://mate-desktop.org/])
-AC_CONFIG_SRCDIR([mate-session])
+AC_INIT([cafe-session-manager], [1.24.1], [https://cafe-desktop.org/])
+AC_CONFIG_SRCDIR([cafe-session])
 AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-xz check-news])
@@ -92,7 +92,7 @@ AC_ARG_WITH(default-wm,
 
 DEFAULT_WM=$with_default_wm
 AC_SUBST(DEFAULT_WM)
-AM_CONDITIONAL(USE_MATE_WM, test x$with_default_wm = xmate-wm)
+AM_CONDITIONAL(USE_MATE_WM, test x$with_default_wm = xcafe-wm)
 
 dnl ====================================================================
 dnl GSettings
@@ -225,7 +225,7 @@ AC_PATH_PROG([XSLTPROC], [xsltproc])
 dnl ====================================================================
 dnl Language Support
 dnl ====================================================================
-GETTEXT_PACKAGE=mate-session-manager
+GETTEXT_PACKAGE=cafe-session-manager
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
                    [The gettext translation domain])
 AC_SUBST(GETTEXT_PACKAGE)
@@ -331,13 +331,13 @@ Makefile
 capplet/Makefile
 doc/Makefile
 doc/dbus/Makefile
-doc/dbus/mate-session.xml
+doc/dbus/cafe-session.xml
 doc/man/Makefile
 data/Makefile
-data/org.mate.session.gschema.xml
+data/org.cafe.session.gschema.xml
 data/icons/Makefile
 egg/Makefile
-mate-session/Makefile
+cafe-session/Makefile
 tools/Makefile
 po/Makefile.in
 ])
@@ -347,8 +347,8 @@ dnl - Show summary
 dnl ---------------------------------------------------------------------------
 
 echo "
-              mate-session $VERSION
-              `echo mate-session $VERSION | sed "s/./=/g"`
+              cafe-session $VERSION
+              `echo cafe-session $VERSION | sed "s/./=/g"`
 
         prefix:                   ${prefix}
         exec_prefix:              ${exec_prefix}

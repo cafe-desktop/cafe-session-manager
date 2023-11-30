@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2008, 2009 Novell, Inc.
  *
- * Based on code from panel-keyfile.h (from mate-panel)
+ * Based on code from panel-keyfile.h (from cafe-panel)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as

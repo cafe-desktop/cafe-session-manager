@@ -54,7 +54,7 @@ enum {
         GSM_CONDITION_UNKNOWN       = 5
 };
 
-#define GSM_SESSION_CLIENT_DBUS_INTERFACE "org.mate.SessionClient"
+#define GSM_SESSION_CLIENT_DBUS_INTERFACE "org.cafe.SessionClient"
 
 typedef struct {
         char                 *desktop_filename;
@@ -114,7 +114,7 @@ is_disabled (GsmApp *app)
 
         priv = gsm_autostart_app_get_instance_private (GSM_AUTOSTART_APP(app));
 
-        /* GSM_AUTOSTART_APP_ENABLED_KEY key, used by old mate-session */
+        /* GSM_AUTOSTART_APP_ENABLED_KEY key, used by old cafe-session */
         if (egg_desktop_file_has_key (priv->desktop_file,
                                       GSM_AUTOSTART_APP_ENABLED_KEY, NULL) &&
             !egg_desktop_file_get_boolean (priv->desktop_file,

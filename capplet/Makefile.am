@@ -1,15 +1,15 @@
-bin_PROGRAMS = mate-session-properties
+bin_PROGRAMS = cafe-session-properties
 
 AM_CPPFLAGS =						\
 	$(SESSION_PROPERTIES_CFLAGS)			\
-	-I$(top_srcdir)/mate-session			\
+	-I$(top_srcdir)/cafe-session			\
 	-DLOCALE_DIR=\""$(datadir)/locale"\"		\
 	-DGTKBUILDER_DIR=\""$(pkgdatadir)"\"		\
 	$(DISABLE_DEPRECATED_CFLAGS)
 
 AM_CFLAGS = $(WARN_CFLAGS)
 
-mate_session_properties_SOURCES =			\
+cafe_session_properties_SOURCES =			\
 	main.c						\
 	gsm-properties-dialog.h				\
 	gsm-properties-dialog.c				\
@@ -22,8 +22,8 @@ mate_session_properties_SOURCES =			\
 	gsp-keyfile.h					\
 	gsp-keyfile.c
 
-mate_session_properties_LDADD =			\
+cafe_session_properties_LDADD =			\
 	$(SESSION_PROPERTIES_LIBS)			\
-	$(top_builddir)/mate-session/libgsmutil.la
+	$(top_builddir)/cafe-session/libgsmutil.la
 
 -include $(top_srcdir)/git.mk

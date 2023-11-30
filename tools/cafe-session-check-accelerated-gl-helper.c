@@ -87,7 +87,7 @@
 #include <GL/gl.h>
 #include <GL/glx.h>
 
-#include "mate-session-check-accelerated-common.h"
+#include "cafe-session-check-accelerated-common.h"
 
 #define SIZE_UNSET 0
 #define SIZE_ERROR -1
@@ -98,7 +98,7 @@ static gboolean has_llvmpipe = FALSE;
 static inline void
 _print_error (const char *str)
 {
-        fprintf (stderr, "mate-session-is-accelerated: %s\n", str);
+        fprintf (stderr, "cafe-session-is-accelerated: %s\n", str);
 }
 
 #define CMDLINE_UNSET -1
@@ -119,15 +119,15 @@ _parse_kcmdline (void)
         if (!g_file_get_contents ("/proc/cmdline", &contents, NULL, NULL))
                 return ret;
 
-        regex = g_regex_new ("mate.fallback=(\\S+)", 0, G_REGEX_MATCH_NOTEMPTY, NULL);
+        regex = g_regex_new ("cafe.fallback=(\\S+)", 0, G_REGEX_MATCH_NOTEMPTY, NULL);
         if (!g_regex_match (regex, contents, G_REGEX_MATCH_NOTEMPTY, &match))
                 goto out;
 
         word = g_match_info_fetch (match, 0);
         g_debug ("Found command-line match '%s'", word);
-        arg = word + strlen ("mate.fallback=");
+        arg = word + strlen ("cafe.fallback=");
         if (*arg != '0' && *arg != '1')
-                fprintf (stderr, "mate-session-check-accelerated: Invalid value '%s' for mate.fallback passed in kernel command line.\n", arg);
+                fprintf (stderr, "cafe-session-check-accelerated: Invalid value '%s' for cafe.fallback passed in kernel command line.\n", arg);
         else
                 ret = atoi (arg);
         g_free (word);
@@ -151,11 +151,11 @@ _parse_kcmdline (void)
         /* a compile time check to avoid unexpected stack overflow */
         _Static_assert(KENV_MVALLEN < 1024 * 1024, "KENV_MVALLEN is too large");
 
-        if (kenv (KENV_GET, "mate.fallback", value, KENV_MVALLEN) == -1)
+        if (kenv (KENV_GET, "cafe.fallback", value, KENV_MVALLEN) == -1)
                 return ret;
 
         if (*value != '0' && *value != '1')
-                fprintf (stderr, "mate-session-is-accelerated: Invalid value '%s' for mate.fallback passed in kernel environment.\n", value);
+                fprintf (stderr, "cafe-session-is-accelerated: Invalid value '%s' for cafe.fallback passed in kernel environment.\n", value);
         else
                 ret = atoi (value);
 

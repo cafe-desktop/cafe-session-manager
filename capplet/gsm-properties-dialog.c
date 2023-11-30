@@ -47,7 +47,7 @@
 
 #define STARTUP_APP_ICON     "system-run"
 
-#define SPC_CONFIG_SCHEMA   "org.mate.session"
+#define SPC_CONFIG_SCHEMA   "org.cafe.session"
 #define SPC_AUTOSAVE_KEY    "auto-save-session"
 #define SPC_SHOW_HIDDEN_KEY "show-hidden-apps"
 
@@ -785,7 +785,7 @@ gsm_properties_dialog_init (GsmPropertiesDialog *dialog)
         gtk_window_set_resizable (GTK_WINDOW (dialog), TRUE);
         gtk_container_set_border_width (GTK_CONTAINER (dialog), 6);
         gtk_box_set_spacing (GTK_BOX (content_area), 2);
-        gtk_window_set_icon_name (GTK_WINDOW (dialog), "mate-session-properties");
+        gtk_window_set_icon_name (GTK_WINDOW (dialog), "cafe-session-properties");
         gtk_window_set_title (GTK_WINDOW (dialog), _("Startup Applications Preferences"));
 }
 

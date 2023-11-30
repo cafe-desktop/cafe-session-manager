@@ -1,6 +1,6 @@
 #! /bin/sh
 
-PACKAGE=mate-session-manager;
+PACKAGE=cafe-session-manager;
 
 make -C po $PACKAGE.pot && mv po/$PACKAGE.pot .
 sed -i "/#, fuzzy/d" $PACKAGE.pot

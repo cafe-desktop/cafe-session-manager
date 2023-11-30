@@ -1,17 +1,17 @@
 appiconsdir = $(datadir)/icons/hicolor
 
 nobase_dist_appicons_DATA = \
-	16x16/apps/mate-session-properties.png \
-	22x22/apps/mate-session-properties.png \
-	24x24/apps/mate-session-properties.png \
-	32x32/apps/mate-session-properties.png \
-	48x48/apps/mate-session-properties.png \
-	scalable/apps/mate-session-properties.svg
+	16x16/apps/cafe-session-properties.png \
+	22x22/apps/cafe-session-properties.png \
+	24x24/apps/cafe-session-properties.png \
+	32x32/apps/cafe-session-properties.png \
+	48x48/apps/cafe-session-properties.png \
+	scalable/apps/cafe-session-properties.svg
 
 noinst_DATA = \
-	16x16/apps/mate-session-properties.svg \
-	22x22/apps/mate-session-properties.svg \
-	32x32/apps/mate-session-properties.svg
+	16x16/apps/cafe-session-properties.svg \
+	22x22/apps/cafe-session-properties.svg \
+	32x32/apps/cafe-session-properties.svg
 
 gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor
 

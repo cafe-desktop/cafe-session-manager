@@ -1,5 +1,5 @@
 SPEC_XML_FILES =					\
-	mate-session.xml				\
+	cafe-session.xml				\
 	org.gnome.SessionManager.ref.xml		\
 	org.gnome.SessionManager.Client.ref.xml		\
 	org.gnome.SessionManager.ClientPrivate.ref.xml	\
@@ -9,22 +9,22 @@ SPEC_XML_FILES =					\
 if DOCBOOK_DOCS_ENABLED
 
 htmldocdir = $(docdir)/dbus
-htmldoc_DATA = mate-session.html
+htmldoc_DATA = cafe-session.html
 
-mate-session.html: $(SPEC_XML_FILES)
-	$(AM_V_GEN)$(XMLTO) xhtml-nochunks -m $(top_srcdir)/doc/dbus/config.xsl mate-session.xml
+cafe-session.html: $(SPEC_XML_FILES)
+	$(AM_V_GEN)$(XMLTO) xhtml-nochunks -m $(top_srcdir)/doc/dbus/config.xsl cafe-session.xml
 
 endif # DOCBOOK_DOCS_ENABLED
 
-org.gnome.SessionManager.ref.xml: $(top_srcdir)/mate-session/org.gnome.SessionManager.xml spec-to-docbook.xsl
+org.gnome.SessionManager.ref.xml: $(top_srcdir)/cafe-session/org.gnome.SessionManager.xml spec-to-docbook.xsl
 	$(AM_V_GEN)$(XSLTPROC) $(top_srcdir)/doc/dbus/spec-to-docbook.xsl $< | tail -n +2 > $@
-org.gnome.SessionManager.Client.ref.xml: $(top_srcdir)/mate-session/org.gnome.SessionManager.Client.xml spec-to-docbook.xsl
+org.gnome.SessionManager.Client.ref.xml: $(top_srcdir)/cafe-session/org.gnome.SessionManager.Client.xml spec-to-docbook.xsl
 	$(AM_V_GEN)$(XSLTPROC) $(top_srcdir)/doc/dbus/spec-to-docbook.xsl $< | tail -n +2 > $@
-org.gnome.SessionManager.ClientPrivate.ref.xml: $(top_srcdir)/mate-session/org.gnome.SessionManager.ClientPrivate.xml spec-to-docbook.xsl
+org.gnome.SessionManager.ClientPrivate.ref.xml: $(top_srcdir)/cafe-session/org.gnome.SessionManager.ClientPrivate.xml spec-to-docbook.xsl
 	$(AM_V_GEN)$(XSLTPROC) $(top_srcdir)/doc/dbus/spec-to-docbook.xsl $< | tail -n +2 > $@
-org.gnome.SessionManager.Inhibitor.ref.xml: $(top_srcdir)/mate-session/org.gnome.SessionManager.Inhibitor.xml spec-to-docbook.xsl
+org.gnome.SessionManager.Inhibitor.ref.xml: $(top_srcdir)/cafe-session/org.gnome.SessionManager.Inhibitor.xml spec-to-docbook.xsl
 	$(AM_V_GEN)$(XSLTPROC) $(top_srcdir)/doc/dbus/spec-to-docbook.xsl $< | tail -n +2 > $@
-org.gnome.SessionManager.Presence.ref.xml: $(top_srcdir)/mate-session/org.gnome.SessionManager.Presence.xml spec-to-docbook.xsl
+org.gnome.SessionManager.Presence.ref.xml: $(top_srcdir)/cafe-session/org.gnome.SessionManager.Presence.xml spec-to-docbook.xsl
 	$(AM_V_GEN)$(XSLTPROC) $(top_srcdir)/doc/dbus/spec-to-docbook.xsl $< | tail -n +2 > $@
 
 BUILT_SOURCES =	\
@@ -39,7 +39,7 @@ CLEANFILES =				\
 	$(htmldoc_DATA)
 
 EXTRA_DIST =				\
-	mate-session.xml.in		\
+	cafe-session.xml.in		\
 	config.xsl			\
 	docbook.css			\
 	dbus-introspect-docs.dtd	\

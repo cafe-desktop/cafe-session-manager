@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=MATE
 Comment=This session logs you into MATE
-Exec=mate-session
-TryExec=mate-session
+Exec=cafe-session
+TryExec=cafe-session
 Icon=
 Type=Application
 DesktopNames=MATE

@@ -1,7 +1,7 @@
 platform_defines = -DEGG_SM_CLIENT_BACKEND_XSMP
 platform_ltlibraries =                   \
 	libeggdesktopfile.la             \
-	libeggsmclient-mate.la
+	libeggsmclient-cafe.la
 platform_libs = 			\
 	libeggdesktopfile.la		\
 	$(SM_LIBS)			\
@@ -33,10 +33,10 @@ libeggsmclient_la_SOURCES =              \
 	eggsmclient-private.h            \
 	$(platform_sources)
 
-libeggsmclient_mate_la_LIBADD =         \
+libeggsmclient_cafe_la_LIBADD =         \
 	$(libeggsmclient_la_LIBADD)
 
-libeggsmclient_mate_la_SOURCES =        \
+libeggsmclient_cafe_la_SOURCES =        \
 	eggsmclient.c                    \
 	eggsmclient.h                    \
 	eggsmclient-private.h            \

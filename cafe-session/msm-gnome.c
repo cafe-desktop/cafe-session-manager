@@ -41,7 +41,7 @@
 
 #include "msm-gnome.h"
 
-#define GSM_SCHEMA "org.mate.session"
+#define GSM_SCHEMA "org.cafe.session"
 #define GSM_GNOME_COMPAT_STARTUP_KEY "gnome-compat-startup"
 
 #define GNOME_KEYRING_DAEMON "gnome-keyring-daemon"

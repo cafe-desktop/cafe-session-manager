@@ -1,9 +1,9 @@
 [Desktop Entry]
 Name=Startup Applications
 Comment=Choose what applications to start when you log in
-Exec=mate-session-properties
+Exec=cafe-session-properties
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-Icon=mate-session-properties
+Icon=cafe-session-properties
 Terminal=false
 Type=Application
 StartupNotify=true

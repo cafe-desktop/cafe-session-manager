@@ -1,4 +1,4 @@
-### mate-session-manager 1.24.1
+### cafe-session-manager 1.24.1
 
   * Translations update
   * Using #include with system libraries
@@ -7,7 +7,7 @@
   * use default MATE_COMPILE_WARNINGS for stable branch
   * build: make libglesv2 optional
 
-### mate-session-manager 1.24.0
+### cafe-session-manager 1.24.0
 
   * Translations update
   * build: show warning flags on configure summary
@@ -16,9 +16,9 @@
   * Fix timeout with gnome-keyring 3.34
   * Remove GNOME_KEYRING_LIFETIME_FD
   * po/Makevars: Set COPYRIGHT_HOLDER to The MATE Team
-  * Fix mate-session-properties vertical scaling
+  * Fix cafe-session-properties vertical scaling
 
-### mate-session-manager 1.23.0
+### cafe-session-manager 1.23.0
 
   * Translations update
   * Remove trailing whitespaces
@@ -33,16 +33,16 @@
   * main: Potential leak of memory pointed to by 'new_argv'
   * [Security] Use 'g_strlcpy' instead of 'strcpy'
   * [ci] Enable Clang Static Analyzer
-  * Add missing CPPFLAGS for mate_session_check_accelerated helpers
+  * Add missing CPPFLAGS for cafe_session_check_accelerated helpers
   * Add hardware-compatibility file
   * Fix unable to retrieve org.gnome.SessionManager.Renderer property
-  * mate-session-check-accelerated-gles-helper
-  * Add mate_session_check_accelerated helpers
+  * cafe-session-check-accelerated-gles-helper
+  * Add cafe_session_check_accelerated helpers
   * add installation instructions and update URL
   * Add ELOGIND support
   * Guard against missing systemd
 
-### mate-session-manager 1.22.0
+### cafe-session-manager 1.22.0
 
   * Translations update
   * initial travis-CI support
@@ -58,30 +58,30 @@
   * Add a delay setting to Startup Manager
   * gsm-properties-dialog: avoid 'gtk_dialog_add_buttons' with stock ids
   * avoid 'gtk_dialog_add_button' with stock ids
-  * mate-session-save: show icon in error dialog
+  * cafe-session-save: show icon in error dialog
   * Migrate from dbus-glib to gdbus
   * gsm-inhibit-dialog.ui: avoid deprecated GtkVBox
   * session-properties.ui: avoid deprecations
   * gsm-manager: avoid deprecated 'g_settings_list_schemas'
   * Avoid compile warning for g_type_class_add_private
   * Only show application name when run with --version
-  * Strip outer single quotes from string value returned by gsettings in mate-wm script.
+  * Strip outer single quotes from string value returned by gsettings in cafe-wm script.
   * replace deprecated gdk_error_trap functions
   * Fixed typo in --logout-dialog option
 
-### mate-session-manager 1.21.0
+### cafe-session-manager 1.21.0
 
   * Translations update
   * Fix broken link in man pages
   * avoid deprecated GtkStock
 
-### mate-session-manager 1.20.0
+### cafe-session-manager 1.20.0
 
   * Translations update
   * require GTK+ 3.22 and GLib 2.50
   * gsm-manager.c: Fix build warning:
 
-### mate-session-manager 1.19.1
+### cafe-session-manager 1.19.1
 
   * Translations update
   * don't lose focus when displaying logout or shutdown dialog
@@ -90,7 +90,7 @@
   * avoid deprecated gdk_screen_make_display_name
   * don't use deprecated gtk_show_uri
 
-### mate-session-manager 1.19.0
+### cafe-session-manager 1.19.0
 
   * Translations update
   * avoid deprecated gdk_screen_get_number
@@ -100,7 +100,7 @@
     the session starts.
   * Restore Polish translation credits from GNOME
 
-### mate-session-manager 1.18.0
+### cafe-session-manager 1.18.0
 
   * NEWS: use consistent, project wide, markdown-like formatting to make
     generating release announcements easier
@@ -108,25 +108,25 @@
     equivalents (and drop --enable-upower build option)
   * Translations update
 
-### mate-session-manager 1.16.1
+### cafe-session-manager 1.16.1
 
-  * Build: check stricter for presence of xtrans (ensure that mate-session
+  * Build: check stricter for presence of xtrans (ensure that cafe-session
     won't listen to TCP ports)
   * Session properties: fix vertical expand of content with window resize
   * Check for gdm-binary process when switching user
 
-### mate-session-manager 1.16.0
+### cafe-session-manager 1.16.0
 
   * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
     build option
   * Translations update
 
-### mate-session-manager 1.14.1
+### cafe-session-manager 1.14.1
 
   * GTK+3: fix critical warning in logout/shutdown dialogs
   * Translations update
 
-### mate-session-manager 1.14.0
+### cafe-session-manager 1.14.0
 
   * Drop MateConf migration script
   * GTK+3: fix some deprecations
@@ -134,16 +134,16 @@
   * Translations update
   * Add Changelog generation
 
-### mate-session-manager 1.12.2
+### cafe-session-manager 1.12.2
 
   * Fix rare build failure with upower >= 0.99 when both systemd and upower
     support are enabled
 
-### mate-session-manager 1.12.1
+### cafe-session-manager 1.12.1
 
-  * Get rid of dependency on libmate-desktop
+  * Get rid of dependency on libcafe-desktop
 
-### mate-session-manager 1.12.0
+### cafe-session-manager 1.12.0
 
   * Add support for an optional dock, such as Plank
   * Retrieve strings directly from gschema (requires intltool 0.50.1)
@@ -153,34 +153,34 @@
   * Turn GTK+3 overlay scrolling on/off on start using new gsettings key
   * Some more fixes and cleanups
 
-### mate-session-manager 1.10.2
+### cafe-session-manager 1.10.2
 
   * Reintroduce missing help in session properties dialog
   * Set XDG_CURRENT_DESKTOP env var to MATE
   * Some bugfixes
   * Translations update
 
-### mate-session-manager 1.10.1
+### cafe-session-manager 1.10.1
 
   * Fix size of GtkScrolledWindow in session properties.
   * Check for running display manager when user switching.
 
-### mate-session-manager 1.10.0
+### cafe-session-manager 1.10.0
 
   * Disable upower support by default (use --enable-upower if you need it)
 
-### mate-session-manager 1.8.1
+### cafe-session-manager 1.8.1
 
   * Add autostart of accessibility apps
   * Fix build with upower disabled
 
-### mate-session-manager 1.8.0
+### cafe-session-manager 1.8.0
 
   * Show a progress bar in logout dialog
   * Add GTK3 support
   * Add gnome keyring support
   * Add support for X-MATE-Autostart-Delay in desktop files
 
-### mate-session-manager 1.6.0
+### cafe-session-manager 1.6.0
 
-  * Migrate to gsettings (dropped mateconf)
+  * Migrate to gsettings (dropped cafeconf)

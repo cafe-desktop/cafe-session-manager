@@ -53,26 +53,26 @@
 
 #include "msm-gnome.h"
 
-#define GSM_SCHEMA "org.mate.session"
+#define GSM_SCHEMA "org.cafe.session"
 #define GSM_DEFAULT_SESSION_KEY "default-session"
 #define GSM_REQUIRED_COMPONENTS_SCHEMA GSM_SCHEMA ".required-components"
 #define GSM_REQUIRED_COMPONENTS_LIST_KEY "required-components-list"
 
 #define ACCESSIBILITY_KEY     "accessibility"
-#define ACCESSIBILITY_SCHEMA  "org.mate.interface"
+#define ACCESSIBILITY_SCHEMA  "org.cafe.interface"
 
-#define DEBUG_SCHEMA          "org.mate.debug"
-#define DEBUG_KEY             "mate-session"
+#define DEBUG_SCHEMA          "org.cafe.debug"
+#define DEBUG_KEY             "cafe-session"
 
-#define VISUAL_SCHEMA         "org.mate.applications-at-visual"
+#define VISUAL_SCHEMA         "org.cafe.applications-at-visual"
 #define VISUAL_KEY            "exec"
 #define VISUAL_STARTUP_KEY    "startup"
 
-#define MOBILITY_SCHEMA       "org.mate.applications-at-mobility"
+#define MOBILITY_SCHEMA       "org.cafe.applications-at-mobility"
 #define MOBILITY_KEY          "exec"
 #define MOBILITY_STARTUP_KEY  "startup"
 
-#define MATE_INTERFACE_SCHEMA "org.mate.interface"
+#define MATE_INTERFACE_SCHEMA "org.cafe.interface"
 #define GTK_OVERLAY_SCROLL    "gtk-overlay-scrolling"
 
 #define GSM_DBUS_NAME "org.gnome.SessionManager"
@@ -578,7 +578,7 @@ static gboolean
 check_gl (GError **error)
 {
 	int status;
-	char *argv[] = { LIBEXECDIR "/mate-session-check-accelerated", NULL };
+	char *argv[] = { LIBEXECDIR "/cafe-session-check-accelerated", NULL };
 
 	if (getenv ("DISPLAY") == NULL) {
 		/* Not connected to X11, someone else will take care of checking GL */

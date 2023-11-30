@@ -34,9 +34,9 @@
 #define GSM_PATH_DBUS "/org/gnome/SessionManager"
 #define GSM_INTERFACE_DBUS "org.gnome.SessionManager"
 
-#define GSM_SERVICE_DBUS_OLD "org.mate.SessionManager"
-#define GSM_PATH_DBUS_OLD "/org/mate/SessionManager"
-#define GSM_INTERFACE_DBUS_OLD "org.mate.SessionManager"
+#define GSM_SERVICE_DBUS_OLD "org.cafe.SessionManager"
+#define GSM_PATH_DBUS_OLD "/org/cafe/SessionManager"
+#define GSM_INTERFACE_DBUS_OLD "org.cafe.SessionManager"
 
 enum {
 	GSM_LOGOUT_MODE_NORMAL = 0,
