@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=MATE
+Comment=This session logs you into MATE
+Exec=mate-session
+TryExec=mate-session
+Icon=
+Type=Application
+DesktopNames=MATE
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=launch;MATE;desktop;session;
+

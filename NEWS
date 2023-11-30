@@ -1,0 +1,186 @@
+### mate-session-manager 1.24.1
+
+  * Translations update
+  * Using #include with system libraries
+  * build: silent build warnings for distcheck
+  * Accept Desktop Entry Specification v1.1
+  * use default MATE_COMPILE_WARNINGS for stable branch
+  * build: make libglesv2 optional
+
+### mate-session-manager 1.24.0
+
+  * Translations update
+  * build: show warning flags on configure summary
+  * avoid redundant redeclarations
+  * desktop files: add translator hints
+  * Fix timeout with gnome-keyring 3.34
+  * Remove GNOME_KEYRING_LIFETIME_FD
+  * po/Makevars: Set COPYRIGHT_HOLDER to The MATE Team
+  * Fix mate-session-properties vertical scaling
+
+### mate-session-manager 1.23.0
+
+  * Translations update
+  * Remove trailing whitespaces
+  * migrate from intltool to gettext
+  * Change url project's website
+  * [ci] Add cppcheck html report
+  * test-inhibit.c: migrate to gdbus
+  * Don't add apps repeatedly
+  * Add Show hidden checkbox and gsettings flag.
+  * Hide NoDisplay Apps in Startup Applications
+  * Simplify the installation process of the icons
+  * main: Potential leak of memory pointed to by 'new_argv'
+  * [Security] Use 'g_strlcpy' instead of 'strcpy'
+  * [ci] Enable Clang Static Analyzer
+  * Add missing CPPFLAGS for mate_session_check_accelerated helpers
+  * Add hardware-compatibility file
+  * Fix unable to retrieve org.gnome.SessionManager.Renderer property
+  * mate-session-check-accelerated-gles-helper
+  * Add mate_session_check_accelerated helpers
+  * add installation instructions and update URL
+  * Add ELOGIND support
+  * Guard against missing systemd
+
+### mate-session-manager 1.22.0
+
+  * Translations update
+  * initial travis-CI support
+  * manager: restart user bus if last graphical session
+  * systemd: add api for detecting if this is the last session for a user
+  * gsm: Disconnect all dbus clients when dbus is disconnected
+  * manager: don't wait for all clients to exit before exiting
+  * [gsm-autostart-app] Migrate from dbus-glib to gdbus
+  * gsm-app-dialog: make the seconds translatables in the spinbutton
+  * disable deprecation warnings for distcheck
+  * change app startup dalay where it in system path
+  * Remove X-GNOME-Autostart-Delay support
+  * Add a delay setting to Startup Manager
+  * gsm-properties-dialog: avoid 'gtk_dialog_add_buttons' with stock ids
+  * avoid 'gtk_dialog_add_button' with stock ids
+  * mate-session-save: show icon in error dialog
+  * Migrate from dbus-glib to gdbus
+  * gsm-inhibit-dialog.ui: avoid deprecated GtkVBox
+  * session-properties.ui: avoid deprecations
+  * gsm-manager: avoid deprecated 'g_settings_list_schemas'
+  * Avoid compile warning for g_type_class_add_private
+  * Only show application name when run with --version
+  * Strip outer single quotes from string value returned by gsettings in mate-wm script.
+  * replace deprecated gdk_error_trap functions
+  * Fixed typo in --logout-dialog option
+
+### mate-session-manager 1.21.0
+
+  * Translations update
+  * Fix broken link in man pages
+  * avoid deprecated GtkStock
+
+### mate-session-manager 1.20.0
+
+  * Translations update
+  * require GTK+ 3.22 and GLib 2.50
+  * gsm-manager.c: Fix build warning:
+
+### mate-session-manager 1.19.1
+
+  * Translations update
+  * don't lose focus when displaying logout or shutdown dialog
+  * README: remove link to mailing list
+  * add style class logout-dialog
+  * avoid deprecated gdk_screen_make_display_name
+  * don't use deprecated gtk_show_uri
+
+### mate-session-manager 1.19.0
+
+  * Translations update
+  * avoid deprecated gdk_screen_get_number
+  * systemd user-session needs to be updated to get all user-defined
+    enviroment when the session starts.
+  * dbus needs to be updated to get all user-defined environment when
+    the session starts.
+  * Restore Polish translation credits from GNOME
+
+### mate-session-manager 1.18.0
+
+  * NEWS: use consistent, project wide, markdown-like formatting to make
+    generating release announcements easier
+  * Replace deprecated upower suspend/hibernate functions with ConsoleKit2
+    equivalents (and drop --enable-upower build option)
+  * Translations update
+
+### mate-session-manager 1.16.1
+
+  * Build: check stricter for presence of xtrans (ensure that mate-session
+    won't listen to TCP ports)
+  * Session properties: fix vertical expand of content with window resize
+  * Check for gdm-binary process when switching user
+
+### mate-session-manager 1.16.0
+
+  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
+    build option
+  * Translations update
+
+### mate-session-manager 1.14.1
+
+  * GTK+3: fix critical warning in logout/shutdown dialogs
+  * Translations update
+
+### mate-session-manager 1.14.0
+
+  * Drop MateConf migration script
+  * GTK+3: fix some deprecations
+  * Some more fixes and cleanups
+  * Translations update
+  * Add Changelog generation
+
+### mate-session-manager 1.12.2
+
+  * Fix rare build failure with upower >= 0.99 when both systemd and upower
+    support are enabled
+
+### mate-session-manager 1.12.1
+
+  * Get rid of dependency on libmate-desktop
+
+### mate-session-manager 1.12.0
+
+  * Add support for an optional dock, such as Plank
+  * Retrieve strings directly from gschema (requires intltool 0.50.1)
+  * Switch to org.gnome.SessionManager
+  * Add support for new libsystemd library (in addition to libsystemd-login)
+  * Only wait 1 second max on logout/shutdown
+  * Turn GTK+3 overlay scrolling on/off on start using new gsettings key
+  * Some more fixes and cleanups
+
+### mate-session-manager 1.10.2
+
+  * Reintroduce missing help in session properties dialog
+  * Set XDG_CURRENT_DESKTOP env var to MATE
+  * Some bugfixes
+  * Translations update
+
+### mate-session-manager 1.10.1
+
+  * Fix size of GtkScrolledWindow in session properties.
+  * Check for running display manager when user switching.
+
+### mate-session-manager 1.10.0
+
+  * Disable upower support by default (use --enable-upower if you need it)
+
+### mate-session-manager 1.8.1
+
+  * Add autostart of accessibility apps
+  * Fix build with upower disabled
+
+### mate-session-manager 1.8.0
+
+  * Show a progress bar in logout dialog
+  * Add GTK3 support
+  * Add gnome keyring support
+  * Add support for X-MATE-Autostart-Delay in desktop files
+
+### mate-session-manager 1.6.0
+
+  * Migrate to gsettings (dropped mateconf)
