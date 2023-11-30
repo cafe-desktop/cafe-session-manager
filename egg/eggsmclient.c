@@ -225,12 +225,12 @@ egg_sm_client_get_option_group (void)
     { "sm-client-id", 0, 0,
       G_OPTION_ARG_STRING, &sm_client_id,
       N_("Specify session management ID"), N_("ID") },
-    /* MateClient compatibility option */
+    /* CafeClient compatibility option */
     { "sm-disable", 0, G_OPTION_FLAG_HIDDEN,
       G_OPTION_ARG_NONE, &sm_client_disable,
       NULL, NULL },
-    /* MateClient compatibility option. This is a dummy option that only
-     * exists so that sessions saved by apps with MateClient can be restored
+    /* CafeClient compatibility option. This is a dummy option that only
+     * exists so that sessions saved by apps with CafeClient can be restored
      * later when they've switched to EggSMClient. See bug #575308.
      */
     { "sm-config-prefix", 0, G_OPTION_FLAG_HIDDEN,

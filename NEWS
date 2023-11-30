@@ -128,7 +128,7 @@
 
 ### cafe-session-manager 1.14.0
 
-  * Drop MateConf migration script
+  * Drop CafeConf migration script
   * GTK+3: fix some deprecations
   * Some more fixes and cleanups
   * Translations update

@@ -118,7 +118,7 @@ msgstr "Gardar as sesións"
 #: data/org.cafe.session.gschema.xml.in:11
 msgid "If enabled, cafe-session will save the session automatically."
 msgstr ""
-"Se está activada, o cafe-session (sesión do Mate) gardará a sesión "
+"Se está activada, o cafe-session (sesión do Cafe) gardará a sesión "
 "automaticamente."
 
 #: data/org.cafe.session.gschema.xml.in:15
@@ -129,7 +129,7 @@ msgstr "Amosar as aplicacións de inicio automático agochadas"
 msgid ""
 "If enabled, cafe-session-properties will show hidden autostart applications."
 msgstr ""
-"Se está activado, o cafe-session-properties (propiedades da sesión do Mate) "
+"Se está activado, o cafe-session-properties (propiedades da sesión do Cafe) "
 "amosará as aplicacións de inicio automático agochadas."
 
 #: data/org.cafe.session.gschema.xml.in:20
@@ -139,7 +139,7 @@ msgstr "Preguntar ao terminar a sesión"
 #: data/org.cafe.session.gschema.xml.in:21
 msgid "If enabled, cafe-session will prompt the user before ending a session."
 msgstr ""
-"Se está activada, o cafe-session (sesión do Mate) preguntará ao usuario "
+"Se está activada, o cafe-session (sesión do Cafe) preguntará ao usuario "
 "antes de terminar unha sesión."
 
 #: data/org.cafe.session.gschema.xml.in:26
