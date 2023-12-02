@@ -19,7 +19,6 @@ requires:
     - libgl1-mesa-dev
     - libgles2-mesa-dev
     - libglib2.0-dev
-    - libctk-3-dev
     - libice-dev
     - libsm-dev
     - libstartup-notification0-dev
@@ -37,6 +36,7 @@ requires:
 
 before_scripts:
   - ./html-cppcheck
+  - ./debrepo-install 'libctk-3-dev'
   - ./install-from-git https://github.com/cafe-desktop/cafe-common master
 
 build_scripts:
