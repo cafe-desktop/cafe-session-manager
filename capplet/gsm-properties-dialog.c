@@ -594,15 +594,15 @@ setup_dialog (GsmPropertiesDialog *dialog)
         ctk_tree_view_set_search_column (treeview, STORE_COL_SEARCH);
 
         ctk_tree_view_enable_model_drag_source (treeview,
-                                                GDK_BUTTON1_MASK|GDK_BUTTON2_MASK,
+                                                CDK_BUTTON1_MASK|CDK_BUTTON2_MASK,
                                                 NULL, 0,
-                                                GDK_ACTION_COPY);
+                                                CDK_ACTION_COPY);
         ctk_drag_source_add_uri_targets (CTK_WIDGET (treeview));
 
         ctk_drag_dest_set (CTK_WIDGET (treeview),
                            CTK_DEST_DEFAULT_ALL,
                            NULL, 0,
-                           GDK_ACTION_COPY);
+                           CDK_ACTION_COPY);
         ctk_drag_dest_add_uri_targets (CTK_WIDGET (treeview));
 
         /* we don't want to accept drags coming from this widget */

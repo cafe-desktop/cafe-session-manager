@@ -31,7 +31,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifdef GDK_WINDOWING_X11
+#ifdef CDK_WINDOWING_X11
 #define GL_GLEXT_PROTOTYPES
 
 #include <cdk/cdkx.h>
@@ -43,7 +43,7 @@
 
 #include "cafe-session-check-accelerated-common.h"
 
-#ifdef GDK_WINDOWING_X11
+#ifdef CDK_WINDOWING_X11
 static EGLDisplay
 get_display (void *native)
 {
@@ -103,7 +103,7 @@ get_gles_renderer (void)
 
         cdk_dpy = cdk_display_get_default ();
         cdk_x11_display_error_trap_push (cdk_dpy);
-        display = GDK_DISPLAY_XDISPLAY (cdk_dpy);
+        display = CDK_DISPLAY_XDISPLAY (cdk_dpy);
         egl_dpy = get_display (display);
         if (!egl_dpy) {
                 g_warning ("eglGetDisplay() failed");
@@ -215,7 +215,7 @@ main (int argc,
                 goto out;
         }
 
-#ifdef GDK_WINDOWING_X11
+#ifdef CDK_WINDOWING_X11
         char *renderer = get_gles_renderer ();
         if (renderer != NULL) {
                 if (print_renderer)
