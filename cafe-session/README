@@ -11,12 +11,12 @@ represents an app resumed from the previous saved session.)
 
 Startup is divided into 6 phases (GsmSessionPhase):
 
-    * GSM_SESSION_PHASE_STARTUP covers cafe-session's internal
+    * CSM_SESSION_PHASE_STARTUP covers cafe-session's internal
       startup, which also includes starting dbus-daemon (if
       it's not already running). Cafe-session starts up those
       explicitly because it needs them for its own purposes.
 
-    * GSM_SESSION_PHASE_INITIALIZATION is the first phase of "normal"
+    * CSM_SESSION_PHASE_INITIALIZATION is the first phase of "normal"
       startup (ie, startup controlled by .desktop files rather than
       hardcoding). It covers low-level stuff like
       cafe-settings-daemon and at-spi-registryd, that need to be
@@ -27,18 +27,18 @@ Startup is divided into 6 phases (GsmSessionPhase):
       in cafe-session's environment. This can be used for things like
       $CTK_MODULES, $CAFE_KEYRING_SOCKET, etc
 
-    * GSM_SESSION_PHASE_WINDOW_MANAGER includes window managers and
+    * CSM_SESSION_PHASE_WINDOW_MANAGER includes window managers and
       compositing managers, and anything else that has to be running
       before any windows are mapped
 
-    * GSM_SESSION_PHASE_PANEL includes anything that permanently takes
+    * CSM_SESSION_PHASE_PANEL includes anything that permanently takes
       up screen real estate (via EWMH struts). This is the first phase
       where things actually appear on the screen.
 
-    * GSM_SESSION_PHASE_DESKTOP includes anything that draws directly
+    * CSM_SESSION_PHASE_DESKTOP includes anything that draws directly
       on the desktop (eg, caja).
 
-    * GSM_SESSION_PHASE_APPLICATION is everything else (normal apps,
+    * CSM_SESSION_PHASE_APPLICATION is everything else (normal apps,
       tray icons, etc)
 
 For each startup phase, GsmSession launches the appropriate GsmApps.
@@ -54,7 +54,7 @@ of resumed apps.
 Running/Shutdown
 ----------------
 
-GSM_SESSION_PHASE_RUNNING is pretty similar to the old cafe-session;
+CSM_SESSION_PHASE_RUNNING is pretty similar to the old cafe-session;
 mostly it just tracks XSMP clients, and watches for
 SmRestartImmediately clients exiting (NOTE: THIS DOESN'T HAPPEN YET).
 

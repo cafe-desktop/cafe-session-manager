@@ -19,8 +19,8 @@
  */
 
 
-#ifndef __GSM_XSMP_SERVER_H
-#define __GSM_XSMP_SERVER_H
+#ifndef __CSM_XSMP_SERVER_H
+#define __CSM_XSMP_SERVER_H
 
 #include <glib-object.h>
 
@@ -28,7 +28,7 @@
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_XSMP_SERVER         (gsm_xsmp_server_get_type ())
+#define CSM_TYPE_XSMP_SERVER         (gsm_xsmp_server_get_type ())
 G_DECLARE_FINAL_TYPE (GsmXsmpServer, gsm_xsmp_server, GSM, XSMP_SERVER, GObject)
 
 GsmXsmpServer *     gsm_xsmp_server_new                            (GsmStore      *client_store);
@@ -36,4 +36,4 @@ void                gsm_xsmp_server_start                          (GsmXsmpServe
 
 G_END_DECLS
 
-#endif /* __GSM_XSMP_SERVER_H */
+#endif /* __CSM_XSMP_SERVER_H */

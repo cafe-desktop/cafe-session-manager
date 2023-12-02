@@ -18,15 +18,15 @@
  *
  */
 
-#ifndef __GSM_APP_DIALOG_H
-#define __GSM_APP_DIALOG_H
+#ifndef __CSM_APP_DIALOG_H
+#define __CSM_APP_DIALOG_H
 
 #include <glib-object.h>
 #include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_APP_DIALOG              (gsm_app_dialog_get_type ())
+#define CSM_TYPE_APP_DIALOG              (gsm_app_dialog_get_type ())
 G_DECLARE_FINAL_TYPE (GsmAppDialog, gsm_app_dialog, GSM, APP_DIALOG, CtkDialog)
 
 CtkWidget            * gsm_app_dialog_new                (const char   *name,
@@ -47,4 +47,4 @@ guint                  gsm_app_dialog_get_delay          (GsmAppDialog *dialog);
 
 G_END_DECLS
 
-#endif /* __GSM_APP_DIALOG_H */
+#endif /* __CSM_APP_DIALOG_H */

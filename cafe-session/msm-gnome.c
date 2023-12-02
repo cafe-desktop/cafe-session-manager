@@ -41,8 +41,8 @@
 
 #include "msm-gnome.h"
 
-#define GSM_SCHEMA "org.cafe.session"
-#define GSM_GNOME_COMPAT_STARTUP_KEY "gnome-compat-startup"
+#define CSM_SCHEMA "org.cafe.session"
+#define CSM_GNOME_COMPAT_STARTUP_KEY "gnome-compat-startup"
 
 #define GNOME_KEYRING_DAEMON "gnome-keyring-daemon"
 
@@ -156,8 +156,8 @@ msm_gnome_start (void)
   if (gnome_compat_started == TRUE)
     return;
 
-  settings = g_settings_new (GSM_SCHEMA);
-  array = g_settings_get_strv (settings, GSM_GNOME_COMPAT_STARTUP_KEY);
+  settings = g_settings_new (CSM_SCHEMA);
+  array = g_settings_get_strv (settings, CSM_GNOME_COMPAT_STARTUP_KEY);
   if (array) {
     guint i;
 

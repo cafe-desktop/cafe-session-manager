@@ -19,8 +19,8 @@
  * 02110-1301, USA.
  */
 
-#ifndef __GSM_AUTOSTART_APP_H__
-#define __GSM_AUTOSTART_APP_H__
+#ifndef __CSM_AUTOSTART_APP_H__
+#define __CSM_AUTOSTART_APP_H__
 
 #include "csm-app.h"
 
@@ -28,7 +28,7 @@
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_AUTOSTART_APP            (gsm_autostart_app_get_type ())
+#define CSM_TYPE_AUTOSTART_APP            (gsm_autostart_app_get_type ())
 G_DECLARE_DERIVABLE_TYPE (GsmAutostartApp, gsm_autostart_app, GSM, AUTOSTART_APP, GsmApp)
 
 struct _GsmAutostartAppClass
@@ -42,17 +42,17 @@ struct _GsmAutostartAppClass
 
 GsmApp *gsm_autostart_app_new                (const char *desktop_file);
 
-#define GSM_AUTOSTART_APP_ENABLED_KEY     "X-CAFE-Autostart-enabled"
-#define GSM_AUTOSTART_APP_PHASE_KEY       "X-CAFE-Autostart-Phase"
-#define GSM_AUTOSTART_APP_PROVIDES_KEY    "X-CAFE-Provides"
-#define GSM_AUTOSTART_APP_STARTUP_ID_KEY  "X-CAFE-Autostart-startup-id"
-#define GSM_AUTOSTART_APP_AUTORESTART_KEY "X-CAFE-AutoRestart"
-#define GSM_AUTOSTART_APP_DBUS_NAME_KEY   "X-CAFE-DBus-Name"
-#define GSM_AUTOSTART_APP_DBUS_PATH_KEY   "X-CAFE-DBus-Path"
-#define GSM_AUTOSTART_APP_DBUS_ARGS_KEY   "X-CAFE-DBus-Start-Arguments"
-#define GSM_AUTOSTART_APP_DISCARD_KEY     "X-CAFE-Autostart-discard-exec"
-#define GSM_AUTOSTART_APP_DELAY_KEY       "X-CAFE-Autostart-Delay"
+#define CSM_AUTOSTART_APP_ENABLED_KEY     "X-CAFE-Autostart-enabled"
+#define CSM_AUTOSTART_APP_PHASE_KEY       "X-CAFE-Autostart-Phase"
+#define CSM_AUTOSTART_APP_PROVIDES_KEY    "X-CAFE-Provides"
+#define CSM_AUTOSTART_APP_STARTUP_ID_KEY  "X-CAFE-Autostart-startup-id"
+#define CSM_AUTOSTART_APP_AUTORESTART_KEY "X-CAFE-AutoRestart"
+#define CSM_AUTOSTART_APP_DBUS_NAME_KEY   "X-CAFE-DBus-Name"
+#define CSM_AUTOSTART_APP_DBUS_PATH_KEY   "X-CAFE-DBus-Path"
+#define CSM_AUTOSTART_APP_DBUS_ARGS_KEY   "X-CAFE-DBus-Start-Arguments"
+#define CSM_AUTOSTART_APP_DISCARD_KEY     "X-CAFE-Autostart-discard-exec"
+#define CSM_AUTOSTART_APP_DELAY_KEY       "X-CAFE-Autostart-Delay"
 
 G_END_DECLS
 
-#endif /* __GSM_AUTOSTART_APP_H__ */
+#endif /* __CSM_AUTOSTART_APP_H__ */

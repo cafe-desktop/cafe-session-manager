@@ -277,7 +277,7 @@ sm_client_xsmp_set_initial_properties (gpointer user_data)
   if (desktop_file)
     {
       set_properties (xsmp,
-		      string_prop ("_GSM_DesktopFile", egg_desktop_file_get_source (desktop_file)),
+		      string_prop ("_CSM_DesktopFile", egg_desktop_file_get_source (desktop_file)),
 		      NULL);
     }
 

@@ -21,16 +21,16 @@
  *	Jon McCann <jmccann@redhat.com>
  */
 
-#ifndef __GSM_CONSOLEKIT_H__
-#define __GSM_CONSOLEKIT_H__
+#ifndef __CSM_CONSOLEKIT_H__
+#define __CSM_CONSOLEKIT_H__
 
 #include <glib.h>
 #include <glib-object.h>
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_CONSOLEKIT             (gsm_consolekit_get_type ())
-#define GSM_CONSOLEKIT_ERROR            (gsm_consolekit_error_quark ())
+#define CSM_TYPE_CONSOLEKIT             (gsm_consolekit_get_type ())
+#define CSM_CONSOLEKIT_ERROR            (gsm_consolekit_error_quark ())
 
 G_DECLARE_DERIVABLE_TYPE (GsmConsolekit, gsm_consolekit, GSM, CONSOLEKIT, GObject)
 
@@ -50,11 +50,11 @@ struct _GsmConsolekitClass
 };
 
 enum _GsmConsolekitError {
-        GSM_CONSOLEKIT_ERROR_RESTARTING = 0,
-        GSM_CONSOLEKIT_ERROR_STOPPING
+        CSM_CONSOLEKIT_ERROR_RESTARTING = 0,
+        CSM_CONSOLEKIT_ERROR_STOPPING
 };
 
-#define GSM_CONSOLEKIT_SESSION_TYPE_LOGIN_WINDOW "LoginWindow"
+#define CSM_CONSOLEKIT_SESSION_TYPE_LOGIN_WINDOW "LoginWindow"
 
 GQuark           gsm_consolekit_error_quark     (void);
 
@@ -91,4 +91,4 @@ GsmConsolekit   *gsm_get_consolekit             (void);
 
 G_END_DECLS
 
-#endif /* __GSM_CONSOLEKIT_H__ */
+#endif /* __CSM_CONSOLEKIT_H__ */

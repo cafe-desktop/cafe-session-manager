@@ -30,18 +30,18 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#define GSM_SERVICE_DBUS "org.gnome.SessionManager"
-#define GSM_PATH_DBUS "/org/gnome/SessionManager"
-#define GSM_INTERFACE_DBUS "org.gnome.SessionManager"
+#define CSM_SERVICE_DBUS "org.gnome.SessionManager"
+#define CSM_PATH_DBUS "/org/gnome/SessionManager"
+#define CSM_INTERFACE_DBUS "org.gnome.SessionManager"
 
-#define GSM_SERVICE_DBUS_OLD "org.cafe.SessionManager"
-#define GSM_PATH_DBUS_OLD "/org/cafe/SessionManager"
-#define GSM_INTERFACE_DBUS_OLD "org.cafe.SessionManager"
+#define CSM_SERVICE_DBUS_OLD "org.cafe.SessionManager"
+#define CSM_PATH_DBUS_OLD "/org/cafe/SessionManager"
+#define CSM_INTERFACE_DBUS_OLD "org.cafe.SessionManager"
 
 enum {
-	GSM_LOGOUT_MODE_NORMAL = 0,
-	GSM_LOGOUT_MODE_NO_CONFIRMATION,
-	GSM_LOGOUT_MODE_FORCE
+	CSM_LOGOUT_MODE_NORMAL = 0,
+	CSM_LOGOUT_MODE_NO_CONFIRMATION,
+	CSM_LOGOUT_MODE_FORCE
 };
 
 /* True if killing. This is deprecated, but we keep it for compatibility
@@ -100,9 +100,9 @@ static GDBusProxy* get_sm_proxy(void)
 	sm_proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION,
 	                                          G_DBUS_PROXY_FLAGS_NONE,
 	                                          NULL,
-	                                          GSM_SERVICE_DBUS,
-	                                          GSM_PATH_DBUS,
-	                                          GSM_INTERFACE_DBUS,
+	                                          CSM_SERVICE_DBUS,
+	                                          CSM_PATH_DBUS,
+	                                          CSM_INTERFACE_DBUS,
 	                                          NULL,
 	                                          &error);
 	if (sm_proxy == NULL)
@@ -115,9 +115,9 @@ static GDBusProxy* get_sm_proxy(void)
 		sm_proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION,
 		                                          G_DBUS_PROXY_FLAGS_NONE,
 		                                          NULL,
-		                                          GSM_SERVICE_DBUS_OLD,
-		                                          GSM_PATH_DBUS_OLD,
-		                                          GSM_INTERFACE_DBUS_OLD,
+		                                          CSM_SERVICE_DBUS_OLD,
+		                                          CSM_PATH_DBUS_OLD,
+		                                          CSM_INTERFACE_DBUS_OLD,
 		                                          NULL,
 		                                          NULL);
 		if (sm_proxy == NULL)
@@ -265,15 +265,15 @@ int main(int argc, char* argv[])
 
 	if (logout)
 	{
-		do_logout(GSM_LOGOUT_MODE_NO_CONFIRMATION);
+		do_logout(CSM_LOGOUT_MODE_NO_CONFIRMATION);
 	}
 	else if (force_logout)
 	{
-		do_logout(GSM_LOGOUT_MODE_FORCE);
+		do_logout(CSM_LOGOUT_MODE_FORCE);
 	}
 	else if (logout_dialog)
 	{
-		do_logout(GSM_LOGOUT_MODE_NORMAL);
+		do_logout(CSM_LOGOUT_MODE_NORMAL);
 	}
 	else if (shutdown_dialog)
 	{

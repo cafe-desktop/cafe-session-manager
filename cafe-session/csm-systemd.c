@@ -88,7 +88,7 @@ gsm_systemd_get_property (GObject    *object,
                           GParamSpec *pspec)
 {
     GsmSystemdPrivate *priv;
-    GsmSystemd *manager = GSM_SYSTEMD (object);
+    GsmSystemd *manager = CSM_SYSTEMD (object);
 
     priv = gsm_systemd_get_instance_private (manager);
 
@@ -155,7 +155,7 @@ gsm_systemd_dbus_filter (DBusConnection *connection,
 {
     GsmSystemd *manager;
 
-    manager = GSM_SYSTEMD (user_data);
+    manager = CSM_SYSTEMD (user_data);
 
     if (dbus_message_is_signal (message,
                                 DBUS_INTERFACE_LOCAL, "Disconnected") &&
@@ -340,7 +340,7 @@ gsm_systemd_finalize (GObject *object)
     GsmSystemd *manager;
     GObjectClass  *parent_class;
 
-    manager = GSM_SYSTEMD (object);
+    manager = CSM_SYSTEMD (object);
 
     parent_class = G_OBJECT_CLASS (gsm_systemd_parent_class);
 
@@ -368,7 +368,7 @@ gsm_systemd_new (void)
 {
     GsmSystemd *manager;
 
-    manager = g_object_new (GSM_TYPE_SYSTEMD, NULL);
+    manager = g_object_new (CSM_TYPE_SYSTEMD, NULL);
 
     return manager;
 }
@@ -382,8 +382,8 @@ emit_restart_complete (GsmSystemd *manager,
     call_error = NULL;
 
     if (error != NULL) {
-        call_error = g_error_new_literal (GSM_SYSTEMD_ERROR,
-                                          GSM_SYSTEMD_ERROR_RESTARTING,
+        call_error = g_error_new_literal (CSM_SYSTEMD_ERROR,
+                                          CSM_SYSTEMD_ERROR_RESTARTING,
                                           error->message);
     }
 
@@ -405,8 +405,8 @@ emit_stop_complete (GsmSystemd *manager,
     call_error = NULL;
 
     if (error != NULL) {
-        call_error = g_error_new_literal (GSM_SYSTEMD_ERROR,
-                                          GSM_SYSTEMD_ERROR_STOPPING,
+        call_error = g_error_new_literal (CSM_SYSTEMD_ERROR,
+                                          CSM_SYSTEMD_ERROR_STOPPING,
                                           error->message);
     }
 

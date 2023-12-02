@@ -19,14 +19,14 @@
  */
 
 
-#ifndef __GSM_STORE_H
-#define __GSM_STORE_H
+#ifndef __CSM_STORE_H
+#define __CSM_STORE_H
 
 #include <glib-object.h>
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_STORE         (gsm_store_get_type ())
+#define CSM_TYPE_STORE         (gsm_store_get_type ())
 G_DECLARE_DERIVABLE_TYPE (GsmStore, gsm_store, GSM, STORE, GObject)
 
 struct _GsmStoreClass
@@ -41,10 +41,10 @@ struct _GsmStoreClass
 
 typedef enum
 {
-         GSM_STORE_ERROR_GENERAL
+         CSM_STORE_ERROR_GENERAL
 } GsmStoreError;
 
-#define GSM_STORE_ERROR gsm_store_error_quark ()
+#define CSM_STORE_ERROR gsm_store_error_quark ()
 
 typedef gboolean (*GsmStoreFunc) (const char *id,
                                   GObject    *object,
@@ -80,4 +80,4 @@ GObject *           gsm_store_lookup                   (GsmStore    *store,
 
 G_END_DECLS
 
-#endif /* __GSM_STORE_H */
+#endif /* __CSM_STORE_H */

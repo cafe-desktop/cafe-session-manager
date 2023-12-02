@@ -136,7 +136,7 @@ find_inhibitor (GsmInhibitDialog *dialog,
         CtkTreeModel *model;
         gboolean      found_item;
 
-        g_assert (GSM_IS_INHIBIT_DIALOG (dialog));
+        g_assert (CSM_IS_INHIBIT_DIALOG (dialog));
 
         found_item = FALSE;
         model = CTK_TREE_MODEL (dialog->list_store);
@@ -564,7 +564,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
                 client_id = gsm_inhibitor_peek_client_id (inhibitor);
                 if (! IS_STRING_EMPTY (client_id)) {
                         GsmClient *client;
-                        client = GSM_CLIENT (gsm_store_lookup (dialog->clients, client_id));
+                        client = CSM_CLIENT (gsm_store_lookup (dialog->clients, client_id));
                         if (client != NULL) {
                                 freeme = gsm_client_get_app_name (client);
                                 name = freeme;
@@ -704,7 +704,7 @@ static void
 gsm_inhibit_dialog_set_inhibitor_store (GsmInhibitDialog *dialog,
                                         GsmStore         *store)
 {
-        g_return_if_fail (GSM_IS_INHIBIT_DIALOG (dialog));
+        g_return_if_fail (CSM_IS_INHIBIT_DIALOG (dialog));
 
         if (store != NULL) {
                 g_object_ref (store);
@@ -742,7 +742,7 @@ static void
 gsm_inhibit_dialog_set_client_store (GsmInhibitDialog *dialog,
                                      GsmStore         *store)
 {
-        g_return_if_fail (GSM_IS_INHIBIT_DIALOG (dialog));
+        g_return_if_fail (CSM_IS_INHIBIT_DIALOG (dialog));
 
         if (store != NULL) {
                 g_object_ref (store);
@@ -761,7 +761,7 @@ gsm_inhibit_dialog_set_property (GObject        *object,
                                  const GValue   *value,
                                  GParamSpec     *pspec)
 {
-        GsmInhibitDialog *dialog = GSM_INHIBIT_DIALOG (object);
+        GsmInhibitDialog *dialog = CSM_INHIBIT_DIALOG (object);
 
         switch (prop_id) {
         case PROP_ACTION:
@@ -785,7 +785,7 @@ gsm_inhibit_dialog_get_property (GObject        *object,
                                  GValue         *value,
                                  GParamSpec     *pspec)
 {
-        GsmInhibitDialog *dialog = GSM_INHIBIT_DIALOG (object);
+        GsmInhibitDialog *dialog = CSM_INHIBIT_DIALOG (object);
 
         switch (prop_id) {
         case PROP_ACTION:
@@ -861,22 +861,22 @@ setup_dialog (GsmInhibitDialog *dialog)
         CtkCellRenderer   *renderer;
 
         switch (dialog->action) {
-        case GSM_LOGOUT_ACTION_SWITCH_USER:
+        case CSM_LOGOUT_ACTION_SWITCH_USER:
                 button_text = _("Switch User Anyway");
                 break;
-        case GSM_LOGOUT_ACTION_LOGOUT:
+        case CSM_LOGOUT_ACTION_LOGOUT:
                 button_text = _("Log Out Anyway");
                 break;
-        case GSM_LOGOUT_ACTION_SLEEP:
+        case CSM_LOGOUT_ACTION_SLEEP:
                 button_text = _("Suspend Anyway");
                 break;
-        case GSM_LOGOUT_ACTION_HIBERNATE:
+        case CSM_LOGOUT_ACTION_HIBERNATE:
                 button_text = _("Hibernate Anyway");
                 break;
-        case GSM_LOGOUT_ACTION_SHUTDOWN:
+        case CSM_LOGOUT_ACTION_SHUTDOWN:
                 button_text = _("Shut Down Anyway");
                 break;
-        case GSM_LOGOUT_ACTION_REBOOT:
+        case CSM_LOGOUT_ACTION_REBOOT:
                 button_text = _("Reboot Anyway");
                 break;
         default:
@@ -949,7 +949,7 @@ gsm_inhibit_dialog_constructor (GType                  type,
 #ifdef HAVE_XRENDER
         CdkDisplay *cdkdisplay;
 #endif /* HAVE_XRENDER */
-        dialog = GSM_INHIBIT_DIALOG (G_OBJECT_CLASS (gsm_inhibit_dialog_parent_class)->constructor (type,
+        dialog = CSM_INHIBIT_DIALOG (G_OBJECT_CLASS (gsm_inhibit_dialog_parent_class)->constructor (type,
                                                                                                     n_construct_properties,
                                                                                                     construct_properties));
 
@@ -983,9 +983,9 @@ gsm_inhibit_dialog_dispose (GObject *object)
         GsmInhibitDialog *dialog;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (GSM_IS_INHIBIT_DIALOG (object));
+        g_return_if_fail (CSM_IS_INHIBIT_DIALOG (object));
 
-        dialog = GSM_INHIBIT_DIALOG (object);
+        dialog = CSM_INHIBIT_DIALOG (object);
 
         g_debug ("GsmInhibitDialog: dispose called");
 
@@ -1039,14 +1039,14 @@ gsm_inhibit_dialog_class_init (GsmInhibitDialogClass *klass)
                                          g_param_spec_object ("inhibitor-store",
                                                               NULL,
                                                               NULL,
-                                                              GSM_TYPE_STORE,
+                                                              CSM_TYPE_STORE,
                                                               G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
         g_object_class_install_property (object_class,
                                          PROP_CLIENT_STORE,
                                          g_param_spec_object ("client-store",
                                                               NULL,
                                                               NULL,
-                                                              GSM_TYPE_STORE,
+                                                              CSM_TYPE_STORE,
                                                               G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 }
 
@@ -1092,9 +1092,9 @@ gsm_inhibit_dialog_finalize (GObject *object)
         GsmInhibitDialog *dialog;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (GSM_IS_INHIBIT_DIALOG (object));
+        g_return_if_fail (CSM_IS_INHIBIT_DIALOG (object));
 
-        dialog = GSM_INHIBIT_DIALOG (object);
+        dialog = CSM_INHIBIT_DIALOG (object);
 
         g_return_if_fail (dialog != NULL);
 
@@ -1110,7 +1110,7 @@ gsm_inhibit_dialog_new (GsmStore *inhibitors,
 {
         GObject *object;
 
-        object = g_object_new (GSM_TYPE_INHIBIT_DIALOG,
+        object = g_object_new (CSM_TYPE_INHIBIT_DIALOG,
                                "action", action,
                                "inhibitor-store", inhibitors,
                                "client-store", clients,

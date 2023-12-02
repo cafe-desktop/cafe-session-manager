@@ -285,7 +285,7 @@ gsm_app_dialog_constructor (GType                  type,
 {
         GsmAppDialog *dialog;
 
-        dialog = GSM_APP_DIALOG (G_OBJECT_CLASS (gsm_app_dialog_parent_class)->constructor (type,
+        dialog = CSM_APP_DIALOG (G_OBJECT_CLASS (gsm_app_dialog_parent_class)->constructor (type,
                                                                                             n_construct_app,
                                                                                             construct_app));
 
@@ -300,9 +300,9 @@ gsm_app_dialog_dispose (GObject *object)
         GsmAppDialog *dialog;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (GSM_IS_APP_DIALOG (object));
+        g_return_if_fail (CSM_IS_APP_DIALOG (object));
 
-        dialog = GSM_APP_DIALOG (object);
+        dialog = CSM_APP_DIALOG (object);
 
         g_free (dialog->name);
         dialog->name = NULL;
@@ -318,7 +318,7 @@ static void
 gsm_app_dialog_set_name (GsmAppDialog *dialog,
                          const char   *name)
 {
-        g_return_if_fail (GSM_IS_APP_DIALOG (dialog));
+        g_return_if_fail (CSM_IS_APP_DIALOG (dialog));
 
         g_free (dialog->name);
 
@@ -330,7 +330,7 @@ static void
 gsm_app_dialog_set_command (GsmAppDialog *dialog,
                             const char   *name)
 {
-        g_return_if_fail (GSM_IS_APP_DIALOG (dialog));
+        g_return_if_fail (CSM_IS_APP_DIALOG (dialog));
 
         g_free (dialog->command);
 
@@ -342,7 +342,7 @@ static void
 gsm_app_dialog_set_comment (GsmAppDialog *dialog,
                             const char   *name)
 {
-        g_return_if_fail (GSM_IS_APP_DIALOG (dialog));
+        g_return_if_fail (CSM_IS_APP_DIALOG (dialog));
 
         g_free (dialog->comment);
 
@@ -354,7 +354,7 @@ static void
 gsm_app_dialog_set_delay (GsmAppDialog *dialog,
                           guint delay)
 {
-        g_return_if_fail (GSM_IS_APP_DIALOG (dialog));
+        g_return_if_fail (CSM_IS_APP_DIALOG (dialog));
 
         dialog->delay = delay;
         g_object_notify (G_OBJECT (dialog), "delay");
@@ -363,28 +363,28 @@ gsm_app_dialog_set_delay (GsmAppDialog *dialog,
 const char *
 gsm_app_dialog_get_name (GsmAppDialog *dialog)
 {
-        g_return_val_if_fail (GSM_IS_APP_DIALOG (dialog), NULL);
+        g_return_val_if_fail (CSM_IS_APP_DIALOG (dialog), NULL);
         return ctk_entry_get_text (CTK_ENTRY (dialog->name_entry));
 }
 
 const char *
 gsm_app_dialog_get_command (GsmAppDialog *dialog)
 {
-        g_return_val_if_fail (GSM_IS_APP_DIALOG (dialog), NULL);
+        g_return_val_if_fail (CSM_IS_APP_DIALOG (dialog), NULL);
         return ctk_entry_get_text (CTK_ENTRY (dialog->command_entry));
 }
 
 const char *
 gsm_app_dialog_get_comment (GsmAppDialog *dialog)
 {
-        g_return_val_if_fail (GSM_IS_APP_DIALOG (dialog), NULL);
+        g_return_val_if_fail (CSM_IS_APP_DIALOG (dialog), NULL);
         return ctk_entry_get_text (CTK_ENTRY (dialog->comment_entry));
 }
 
 guint
 gsm_app_dialog_get_delay (GsmAppDialog *dialog)
 {
-        g_return_val_if_fail (GSM_IS_APP_DIALOG (dialog), 0);
+        g_return_val_if_fail (CSM_IS_APP_DIALOG (dialog), 0);
         return dialog->delay;
 }
 
@@ -394,7 +394,7 @@ gsm_app_dialog_set_property (GObject        *object,
                              const GValue   *value,
                              GParamSpec     *pspec)
 {
-        GsmAppDialog *dialog = GSM_APP_DIALOG (object);
+        GsmAppDialog *dialog = CSM_APP_DIALOG (object);
 
         switch (prop_id) {
         case PROP_NAME:
@@ -421,7 +421,7 @@ gsm_app_dialog_get_property (GObject        *object,
                              GValue         *value,
                              GParamSpec     *pspec)
 {
-        GsmAppDialog *dialog = GSM_APP_DIALOG (object);
+        GsmAppDialog *dialog = CSM_APP_DIALOG (object);
 
         switch (prop_id) {
         case PROP_NAME:
@@ -498,7 +498,7 @@ gsm_app_dialog_new (const char *name,
 {
         GObject *object;
 
-        object = g_object_new (GSM_TYPE_APP_DIALOG,
+        object = g_object_new (CSM_TYPE_APP_DIALOG,
                                "name", name,
                                "command", command,
                                "comment", comment,
@@ -529,10 +529,10 @@ gsm_app_dialog_run (GsmAppDialog  *dialog,
                 char      **argv;
                 int         argc;
 
-                name = gsm_app_dialog_get_name (GSM_APP_DIALOG (dialog));
-                exec = gsm_app_dialog_get_command (GSM_APP_DIALOG (dialog));
-                comment = gsm_app_dialog_get_comment (GSM_APP_DIALOG (dialog));
-                delay = gsm_app_dialog_get_delay (GSM_APP_DIALOG (dialog));
+                name = gsm_app_dialog_get_name (CSM_APP_DIALOG (dialog));
+                exec = gsm_app_dialog_get_command (CSM_APP_DIALOG (dialog));
+                comment = gsm_app_dialog_get_comment (CSM_APP_DIALOG (dialog));
+                delay = gsm_app_dialog_get_delay (CSM_APP_DIALOG (dialog));
 
                 error = NULL;
                 error_msg = NULL;

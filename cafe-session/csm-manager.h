@@ -19,8 +19,8 @@
  */
 
 
-#ifndef __GSM_MANAGER_H
-#define __GSM_MANAGER_H
+#ifndef __CSM_MANAGER_H
+#define __CSM_MANAGER_H
 
 #include <glib-object.h>
 #include <dbus/dbus-glib.h>
@@ -29,7 +29,7 @@
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_MANAGER         (gsm_manager_get_type ())
+#define CSM_TYPE_MANAGER         (gsm_manager_get_type ())
 G_DECLARE_DERIVABLE_TYPE (GsmManager, gsm_manager, GSM, MANAGER, GObject)
 
 struct _GsmManagerClass
@@ -55,47 +55,47 @@ struct _GsmManagerClass
 
 typedef enum {
         /* gsm's own startup/initialization phase */
-        GSM_MANAGER_PHASE_STARTUP = 0,
+        CSM_MANAGER_PHASE_STARTUP = 0,
         /* xrandr setup, cafe-settings-daemon, etc */
-        GSM_MANAGER_PHASE_INITIALIZATION,
+        CSM_MANAGER_PHASE_INITIALIZATION,
         /* window/compositing managers */
-        GSM_MANAGER_PHASE_WINDOW_MANAGER,
+        CSM_MANAGER_PHASE_WINDOW_MANAGER,
         /* apps that will create _NET_WM_WINDOW_TYPE_PANEL windows */
-        GSM_MANAGER_PHASE_PANEL,
+        CSM_MANAGER_PHASE_PANEL,
         /* apps that will create _NET_WM_WINDOW_TYPE_DESKTOP windows */
-        GSM_MANAGER_PHASE_DESKTOP,
+        CSM_MANAGER_PHASE_DESKTOP,
         /* everything else */
-        GSM_MANAGER_PHASE_APPLICATION,
+        CSM_MANAGER_PHASE_APPLICATION,
         /* done launching */
-        GSM_MANAGER_PHASE_RUNNING,
+        CSM_MANAGER_PHASE_RUNNING,
         /* shutting down */
-        GSM_MANAGER_PHASE_QUERY_END_SESSION,
-        GSM_MANAGER_PHASE_END_SESSION,
-        GSM_MANAGER_PHASE_EXIT
+        CSM_MANAGER_PHASE_QUERY_END_SESSION,
+        CSM_MANAGER_PHASE_END_SESSION,
+        CSM_MANAGER_PHASE_EXIT
 } GsmManagerPhase;
 
 typedef enum
 {
-        GSM_MANAGER_ERROR_GENERAL = 0,
-        GSM_MANAGER_ERROR_NOT_IN_INITIALIZATION,
-        GSM_MANAGER_ERROR_NOT_IN_RUNNING,
-        GSM_MANAGER_ERROR_ALREADY_REGISTERED,
-        GSM_MANAGER_ERROR_NOT_REGISTERED,
-        GSM_MANAGER_ERROR_INVALID_OPTION,
-        GSM_MANAGER_ERROR_LOCKED_DOWN,
-        GSM_MANAGER_NUM_ERRORS
+        CSM_MANAGER_ERROR_GENERAL = 0,
+        CSM_MANAGER_ERROR_NOT_IN_INITIALIZATION,
+        CSM_MANAGER_ERROR_NOT_IN_RUNNING,
+        CSM_MANAGER_ERROR_ALREADY_REGISTERED,
+        CSM_MANAGER_ERROR_NOT_REGISTERED,
+        CSM_MANAGER_ERROR_INVALID_OPTION,
+        CSM_MANAGER_ERROR_LOCKED_DOWN,
+        CSM_MANAGER_NUM_ERRORS
 } GsmManagerError;
 
-#define GSM_MANAGER_ERROR gsm_manager_error_quark ()
+#define CSM_MANAGER_ERROR gsm_manager_error_quark ()
 
 typedef enum {
-        GSM_MANAGER_LOGOUT_MODE_NORMAL = 0,
-        GSM_MANAGER_LOGOUT_MODE_NO_CONFIRMATION,
-        GSM_MANAGER_LOGOUT_MODE_FORCE
+        CSM_MANAGER_LOGOUT_MODE_NORMAL = 0,
+        CSM_MANAGER_LOGOUT_MODE_NO_CONFIRMATION,
+        CSM_MANAGER_LOGOUT_MODE_FORCE
 } GsmManagerLogoutMode;
 
 GType               gsm_manager_error_get_type                 (void);
-#define GSM_MANAGER_TYPE_ERROR (gsm_manager_error_get_type ())
+#define CSM_MANAGER_TYPE_ERROR (gsm_manager_error_get_type ())
 
 GQuark              gsm_manager_error_quark                    (void);
 
@@ -184,4 +184,4 @@ void                _gsm_manager_set_renderer                  (GsmManager     *
 
 G_END_DECLS
 
-#endif /* __GSM_MANAGER_H */
+#endif /* __CSM_MANAGER_H */

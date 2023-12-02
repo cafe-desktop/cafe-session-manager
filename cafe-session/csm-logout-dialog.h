@@ -21,24 +21,24 @@
  *	Vincent Untz <vuntz@gnome.org>
  */
 
-#ifndef __GSM_LOGOUT_DIALOG_H__
-#define __GSM_LOGOUT_DIALOG_H__
+#ifndef __CSM_LOGOUT_DIALOG_H__
+#define __CSM_LOGOUT_DIALOG_H__
 
 #include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_LOGOUT_DIALOG         (gsm_logout_dialog_get_type ())
+#define CSM_TYPE_LOGOUT_DIALOG         (gsm_logout_dialog_get_type ())
 G_DECLARE_FINAL_TYPE (GsmLogoutDialog, gsm_logout_dialog, GSM, LOGOUT_DIALOG, CtkMessageDialog)
 
 enum
 {
-        GSM_LOGOUT_RESPONSE_LOGOUT,
-        GSM_LOGOUT_RESPONSE_SWITCH_USER,
-        GSM_LOGOUT_RESPONSE_SHUTDOWN,
-        GSM_LOGOUT_RESPONSE_REBOOT,
-        GSM_LOGOUT_RESPONSE_HIBERNATE,
-        GSM_LOGOUT_RESPONSE_SLEEP
+        CSM_LOGOUT_RESPONSE_LOGOUT,
+        CSM_LOGOUT_RESPONSE_SWITCH_USER,
+        CSM_LOGOUT_RESPONSE_SHUTDOWN,
+        CSM_LOGOUT_RESPONSE_REBOOT,
+        CSM_LOGOUT_RESPONSE_HIBERNATE,
+        CSM_LOGOUT_RESPONSE_SLEEP
 };
 
 CtkWidget   *gsm_get_logout_dialog        (CdkScreen           *screen,
@@ -48,4 +48,4 @@ CtkWidget   *gsm_get_shutdown_dialog      (CdkScreen           *screen,
 
 G_END_DECLS
 
-#endif /* __GSM_LOGOUT_DIALOG_H__ */
+#endif /* __CSM_LOGOUT_DIALOG_H__ */

@@ -19,8 +19,8 @@
  * 02110-1301, USA.
  */
 
-#ifndef __GSM_CLIENT_H__
-#define __GSM_CLIENT_H__
+#ifndef __CSM_CLIENT_H__
+#define __CSM_CLIENT_H__
 
 #include <glib.h>
 #include <glib-object.h>
@@ -28,27 +28,27 @@
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_CLIENT            (gsm_client_get_type ())
+#define CSM_TYPE_CLIENT            (gsm_client_get_type ())
 G_DECLARE_DERIVABLE_TYPE (GsmClient, gsm_client, GSM, CLIENT, GObject)
 
 typedef enum {
-        GSM_CLIENT_UNREGISTERED = 0,
-        GSM_CLIENT_REGISTERED,
-        GSM_CLIENT_FINISHED,
-        GSM_CLIENT_FAILED
+        CSM_CLIENT_UNREGISTERED = 0,
+        CSM_CLIENT_REGISTERED,
+        CSM_CLIENT_FINISHED,
+        CSM_CLIENT_FAILED
 } GsmClientStatus;
 
 typedef enum {
-        GSM_CLIENT_RESTART_NEVER = 0,
-        GSM_CLIENT_RESTART_IF_RUNNING,
-        GSM_CLIENT_RESTART_ANYWAY,
-        GSM_CLIENT_RESTART_IMMEDIATELY
+        CSM_CLIENT_RESTART_NEVER = 0,
+        CSM_CLIENT_RESTART_IF_RUNNING,
+        CSM_CLIENT_RESTART_ANYWAY,
+        CSM_CLIENT_RESTART_IMMEDIATELY
 } GsmClientRestartStyle;
 
 typedef enum {
-        GSM_CLIENT_END_SESSION_FLAG_FORCEFUL = 1 << 0,
-        GSM_CLIENT_END_SESSION_FLAG_SAVE     = 1 << 1,
-        GSM_CLIENT_END_SESSION_FLAG_LAST     = 1 << 2
+        CSM_CLIENT_END_SESSION_FLAG_FORCEFUL = 1 << 0,
+        CSM_CLIENT_END_SESSION_FLAG_SAVE     = 1 << 1,
+        CSM_CLIENT_END_SESSION_FLAG_LAST     = 1 << 2
 } GsmClientEndSessionFlag;
 
 struct _GsmClientClass
@@ -83,13 +83,13 @@ struct _GsmClientClass
 
 typedef enum
 {
-        GSM_CLIENT_ERROR_GENERAL = 0,
-        GSM_CLIENT_ERROR_NOT_REGISTERED,
-        GSM_CLIENT_NUM_ERRORS
+        CSM_CLIENT_ERROR_GENERAL = 0,
+        CSM_CLIENT_ERROR_NOT_REGISTERED,
+        CSM_CLIENT_NUM_ERRORS
 } GsmClientError;
 
-#define GSM_CLIENT_ERROR gsm_client_error_quark ()
-#define GSM_CLIENT_TYPE_ERROR (gsm_client_error_get_type ())
+#define CSM_CLIENT_ERROR gsm_client_error_quark ()
+#define CSM_CLIENT_TYPE_ERROR (gsm_client_error_get_type ())
 
 GType                 gsm_client_error_get_type             (void);
 GQuark                gsm_client_error_quark                (void);
@@ -151,4 +151,4 @@ void                  gsm_client_end_session_response       (GsmClient  *client,
 
 G_END_DECLS
 
-#endif /* __GSM_CLIENT_H__ */
+#endif /* __CSM_CLIENT_H__ */

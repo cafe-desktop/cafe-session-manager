@@ -35,8 +35,8 @@
 #include "cdm.h"
 #include "csm-util.h"
 
-#define GSM_ICON_LOGOUT   "system-log-out"
-#define GSM_ICON_SHUTDOWN "system-shutdown"
+#define CSM_ICON_LOGOUT   "system-log-out"
+#define CSM_ICON_SHUTDOWN "system-shutdown"
 
 #define SESSION_SCHEMA     "org.cafe.session"
 #define KEY_LOGOUT_TIMEOUT "logout-timeout"
@@ -45,8 +45,8 @@
 #define KEY_USER_SWITCHING_DISABLE "disable-user-switching"
 
 typedef enum {
-        GSM_DIALOG_LOGOUT_TYPE_LOGOUT,
-        GSM_DIALOG_LOGOUT_TYPE_SHUTDOWN
+        CSM_DIALOG_LOGOUT_TYPE_LOGOUT,
+        CSM_DIALOG_LOGOUT_TYPE_SHUTDOWN
 } GsmDialogLogoutType;
 
 struct _GsmLogoutDialog
@@ -303,7 +303,7 @@ gsm_logout_dialog_timeout (gpointer data)
         }
 
         switch (logout_dialog->type) {
-        case GSM_DIALOG_LOGOUT_TYPE_LOGOUT:
+        case CSM_DIALOG_LOGOUT_TYPE_LOGOUT:
                 seconds_warning = ngettext ("You will be automatically logged "
                                             "out in %d second",
                                             "You will be automatically logged "
@@ -311,7 +311,7 @@ gsm_logout_dialog_timeout (gpointer data)
                                             logout_dialog->timeout);
                 break;
 
-        case GSM_DIALOG_LOGOUT_TYPE_SHUTDOWN:
+        case CSM_DIALOG_LOGOUT_TYPE_SHUTDOWN:
                 seconds_warning = ngettext ("This system will be automatically "
                                             "shut down in %d second",
                                             "This system will be automatically "
@@ -331,7 +331,7 @@ gsm_logout_dialog_timeout (gpointer data)
                     systemd = gsm_get_systemd ();
                     session_type = gsm_systemd_get_current_session_type (systemd);
                     g_object_unref (systemd);
-                    is_not_login = (g_strcmp0 (session_type, GSM_SYSTEMD_SESSION_TYPE_LOGIN_WINDOW) != 0);
+                    is_not_login = (g_strcmp0 (session_type, CSM_SYSTEMD_SESSION_TYPE_LOGIN_WINDOW) != 0);
                 }
                 else {
 #endif
@@ -339,7 +339,7 @@ gsm_logout_dialog_timeout (gpointer data)
                 consolekit = gsm_get_consolekit ();
                 session_type = gsm_consolekit_get_current_session_type (consolekit);
                 g_object_unref (consolekit);
-                is_not_login = (g_strcmp0 (session_type, GSM_CONSOLEKIT_SESSION_TYPE_LOGIN_WINDOW) != 0);
+                is_not_login = (g_strcmp0 (session_type, CSM_CONSOLEKIT_SESSION_TYPE_LOGIN_WINDOW) != 0);
 #ifdef HAVE_SYSTEMD
                 }
 #endif
@@ -424,7 +424,7 @@ gsm_get_dialog (GsmDialogLogoutType type,
                 ctk_widget_destroy (CTK_WIDGET (current_dialog));
         }
 
-        logout_dialog = g_object_new (GSM_TYPE_LOGOUT_DIALOG, NULL);
+        logout_dialog = g_object_new (CSM_TYPE_LOGOUT_DIALOG, NULL);
 
         current_dialog = logout_dialog;
 
@@ -436,16 +436,16 @@ gsm_get_dialog (GsmDialogLogoutType type,
         primary_text = NULL;
 
         switch (type) {
-        case GSM_DIALOG_LOGOUT_TYPE_LOGOUT:
-                icon_name    = GSM_ICON_LOGOUT;
+        case CSM_DIALOG_LOGOUT_TYPE_LOGOUT:
+                icon_name    = CSM_ICON_LOGOUT;
                 primary_text = _("Log out of this system now?");
 
-                logout_dialog->default_response = GSM_LOGOUT_RESPONSE_LOGOUT;
+                logout_dialog->default_response = CSM_LOGOUT_RESPONSE_LOGOUT;
 
                 if (gsm_logout_supports_switch_user (logout_dialog)) {
                         ctk_dialog_add_button (CTK_DIALOG (logout_dialog),
                                                _("_Switch User"),
-                                               GSM_LOGOUT_RESPONSE_SWITCH_USER);
+                                               CSM_LOGOUT_RESPONSE_SWITCH_USER);
                 }
 
                 gsm_util_dialog_add_button (CTK_DIALOG (logout_dialog),
@@ -454,31 +454,31 @@ gsm_get_dialog (GsmDialogLogoutType type,
 
                 ctk_dialog_add_button (CTK_DIALOG (logout_dialog),
                                        _("_Log Out"),
-                                       GSM_LOGOUT_RESPONSE_LOGOUT);
+                                       CSM_LOGOUT_RESPONSE_LOGOUT);
 
                 break;
-        case GSM_DIALOG_LOGOUT_TYPE_SHUTDOWN:
-                icon_name    = GSM_ICON_SHUTDOWN;
+        case CSM_DIALOG_LOGOUT_TYPE_SHUTDOWN:
+                icon_name    = CSM_ICON_SHUTDOWN;
                 primary_text = _("Shut down this system now?");
 
-                logout_dialog->default_response = GSM_LOGOUT_RESPONSE_SHUTDOWN;
+                logout_dialog->default_response = CSM_LOGOUT_RESPONSE_SHUTDOWN;
 
                 if (gsm_logout_supports_system_suspend (logout_dialog)) {
                         ctk_dialog_add_button (CTK_DIALOG (logout_dialog),
                                                _("S_uspend"),
-                                               GSM_LOGOUT_RESPONSE_SLEEP);
+                                               CSM_LOGOUT_RESPONSE_SLEEP);
                 }
 
                 if (gsm_logout_supports_system_hibernate (logout_dialog)) {
                         ctk_dialog_add_button (CTK_DIALOG (logout_dialog),
                                                _("_Hibernate"),
-                                               GSM_LOGOUT_RESPONSE_HIBERNATE);
+                                               CSM_LOGOUT_RESPONSE_HIBERNATE);
                 }
 
                 if (gsm_logout_supports_reboot (logout_dialog)) {
                         ctk_dialog_add_button (CTK_DIALOG (logout_dialog),
                                                _("_Restart"),
-                                               GSM_LOGOUT_RESPONSE_REBOOT);
+                                               CSM_LOGOUT_RESPONSE_REBOOT);
                 }
 
                 gsm_util_dialog_add_button (CTK_DIALOG (logout_dialog),
@@ -488,7 +488,7 @@ gsm_get_dialog (GsmDialogLogoutType type,
                 if (gsm_logout_supports_shutdown (logout_dialog)) {
                         ctk_dialog_add_button (CTK_DIALOG (logout_dialog),
                                                _("_Shut Down"),
-                                               GSM_LOGOUT_RESPONSE_SHUTDOWN);
+                                               CSM_LOGOUT_RESPONSE_SHUTDOWN);
                 }
                 break;
         default:
@@ -521,7 +521,7 @@ CtkWidget *
 gsm_get_shutdown_dialog (CdkScreen *screen,
                          guint32    activate_time)
 {
-        return gsm_get_dialog (GSM_DIALOG_LOGOUT_TYPE_SHUTDOWN,
+        return gsm_get_dialog (CSM_DIALOG_LOGOUT_TYPE_SHUTDOWN,
                                screen,
                                activate_time);
 }
@@ -530,7 +530,7 @@ CtkWidget *
 gsm_get_logout_dialog (CdkScreen *screen,
                        guint32    activate_time)
 {
-        return gsm_get_dialog (GSM_DIALOG_LOGOUT_TYPE_LOGOUT,
+        return gsm_get_dialog (CSM_DIALOG_LOGOUT_TYPE_LOGOUT,
                                screen,
                                activate_time);
 }

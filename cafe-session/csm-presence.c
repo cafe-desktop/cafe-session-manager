@@ -33,7 +33,7 @@
 #include "csm-presence.h"
 #include "csm-presence-glue.h"
 
-#define GSM_PRESENCE_DBUS_PATH "/org/gnome/SessionManager/Presence"
+#define CSM_PRESENCE_DBUS_PATH "/org/gnome/SessionManager/Presence"
 
 #define GS_NAME      "org.cafe.ScreenSaver"
 #define GS_PATH      "/org/cafe/ScreenSaver"
@@ -93,11 +93,11 @@ gsm_presence_error_get_type (void)
 
         if (etype == 0) {
                 static const GEnumValue values[] = {
-                        ENUM_ENTRY (GSM_PRESENCE_ERROR_GENERAL, "GeneralError"),
+                        ENUM_ENTRY (CSM_PRESENCE_ERROR_GENERAL, "GeneralError"),
                         { 0, 0, 0 }
                 };
 
-                g_assert (GSM_PRESENCE_NUM_ERRORS == G_N_ELEMENTS (values) - 1);
+                g_assert (CSM_PRESENCE_NUM_ERRORS == G_N_ELEMENTS (values) - 1);
 
                 etype = g_enum_register_static ("GsmPresenceError", values);
         }
@@ -115,23 +115,23 @@ set_session_idle (GsmPresence   *presence,
         priv = gsm_presence_get_instance_private (presence);
 
         if (is_idle) {
-                if (priv->status == GSM_PRESENCE_STATUS_IDLE) {
+                if (priv->status == CSM_PRESENCE_STATUS_IDLE) {
                         g_debug ("GsmPresence: already idle, ignoring");
                         return;
                 }
 
                 /* save current status */
                 priv->saved_status = priv->status;
-                gsm_presence_set_status (presence, GSM_PRESENCE_STATUS_IDLE, NULL);
+                gsm_presence_set_status (presence, CSM_PRESENCE_STATUS_IDLE, NULL);
         } else {
-                if (priv->status != GSM_PRESENCE_STATUS_IDLE) {
+                if (priv->status != CSM_PRESENCE_STATUS_IDLE) {
                         g_debug ("GsmPresence: already not idle, ignoring");
                         return;
                 }
 
                 /* restore saved status */
                 gsm_presence_set_status (presence, priv->saved_status, NULL);
-                priv->saved_status = GSM_PRESENCE_STATUS_AVAILABLE;
+                priv->saved_status = CSM_PRESENCE_STATUS_AVAILABLE;
         }
 }
 
@@ -279,7 +279,7 @@ register_presence (GsmPresence *presence)
                 return FALSE;
         }
 
-        dbus_g_connection_register_g_object (priv->bus_connection, GSM_PRESENCE_DBUS_PATH, G_OBJECT (presence));
+        dbus_g_connection_register_g_object (priv->bus_connection, CSM_PRESENCE_DBUS_PATH, G_OBJECT (presence));
 
         return TRUE;
 }
@@ -293,7 +293,7 @@ gsm_presence_constructor (GType                  type,
         gboolean     res;
         GsmPresencePrivate *priv;
 
-        presence = GSM_PRESENCE (G_OBJECT_CLASS (gsm_presence_parent_class)->constructor (type,
+        presence = CSM_PRESENCE (G_OBJECT_CLASS (gsm_presence_parent_class)->constructor (type,
                                                                                           n_construct_properties,
                                                                                           construct_properties));
         priv = gsm_presence_get_instance_private (presence);
@@ -338,7 +338,7 @@ void
 gsm_presence_set_idle_enabled (GsmPresence  *presence,
                                gboolean      enabled)
 {
-        g_return_if_fail (GSM_IS_PRESENCE (presence));
+        g_return_if_fail (CSM_IS_PRESENCE (presence));
         GsmPresencePrivate *priv;
 
         priv = gsm_presence_get_instance_private (presence);
@@ -357,7 +357,7 @@ gsm_presence_set_status_text (GsmPresence  *presence,
                               GError      **error)
 {
         GsmPresencePrivate *priv;
-        g_return_val_if_fail (GSM_IS_PRESENCE (presence), FALSE);
+        g_return_val_if_fail (CSM_IS_PRESENCE (presence), FALSE);
 
         priv = gsm_presence_get_instance_private (presence);
 
@@ -366,8 +366,8 @@ gsm_presence_set_status_text (GsmPresence  *presence,
         /* check length */
         if (status_text != NULL && strlen (status_text) > MAX_STATUS_TEXT) {
                 g_set_error (error,
-                             GSM_PRESENCE_ERROR,
-                             GSM_PRESENCE_ERROR_GENERAL,
+                             CSM_PRESENCE_ERROR,
+                             CSM_PRESENCE_ERROR_GENERAL,
                              "Status text too long");
                 return FALSE;
         }
@@ -389,7 +389,7 @@ gsm_presence_set_status (GsmPresence  *presence,
 {
         GsmPresencePrivate *priv;
 
-        g_return_val_if_fail (GSM_IS_PRESENCE (presence), FALSE);
+        g_return_val_if_fail (CSM_IS_PRESENCE (presence), FALSE);
         priv = gsm_presence_get_instance_private (presence);
 
         if (status != priv->status) {
@@ -406,7 +406,7 @@ gsm_presence_set_idle_timeout (GsmPresence  *presence,
 {
         GsmPresencePrivate *priv;
 
-        g_return_if_fail (GSM_IS_PRESENCE (presence));
+        g_return_if_fail (CSM_IS_PRESENCE (presence));
         priv = gsm_presence_get_instance_private (presence);
 
         if (timeout != priv->idle_timeout) {
@@ -424,7 +424,7 @@ gsm_presence_set_property (GObject       *object,
 {
         GsmPresence *self;
 
-        self = GSM_PRESENCE (object);
+        self = CSM_PRESENCE (object);
 
         switch (prop_id) {
         case PROP_STATUS:
@@ -454,7 +454,7 @@ gsm_presence_get_property (GObject    *object,
         GsmPresence *self;
         GsmPresencePrivate *priv;
 
-        self = GSM_PRESENCE (object);
+        self = CSM_PRESENCE (object);
 
         priv = gsm_presence_get_instance_private (self);
 
@@ -568,8 +568,8 @@ gsm_presence_class_init (GsmPresenceClass *klass)
                                                             300000,
                                                             G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
-        dbus_g_object_type_install_info (GSM_TYPE_PRESENCE, &dbus_glib_gsm_presence_object_info);
-        dbus_g_error_domain_register (GSM_PRESENCE_ERROR, NULL, GSM_PRESENCE_TYPE_ERROR);
+        dbus_g_object_type_install_info (CSM_TYPE_PRESENCE, &dbus_glib_gsm_presence_object_info);
+        dbus_g_error_domain_register (CSM_PRESENCE_ERROR, NULL, CSM_PRESENCE_TYPE_ERROR);
 }
 
 GsmPresence *
@@ -577,7 +577,7 @@ gsm_presence_new (void)
 {
         GsmPresence *presence;
 
-        presence = g_object_new (GSM_TYPE_PRESENCE,
+        presence = g_object_new (CSM_TYPE_PRESENCE,
                                  NULL);
 
         return presence;

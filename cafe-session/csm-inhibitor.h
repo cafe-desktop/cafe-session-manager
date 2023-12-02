@@ -18,31 +18,31 @@
  * 02110-1301, USA.
  */
 
-#ifndef __GSM_INHIBITOR_H__
-#define __GSM_INHIBITOR_H__
+#ifndef __CSM_INHIBITOR_H__
+#define __CSM_INHIBITOR_H__
 
 #include <glib-object.h>
 #include <sys/types.h>
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_INHIBITOR            (gsm_inhibitor_get_type ())
-#define GSM_INHIBITOR_ERROR           (gsm_inhibitor_error_quark ())
-#define GSM_INHIBITOR_TYPE_ERROR      (gsm_inhibitor_error_get_type ())
+#define CSM_TYPE_INHIBITOR            (gsm_inhibitor_get_type ())
+#define CSM_INHIBITOR_ERROR           (gsm_inhibitor_error_quark ())
+#define CSM_INHIBITOR_TYPE_ERROR      (gsm_inhibitor_error_get_type ())
 G_DECLARE_FINAL_TYPE (GsmInhibitor, gsm_inhibitor, GSM, INHIBITOR, GObject)
 
 typedef enum {
-        GSM_INHIBITOR_FLAG_LOGOUT      = 1 << 0,
-        GSM_INHIBITOR_FLAG_SWITCH_USER = 1 << 1,
-        GSM_INHIBITOR_FLAG_SUSPEND     = 1 << 2,
-        GSM_INHIBITOR_FLAG_IDLE        = 1 << 3
+        CSM_INHIBITOR_FLAG_LOGOUT      = 1 << 0,
+        CSM_INHIBITOR_FLAG_SWITCH_USER = 1 << 1,
+        CSM_INHIBITOR_FLAG_SUSPEND     = 1 << 2,
+        CSM_INHIBITOR_FLAG_IDLE        = 1 << 3
 } GsmInhibitorFlag;
 
 typedef enum
 {
-        GSM_INHIBITOR_ERROR_GENERAL = 0,
-        GSM_INHIBITOR_ERROR_NOT_SET,
-        GSM_INHIBITOR_NUM_ERRORS
+        CSM_INHIBITOR_ERROR_GENERAL = 0,
+        CSM_INHIBITOR_ERROR_NOT_SET,
+        CSM_INHIBITOR_NUM_ERRORS
 } GsmInhibitorError;
 
 GType          gsm_inhibitor_error_get_type       (void);
@@ -90,4 +90,4 @@ gboolean       gsm_inhibitor_get_toplevel_xid     (GsmInhibitor  *inhibitor,
 
 G_END_DECLS
 
-#endif /* __GSM_INHIBITOR_H__ */
+#endif /* __CSM_INHIBITOR_H__ */
