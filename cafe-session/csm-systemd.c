@@ -50,7 +50,7 @@ typedef struct
     DBusGProxy      *bus_proxy;
     DBusGProxy      *sd_proxy;
     guint32          is_connected : 1;
-} GsmSystemdPrivate;
+} CsmSystemdPrivate;
 
 enum {
     PROP_0,
@@ -67,7 +67,7 @@ static guint signals[LAST_SIGNAL] = { 0 };
 
 static void     csm_systemd_finalize     (GObject         *object);
 
-static void     csm_systemd_free_dbus    (GsmSystemd      *manager);
+static void     csm_systemd_free_dbus    (CsmSystemd      *manager);
 
 static DBusHandlerResult csm_systemd_dbus_filter (DBusConnection *connection,
                                                      DBusMessage    *message,
@@ -77,9 +77,9 @@ static void     csm_systemd_on_name_owner_changed (DBusGProxy       *bus_proxy,
                                                    const char       *name,
                                                    const char       *prev_owner,
                                                    const char       *new_owner,
-                                                   GsmSystemd       *manager);
+                                                   CsmSystemd       *manager);
 
-G_DEFINE_TYPE_WITH_PRIVATE (GsmSystemd, csm_systemd, G_TYPE_OBJECT);
+G_DEFINE_TYPE_WITH_PRIVATE (CsmSystemd, csm_systemd, G_TYPE_OBJECT);
 
 static void
 csm_systemd_get_property (GObject    *object,
@@ -87,8 +87,8 @@ csm_systemd_get_property (GObject    *object,
                           GValue     *value,
                           GParamSpec *pspec)
 {
-    GsmSystemdPrivate *priv;
-    GsmSystemd *manager = CSM_SYSTEMD (object);
+    CsmSystemdPrivate *priv;
+    CsmSystemd *manager = CSM_SYSTEMD (object);
 
     priv = csm_systemd_get_instance_private (manager);
 
@@ -106,7 +106,7 @@ csm_systemd_get_property (GObject    *object,
 }
 
 static void
-csm_systemd_class_init (GsmSystemdClass *manager_class)
+csm_systemd_class_init (CsmSystemdClass *manager_class)
 {
     GObjectClass *object_class;
     GParamSpec   *param_spec;
@@ -129,7 +129,7 @@ csm_systemd_class_init (GsmSystemdClass *manager_class)
             g_signal_new ("request-completed",
                           G_OBJECT_CLASS_TYPE (object_class),
                           G_SIGNAL_RUN_LAST,
-                          G_STRUCT_OFFSET (GsmSystemdClass, request_completed),
+                          G_STRUCT_OFFSET (CsmSystemdClass, request_completed),
                           NULL,
                           NULL,
                           g_cclosure_marshal_VOID__POINTER,
@@ -140,7 +140,7 @@ csm_systemd_class_init (GsmSystemdClass *manager_class)
             g_signal_new ("privileges-completed",
                           G_OBJECT_CLASS_TYPE (object_class),
                           G_SIGNAL_RUN_LAST,
-                          G_STRUCT_OFFSET (GsmSystemdClass, privileges_completed),
+                          G_STRUCT_OFFSET (CsmSystemdClass, privileges_completed),
                           NULL,
                           NULL,
                           csm_marshal_VOID__BOOLEAN_BOOLEAN_POINTER,
@@ -153,7 +153,7 @@ csm_systemd_dbus_filter (DBusConnection *connection,
                          DBusMessage    *message,
                          void           *user_data)
 {
-    GsmSystemd *manager;
+    CsmSystemd *manager;
 
     manager = CSM_SYSTEMD (user_data);
 
@@ -168,12 +168,12 @@ csm_systemd_dbus_filter (DBusConnection *connection,
 }
 
 static gboolean
-csm_systemd_ensure_sd_connection (GsmSystemd  *manager,
+csm_systemd_ensure_sd_connection (CsmSystemd  *manager,
                                   GError     **error)
 {
     GError  *connection_error;
     gboolean is_connected;
-    GsmSystemdPrivate *priv;
+    CsmSystemdPrivate *priv;
 
     connection_error = NULL;
 
@@ -275,9 +275,9 @@ csm_systemd_on_name_owner_changed (DBusGProxy    *bus_proxy,
                                    const char    *name,
                                    const char    *prev_owner,
                                    const char    *new_owner,
-                                   GsmSystemd    *manager)
+                                   CsmSystemd    *manager)
 {
-    GsmSystemdPrivate *priv;
+    CsmSystemdPrivate *priv;
 
     priv = csm_systemd_get_instance_private (manager);
     if (name != NULL && g_strcmp0 (name, SD_NAME) != 0) {
@@ -293,7 +293,7 @@ csm_systemd_on_name_owner_changed (DBusGProxy    *bus_proxy,
 }
 
 static void
-csm_systemd_init (GsmSystemd *manager)
+csm_systemd_init (CsmSystemd *manager)
 {
     GError *error;
 
@@ -307,9 +307,9 @@ csm_systemd_init (GsmSystemd *manager)
 }
 
 static void
-csm_systemd_free_dbus (GsmSystemd *manager)
+csm_systemd_free_dbus (CsmSystemd *manager)
 {
-    GsmSystemdPrivate *priv;
+    CsmSystemdPrivate *priv;
 
     priv = csm_systemd_get_instance_private (manager);
     if (priv->bus_proxy != NULL) {
@@ -337,7 +337,7 @@ csm_systemd_free_dbus (GsmSystemd *manager)
 static void
 csm_systemd_finalize (GObject *object)
 {
-    GsmSystemd *manager;
+    CsmSystemd *manager;
     GObjectClass  *parent_class;
 
     manager = CSM_SYSTEMD (object);
@@ -363,10 +363,10 @@ csm_systemd_error_quark (void)
     return error_quark;
 }
 
-GsmSystemd *
+CsmSystemd *
 csm_systemd_new (void)
 {
-    GsmSystemd *manager;
+    CsmSystemd *manager;
 
     manager = g_object_new (CSM_TYPE_SYSTEMD, NULL);
 
@@ -374,7 +374,7 @@ csm_systemd_new (void)
 }
 
 static void
-emit_restart_complete (GsmSystemd *manager,
+emit_restart_complete (CsmSystemd *manager,
                        GError     *error)
 {
     GError *call_error;
@@ -397,7 +397,7 @@ emit_restart_complete (GsmSystemd *manager,
 }
 
 static void
-emit_stop_complete (GsmSystemd *manager,
+emit_stop_complete (CsmSystemd *manager,
                     GError     *error)
 {
     GError *call_error;
@@ -420,7 +420,7 @@ emit_stop_complete (GsmSystemd *manager,
 }
 
 gboolean
-csm_systemd_is_last_session_for_user (GsmSystemd *manager)
+csm_systemd_is_last_session_for_user (CsmSystemd *manager)
 {
         char **sessions = NULL;
         char *session = NULL;
@@ -504,11 +504,11 @@ csm_systemd_is_last_session_for_user (GsmSystemd *manager)
 }
 
 void
-csm_systemd_attempt_restart (GsmSystemd *manager)
+csm_systemd_attempt_restart (CsmSystemd *manager)
 {
     gboolean res;
     GError  *error;
-    GsmSystemdPrivate *priv;
+    CsmSystemdPrivate *priv;
 
     error = NULL;
     priv = csm_systemd_get_instance_private (manager);
@@ -539,11 +539,11 @@ csm_systemd_attempt_restart (GsmSystemd *manager)
 }
 
 void
-csm_systemd_attempt_stop (GsmSystemd *manager)
+csm_systemd_attempt_stop (CsmSystemd *manager)
 {
     gboolean res;
     GError  *error;
-    GsmSystemdPrivate *priv;
+    CsmSystemdPrivate *priv;
 
     error = NULL;
     priv = csm_systemd_get_instance_private (manager);
@@ -634,7 +634,7 @@ out:
 
 
 void
-csm_systemd_set_session_idle (GsmSystemd *manager,
+csm_systemd_set_session_idle (CsmSystemd *manager,
                               gboolean       is_idle)
 {
     GError         *error;
@@ -643,7 +643,7 @@ csm_systemd_set_session_idle (GsmSystemd *manager,
     DBusMessage    *reply;
     DBusError       dbus_error;
     DBusMessageIter iter;
-    GsmSystemdPrivate *priv;
+    CsmSystemdPrivate *priv;
 
     error = NULL;
     priv = csm_systemd_get_instance_private (manager);
@@ -691,7 +691,7 @@ csm_systemd_set_session_idle (GsmSystemd *manager,
 }
 
 gboolean
-csm_systemd_can_switch_user (GsmSystemd *manager)
+csm_systemd_can_switch_user (CsmSystemd *manager)
 {
     GError  *error;
     char    *session_id = NULL;
@@ -728,7 +728,7 @@ csm_systemd_can_switch_user (GsmSystemd *manager)
 }
 
 gboolean
-csm_systemd_get_restart_privileges (GsmSystemd *manager)
+csm_systemd_get_restart_privileges (CsmSystemd *manager)
 {
     g_signal_emit (G_OBJECT (manager),
                    signals [PRIVILEGES_COMPLETED],
@@ -738,7 +738,7 @@ csm_systemd_get_restart_privileges (GsmSystemd *manager)
 }
 
 gboolean
-csm_systemd_get_stop_privileges (GsmSystemd *manager)
+csm_systemd_get_stop_privileges (CsmSystemd *manager)
 {
     g_signal_emit (G_OBJECT (manager),
                    signals [PRIVILEGES_COMPLETED],
@@ -748,13 +748,13 @@ csm_systemd_get_stop_privileges (GsmSystemd *manager)
 }
 
 gboolean
-csm_systemd_can_restart (GsmSystemd *manager)
+csm_systemd_can_restart (CsmSystemd *manager)
 {
     gboolean res;
     gchar   *value;
     gboolean can_restart;
     GError  *error;
-    GsmSystemdPrivate *priv;
+    CsmSystemdPrivate *priv;
 
     error = NULL;
     priv = csm_systemd_get_instance_private (manager);
@@ -787,13 +787,13 @@ csm_systemd_can_restart (GsmSystemd *manager)
 }
 
 gboolean
-csm_systemd_can_stop (GsmSystemd *manager)
+csm_systemd_can_stop (CsmSystemd *manager)
 {
     gboolean res;
     gchar   *value;
     gboolean can_stop;
     GError  *error;
-    GsmSystemdPrivate *priv;
+    CsmSystemdPrivate *priv;
 
     error = NULL;
     priv = csm_systemd_get_instance_private (manager);
@@ -827,13 +827,13 @@ csm_systemd_can_stop (GsmSystemd *manager)
 }
 
 gboolean
-csm_systemd_can_hibernate (GsmSystemd *manager)
+csm_systemd_can_hibernate (CsmSystemd *manager)
 {
   gboolean res;
   gchar   *value;
   gboolean can_hibernate;
   GError  *error;
-  GsmSystemdPrivate *priv;
+  CsmSystemdPrivate *priv;
 
   error = NULL;
   priv = csm_systemd_get_instance_private (manager);
@@ -866,13 +866,13 @@ csm_systemd_can_hibernate (GsmSystemd *manager)
 }
 
 gboolean
-csm_systemd_can_suspend (GsmSystemd *manager)
+csm_systemd_can_suspend (CsmSystemd *manager)
 {
   gboolean res;
   gchar   *value;
   gboolean can_suspend;
   GError  *error;
-  GsmSystemdPrivate *priv;
+  CsmSystemdPrivate *priv;
 
   error = NULL;
   priv = csm_systemd_get_instance_private (manager);
@@ -905,11 +905,11 @@ csm_systemd_can_suspend (GsmSystemd *manager)
 }
 
 void
-csm_systemd_attempt_hibernate (GsmSystemd *manager)
+csm_systemd_attempt_hibernate (CsmSystemd *manager)
 {
   gboolean res;
   GError  *error;
-  GsmSystemdPrivate *priv;
+  CsmSystemdPrivate *priv;
 
   error = NULL;
   priv = csm_systemd_get_instance_private (manager);
@@ -938,11 +938,11 @@ csm_systemd_attempt_hibernate (GsmSystemd *manager)
 }
 
 void
-csm_systemd_attempt_suspend (GsmSystemd *manager)
+csm_systemd_attempt_suspend (CsmSystemd *manager)
 {
   gboolean res;
   GError  *error;
-  GsmSystemdPrivate *priv;
+  CsmSystemdPrivate *priv;
 
   error = NULL;
   priv = csm_systemd_get_instance_private (manager);
@@ -970,7 +970,7 @@ csm_systemd_attempt_suspend (GsmSystemd *manager)
 }
 
 gchar *
-csm_systemd_get_current_session_type (GsmSystemd *manager)
+csm_systemd_get_current_session_type (CsmSystemd *manager)
 {
     GError   *gerror;
     gchar    *session_id = NULL;
@@ -1009,10 +1009,10 @@ csm_systemd_get_current_session_type (GsmSystemd *manager)
 }
 
 
-GsmSystemd *
+CsmSystemd *
 csm_get_systemd (void)
 {
-    static GsmSystemd *manager = NULL;
+    static CsmSystemd *manager = NULL;
 
     if (manager == NULL) {
         manager = csm_systemd_new ();

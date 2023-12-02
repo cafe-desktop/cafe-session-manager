@@ -43,7 +43,7 @@ save_one_client (char            *id,
                  GObject         *object,
                  SessionSaveData *data)
 {
-        GsmClient  *client;
+        CsmClient  *client;
         GKeyFile   *keyfile;
         char       *path = NULL;
         char       *filename = NULL;
@@ -91,7 +91,7 @@ save_one_client (char            *id,
                                      discard_exec, discard_exec);
         }
 
-        g_debug ("GsmSessionSave: saved client %s to %s", id, filename);
+        g_debug ("CsmSessionSave: saved client %s to %s", id, filename);
 
 out:
         if (keyfile != NULL) {
@@ -114,24 +114,24 @@ out:
 }
 
 void
-csm_session_save (GsmStore  *client_store,
+csm_session_save (CsmStore  *client_store,
                   GError   **error)
 {
         const char      *save_dir;
         char            *tmp_dir;
         SessionSaveData  data;
 
-        g_debug ("GsmSessionSave: Saving session");
+        g_debug ("CsmSessionSave: Saving session");
 
         save_dir = csm_util_get_saved_session_dir ();
         if (save_dir == NULL) {
-                g_warning ("GsmSessionSave: cannot create saved session directory");
+                g_warning ("CsmSessionSave: cannot create saved session directory");
                 return;
         }
 
         tmp_dir = csm_util_get_empty_tmp_session_dir ();
         if (tmp_dir == NULL) {
-                g_warning ("GsmSessionSave: cannot create new saved session directory");
+                g_warning ("CsmSessionSave: cannot create new saved session directory");
                 return;
         }
 
@@ -143,7 +143,7 @@ csm_session_save (GsmStore  *client_store,
         data.error = error;
 
         csm_store_foreach (client_store,
-                           (GsmStoreFunc) save_one_client,
+                           (CsmStoreFunc) save_one_client,
                            &data);
 
         if (!*error) {
@@ -155,7 +155,7 @@ csm_session_save (GsmStore  *client_store,
                         g_rmdir (save_dir);
                 g_rename (tmp_dir, save_dir);
         } else {
-                g_warning ("GsmSessionSave: error saving session: %s", (*error)->message);
+                g_warning ("CsmSessionSave: error saving session: %s", (*error)->message);
                 /* FIXME: we should create a hash table filled with the discard
                  * commands that are in desktop files from save_dir. */
                 csm_session_clear_saved_session (tmp_dir, NULL);
@@ -174,7 +174,7 @@ csm_session_clear_one_client (const char *filename,
         GKeyFile *key_file = NULL;
         char     *discard_exec = NULL;
 
-        g_debug ("GsmSessionSave: removing '%s' from saved session", filename);
+        g_debug ("CsmSessionSave: removing '%s' from saved session", filename);
 
         key_file = g_key_file_new ();
         if (g_key_file_load_from_file (key_file, filename,
@@ -223,7 +223,7 @@ csm_session_clear_saved_session (const char *directory,
         gboolean    result = TRUE;
         GError     *error;
 
-        g_debug ("GsmSessionSave: clearing currently saved session at %s",
+        g_debug ("CsmSessionSave: clearing currently saved session at %s",
                  directory);
 
         if (directory == NULL) {
@@ -233,7 +233,7 @@ csm_session_clear_saved_session (const char *directory,
         error = NULL;
         dir = g_dir_open (directory, 0, &error);
         if (error) {
-                g_warning ("GsmSessionSave: error loading saved session directory: %s", error->message);
+                g_warning ("CsmSessionSave: error loading saved session directory: %s", error->message);
                 g_error_free (error);
                 return FALSE;
         }

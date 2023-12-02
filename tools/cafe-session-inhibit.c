@@ -36,11 +36,11 @@ typedef enum {
         CSM_INHIBITOR_FLAG_SUSPEND     = 1 << 2,
         CSM_INHIBITOR_FLAG_IDLE        = 1 << 3,
         CSM_INHIBITOR_FLAG_AUTOMOUNT   = 1 << 4
-} GsmInhibitorFlags;
+} CsmInhibitorFlags;
 
-static GsmInhibitorFlags parse_flags (const gchar *arg)
+static CsmInhibitorFlags parse_flags (const gchar *arg)
 {
-  GsmInhibitorFlags flags;
+  CsmInhibitorFlags flags;
   gchar **args;
   gint i;
 
@@ -70,7 +70,7 @@ static GsmInhibitorFlags parse_flags (const gchar *arg)
 
 static gboolean inhibit (const gchar       *app_id,
                          const gchar       *reason,
-                         GsmInhibitorFlags flags)
+                         CsmInhibitorFlags flags)
 {
   GDBusConnection *bus;
   GVariant *ret;
@@ -136,7 +136,7 @@ static void version (void)
 int main (int argc, char *argv[])
 {
   gchar *prgname;
-  GsmInhibitorFlags inhibit_flags = 0;
+  CsmInhibitorFlags inhibit_flags = 0;
   gboolean show_help = FALSE;
   gboolean show_version = FALSE;
   gint i;

@@ -55,14 +55,14 @@
 
 #define DIALOG_RESPONSE_LOCK_SCREEN 1
 
-struct _GsmInhibitDialog
+struct _CsmInhibitDialog
 {
         CtkDialog          parent;
         CtkBuilder        *xml;
         int                action;
         gboolean           is_done;
-        GsmStore          *inhibitors;
-        GsmStore          *clients;
+        CsmStore          *inhibitors;
+        CsmStore          *clients;
         CtkListStore      *list_store;
         gboolean           have_xrender;
         int                xrender_event_base;
@@ -86,10 +86,10 @@ enum {
 
 static void     csm_inhibit_dialog_finalize    (GObject               *object);
 
-G_DEFINE_TYPE (GsmInhibitDialog, csm_inhibit_dialog, CTK_TYPE_DIALOG)
+G_DEFINE_TYPE (CsmInhibitDialog, csm_inhibit_dialog, CTK_TYPE_DIALOG)
 
 static void
-lock_screen (GsmInhibitDialog *dialog)
+lock_screen (CsmInhibitDialog *dialog)
 {
         GError *error;
         error = NULL;
@@ -101,7 +101,7 @@ lock_screen (GsmInhibitDialog *dialog)
 }
 
 static void
-on_response (GsmInhibitDialog *dialog,
+on_response (CsmInhibitDialog *dialog,
              gint              response_id)
 
 {
@@ -122,14 +122,14 @@ on_response (GsmInhibitDialog *dialog,
 }
 
 static void
-csm_inhibit_dialog_set_action (GsmInhibitDialog *dialog,
+csm_inhibit_dialog_set_action (CsmInhibitDialog *dialog,
                                int               action)
 {
         dialog->action = action;
 }
 
 static gboolean
-find_inhibitor (GsmInhibitDialog *dialog,
+find_inhibitor (CsmInhibitDialog *dialog,
                 const char       *id,
                 CtkTreeIter      *iter)
 {
@@ -320,7 +320,7 @@ pixbuf_get_from_pixmap (Display *display,
         Visual *visual;
         retval = NULL;
 
-        g_debug ("GsmInhibitDialog: getting foreign pixmap for %u", (guint)xpixmap);
+        g_debug ("CsmInhibitDialog: getting foreign pixmap for %u", (guint)xpixmap);
 
         visual = DefaultVisual (display, 0);
         surface = cairo_xlib_surface_create (display,
@@ -329,7 +329,7 @@ pixbuf_get_from_pixmap (Display *display,
                                              width,
                                              height);
         if (surface != NULL) {
-                g_debug ("GsmInhibitDialog: getting pixbuf w=%d h=%d", width, height);
+                g_debug ("CsmInhibitDialog: getting pixbuf w=%d h=%d", width, height);
                 retval = gdk_pixbuf_get_from_surface (surface,
                                                       0, 0,
                                                       width, height);
@@ -411,10 +411,10 @@ get_pixbuf_for_window (CdkDisplay *cdkdisplay,
         xwindow = (Window) xid;
         xpixmap = get_pixmap_for_window (display, xwindow, &width, &height);
         if (xpixmap == None) {
-                g_debug ("GsmInhibitDialog: Unable to get window snapshot for %u", xid);
+                g_debug ("CsmInhibitDialog: Unable to get window snapshot for %u", xid);
                 return NULL;
         } else {
-                g_debug ("GsmInhibitDialog: Got xpixmap %u", (guint)xpixmap);
+                g_debug ("CsmInhibitDialog: Got xpixmap %u", (guint)xpixmap);
         }
 
         pixbuf = pixbuf_get_from_pixmap (display, xpixmap, width, height);
@@ -428,20 +428,20 @@ get_pixbuf_for_window (CdkDisplay *cdkdisplay,
 
         if (pixbuf != NULL) {
                 GdkPixbuf *scaled;
-                g_debug ("GsmInhibitDialog: scaling pixbuf to w=%d h=%d", width, height);
+                g_debug ("CsmInhibitDialog: scaling pixbuf to w=%d h=%d", width, height);
                 scaled = scale_pixbuf (pixbuf, thumb_width, thumb_height, TRUE);
                 g_object_unref (pixbuf);
                 pixbuf = scaled;
         }
 #else
-        g_debug ("GsmInhibitDialog: no support for getting window snapshot");
+        g_debug ("CsmInhibitDialog: no support for getting window snapshot");
 #endif
         return pixbuf;
 }
 
 static void
-add_inhibitor (GsmInhibitDialog *dialog,
-               GsmInhibitor     *inhibitor)
+add_inhibitor (CsmInhibitDialog *dialog,
+               CsmInhibitor     *inhibitor)
 {
         CdkDisplay     *cdkdisplay;
         const char     *name;
@@ -475,11 +475,11 @@ add_inhibitor (GsmInhibitDialog *dialog,
         }
 
         xid = csm_inhibitor_peek_toplevel_xid (inhibitor);
-        g_debug ("GsmInhibitDialog: inhibitor has XID %u", xid);
+        g_debug ("CsmInhibitDialog: inhibitor has XID %u", xid);
         if (xid > 0 && dialog->have_xrender) {
                 pixbuf = get_pixbuf_for_window (cdkdisplay, xid, DEFAULT_SNAPSHOT_SIZE, DEFAULT_SNAPSHOT_SIZE);
                 if (pixbuf == NULL) {
-                        g_debug ("GsmInhibitDialog: unable to read pixbuf from %u", xid);
+                        g_debug ("CsmInhibitDialog: unable to read pixbuf from %u", xid);
                 }
         }
 
@@ -563,7 +563,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
                 const char *client_id;
                 client_id = csm_inhibitor_peek_client_id (inhibitor);
                 if (! IS_STRING_EMPTY (client_id)) {
-                        GsmClient *client;
+                        CsmClient *client;
                         client = CSM_CLIENT (csm_store_lookup (dialog->clients, client_id));
                         if (client != NULL) {
                                 freeme = csm_client_get_app_name (client);
@@ -619,7 +619,7 @@ model_has_one_entry (CtkTreeModel *model)
 }
 
 static void
-update_dialog_text (GsmInhibitDialog *dialog)
+update_dialog_text (CsmInhibitDialog *dialog)
 {
         const char *description_text;
         const char *header_text;
@@ -652,20 +652,20 @@ update_dialog_text (GsmInhibitDialog *dialog)
 }
 
 static void
-on_store_inhibitor_added (GsmStore          *store,
+on_store_inhibitor_added (CsmStore          *store,
                           const char        *id,
-                          GsmInhibitDialog  *dialog)
+                          CsmInhibitDialog  *dialog)
 {
-        GsmInhibitor *inhibitor;
+        CsmInhibitor *inhibitor;
         CtkTreeIter   iter;
 
-        g_debug ("GsmInhibitDialog: inhibitor added: %s", id);
+        g_debug ("CsmInhibitDialog: inhibitor added: %s", id);
 
         if (dialog->is_done) {
                 return;
         }
 
-        inhibitor = (GsmInhibitor *)csm_store_lookup (store, id);
+        inhibitor = (CsmInhibitor *)csm_store_lookup (store, id);
 
         /* Add to model */
         if (! find_inhibitor (dialog, id, &iter)) {
@@ -676,13 +676,13 @@ on_store_inhibitor_added (GsmStore          *store,
 }
 
 static void
-on_store_inhibitor_removed (GsmStore          *store,
+on_store_inhibitor_removed (CsmStore          *store,
                             const char        *id,
-                            GsmInhibitDialog  *dialog)
+                            CsmInhibitDialog  *dialog)
 {
         CtkTreeIter   iter;
 
-        g_debug ("GsmInhibitDialog: inhibitor removed: %s", id);
+        g_debug ("CsmInhibitDialog: inhibitor removed: %s", id);
 
         if (dialog->is_done) {
                 return;
@@ -701,8 +701,8 @@ on_store_inhibitor_removed (GsmStore          *store,
 }
 
 static void
-csm_inhibit_dialog_set_inhibitor_store (GsmInhibitDialog *dialog,
-                                        GsmStore         *store)
+csm_inhibit_dialog_set_inhibitor_store (CsmInhibitDialog *dialog,
+                                        CsmStore         *store)
 {
         g_return_if_fail (CSM_IS_INHIBIT_DIALOG (dialog));
 
@@ -722,7 +722,7 @@ csm_inhibit_dialog_set_inhibitor_store (GsmInhibitDialog *dialog,
         }
 
 
-        g_debug ("GsmInhibitDialog: setting store %p", store);
+        g_debug ("CsmInhibitDialog: setting store %p", store);
 
         dialog->inhibitors = store;
 
@@ -739,8 +739,8 @@ csm_inhibit_dialog_set_inhibitor_store (GsmInhibitDialog *dialog,
 }
 
 static void
-csm_inhibit_dialog_set_client_store (GsmInhibitDialog *dialog,
-                                     GsmStore         *store)
+csm_inhibit_dialog_set_client_store (CsmInhibitDialog *dialog,
+                                     CsmStore         *store)
 {
         g_return_if_fail (CSM_IS_INHIBIT_DIALOG (dialog));
 
@@ -761,7 +761,7 @@ csm_inhibit_dialog_set_property (GObject        *object,
                                  const GValue   *value,
                                  GParamSpec     *pspec)
 {
-        GsmInhibitDialog *dialog = CSM_INHIBIT_DIALOG (object);
+        CsmInhibitDialog *dialog = CSM_INHIBIT_DIALOG (object);
 
         switch (prop_id) {
         case PROP_ACTION:
@@ -785,7 +785,7 @@ csm_inhibit_dialog_get_property (GObject        *object,
                                  GValue         *value,
                                  GParamSpec     *pspec)
 {
-        GsmInhibitDialog *dialog = CSM_INHIBIT_DIALOG (object);
+        CsmInhibitDialog *dialog = CSM_INHIBIT_DIALOG (object);
 
         switch (prop_id) {
         case PROP_ACTION:
@@ -808,7 +808,7 @@ name_cell_data_func (CtkTreeViewColumn *tree_column,
                      CtkCellRenderer   *cell,
                      CtkTreeModel      *model,
                      CtkTreeIter       *iter,
-                     GsmInhibitDialog  *dialog)
+                     CsmInhibitDialog  *dialog)
 {
         char    *name;
         char    *reason;
@@ -836,24 +836,24 @@ name_cell_data_func (CtkTreeViewColumn *tree_column,
 
 static gboolean
 add_to_model (const char       *id,
-              GsmInhibitor     *inhibitor,
-              GsmInhibitDialog *dialog)
+              CsmInhibitor     *inhibitor,
+              CsmInhibitDialog *dialog)
 {
         add_inhibitor (dialog, inhibitor);
         return FALSE;
 }
 
 static void
-populate_model (GsmInhibitDialog *dialog)
+populate_model (CsmInhibitDialog *dialog)
 {
         csm_store_foreach_remove (dialog->inhibitors,
-                                  (GsmStoreFunc)add_to_model,
+                                  (CsmStoreFunc)add_to_model,
                                   dialog);
         update_dialog_text (dialog);
 }
 
 static void
-setup_dialog (GsmInhibitDialog *dialog)
+setup_dialog (CsmInhibitDialog *dialog)
 {
         const char        *button_text;
         CtkWidget         *treeview;
@@ -945,7 +945,7 @@ csm_inhibit_dialog_constructor (GType                  type,
                                 guint                  n_construct_properties,
                                 GObjectConstructParam *construct_properties)
 {
-        GsmInhibitDialog *dialog;
+        CsmInhibitDialog *dialog;
 #ifdef HAVE_XRENDER
         CdkDisplay *cdkdisplay;
 #endif /* HAVE_XRENDER */
@@ -957,10 +957,10 @@ csm_inhibit_dialog_constructor (GType                  type,
         cdkdisplay = cdk_display_get_default ();
         cdk_x11_display_error_trap_push (cdkdisplay);
         if (XRenderQueryExtension (CDK_DISPLAY_XDISPLAY (cdkdisplay), &dialog->xrender_event_base, &dialog->xrender_error_base)) {
-                g_debug ("GsmInhibitDialog: Initialized XRender extension");
+                g_debug ("CsmInhibitDialog: Initialized XRender extension");
                 dialog->have_xrender = TRUE;
         } else {
-                g_debug ("GsmInhibitDialog: Unable to initialize XRender extension");
+                g_debug ("CsmInhibitDialog: Unable to initialize XRender extension");
                 dialog->have_xrender = FALSE;
         }
         cdk_display_sync (cdkdisplay);
@@ -980,14 +980,14 @@ csm_inhibit_dialog_constructor (GType                  type,
 static void
 csm_inhibit_dialog_dispose (GObject *object)
 {
-        GsmInhibitDialog *dialog;
+        CsmInhibitDialog *dialog;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (CSM_IS_INHIBIT_DIALOG (object));
 
         dialog = CSM_INHIBIT_DIALOG (object);
 
-        g_debug ("GsmInhibitDialog: dispose called");
+        g_debug ("CsmInhibitDialog: dispose called");
 
         if (dialog->list_store != NULL) {
                 g_object_unref (dialog->list_store);
@@ -1015,7 +1015,7 @@ csm_inhibit_dialog_dispose (GObject *object)
 }
 
 static void
-csm_inhibit_dialog_class_init (GsmInhibitDialogClass *klass)
+csm_inhibit_dialog_class_init (CsmInhibitDialogClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
@@ -1051,7 +1051,7 @@ csm_inhibit_dialog_class_init (GsmInhibitDialogClass *klass)
 }
 
 static void
-csm_inhibit_dialog_init (GsmInhibitDialog *dialog)
+csm_inhibit_dialog_init (CsmInhibitDialog *dialog)
 {
         CtkWidget *content_area;
         CtkWidget *widget;
@@ -1089,7 +1089,7 @@ csm_inhibit_dialog_init (GsmInhibitDialog *dialog)
 static void
 csm_inhibit_dialog_finalize (GObject *object)
 {
-        GsmInhibitDialog *dialog;
+        CsmInhibitDialog *dialog;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (CSM_IS_INHIBIT_DIALOG (object));
@@ -1098,14 +1098,14 @@ csm_inhibit_dialog_finalize (GObject *object)
 
         g_return_if_fail (dialog != NULL);
 
-        g_debug ("GsmInhibitDialog: finalizing");
+        g_debug ("CsmInhibitDialog: finalizing");
 
         G_OBJECT_CLASS (csm_inhibit_dialog_parent_class)->finalize (object);
 }
 
 CtkWidget *
-csm_inhibit_dialog_new (GsmStore *inhibitors,
-                        GsmStore *clients,
+csm_inhibit_dialog_new (CsmStore *inhibitors,
+                        CsmStore *clients,
                         int       action)
 {
         GObject *object;

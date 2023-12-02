@@ -26,14 +26,14 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_DBUS_CLIENT            (csm_dbus_client_get_type ())
-G_DECLARE_FINAL_TYPE (GsmDBusClient, csm_dbus_client, GSM, DBUS_CLIENT, GsmClient)
+G_DECLARE_FINAL_TYPE (CsmDBusClient, csm_dbus_client, GSM, DBUS_CLIENT, CsmClient)
 
 typedef enum
 {
         CSM_DBUS_CLIENT_ERROR_GENERAL = 0,
         CSM_DBUS_CLIENT_ERROR_NOT_CLIENT,
         CSM_DBUS_CLIENT_NUM_ERRORS
-} GsmDBusClientError;
+} CsmDBusClientError;
 
 #define CSM_DBUS_CLIENT_ERROR csm_dbus_client_error_quark ()
 
@@ -42,9 +42,9 @@ GType          csm_dbus_client_error_get_type     (void);
 
 GQuark         csm_dbus_client_error_quark        (void);
 
-GsmClient *    csm_dbus_client_new                (const char     *startup_id,
+CsmClient *    csm_dbus_client_new                (const char     *startup_id,
                                                    const char     *bus_name);
-const char *   csm_dbus_client_get_bus_name       (GsmDBusClient  *client);
+const char *   csm_dbus_client_get_bus_name       (CsmDBusClient  *client);
 
 G_END_DECLS
 

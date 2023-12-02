@@ -49,7 +49,7 @@ typedef struct
         DBusGProxy      *bus_proxy;
         DBusGProxy      *ck_proxy;
         guint32          is_connected : 1;
-} GsmConsolekitPrivate;
+} CsmConsolekitPrivate;
 
 enum {
         PROP_0,
@@ -66,7 +66,7 @@ static guint signals[LAST_SIGNAL] = { 0 };
 
 static void     csm_consolekit_finalize     (GObject            *object);
 
-static void     csm_consolekit_free_dbus    (GsmConsolekit      *manager);
+static void     csm_consolekit_free_dbus    (CsmConsolekit      *manager);
 
 static DBusHandlerResult csm_consolekit_dbus_filter (DBusConnection *connection,
                                                      DBusMessage    *message,
@@ -76,9 +76,9 @@ static void     csm_consolekit_on_name_owner_changed (DBusGProxy        *bus_pro
                                                       const char        *name,
                                                       const char        *prev_owner,
                                                       const char        *new_owner,
-                                                      GsmConsolekit   *manager);
+                                                      CsmConsolekit   *manager);
 
-G_DEFINE_TYPE_WITH_PRIVATE (GsmConsolekit, csm_consolekit, G_TYPE_OBJECT);
+G_DEFINE_TYPE_WITH_PRIVATE (CsmConsolekit, csm_consolekit, G_TYPE_OBJECT);
 
 static void
 csm_consolekit_get_property (GObject    *object,
@@ -86,8 +86,8 @@ csm_consolekit_get_property (GObject    *object,
                              GValue     *value,
                              GParamSpec *pspec)
 {
-        GsmConsolekit *manager = CSM_CONSOLEKIT (object);
-        GsmConsolekitPrivate *priv;
+        CsmConsolekit *manager = CSM_CONSOLEKIT (object);
+        CsmConsolekitPrivate *priv;
 
         priv = csm_consolekit_get_instance_private (manager);
 
@@ -105,7 +105,7 @@ csm_consolekit_get_property (GObject    *object,
 }
 
 static void
-csm_consolekit_class_init (GsmConsolekitClass *manager_class)
+csm_consolekit_class_init (CsmConsolekitClass *manager_class)
 {
         GObjectClass *object_class;
         GParamSpec   *param_spec;
@@ -128,7 +128,7 @@ csm_consolekit_class_init (GsmConsolekitClass *manager_class)
                 g_signal_new ("request-completed",
                               G_OBJECT_CLASS_TYPE (object_class),
                               G_SIGNAL_RUN_LAST,
-                              G_STRUCT_OFFSET (GsmConsolekitClass, request_completed),
+                              G_STRUCT_OFFSET (CsmConsolekitClass, request_completed),
                               NULL,
                               NULL,
                               g_cclosure_marshal_VOID__POINTER,
@@ -139,7 +139,7 @@ csm_consolekit_class_init (GsmConsolekitClass *manager_class)
                 g_signal_new ("privileges-completed",
                               G_OBJECT_CLASS_TYPE (object_class),
                               G_SIGNAL_RUN_LAST,
-                              G_STRUCT_OFFSET (GsmConsolekitClass, privileges_completed),
+                              G_STRUCT_OFFSET (CsmConsolekitClass, privileges_completed),
                               NULL,
                               NULL,
                               csm_marshal_VOID__BOOLEAN_BOOLEAN_POINTER,
@@ -153,7 +153,7 @@ csm_consolekit_dbus_filter (DBusConnection *connection,
                             DBusMessage    *message,
                             void           *user_data)
 {
-        GsmConsolekit *manager;
+        CsmConsolekit *manager;
 
         manager = CSM_CONSOLEKIT (user_data);
 
@@ -169,12 +169,12 @@ csm_consolekit_dbus_filter (DBusConnection *connection,
 }
 
 static gboolean
-csm_consolekit_ensure_ck_connection (GsmConsolekit  *manager,
+csm_consolekit_ensure_ck_connection (CsmConsolekit  *manager,
                                      GError        **error)
 {
         GError  *connection_error;
         gboolean is_connected;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         connection_error = NULL;
         priv = csm_consolekit_get_instance_private (manager);
@@ -275,9 +275,9 @@ csm_consolekit_on_name_owner_changed (DBusGProxy    *bus_proxy,
                                       const char    *name,
                                       const char    *prev_owner,
                                       const char    *new_owner,
-                                      GsmConsolekit *manager)
+                                      CsmConsolekit *manager)
 {
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         if (name != NULL && strcmp (name, "org.freedesktop.ConsoleKit") != 0) {
                 return;
@@ -294,7 +294,7 @@ csm_consolekit_on_name_owner_changed (DBusGProxy    *bus_proxy,
 }
 
 static void
-csm_consolekit_init (GsmConsolekit *manager)
+csm_consolekit_init (CsmConsolekit *manager)
 {
         GError *error;
 
@@ -308,9 +308,9 @@ csm_consolekit_init (GsmConsolekit *manager)
 }
 
 static void
-csm_consolekit_free_dbus (GsmConsolekit *manager)
+csm_consolekit_free_dbus (CsmConsolekit *manager)
 {
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         priv = csm_consolekit_get_instance_private (manager);
         if (priv->bus_proxy != NULL) {
@@ -338,7 +338,7 @@ csm_consolekit_free_dbus (GsmConsolekit *manager)
 static void
 csm_consolekit_finalize (GObject *object)
 {
-        GsmConsolekit *manager;
+        CsmConsolekit *manager;
         GObjectClass  *parent_class;
 
         manager = CSM_CONSOLEKIT (object);
@@ -364,10 +364,10 @@ csm_consolekit_error_quark (void)
         return error_quark;
 }
 
-GsmConsolekit *
+CsmConsolekit *
 csm_consolekit_new (void)
 {
-        GsmConsolekit *manager;
+        CsmConsolekit *manager;
 
         manager = g_object_new (CSM_TYPE_CONSOLEKIT, NULL);
 
@@ -375,7 +375,7 @@ csm_consolekit_new (void)
 }
 
 static void
-emit_restart_complete (GsmConsolekit *manager,
+emit_restart_complete (CsmConsolekit *manager,
                        GError        *error)
 {
         GError *call_error;
@@ -398,7 +398,7 @@ emit_restart_complete (GsmConsolekit *manager,
 }
 
 static void
-emit_stop_complete (GsmConsolekit *manager,
+emit_stop_complete (CsmConsolekit *manager,
                     GError        *error)
 {
         GError *call_error;
@@ -421,11 +421,11 @@ emit_stop_complete (GsmConsolekit *manager,
 }
 
 void
-csm_consolekit_attempt_restart (GsmConsolekit *manager)
+csm_consolekit_attempt_restart (CsmConsolekit *manager)
 {
         gboolean res;
         GError  *error;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         error = NULL;
         priv = csm_consolekit_get_instance_private (manager);
@@ -455,11 +455,11 @@ csm_consolekit_attempt_restart (GsmConsolekit *manager)
 }
 
 void
-csm_consolekit_attempt_stop (GsmConsolekit *manager)
+csm_consolekit_attempt_stop (CsmConsolekit *manager)
 {
         gboolean res;
         GError  *error;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         error = NULL;
         priv = csm_consolekit_get_instance_private (manager);
@@ -489,11 +489,11 @@ csm_consolekit_attempt_stop (GsmConsolekit *manager)
 }
 
 void
-csm_consolekit_attempt_suspend (GsmConsolekit *manager)
+csm_consolekit_attempt_suspend (CsmConsolekit *manager)
 {
         gboolean res;
         GError  *error;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         error = NULL;
         priv = csm_consolekit_get_instance_private (manager);
@@ -520,11 +520,11 @@ csm_consolekit_attempt_suspend (GsmConsolekit *manager)
 }
 
 void
-csm_consolekit_attempt_hibernate (GsmConsolekit *manager)
+csm_consolekit_attempt_hibernate (CsmConsolekit *manager)
 {
         gboolean res;
         GError  *error;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         error = NULL;
         priv = csm_consolekit_get_instance_private (manager);
@@ -680,7 +680,7 @@ get_current_seat_id (DBusConnection *connection)
 }
 
 void
-csm_consolekit_set_session_idle (GsmConsolekit *manager,
+csm_consolekit_set_session_idle (CsmConsolekit *manager,
                                  gboolean       is_idle)
 {
         gboolean        res;
@@ -690,7 +690,7 @@ csm_consolekit_set_session_idle (GsmConsolekit *manager,
         DBusMessage    *reply;
         DBusError       dbus_error;
         DBusMessageIter iter;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         error = NULL;
         priv = csm_consolekit_get_instance_private (manager);
@@ -794,12 +794,12 @@ out:
 }
 
 gboolean
-csm_consolekit_can_switch_user (GsmConsolekit *manager)
+csm_consolekit_can_switch_user (CsmConsolekit *manager)
 {
         GError  *error;
         char    *seat_id;
         gboolean ret;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         error = NULL;
         priv = csm_consolekit_get_instance_private (manager);
@@ -825,7 +825,7 @@ csm_consolekit_can_switch_user (GsmConsolekit *manager)
 }
 
 gboolean
-csm_consolekit_get_restart_privileges (GsmConsolekit *manager)
+csm_consolekit_get_restart_privileges (CsmConsolekit *manager)
 {
         g_signal_emit (G_OBJECT (manager),
                        signals [PRIVILEGES_COMPLETED],
@@ -835,7 +835,7 @@ csm_consolekit_get_restart_privileges (GsmConsolekit *manager)
 }
 
 gboolean
-csm_consolekit_get_stop_privileges (GsmConsolekit *manager)
+csm_consolekit_get_stop_privileges (CsmConsolekit *manager)
 {
         g_signal_emit (G_OBJECT (manager),
                        signals [PRIVILEGES_COMPLETED],
@@ -845,12 +845,12 @@ csm_consolekit_get_stop_privileges (GsmConsolekit *manager)
 }
 
 gboolean
-csm_consolekit_can_restart (GsmConsolekit *manager)
+csm_consolekit_can_restart (CsmConsolekit *manager)
 {
         gboolean res;
         gboolean can_restart;
         GError  *error;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         error = NULL;
         priv = csm_consolekit_get_instance_private (manager);
@@ -880,12 +880,12 @@ csm_consolekit_can_restart (GsmConsolekit *manager)
 }
 
 gboolean
-csm_consolekit_can_stop (GsmConsolekit *manager)
+csm_consolekit_can_stop (CsmConsolekit *manager)
 {
         gboolean res;
         gboolean can_stop;
         GError  *error;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         error = NULL;
         priv = csm_consolekit_get_instance_private (manager);
@@ -916,13 +916,13 @@ csm_consolekit_can_stop (GsmConsolekit *manager)
 }
 
 gboolean
-csm_consolekit_can_suspend (GsmConsolekit *manager)
+csm_consolekit_can_suspend (CsmConsolekit *manager)
 {
         gboolean res;
         gboolean can_suspend;
         gchar *retval;
         GError *error = NULL;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         priv = csm_consolekit_get_instance_private (manager);
 
@@ -956,13 +956,13 @@ csm_consolekit_can_suspend (GsmConsolekit *manager)
 }
 
 gboolean
-csm_consolekit_can_hibernate (GsmConsolekit *manager)
+csm_consolekit_can_hibernate (CsmConsolekit *manager)
 {
         gboolean res;
         gboolean can_hibernate;
         gchar *retval;
         GError *error = NULL;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         priv = csm_consolekit_get_instance_private (manager);
 
@@ -996,7 +996,7 @@ csm_consolekit_can_hibernate (GsmConsolekit *manager)
 }
 
 gchar *
-csm_consolekit_get_current_session_type (GsmConsolekit *manager)
+csm_consolekit_get_current_session_type (CsmConsolekit *manager)
 {
         GError *gerror;
         DBusConnection *connection;
@@ -1007,7 +1007,7 @@ csm_consolekit_get_current_session_type (GsmConsolekit *manager)
         gchar *ret;
         DBusMessageIter iter;
         const char *value;
-        GsmConsolekitPrivate *priv;
+        CsmConsolekitPrivate *priv;
 
         session_id = NULL;
         ret = NULL;
@@ -1065,10 +1065,10 @@ out:
 }
 
 
-GsmConsolekit *
+CsmConsolekit *
 csm_get_consolekit (void)
 {
-        static GsmConsolekit *manager = NULL;
+        static CsmConsolekit *manager = NULL;
 
         if (manager == NULL) {
                 manager = csm_consolekit_new ();

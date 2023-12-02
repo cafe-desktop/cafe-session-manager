@@ -42,7 +42,7 @@
 #define UNUSED_VARIABLE
 #endif
 
-struct _GsmAppDialog
+struct _CsmAppDialog
 {
         CtkDialog  parent;
         CtkWidget *name_entry;
@@ -64,7 +64,7 @@ enum {
         PROP_DELAY
 };
 
-G_DEFINE_TYPE (GsmAppDialog, csm_app_dialog, CTK_TYPE_DIALOG)
+G_DEFINE_TYPE (CsmAppDialog, csm_app_dialog, CTK_TYPE_DIALOG)
 
 static char *
 make_exec_uri (const char *exec)
@@ -102,7 +102,7 @@ make_exec_uri (const char *exec)
 
 static void
 on_browse_button_clicked (CtkWidget    *widget,
-                          GsmAppDialog *dialog)
+                          CsmAppDialog *dialog)
 {
         CtkWidget *chooser;
         int        response;
@@ -147,13 +147,13 @@ on_browse_button_clicked (CtkWidget    *widget,
 
 static void
 on_entry_activate (CtkEntry     *entry,
-                   GsmAppDialog *dialog)
+                   CsmAppDialog *dialog)
 {
         ctk_dialog_response (CTK_DIALOG (dialog), CTK_RESPONSE_OK);
 }
 
 static gboolean
-on_spin_output (CtkSpinButton *spin, GsmAppDialog *dialog)
+on_spin_output (CtkSpinButton *spin, CsmAppDialog *dialog)
 {
         CtkAdjustment *adjustment;
         gchar *text;
@@ -177,7 +177,7 @@ on_spin_output (CtkSpinButton *spin, GsmAppDialog *dialog)
 }
 
 static void
-setup_dialog (GsmAppDialog *dialog)
+setup_dialog (CsmAppDialog *dialog)
 {
         CtkWidget  *content_area;
         CtkWidget  *widget;
@@ -283,7 +283,7 @@ csm_app_dialog_constructor (GType                  type,
                             guint                  n_construct_app,
                             GObjectConstructParam *construct_app)
 {
-        GsmAppDialog *dialog;
+        CsmAppDialog *dialog;
 
         dialog = CSM_APP_DIALOG (G_OBJECT_CLASS (csm_app_dialog_parent_class)->constructor (type,
                                                                                             n_construct_app,
@@ -297,7 +297,7 @@ csm_app_dialog_constructor (GType                  type,
 static void
 csm_app_dialog_dispose (GObject *object)
 {
-        GsmAppDialog *dialog;
+        CsmAppDialog *dialog;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (CSM_IS_APP_DIALOG (object));
@@ -315,7 +315,7 @@ csm_app_dialog_dispose (GObject *object)
 }
 
 static void
-csm_app_dialog_set_name (GsmAppDialog *dialog,
+csm_app_dialog_set_name (CsmAppDialog *dialog,
                          const char   *name)
 {
         g_return_if_fail (CSM_IS_APP_DIALOG (dialog));
@@ -327,7 +327,7 @@ csm_app_dialog_set_name (GsmAppDialog *dialog,
 }
 
 static void
-csm_app_dialog_set_command (GsmAppDialog *dialog,
+csm_app_dialog_set_command (CsmAppDialog *dialog,
                             const char   *name)
 {
         g_return_if_fail (CSM_IS_APP_DIALOG (dialog));
@@ -339,7 +339,7 @@ csm_app_dialog_set_command (GsmAppDialog *dialog,
 }
 
 static void
-csm_app_dialog_set_comment (GsmAppDialog *dialog,
+csm_app_dialog_set_comment (CsmAppDialog *dialog,
                             const char   *name)
 {
         g_return_if_fail (CSM_IS_APP_DIALOG (dialog));
@@ -351,7 +351,7 @@ csm_app_dialog_set_comment (GsmAppDialog *dialog,
 }
 
 static void
-csm_app_dialog_set_delay (GsmAppDialog *dialog,
+csm_app_dialog_set_delay (CsmAppDialog *dialog,
                           guint delay)
 {
         g_return_if_fail (CSM_IS_APP_DIALOG (dialog));
@@ -361,28 +361,28 @@ csm_app_dialog_set_delay (GsmAppDialog *dialog,
 }
 
 const char *
-csm_app_dialog_get_name (GsmAppDialog *dialog)
+csm_app_dialog_get_name (CsmAppDialog *dialog)
 {
         g_return_val_if_fail (CSM_IS_APP_DIALOG (dialog), NULL);
         return ctk_entry_get_text (CTK_ENTRY (dialog->name_entry));
 }
 
 const char *
-csm_app_dialog_get_command (GsmAppDialog *dialog)
+csm_app_dialog_get_command (CsmAppDialog *dialog)
 {
         g_return_val_if_fail (CSM_IS_APP_DIALOG (dialog), NULL);
         return ctk_entry_get_text (CTK_ENTRY (dialog->command_entry));
 }
 
 const char *
-csm_app_dialog_get_comment (GsmAppDialog *dialog)
+csm_app_dialog_get_comment (CsmAppDialog *dialog)
 {
         g_return_val_if_fail (CSM_IS_APP_DIALOG (dialog), NULL);
         return ctk_entry_get_text (CTK_ENTRY (dialog->comment_entry));
 }
 
 guint
-csm_app_dialog_get_delay (GsmAppDialog *dialog)
+csm_app_dialog_get_delay (CsmAppDialog *dialog)
 {
         g_return_val_if_fail (CSM_IS_APP_DIALOG (dialog), 0);
         return dialog->delay;
@@ -394,7 +394,7 @@ csm_app_dialog_set_property (GObject        *object,
                              const GValue   *value,
                              GParamSpec     *pspec)
 {
-        GsmAppDialog *dialog = CSM_APP_DIALOG (object);
+        CsmAppDialog *dialog = CSM_APP_DIALOG (object);
 
         switch (prop_id) {
         case PROP_NAME:
@@ -421,7 +421,7 @@ csm_app_dialog_get_property (GObject        *object,
                              GValue         *value,
                              GParamSpec     *pspec)
 {
-        GsmAppDialog *dialog = CSM_APP_DIALOG (object);
+        CsmAppDialog *dialog = CSM_APP_DIALOG (object);
 
         switch (prop_id) {
         case PROP_NAME:
@@ -443,7 +443,7 @@ csm_app_dialog_get_property (GObject        *object,
 }
 
 static void
-csm_app_dialog_class_init (GsmAppDialogClass *klass)
+csm_app_dialog_class_init (CsmAppDialogClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
@@ -485,7 +485,7 @@ csm_app_dialog_class_init (GsmAppDialogClass *klass)
 }
 
 static void
-csm_app_dialog_init (GsmAppDialog *dialog)
+csm_app_dialog_init (CsmAppDialog *dialog)
 {
 
 }
@@ -509,7 +509,7 @@ csm_app_dialog_new (const char *name,
 }
 
 gboolean
-csm_app_dialog_run (GsmAppDialog  *dialog,
+csm_app_dialog_run (CsmAppDialog  *dialog,
                     char         **name_p,
                     char         **command_p,
                     char         **comment_p,

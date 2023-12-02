@@ -38,7 +38,7 @@ typedef struct {
         char            *app_id;
         guint            status;
         DBusGConnection *connection;
-} GsmClientPrivate;
+} CsmClientPrivate;
 
 enum {
         PROP_0,
@@ -56,7 +56,7 @@ enum {
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE (GsmClient, csm_client, G_TYPE_OBJECT)
+G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE (CsmClient, csm_client, G_TYPE_OBJECT)
 
 GQuark
 csm_client_error_quark (void)
@@ -85,7 +85,7 @@ csm_client_error_get_type (void)
 
                 g_assert (CSM_CLIENT_NUM_ERRORS == G_N_ELEMENTS (values) - 1);
 
-                etype = g_enum_register_static ("GsmClientError", values);
+                etype = g_enum_register_static ("CsmClientError", values);
         }
 
         return etype;
@@ -106,10 +106,10 @@ get_next_client_serial (void)
 }
 
 static gboolean
-register_client (GsmClient *client)
+register_client (CsmClient *client)
 {
         GError *error;
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
 
         error = NULL;
         priv = csm_client_get_instance_private (client);
@@ -132,9 +132,9 @@ csm_client_constructor (GType                  type,
                         guint                  n_construct_properties,
                         GObjectConstructParam *construct_properties)
 {
-        GsmClient *client;
+        CsmClient *client;
         gboolean   res;
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
 
         client = CSM_CLIENT (G_OBJECT_CLASS (csm_client_parent_class)->constructor (type,
                                                                                     n_construct_properties,
@@ -152,15 +152,15 @@ csm_client_constructor (GType                  type,
 }
 
 static void
-csm_client_init (GsmClient *client)
+csm_client_init (CsmClient *client)
 {
 }
 
 static void
 csm_client_finalize (GObject *object)
 {
-        GsmClient *client;
-        GsmClientPrivate *priv;
+        CsmClient *client;
+        CsmClientPrivate *priv;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (CSM_IS_CLIENT (object));
@@ -178,10 +178,10 @@ csm_client_finalize (GObject *object)
 }
 
 void
-csm_client_set_status (GsmClient *client,
+csm_client_set_status (CsmClient *client,
                        guint      status)
 {
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
         g_return_if_fail (CSM_IS_CLIENT (client));
 
         priv = csm_client_get_instance_private (client);
@@ -192,10 +192,10 @@ csm_client_set_status (GsmClient *client,
 }
 
 static void
-csm_client_set_startup_id (GsmClient  *client,
+csm_client_set_startup_id (CsmClient  *client,
                            const char *startup_id)
 {
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
         g_return_if_fail (CSM_IS_CLIENT (client));
 
         priv = csm_client_get_instance_private (client);
@@ -211,10 +211,10 @@ csm_client_set_startup_id (GsmClient  *client,
 }
 
 void
-csm_client_set_app_id (GsmClient  *client,
+csm_client_set_app_id (CsmClient  *client,
                        const char *app_id)
 {
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
         g_return_if_fail (CSM_IS_CLIENT (client));
 
         priv = csm_client_get_instance_private (client);
@@ -235,7 +235,7 @@ csm_client_set_property (GObject       *object,
                          const GValue  *value,
                          GParamSpec    *pspec)
 {
-        GsmClient *self;
+        CsmClient *self;
 
         self = CSM_CLIENT (object);
 
@@ -261,8 +261,8 @@ csm_client_get_property (GObject    *object,
                          GValue     *value,
                          GParamSpec *pspec)
 {
-        GsmClient *self;
-        GsmClientPrivate *priv;
+        CsmClient *self;
+        CsmClientPrivate *priv;
 
         self = CSM_CLIENT (object);
         priv = csm_client_get_instance_private (self);
@@ -284,7 +284,7 @@ csm_client_get_property (GObject    *object,
 }
 
 static gboolean
-default_stop (GsmClient *client,
+default_stop (CsmClient *client,
               GError   **error)
 {
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
@@ -297,8 +297,8 @@ default_stop (GsmClient *client,
 static void
 csm_client_dispose (GObject *object)
 {
-        GsmClient *client;
-        GsmClientPrivate *priv;
+        CsmClient *client;
+        CsmClientPrivate *priv;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (CSM_IS_CLIENT (object));
@@ -306,13 +306,13 @@ csm_client_dispose (GObject *object)
         client = CSM_CLIENT (object);
         priv = csm_client_get_instance_private (client);
 
-        g_debug ("GsmClient: disposing %s", priv->id);
+        g_debug ("CsmClient: disposing %s", priv->id);
 
         G_OBJECT_CLASS (csm_client_parent_class)->dispose (object);
 }
 
 static void
-csm_client_class_init (GsmClientClass *klass)
+csm_client_class_init (CsmClientClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -328,7 +328,7 @@ csm_client_class_init (GsmClientClass *klass)
                 g_signal_new ("disconnected",
                               G_OBJECT_CLASS_TYPE (object_class),
                               G_SIGNAL_RUN_LAST,
-                              G_STRUCT_OFFSET (GsmClientClass, disconnected),
+                              G_STRUCT_OFFSET (CsmClientClass, disconnected),
                               NULL, NULL,
                               g_cclosure_marshal_VOID__VOID,
                               G_TYPE_NONE,
@@ -337,7 +337,7 @@ csm_client_class_init (GsmClientClass *klass)
                 g_signal_new ("end-session-response",
                               G_OBJECT_CLASS_TYPE (object_class),
                               G_SIGNAL_RUN_LAST,
-                              G_STRUCT_OFFSET (GsmClientClass, end_session_response),
+                              G_STRUCT_OFFSET (CsmClientClass, end_session_response),
                               NULL, NULL,
                               csm_marshal_VOID__BOOLEAN_BOOLEAN_BOOLEAN_STRING,
                               G_TYPE_NONE,
@@ -371,9 +371,9 @@ csm_client_class_init (GsmClientClass *klass)
 }
 
 const char *
-csm_client_peek_id (GsmClient *client)
+csm_client_peek_id (CsmClient *client)
 {
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
         g_return_val_if_fail (CSM_IS_CLIENT (client), NULL);
 
         priv = csm_client_get_instance_private (client);
@@ -383,7 +383,7 @@ csm_client_peek_id (GsmClient *client)
 
 /**
  * csm_client_peek_app_id:
- * @client: a #GsmClient.
+ * @client: a #CsmClient.
  *
  * Note that the application ID might not be known; this happens when for XSMP
  * clients that we did not start ourselves, for instance.
@@ -392,9 +392,9 @@ csm_client_peek_id (GsmClient *client)
  * known. The string is owned by @client.
  **/
 const char *
-csm_client_peek_app_id (GsmClient *client)
+csm_client_peek_app_id (CsmClient *client)
 {
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
         g_return_val_if_fail (CSM_IS_CLIENT (client), NULL);
 
         priv = csm_client_get_instance_private (client);
@@ -403,9 +403,9 @@ csm_client_peek_app_id (GsmClient *client)
 }
 
 const char *
-csm_client_peek_startup_id (GsmClient *client)
+csm_client_peek_startup_id (CsmClient *client)
 {
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
         g_return_val_if_fail (CSM_IS_CLIENT (client), NULL);
 
         priv = csm_client_get_instance_private (client);
@@ -414,9 +414,9 @@ csm_client_peek_startup_id (GsmClient *client)
 }
 
 guint
-csm_client_peek_status (GsmClient *client)
+csm_client_peek_status (CsmClient *client)
 {
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
         g_return_val_if_fail (CSM_IS_CLIENT (client), CSM_CLIENT_UNREGISTERED);
 
         priv = csm_client_get_instance_private (client);
@@ -425,7 +425,7 @@ csm_client_peek_status (GsmClient *client)
 }
 
 guint
-csm_client_peek_restart_style_hint (GsmClient *client)
+csm_client_peek_restart_style_hint (CsmClient *client)
 {
         g_return_val_if_fail (CSM_IS_CLIENT (client), CSM_CLIENT_RESTART_NEVER);
 
@@ -433,11 +433,11 @@ csm_client_peek_restart_style_hint (GsmClient *client)
 }
 
 gboolean
-csm_client_get_startup_id (GsmClient *client,
+csm_client_get_startup_id (CsmClient *client,
                            char     **id,
                            GError   **error)
 {
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
 
         priv = csm_client_get_instance_private (client);
@@ -448,11 +448,11 @@ csm_client_get_startup_id (GsmClient *client,
 }
 
 gboolean
-csm_client_get_app_id (GsmClient *client,
+csm_client_get_app_id (CsmClient *client,
                        char     **id,
                        GError   **error)
 {
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
 
         priv = csm_client_get_instance_private (client);
@@ -463,7 +463,7 @@ csm_client_get_app_id (GsmClient *client,
 }
 
 gboolean
-csm_client_get_restart_style_hint (GsmClient *client,
+csm_client_get_restart_style_hint (CsmClient *client,
                                    guint     *hint,
                                    GError   **error)
 {
@@ -475,11 +475,11 @@ csm_client_get_restart_style_hint (GsmClient *client,
 }
 
 gboolean
-csm_client_get_status (GsmClient *client,
+csm_client_get_status (CsmClient *client,
                        guint     *status,
                        GError   **error)
 {
-        GsmClientPrivate *priv;
+        CsmClientPrivate *priv;
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
 
         priv = csm_client_get_instance_private (client);
@@ -490,7 +490,7 @@ csm_client_get_status (GsmClient *client,
 }
 
 gboolean
-csm_client_get_unix_process_id (GsmClient  *client,
+csm_client_get_unix_process_id (CsmClient  *client,
                                 guint      *pid,
                                 GError    **error)
 {
@@ -503,13 +503,13 @@ csm_client_get_unix_process_id (GsmClient  *client,
 
 /**
  * csm_client_get_app_name:
- * @client: a #GsmClient.
+ * @client: a #CsmClient.
  *
  * Returns: a copy of the application name of the client, or %NULL if no such
  * name is known.
  **/
 char *
-csm_client_get_app_name (GsmClient *client)
+csm_client_get_app_name (CsmClient *client)
 {
         g_return_val_if_fail (CSM_IS_CLIENT (client), NULL);
 
@@ -517,7 +517,7 @@ csm_client_get_app_name (GsmClient *client)
 }
 
 gboolean
-csm_client_cancel_end_session (GsmClient *client,
+csm_client_cancel_end_session (CsmClient *client,
                                GError   **error)
 {
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
@@ -527,7 +527,7 @@ csm_client_cancel_end_session (GsmClient *client,
 
 
 gboolean
-csm_client_query_end_session (GsmClient *client,
+csm_client_query_end_session (CsmClient *client,
                               guint      flags,
                               GError   **error)
 {
@@ -537,7 +537,7 @@ csm_client_query_end_session (GsmClient *client,
 }
 
 gboolean
-csm_client_end_session (GsmClient *client,
+csm_client_end_session (CsmClient *client,
                         guint      flags,
                         GError   **error)
 {
@@ -547,7 +547,7 @@ csm_client_end_session (GsmClient *client,
 }
 
 gboolean
-csm_client_stop (GsmClient *client,
+csm_client_stop (CsmClient *client,
                  GError   **error)
 {
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
@@ -556,13 +556,13 @@ csm_client_stop (GsmClient *client,
 }
 
 void
-csm_client_disconnected (GsmClient *client)
+csm_client_disconnected (CsmClient *client)
 {
         g_signal_emit (client, signals[DISCONNECTED], 0);
 }
 
 GKeyFile *
-csm_client_save (GsmClient *client,
+csm_client_save (CsmClient *client,
                  GError   **error)
 {
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
@@ -571,7 +571,7 @@ csm_client_save (GsmClient *client,
 }
 
 void
-csm_client_end_session_response (GsmClient  *client,
+csm_client_end_session_response (CsmClient  *client,
                                  gboolean    is_ok,
                                  gboolean    do_last,
                                  gboolean    cancel,

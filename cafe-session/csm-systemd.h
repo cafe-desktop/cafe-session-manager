@@ -31,25 +31,25 @@ G_BEGIN_DECLS
 
 #define CSM_TYPE_SYSTEMD             (csm_systemd_get_type ())
 #define CSM_SYSTEMD_ERROR            (csm_systemd_error_quark ())
-G_DECLARE_DERIVABLE_TYPE (GsmSystemd, csm_systemd, GSM, SYSTEMD, GObject)
+G_DECLARE_DERIVABLE_TYPE (CsmSystemd, csm_systemd, GSM, SYSTEMD, GObject)
 
 #define LOGIND_RUNNING() (access("/run/systemd/seats/", F_OK) >= 0)
-typedef enum   _GsmSystemdError   GsmSystemdError;
+typedef enum   _CsmSystemdError   CsmSystemdError;
 
-struct _GsmSystemdClass
+struct _CsmSystemdClass
 {
         GObjectClass parent_class;
 
-        void (* request_completed) (GsmSystemd *manager,
+        void (* request_completed) (CsmSystemd *manager,
                                     GError        *error);
 
-        void (* privileges_completed) (GsmSystemd *manager,
+        void (* privileges_completed) (CsmSystemd *manager,
                                        gboolean       success,
                                        gboolean       ask_later,
                                        GError        *error);
 };
 
-enum _GsmSystemdError {
+enum _CsmSystemdError {
         CSM_SYSTEMD_ERROR_RESTARTING = 0,
         CSM_SYSTEMD_ERROR_STOPPING
 };
@@ -58,38 +58,38 @@ enum _GsmSystemdError {
 
 GQuark           csm_systemd_error_quark     (void);
 
-GsmSystemd      *csm_systemd_new             (void) G_GNUC_MALLOC;
+CsmSystemd      *csm_systemd_new             (void) G_GNUC_MALLOC;
 
-gboolean         csm_systemd_can_switch_user (GsmSystemd *manager);
+gboolean         csm_systemd_can_switch_user (CsmSystemd *manager);
 
-gboolean         csm_systemd_get_restart_privileges (GsmSystemd *manager);
+gboolean         csm_systemd_get_restart_privileges (CsmSystemd *manager);
 
-gboolean         csm_systemd_get_stop_privileges    (GsmSystemd *manager);
+gboolean         csm_systemd_get_stop_privileges    (CsmSystemd *manager);
 
-gboolean         csm_systemd_can_stop        (GsmSystemd *manager);
+gboolean         csm_systemd_can_stop        (CsmSystemd *manager);
 
-gboolean         csm_systemd_can_restart     (GsmSystemd *manager);
+gboolean         csm_systemd_can_restart     (CsmSystemd *manager);
 
-gboolean         csm_systemd_can_hibernate     (GsmSystemd *manager);
+gboolean         csm_systemd_can_hibernate     (CsmSystemd *manager);
 
-gboolean         csm_systemd_can_suspend     (GsmSystemd *manager);
+gboolean         csm_systemd_can_suspend     (CsmSystemd *manager);
 
-gboolean         csm_systemd_is_last_session_for_user (GsmSystemd *manager);
+gboolean         csm_systemd_is_last_session_for_user (CsmSystemd *manager);
 
-void             csm_systemd_attempt_stop    (GsmSystemd *manager);
+void             csm_systemd_attempt_stop    (CsmSystemd *manager);
 
-void             csm_systemd_attempt_restart (GsmSystemd *manager);
+void             csm_systemd_attempt_restart (CsmSystemd *manager);
 
-void             csm_systemd_attempt_hibernate (GsmSystemd *manager);
+void             csm_systemd_attempt_hibernate (CsmSystemd *manager);
 
-void             csm_systemd_attempt_suspend (GsmSystemd *manager);
+void             csm_systemd_attempt_suspend (CsmSystemd *manager);
 
-void             csm_systemd_set_session_idle (GsmSystemd *manager,
+void             csm_systemd_set_session_idle (CsmSystemd *manager,
                                                   gboolean       is_idle);
 
-gchar           *csm_systemd_get_current_session_type (GsmSystemd *manager);
+gchar           *csm_systemd_get_current_session_type (CsmSystemd *manager);
 
-GsmSystemd      *csm_get_systemd             (void);
+CsmSystemd      *csm_get_systemd             (void);
 
 G_END_DECLS
 

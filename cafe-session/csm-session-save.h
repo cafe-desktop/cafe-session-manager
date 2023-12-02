@@ -28,7 +28,7 @@
 extern "C" {
 #endif
 
-void      csm_session_save                 (GsmStore  *client_store,
+void      csm_session_save                 (CsmStore  *client_store,
                                             GError   **error);
 
 #ifdef __cplusplus

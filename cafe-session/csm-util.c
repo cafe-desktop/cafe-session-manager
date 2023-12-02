@@ -56,10 +56,10 @@ csm_util_find_desktop_file_for_app_name (const char *name,
 
         desktop_file = g_strdup_printf ("%s.desktop", name);
 
-        g_debug ("GsmUtil: Looking for file '%s'", desktop_file);
+        g_debug ("CsmUtil: Looking for file '%s'", desktop_file);
 
         for (i = 0; app_dirs[i] != NULL; i++) {
-                g_debug ("GsmUtil: Looking in '%s'", app_dirs[i]);
+                g_debug ("CsmUtil: Looking in '%s'", app_dirs[i]);
         }
 
         g_key_file_load_from_dirs (key_file,
@@ -70,7 +70,7 @@ csm_util_find_desktop_file_for_app_name (const char *name,
                                    NULL);
 
         if (app_path != NULL) {
-                g_debug ("GsmUtil: found in XDG app dirs: '%s'", app_path);
+                g_debug ("CsmUtil: found in XDG app dirs: '%s'", app_path);
         }
 
         if (app_path == NULL && autostart_dirs != NULL) {
@@ -81,7 +81,7 @@ csm_util_find_desktop_file_for_app_name (const char *name,
                                            G_KEY_FILE_NONE,
                                            NULL);
                 if (app_path != NULL) {
-                        g_debug ("GsmUtil: found in autostart dirs: '%s'", app_path);
+                        g_debug ("CsmUtil: found in autostart dirs: '%s'", app_path);
                 }
 
         }
@@ -98,7 +98,7 @@ csm_util_find_desktop_file_for_app_name (const char *name,
                                            G_KEY_FILE_NONE,
                                            NULL);
                 if (app_path != NULL) {
-                        g_debug ("GsmUtil: found in XDG app dirs: '%s'", app_path);
+                        g_debug ("CsmUtil: found in XDG app dirs: '%s'", app_path);
                 }
         }
 
@@ -110,7 +110,7 @@ csm_util_find_desktop_file_for_app_name (const char *name,
                                            G_KEY_FILE_NONE,
                                            NULL);
                 if (app_path != NULL) {
-                        g_debug ("GsmUtil: found in autostart dirs: '%s'", app_path);
+                        g_debug ("CsmUtil: found in autostart dirs: '%s'", app_path);
                 }
         }
 
@@ -134,7 +134,7 @@ ensure_dir_exists (const char *dir)
         if (errno == EEXIST)
                 return g_file_test (dir, G_FILE_TEST_IS_DIR);
 
-        g_warning ("GsmSessionSave: Failed to create directory %s: %s", dir, strerror (errno));
+        g_warning ("CsmSessionSave: Failed to create directory %s: %s", dir, strerror (errno));
 
         return FALSE;
 }
@@ -153,7 +153,7 @@ csm_util_get_empty_tmp_session_dir (void)
         exists = ensure_dir_exists (tmp);
 
         if (G_UNLIKELY (!exists)) {
-                g_warning ("GsmSessionSave: could not create directory for saved session: %s", tmp);
+                g_warning ("CsmSessionSave: could not create directory for saved session: %s", tmp);
                 g_free (tmp);
                 return NULL;
         } else {
@@ -194,7 +194,7 @@ csm_util_get_saved_session_dir (void)
                         static gboolean printed_warning = FALSE;
 
                         if (!printed_warning) {
-                                g_warning ("GsmSessionSave: could not create directory for saved session: %s", _saved_session_dir);
+                                g_warning ("CsmSessionSave: could not create directory for saved session: %s", _saved_session_dir);
                                 printed_warning = TRUE;
                         }
 
