@@ -60,7 +60,7 @@
   * avoid 'ctk_dialog_add_button' with stock ids
   * cafe-session-save: show icon in error dialog
   * Migrate from dbus-glib to gdbus
-  * gsm-inhibit-dialog.ui: avoid deprecated GtkVBox
+  * gsm-inhibit-dialog.ui: avoid deprecated CtkVBox
   * session-properties.ui: avoid deprecations
   * gsm-manager: avoid deprecated 'g_settings_list_schemas'
   * Avoid compile warning for g_type_class_add_private
@@ -73,7 +73,7 @@
 
   * Translations update
   * Fix broken link in man pages
-  * avoid deprecated GtkStock
+  * avoid deprecated CtkStock
 
 ### cafe-session-manager 1.20.0
 
@@ -162,7 +162,7 @@
 
 ### cafe-session-manager 1.10.1
 
-  * Fix size of GtkScrolledWindow in session properties.
+  * Fix size of CtkScrolledWindow in session properties.
   * Check for running display manager when user switching.
 
 ### cafe-session-manager 1.10.0

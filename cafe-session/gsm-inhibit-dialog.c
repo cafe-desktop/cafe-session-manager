@@ -57,13 +57,13 @@
 
 struct _GsmInhibitDialog
 {
-        GtkDialog          parent;
-        GtkBuilder        *xml;
+        CtkDialog          parent;
+        CtkBuilder        *xml;
         int                action;
         gboolean           is_done;
         GsmStore          *inhibitors;
         GsmStore          *clients;
-        GtkListStore      *list_store;
+        CtkListStore      *list_store;
         gboolean           have_xrender;
         int                xrender_event_base;
         int                xrender_error_base;
@@ -131,9 +131,9 @@ gsm_inhibit_dialog_set_action (GsmInhibitDialog *dialog,
 static gboolean
 find_inhibitor (GsmInhibitDialog *dialog,
                 const char       *id,
-                GtkTreeIter      *iter)
+                CtkTreeIter      *iter)
 {
-        GtkTreeModel *model;
+        CtkTreeModel *model;
         gboolean      found_item;
 
         g_assert (GSM_IS_INHIBIT_DIALOG (dialog));
@@ -184,11 +184,11 @@ _util_icon_remove_extension (const char *icon)
 
 /* copied from cafe-panel panel-util.c */
 static char *
-_find_icon (GtkIconTheme  *icon_theme,
+_find_icon (CtkIconTheme  *icon_theme,
             const char    *icon_name,
             gint           size)
 {
-        GtkIconInfo *info;
+        CtkIconInfo *info;
         char        *retval;
         char        *icon_no_extension;
 
@@ -230,7 +230,7 @@ _find_icon (GtkIconTheme  *icon_theme,
 
 /* copied from cafe-panel panel-util.c */
 static GdkPixbuf *
-_load_icon (GtkIconTheme  *icon_theme,
+_load_icon (CtkIconTheme  *icon_theme,
             const char    *icon_name,
             int            size,
             int            desired_width,
@@ -608,7 +608,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
 }
 
 static gboolean
-model_has_one_entry (GtkTreeModel *model)
+model_has_one_entry (CtkTreeModel *model)
 {
         guint n_rows;
 
@@ -623,7 +623,7 @@ update_dialog_text (GsmInhibitDialog *dialog)
 {
         const char *description_text;
         const char *header_text;
-        GtkWidget  *widget;
+        CtkWidget  *widget;
 
         if (model_has_one_entry (CTK_TREE_MODEL (dialog->list_store))) {
                 g_debug ("Found one entry in model");
@@ -657,7 +657,7 @@ on_store_inhibitor_added (GsmStore          *store,
                           GsmInhibitDialog  *dialog)
 {
         GsmInhibitor *inhibitor;
-        GtkTreeIter   iter;
+        CtkTreeIter   iter;
 
         g_debug ("GsmInhibitDialog: inhibitor added: %s", id);
 
@@ -680,7 +680,7 @@ on_store_inhibitor_removed (GsmStore          *store,
                             const char        *id,
                             GsmInhibitDialog  *dialog)
 {
-        GtkTreeIter   iter;
+        CtkTreeIter   iter;
 
         g_debug ("GsmInhibitDialog: inhibitor removed: %s", id);
 
@@ -804,10 +804,10 @@ gsm_inhibit_dialog_get_property (GObject        *object,
 }
 
 static void
-name_cell_data_func (GtkTreeViewColumn *tree_column,
-                     GtkCellRenderer   *cell,
-                     GtkTreeModel      *model,
-                     GtkTreeIter       *iter,
+name_cell_data_func (CtkTreeViewColumn *tree_column,
+                     CtkCellRenderer   *cell,
+                     CtkTreeModel      *model,
+                     CtkTreeIter       *iter,
                      GsmInhibitDialog  *dialog)
 {
         char    *name;
@@ -856,9 +856,9 @@ static void
 setup_dialog (GsmInhibitDialog *dialog)
 {
         const char        *button_text;
-        GtkWidget         *treeview;
-        GtkTreeViewColumn *column;
-        GtkCellRenderer   *renderer;
+        CtkWidget         *treeview;
+        CtkTreeViewColumn *column;
+        CtkCellRenderer   *renderer;
 
         switch (dialog->action) {
         case GSM_LOGOUT_ACTION_SWITCH_USER:
@@ -930,7 +930,7 @@ setup_dialog (GsmInhibitDialog *dialog)
         ctk_tree_view_append_column (CTK_TREE_VIEW (treeview), column);
         ctk_tree_view_column_set_cell_data_func (column,
                                                  renderer,
-                                                 (GtkTreeCellDataFunc) name_cell_data_func,
+                                                 (CtkTreeCellDataFunc) name_cell_data_func,
                                                  dialog,
                                                  NULL);
 
@@ -1053,8 +1053,8 @@ gsm_inhibit_dialog_class_init (GsmInhibitDialogClass *klass)
 static void
 gsm_inhibit_dialog_init (GsmInhibitDialog *dialog)
 {
-        GtkWidget *content_area;
-        GtkWidget *widget;
+        CtkWidget *content_area;
+        CtkWidget *widget;
         GError    *error;
 
         dialog->xml = ctk_builder_new ();
@@ -1103,7 +1103,7 @@ gsm_inhibit_dialog_finalize (GObject *object)
         G_OBJECT_CLASS (gsm_inhibit_dialog_parent_class)->finalize (object);
 }
 
-GtkWidget *
+CtkWidget *
 gsm_inhibit_dialog_new (GsmStore *inhibitors,
                         GsmStore *clients,
                         int       action)

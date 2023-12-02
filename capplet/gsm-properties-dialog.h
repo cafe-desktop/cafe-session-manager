@@ -27,9 +27,9 @@
 G_BEGIN_DECLS
 
 #define GSM_TYPE_PROPERTIES_DIALOG         (gsm_properties_dialog_get_type ())
-G_DECLARE_FINAL_TYPE (GsmPropertiesDialog, gsm_properties_dialog, GSM, PROPERTIES_DIALOG, GtkDialog)
+G_DECLARE_FINAL_TYPE (GsmPropertiesDialog, gsm_properties_dialog, GSM, PROPERTIES_DIALOG, CtkDialog)
 
-GtkWidget            * gsm_properties_dialog_new                (void);
+CtkWidget            * gsm_properties_dialog_new                (void);
 
 #define GSM_PROPERTIES_ICON_SIZE CTK_ICON_SIZE_LARGE_TOOLBAR
 

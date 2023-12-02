@@ -48,7 +48,7 @@ static void dialog_response(GsmPropertiesDialog* dialog, guint response_id, gpoi
 
 		if (error != NULL)
 		{
-			GtkWidget* d = ctk_message_dialog_new(CTK_WINDOW(dialog), CTK_DIALOG_MODAL | CTK_DIALOG_DESTROY_WITH_PARENT, CTK_MESSAGE_ERROR, CTK_BUTTONS_CLOSE, "%s", _("Could not display help document"));
+			CtkWidget* d = ctk_message_dialog_new(CTK_WINDOW(dialog), CTK_DIALOG_MODAL | CTK_DIALOG_DESTROY_WITH_PARENT, CTK_MESSAGE_ERROR, CTK_BUTTONS_CLOSE, "%s", _("Could not display help document"));
 			ctk_message_dialog_format_secondary_text(CTK_MESSAGE_DIALOG(d), "%s", error->message);
 			g_error_free(error);
 
@@ -66,7 +66,7 @@ static void dialog_response(GsmPropertiesDialog* dialog, guint response_id, gpoi
 int main(int argc, char* argv[])
 {
 	GError* error;
-	GtkWidget* dialog;
+	CtkWidget* dialog;
 
 	bindtextdomain(GETTEXT_PACKAGE, LOCALE_DIR);
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");

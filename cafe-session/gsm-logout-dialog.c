@@ -51,14 +51,14 @@ typedef enum {
 
 struct _GsmLogoutDialog
 {
-        GtkMessageDialog     parent;
+        CtkMessageDialog     parent;
         GsmDialogLogoutType  type;
 #ifdef HAVE_SYSTEMD
         GsmSystemd          *systemd;
 #endif
         GsmConsolekit       *consolekit;
 
-        GtkWidget           *progressbar;
+        CtkWidget           *progressbar;
 
         int                  timeout;
         unsigned int         timeout_id;
@@ -122,7 +122,7 @@ gsm_logout_dialog_class_init (GsmLogoutDialogClass *klass)
         gobject_class = G_OBJECT_CLASS (klass);
 
         /* This is a workaround to avoid a stupid crash: libcafeui
-         * listens for the "show" signal on all GtkMessageDialog and
+         * listens for the "show" signal on all CtkMessageDialog and
          * gets the "message-type" of the dialogs. We will crash when
          * it accesses this property if we don't override it since we
          * didn't define it. */
@@ -141,7 +141,7 @@ gsm_logout_dialog_init (GsmLogoutDialog *logout_dialog)
         logout_dialog->timeout = 0;
         logout_dialog->default_response = CTK_RESPONSE_CANCEL;
 
-        GtkStyleContext *context;
+        CtkStyleContext *context;
         context = ctk_widget_get_style_context (CTK_WIDGET (logout_dialog));
         ctk_style_context_add_class (context, "logout-dialog");
 
@@ -410,13 +410,13 @@ gsm_logout_dialog_set_timeout (GsmLogoutDialog *logout_dialog)
         g_object_unref (settings);
 }
 
-static GtkWidget *
+static CtkWidget *
 gsm_get_dialog (GsmDialogLogoutType type,
                 GdkScreen          *screen,
                 guint32             activate_time)
 {
         GsmLogoutDialog *logout_dialog;
-        GtkWidget       *hbox;
+        CtkWidget       *hbox;
         const char      *primary_text;
         const char      *icon_name;
 
@@ -517,7 +517,7 @@ gsm_get_dialog (GsmDialogLogoutType type,
         return CTK_WIDGET (logout_dialog);
 }
 
-GtkWidget *
+CtkWidget *
 gsm_get_shutdown_dialog (GdkScreen *screen,
                          guint32    activate_time)
 {
@@ -526,7 +526,7 @@ gsm_get_shutdown_dialog (GdkScreen *screen,
                                activate_time);
 }
 
-GtkWidget *
+CtkWidget *
 gsm_get_logout_dialog (GdkScreen *screen,
                        guint32    activate_time)
 {

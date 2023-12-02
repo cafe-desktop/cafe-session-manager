@@ -44,12 +44,12 @@
 
 struct _GsmAppDialog
 {
-        GtkDialog  parent;
-        GtkWidget *name_entry;
-        GtkWidget *command_entry;
-        GtkWidget *comment_entry;
-        GtkWidget *delay_spin;
-        GtkWidget *browse_button;
+        CtkDialog  parent;
+        CtkWidget *name_entry;
+        CtkWidget *command_entry;
+        CtkWidget *comment_entry;
+        CtkWidget *delay_spin;
+        CtkWidget *browse_button;
         char      *name;
         char      *command;
         char      *comment;
@@ -101,10 +101,10 @@ make_exec_uri (const char *exec)
 }
 
 static void
-on_browse_button_clicked (GtkWidget    *widget,
+on_browse_button_clicked (CtkWidget    *widget,
                           GsmAppDialog *dialog)
 {
-        GtkWidget *chooser;
+        CtkWidget *chooser;
         int        response;
 
         chooser = ctk_file_chooser_dialog_new ("",
@@ -146,16 +146,16 @@ on_browse_button_clicked (GtkWidget    *widget,
 }
 
 static void
-on_entry_activate (GtkEntry     *entry,
+on_entry_activate (CtkEntry     *entry,
                    GsmAppDialog *dialog)
 {
         ctk_dialog_response (CTK_DIALOG (dialog), CTK_RESPONSE_OK);
 }
 
 static gboolean
-on_spin_output (GtkSpinButton *spin, GsmAppDialog *dialog)
+on_spin_output (CtkSpinButton *spin, GsmAppDialog *dialog)
 {
-        GtkAdjustment *adjustment;
+        CtkAdjustment *adjustment;
         gchar *text;
         int value;
 
@@ -179,9 +179,9 @@ on_spin_output (GtkSpinButton *spin, GsmAppDialog *dialog)
 static void
 setup_dialog (GsmAppDialog *dialog)
 {
-        GtkWidget  *content_area;
-        GtkWidget  *widget;
-        GtkBuilder *xml;
+        CtkWidget  *content_area;
+        CtkWidget  *widget;
+        CtkBuilder *xml;
         GError     *error;
 
         xml = ctk_builder_new ();
@@ -268,7 +268,7 @@ setup_dialog (GsmAppDialog *dialog)
                           G_CALLBACK (on_spin_output),
                           dialog);
         if (dialog->delay > 0) {
-                GtkAdjustment *adjustment;
+                CtkAdjustment *adjustment;
                 adjustment = ctk_spin_button_get_adjustment (CTK_SPIN_BUTTON(dialog->delay_spin));
                 ctk_adjustment_set_value (adjustment, (gdouble) dialog->delay);
         }
@@ -490,7 +490,7 @@ gsm_app_dialog_init (GsmAppDialog *dialog)
 
 }
 
-GtkWidget *
+CtkWidget *
 gsm_app_dialog_new (const char *name,
                     const char *command,
                     const char *comment,
@@ -550,7 +550,7 @@ gsm_app_dialog_run (GsmAppDialog  *dialog,
                 }
 
                 if (error_msg != NULL) {
-                        GtkWidget *msgbox;
+                        CtkWidget *msgbox;
 
                         msgbox = ctk_message_dialog_new (CTK_WINDOW (dialog),
                                                          CTK_DIALOG_MODAL,

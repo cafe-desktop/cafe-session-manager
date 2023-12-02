@@ -29,7 +29,7 @@
 G_BEGIN_DECLS
 
 #define GSM_TYPE_INHIBIT_DIALOG         (gsm_inhibit_dialog_get_type ())
-G_DECLARE_FINAL_TYPE (GsmInhibitDialog, gsm_inhibit_dialog, GSM, INHIBIT_DIALOG, GtkDialog)
+G_DECLARE_FINAL_TYPE (GsmInhibitDialog, gsm_inhibit_dialog, GSM, INHIBIT_DIALOG, CtkDialog)
 
 typedef enum
 {
@@ -41,10 +41,10 @@ typedef enum
         GSM_LOGOUT_ACTION_SLEEP
 } GsmLogoutAction;
 
-GtkWidget            * gsm_inhibit_dialog_new                (GsmStore         *inhibitors,
+CtkWidget            * gsm_inhibit_dialog_new                (GsmStore         *inhibitors,
                                                               GsmStore         *clients,
                                                               int               action);
-GtkTreeModel         * gsm_inhibit_dialog_get_model          (GsmInhibitDialog *dialog);
+CtkTreeModel         * gsm_inhibit_dialog_get_model          (GsmInhibitDialog *dialog);
 
 G_END_DECLS
 
