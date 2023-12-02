@@ -253,7 +253,7 @@ _load_icon (CtkIconTheme  *icon_theme,
         }
 
         error = NULL;
-        retval = cdk_pixbuf_new_from_file_at_size (file,
+        retval = gdk_pixbuf_new_from_file_at_size (file,
                                                    desired_width,
                                                    desired_height,
                                                    &error);
@@ -281,8 +281,8 @@ scale_pixbuf (GdkPixbuf *pixbuf,
         float      scale_factor_y = 1.0;
         float      scale_factor = 1.0;
 
-        pw = cdk_pixbuf_get_width (pixbuf);
-        ph = cdk_pixbuf_get_height (pixbuf);
+        pw = gdk_pixbuf_get_width (pixbuf);
+        ph = gdk_pixbuf_get_height (pixbuf);
 
         /* Determine which dimension requires the smallest scale. */
         scale_factor_x = (float) max_width / (float) pw;
@@ -299,7 +299,7 @@ scale_pixbuf (GdkPixbuf *pixbuf,
                 int scale_x = (int) (pw * scale_factor);
                 int scale_y = (int) (ph * scale_factor);
                 g_debug ("Scaling to %dx%d", scale_x, scale_y);
-                return cdk_pixbuf_scale_simple (pixbuf,
+                return gdk_pixbuf_scale_simple (pixbuf,
                                                 scale_x,
                                                 scale_y,
                                                 CDK_INTERP_BILINEAR);
@@ -330,7 +330,7 @@ pixbuf_get_from_pixmap (Display *display,
                                              height);
         if (surface != NULL) {
                 g_debug ("GsmInhibitDialog: getting pixbuf w=%d h=%d", width, height);
-                retval = cdk_pixbuf_get_from_surface (surface,
+                retval = gdk_pixbuf_get_from_surface (surface,
                                                       0, 0,
                                                       width, height);
                 cairo_surface_destroy (surface);
