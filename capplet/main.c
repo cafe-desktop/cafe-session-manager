@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
-	dialog = gsm_properties_dialog_new();
+	dialog = csm_properties_dialog_new();
 	g_signal_connect(dialog, "response", G_CALLBACK(dialog_response), NULL);
 	ctk_widget_show(dialog);
 

@@ -4,7 +4,7 @@ Startup
 -------
 
 main() creates the GsmSession object representing the session (either
-failsafe or normal). gsm_session_new() reads the appropriate autostart
+failsafe or normal). csm_session_new() reads the appropriate autostart
 and session files to create a list of GsmApps to be started.
 (GsmAppAutostart represents an autostarted app, and GsmAppResumed
 represents an app resumed from the previous saved session.)

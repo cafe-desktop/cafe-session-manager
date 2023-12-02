@@ -59,14 +59,14 @@ enum {
         PROP_COOKIE
 };
 
-G_DEFINE_TYPE (GsmInhibitor, gsm_inhibitor, G_TYPE_OBJECT)
+G_DEFINE_TYPE (GsmInhibitor, csm_inhibitor, G_TYPE_OBJECT)
 
 GQuark
-gsm_inhibitor_error_quark (void)
+csm_inhibitor_error_quark (void)
 {
         static GQuark ret = 0;
         if (ret == 0) {
-                ret = g_quark_from_static_string ("gsm_inhibitor_error");
+                ret = g_quark_from_static_string ("csm_inhibitor_error");
         }
 
         return ret;
@@ -75,7 +75,7 @@ gsm_inhibitor_error_quark (void)
 #define ENUM_ENTRY(NAME, DESC) { NAME, "" #NAME "", DESC }
 
 GType
-gsm_inhibitor_error_get_type (void)
+csm_inhibitor_error_get_type (void)
 {
         static GType etype = 0;
 
@@ -129,14 +129,14 @@ register_inhibitor (GsmInhibitor *inhibitor)
 }
 
 static GObject *
-gsm_inhibitor_constructor (GType                  type,
+csm_inhibitor_constructor (GType                  type,
                            guint                  n_construct_properties,
                            GObjectConstructParam *construct_properties)
 {
         GsmInhibitor *inhibitor;
         gboolean      res;
 
-        inhibitor = CSM_INHIBITOR (G_OBJECT_CLASS (gsm_inhibitor_parent_class)->constructor (type,
+        inhibitor = CSM_INHIBITOR (G_OBJECT_CLASS (csm_inhibitor_parent_class)->constructor (type,
                                                                                              n_construct_properties,
                                                                                              construct_properties));
 
@@ -151,12 +151,12 @@ gsm_inhibitor_constructor (GType                  type,
 }
 
 static void
-gsm_inhibitor_init (GsmInhibitor *inhibitor)
+csm_inhibitor_init (GsmInhibitor *inhibitor)
 {
 }
 
 static void
-gsm_inhibitor_set_bus_name (GsmInhibitor  *inhibitor,
+csm_inhibitor_set_bus_name (GsmInhibitor  *inhibitor,
                             const char    *bus_name)
 {
         g_return_if_fail (CSM_IS_INHIBITOR (inhibitor));
@@ -172,7 +172,7 @@ gsm_inhibitor_set_bus_name (GsmInhibitor  *inhibitor,
 }
 
 static void
-gsm_inhibitor_set_app_id (GsmInhibitor  *inhibitor,
+csm_inhibitor_set_app_id (GsmInhibitor  *inhibitor,
                           const char    *app_id)
 {
         g_return_if_fail (CSM_IS_INHIBITOR (inhibitor));
@@ -184,7 +184,7 @@ gsm_inhibitor_set_app_id (GsmInhibitor  *inhibitor,
 }
 
 static void
-gsm_inhibitor_set_client_id (GsmInhibitor  *inhibitor,
+csm_inhibitor_set_client_id (GsmInhibitor  *inhibitor,
                              const char    *client_id)
 {
         g_return_if_fail (CSM_IS_INHIBITOR (inhibitor));
@@ -202,7 +202,7 @@ gsm_inhibitor_set_client_id (GsmInhibitor  *inhibitor,
 }
 
 static void
-gsm_inhibitor_set_reason (GsmInhibitor  *inhibitor,
+csm_inhibitor_set_reason (GsmInhibitor  *inhibitor,
                           const char    *reason)
 {
         g_return_if_fail (CSM_IS_INHIBITOR (inhibitor));
@@ -218,7 +218,7 @@ gsm_inhibitor_set_reason (GsmInhibitor  *inhibitor,
 }
 
 static void
-gsm_inhibitor_set_cookie (GsmInhibitor  *inhibitor,
+csm_inhibitor_set_cookie (GsmInhibitor  *inhibitor,
                           guint          cookie)
 {
         g_return_if_fail (CSM_IS_INHIBITOR (inhibitor));
@@ -230,7 +230,7 @@ gsm_inhibitor_set_cookie (GsmInhibitor  *inhibitor,
 }
 
 static void
-gsm_inhibitor_set_flags (GsmInhibitor  *inhibitor,
+csm_inhibitor_set_flags (GsmInhibitor  *inhibitor,
                          guint          flags)
 {
         g_return_if_fail (CSM_IS_INHIBITOR (inhibitor));
@@ -242,7 +242,7 @@ gsm_inhibitor_set_flags (GsmInhibitor  *inhibitor,
 }
 
 static void
-gsm_inhibitor_set_toplevel_xid (GsmInhibitor  *inhibitor,
+csm_inhibitor_set_toplevel_xid (GsmInhibitor  *inhibitor,
                                 guint          xid)
 {
         g_return_if_fail (CSM_IS_INHIBITOR (inhibitor));
@@ -254,7 +254,7 @@ gsm_inhibitor_set_toplevel_xid (GsmInhibitor  *inhibitor,
 }
 
 const char *
-gsm_inhibitor_peek_bus_name (GsmInhibitor  *inhibitor)
+csm_inhibitor_peek_bus_name (GsmInhibitor  *inhibitor)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), NULL);
 
@@ -262,7 +262,7 @@ gsm_inhibitor_peek_bus_name (GsmInhibitor  *inhibitor)
 }
 
 gboolean
-gsm_inhibitor_get_app_id (GsmInhibitor *inhibitor,
+csm_inhibitor_get_app_id (GsmInhibitor *inhibitor,
                           char        **id,
                           GError      **error)
 {
@@ -278,7 +278,7 @@ gsm_inhibitor_get_app_id (GsmInhibitor *inhibitor,
 }
 
 gboolean
-gsm_inhibitor_get_client_id (GsmInhibitor *inhibitor,
+csm_inhibitor_get_client_id (GsmInhibitor *inhibitor,
                              char        **id,
                              GError      **error)
 {
@@ -301,7 +301,7 @@ gsm_inhibitor_get_client_id (GsmInhibitor *inhibitor,
 }
 
 gboolean
-gsm_inhibitor_get_reason (GsmInhibitor *inhibitor,
+csm_inhibitor_get_reason (GsmInhibitor *inhibitor,
                           char        **reason,
                           GError      **error)
 {
@@ -317,7 +317,7 @@ gsm_inhibitor_get_reason (GsmInhibitor *inhibitor,
 }
 
 gboolean
-gsm_inhibitor_get_flags (GsmInhibitor *inhibitor,
+csm_inhibitor_get_flags (GsmInhibitor *inhibitor,
                          guint        *flags,
                          GError      **error)
 {
@@ -329,7 +329,7 @@ gsm_inhibitor_get_flags (GsmInhibitor *inhibitor,
 }
 
 gboolean
-gsm_inhibitor_get_toplevel_xid (GsmInhibitor *inhibitor,
+csm_inhibitor_get_toplevel_xid (GsmInhibitor *inhibitor,
                                 guint        *xid,
                                 GError      **error)
 {
@@ -341,7 +341,7 @@ gsm_inhibitor_get_toplevel_xid (GsmInhibitor *inhibitor,
 }
 
 const char *
-gsm_inhibitor_peek_id (GsmInhibitor *inhibitor)
+csm_inhibitor_peek_id (GsmInhibitor *inhibitor)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), NULL);
 
@@ -349,7 +349,7 @@ gsm_inhibitor_peek_id (GsmInhibitor *inhibitor)
 }
 
 const char *
-gsm_inhibitor_peek_app_id (GsmInhibitor  *inhibitor)
+csm_inhibitor_peek_app_id (GsmInhibitor  *inhibitor)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), NULL);
 
@@ -357,7 +357,7 @@ gsm_inhibitor_peek_app_id (GsmInhibitor  *inhibitor)
 }
 
 const char *
-gsm_inhibitor_peek_client_id (GsmInhibitor  *inhibitor)
+csm_inhibitor_peek_client_id (GsmInhibitor  *inhibitor)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), NULL);
 
@@ -365,7 +365,7 @@ gsm_inhibitor_peek_client_id (GsmInhibitor  *inhibitor)
 }
 
 const char *
-gsm_inhibitor_peek_reason (GsmInhibitor  *inhibitor)
+csm_inhibitor_peek_reason (GsmInhibitor  *inhibitor)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), NULL);
 
@@ -373,7 +373,7 @@ gsm_inhibitor_peek_reason (GsmInhibitor  *inhibitor)
 }
 
 guint
-gsm_inhibitor_peek_flags (GsmInhibitor  *inhibitor)
+csm_inhibitor_peek_flags (GsmInhibitor  *inhibitor)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), 0);
 
@@ -381,7 +381,7 @@ gsm_inhibitor_peek_flags (GsmInhibitor  *inhibitor)
 }
 
 guint
-gsm_inhibitor_peek_toplevel_xid (GsmInhibitor  *inhibitor)
+csm_inhibitor_peek_toplevel_xid (GsmInhibitor  *inhibitor)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), 0);
 
@@ -389,7 +389,7 @@ gsm_inhibitor_peek_toplevel_xid (GsmInhibitor  *inhibitor)
 }
 
 guint
-gsm_inhibitor_peek_cookie (GsmInhibitor  *inhibitor)
+csm_inhibitor_peek_cookie (GsmInhibitor  *inhibitor)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), 0);
 
@@ -397,7 +397,7 @@ gsm_inhibitor_peek_cookie (GsmInhibitor  *inhibitor)
 }
 
 static void
-gsm_inhibitor_set_property (GObject       *object,
+csm_inhibitor_set_property (GObject       *object,
                             guint          prop_id,
                             const GValue  *value,
                             GParamSpec    *pspec)
@@ -408,25 +408,25 @@ gsm_inhibitor_set_property (GObject       *object,
 
         switch (prop_id) {
         case PROP_BUS_NAME:
-                gsm_inhibitor_set_bus_name (self, g_value_get_string (value));
+                csm_inhibitor_set_bus_name (self, g_value_get_string (value));
                 break;
         case PROP_APP_ID:
-                gsm_inhibitor_set_app_id (self, g_value_get_string (value));
+                csm_inhibitor_set_app_id (self, g_value_get_string (value));
                 break;
         case PROP_CLIENT_ID:
-                gsm_inhibitor_set_client_id (self, g_value_get_string (value));
+                csm_inhibitor_set_client_id (self, g_value_get_string (value));
                 break;
         case PROP_REASON:
-                gsm_inhibitor_set_reason (self, g_value_get_string (value));
+                csm_inhibitor_set_reason (self, g_value_get_string (value));
                 break;
         case PROP_FLAGS:
-                gsm_inhibitor_set_flags (self, g_value_get_uint (value));
+                csm_inhibitor_set_flags (self, g_value_get_uint (value));
                 break;
         case PROP_COOKIE:
-                gsm_inhibitor_set_cookie (self, g_value_get_uint (value));
+                csm_inhibitor_set_cookie (self, g_value_get_uint (value));
                 break;
         case PROP_TOPLEVEL_XID:
-                gsm_inhibitor_set_toplevel_xid (self, g_value_get_uint (value));
+                csm_inhibitor_set_toplevel_xid (self, g_value_get_uint (value));
                 break;
         default:
                 G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -435,7 +435,7 @@ gsm_inhibitor_set_property (GObject       *object,
 }
 
 static void
-gsm_inhibitor_get_property (GObject    *object,
+csm_inhibitor_get_property (GObject    *object,
                             guint       prop_id,
                             GValue     *value,
                             GParamSpec *pspec)
@@ -473,7 +473,7 @@ gsm_inhibitor_get_property (GObject    *object,
 }
 
 static void
-gsm_inhibitor_finalize (GObject *object)
+csm_inhibitor_finalize (GObject *object)
 {
         GsmInhibitor *inhibitor = (GsmInhibitor *) object;
 
@@ -483,18 +483,18 @@ gsm_inhibitor_finalize (GObject *object)
         g_free (inhibitor->client_id);
         g_free (inhibitor->reason);
 
-        G_OBJECT_CLASS (gsm_inhibitor_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csm_inhibitor_parent_class)->finalize (object);
 }
 
 static void
-gsm_inhibitor_class_init (GsmInhibitorClass *klass)
+csm_inhibitor_class_init (GsmInhibitorClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize             = gsm_inhibitor_finalize;
-        object_class->constructor          = gsm_inhibitor_constructor;
-        object_class->get_property         = gsm_inhibitor_get_property;
-        object_class->set_property         = gsm_inhibitor_set_property;
+        object_class->finalize             = csm_inhibitor_finalize;
+        object_class->constructor          = csm_inhibitor_constructor;
+        object_class->get_property         = csm_inhibitor_get_property;
+        object_class->set_property         = csm_inhibitor_set_property;
 
         g_object_class_install_property (object_class,
                                          PROP_BUS_NAME,
@@ -552,12 +552,12 @@ gsm_inhibitor_class_init (GsmInhibitorClass *klass)
                                                             0,
                                                             G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
-        dbus_g_object_type_install_info (CSM_TYPE_INHIBITOR, &dbus_glib_gsm_inhibitor_object_info);
+        dbus_g_object_type_install_info (CSM_TYPE_INHIBITOR, &dbus_glib_csm_inhibitor_object_info);
         dbus_g_error_domain_register (CSM_INHIBITOR_ERROR, NULL, CSM_INHIBITOR_TYPE_ERROR);
 }
 
 GsmInhibitor *
-gsm_inhibitor_new (const char    *app_id,
+csm_inhibitor_new (const char    *app_id,
                    guint          toplevel_xid,
                    guint          flags,
                    const char    *reason,
@@ -579,7 +579,7 @@ gsm_inhibitor_new (const char    *app_id,
 }
 
 GsmInhibitor *
-gsm_inhibitor_new_for_client (const char    *client_id,
+csm_inhibitor_new_for_client (const char    *client_id,
                               const char    *app_id,
                               guint          flags,
                               const char    *reason,

@@ -28,8 +28,8 @@
 
 G_BEGIN_DECLS
 
-#define CSM_TYPE_LOGOUT_DIALOG         (gsm_logout_dialog_get_type ())
-G_DECLARE_FINAL_TYPE (GsmLogoutDialog, gsm_logout_dialog, GSM, LOGOUT_DIALOG, CtkMessageDialog)
+#define CSM_TYPE_LOGOUT_DIALOG         (csm_logout_dialog_get_type ())
+G_DECLARE_FINAL_TYPE (GsmLogoutDialog, csm_logout_dialog, GSM, LOGOUT_DIALOG, CtkMessageDialog)
 
 enum
 {
@@ -41,9 +41,9 @@ enum
         CSM_LOGOUT_RESPONSE_SLEEP
 };
 
-CtkWidget   *gsm_get_logout_dialog        (CdkScreen           *screen,
+CtkWidget   *csm_get_logout_dialog        (CdkScreen           *screen,
                                            guint32              activate_time);
-CtkWidget   *gsm_get_shutdown_dialog      (CdkScreen           *screen,
+CtkWidget   *csm_get_shutdown_dialog      (CdkScreen           *screen,
                                            guint32              activate_time);
 
 G_END_DECLS

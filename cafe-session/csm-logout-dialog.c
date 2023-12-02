@@ -68,12 +68,12 @@ struct _GsmLogoutDialog
 
 static GsmLogoutDialog *current_dialog = NULL;
 
-static void gsm_logout_dialog_set_timeout  (GsmLogoutDialog *logout_dialog);
+static void csm_logout_dialog_set_timeout  (GsmLogoutDialog *logout_dialog);
 
-static void gsm_logout_dialog_destroy  (GsmLogoutDialog *logout_dialog,
+static void csm_logout_dialog_destroy  (GsmLogoutDialog *logout_dialog,
                                         gpointer         data);
 
-static void gsm_logout_dialog_show     (GsmLogoutDialog *logout_dialog,
+static void csm_logout_dialog_show     (GsmLogoutDialog *logout_dialog,
                                         gpointer         data);
 
 enum {
@@ -81,10 +81,10 @@ enum {
         PROP_MESSAGE_TYPE
 };
 
-G_DEFINE_TYPE (GsmLogoutDialog, gsm_logout_dialog, CTK_TYPE_MESSAGE_DIALOG);
+G_DEFINE_TYPE (GsmLogoutDialog, csm_logout_dialog, CTK_TYPE_MESSAGE_DIALOG);
 
 static void
-gsm_logout_dialog_set_property (GObject      *object,
+csm_logout_dialog_set_property (GObject      *object,
                                 guint         prop_id,
                                 const GValue *value,
                                 GParamSpec   *pspec)
@@ -99,7 +99,7 @@ gsm_logout_dialog_set_property (GObject      *object,
 }
 
 static void
-gsm_logout_dialog_get_property (GObject     *object,
+csm_logout_dialog_get_property (GObject     *object,
                                 guint        prop_id,
                                 GValue      *value,
                                 GParamSpec  *pspec)
@@ -115,7 +115,7 @@ gsm_logout_dialog_get_property (GObject     *object,
 }
 
 static void
-gsm_logout_dialog_class_init (GsmLogoutDialogClass *klass)
+csm_logout_dialog_class_init (GsmLogoutDialogClass *klass)
 {
         GObjectClass *gobject_class;
 
@@ -126,8 +126,8 @@ gsm_logout_dialog_class_init (GsmLogoutDialogClass *klass)
          * gets the "message-type" of the dialogs. We will crash when
          * it accesses this property if we don't override it since we
          * didn't define it. */
-        gobject_class->set_property = gsm_logout_dialog_set_property;
-        gobject_class->get_property = gsm_logout_dialog_get_property;
+        gobject_class->set_property = csm_logout_dialog_set_property;
+        gobject_class->get_property = csm_logout_dialog_get_property;
 
         g_object_class_override_property (gobject_class,
                                           PROP_MESSAGE_TYPE,
@@ -135,7 +135,7 @@ gsm_logout_dialog_class_init (GsmLogoutDialogClass *klass)
 }
 
 static void
-gsm_logout_dialog_init (GsmLogoutDialog *logout_dialog)
+csm_logout_dialog_init (GsmLogoutDialog *logout_dialog)
 {
         logout_dialog->timeout_id = 0;
         logout_dialog->timeout = 0;
@@ -150,24 +150,24 @@ gsm_logout_dialog_init (GsmLogoutDialog *logout_dialog)
         ctk_window_stick (CTK_WINDOW (logout_dialog));
 #ifdef HAVE_SYSTEMD
         if (LOGIND_RUNNING())
-            logout_dialog->systemd = gsm_get_systemd ();
+            logout_dialog->systemd = csm_get_systemd ();
         else
 #endif
-        logout_dialog->consolekit = gsm_get_consolekit ();
+        logout_dialog->consolekit = csm_get_consolekit ();
 
         g_signal_connect (logout_dialog,
                           "destroy",
-                          G_CALLBACK (gsm_logout_dialog_destroy),
+                          G_CALLBACK (csm_logout_dialog_destroy),
                           NULL);
 
         g_signal_connect (logout_dialog,
                           "show",
-                          G_CALLBACK (gsm_logout_dialog_show),
+                          G_CALLBACK (csm_logout_dialog_show),
                           NULL);
 }
 
 static void
-gsm_logout_dialog_destroy (GsmLogoutDialog *logout_dialog,
+csm_logout_dialog_destroy (GsmLogoutDialog *logout_dialog,
                            gpointer         data)
 {
         if (logout_dialog->timeout_id != 0) {
@@ -190,35 +190,35 @@ gsm_logout_dialog_destroy (GsmLogoutDialog *logout_dialog,
 }
 
 static gboolean
-gsm_logout_supports_system_suspend (GsmLogoutDialog *logout_dialog)
+csm_logout_supports_system_suspend (GsmLogoutDialog *logout_dialog)
 {
         gboolean ret;
         ret = FALSE;
 #ifdef HAVE_SYSTEMD
         if (LOGIND_RUNNING())
-            ret = gsm_systemd_can_suspend (logout_dialog->systemd);
+            ret = csm_systemd_can_suspend (logout_dialog->systemd);
         else
 #endif
-        ret = gsm_consolekit_can_suspend (logout_dialog->consolekit);
+        ret = csm_consolekit_can_suspend (logout_dialog->consolekit);
         return ret;
 }
 
 static gboolean
-gsm_logout_supports_system_hibernate (GsmLogoutDialog *logout_dialog)
+csm_logout_supports_system_hibernate (GsmLogoutDialog *logout_dialog)
 {
         gboolean ret;
         ret = FALSE;
 #ifdef HAVE_SYSTEMD
         if (LOGIND_RUNNING())
-            ret = gsm_systemd_can_hibernate (logout_dialog->systemd);
+            ret = csm_systemd_can_hibernate (logout_dialog->systemd);
         else
 #endif
-        ret = gsm_consolekit_can_hibernate (logout_dialog->consolekit);
+        ret = csm_consolekit_can_hibernate (logout_dialog->consolekit);
         return ret;
 }
 
 static gboolean
-gsm_logout_supports_switch_user (GsmLogoutDialog *logout_dialog)
+csm_logout_supports_switch_user (GsmLogoutDialog *logout_dialog)
 {
         GSettings *settings;
         gboolean   ret = FALSE;
@@ -232,26 +232,26 @@ gsm_logout_supports_switch_user (GsmLogoutDialog *logout_dialog)
         if (!locked) {
 #ifdef HAVE_SYSTEMD
             if (LOGIND_RUNNING())
-                ret = gsm_systemd_can_switch_user (logout_dialog->systemd);
+                ret = csm_systemd_can_switch_user (logout_dialog->systemd);
             else
 #endif
-            ret = gsm_consolekit_can_switch_user (logout_dialog->consolekit);
+            ret = csm_consolekit_can_switch_user (logout_dialog->consolekit);
         }
 
         return ret;
 }
 
 static gboolean
-gsm_logout_supports_reboot (GsmLogoutDialog *logout_dialog)
+csm_logout_supports_reboot (GsmLogoutDialog *logout_dialog)
 {
         gboolean ret;
 
 #ifdef HAVE_SYSTEMD
         if (LOGIND_RUNNING())
-            ret = gsm_systemd_can_restart (logout_dialog->systemd);
+            ret = csm_systemd_can_restart (logout_dialog->systemd);
         else
 #endif
-        ret = gsm_consolekit_can_restart (logout_dialog->consolekit);
+        ret = csm_consolekit_can_restart (logout_dialog->consolekit);
         if (!ret) {
                 ret = cdm_supports_logout_action (CDM_LOGOUT_ACTION_REBOOT);
         }
@@ -260,16 +260,16 @@ gsm_logout_supports_reboot (GsmLogoutDialog *logout_dialog)
 }
 
 static gboolean
-gsm_logout_supports_shutdown (GsmLogoutDialog *logout_dialog)
+csm_logout_supports_shutdown (GsmLogoutDialog *logout_dialog)
 {
         gboolean ret;
 
 #ifdef HAVE_SYSTEMD
         if (LOGIND_RUNNING())
-            ret = gsm_systemd_can_stop (logout_dialog->systemd);
+            ret = csm_systemd_can_stop (logout_dialog->systemd);
         else
 #endif
-        ret = gsm_consolekit_can_stop (logout_dialog->consolekit);
+        ret = csm_consolekit_can_stop (logout_dialog->consolekit);
 
         if (!ret) {
                 ret = cdm_supports_logout_action (CDM_LOGOUT_ACTION_SHUTDOWN);
@@ -279,13 +279,13 @@ gsm_logout_supports_shutdown (GsmLogoutDialog *logout_dialog)
 }
 
 static void
-gsm_logout_dialog_show (GsmLogoutDialog *logout_dialog, gpointer user_data)
+csm_logout_dialog_show (GsmLogoutDialog *logout_dialog, gpointer user_data)
 {
-        gsm_logout_dialog_set_timeout (logout_dialog);
+        csm_logout_dialog_set_timeout (logout_dialog);
 }
 
 static gboolean
-gsm_logout_dialog_timeout (gpointer data)
+csm_logout_dialog_timeout (gpointer data)
 {
         GsmLogoutDialog *logout_dialog;
         char            *seconds_warning;
@@ -328,16 +328,16 @@ gsm_logout_dialog_timeout (gpointer data)
 #ifdef HAVE_SYSTEMD
                 if (LOGIND_RUNNING()) {
                     GsmSystemd *systemd;
-                    systemd = gsm_get_systemd ();
-                    session_type = gsm_systemd_get_current_session_type (systemd);
+                    systemd = csm_get_systemd ();
+                    session_type = csm_systemd_get_current_session_type (systemd);
                     g_object_unref (systemd);
                     is_not_login = (g_strcmp0 (session_type, CSM_SYSTEMD_SESSION_TYPE_LOGIN_WINDOW) != 0);
                 }
                 else {
 #endif
                 GsmConsolekit *consolekit;
-                consolekit = gsm_get_consolekit ();
-                session_type = gsm_consolekit_get_current_session_type (consolekit);
+                consolekit = csm_get_consolekit ();
+                session_type = csm_consolekit_get_current_session_type (consolekit);
                 g_object_unref (consolekit);
                 is_not_login = (g_strcmp0 (session_type, CSM_CONSOLEKIT_SESSION_TYPE_LOGIN_WINDOW) != 0);
 #ifdef HAVE_SYSTEMD
@@ -383,7 +383,7 @@ gsm_logout_dialog_timeout (gpointer data)
 }
 
 static void
-gsm_logout_dialog_set_timeout (GsmLogoutDialog *logout_dialog)
+csm_logout_dialog_set_timeout (GsmLogoutDialog *logout_dialog)
 {
         GSettings *settings;
 
@@ -393,14 +393,14 @@ gsm_logout_dialog_set_timeout (GsmLogoutDialog *logout_dialog)
 
         if (logout_dialog->timeout > 0) {
                 /* Sets the secondary text */
-                gsm_logout_dialog_timeout (logout_dialog);
+                csm_logout_dialog_timeout (logout_dialog);
 
                 if (logout_dialog->timeout_id != 0) {
                         g_source_remove (logout_dialog->timeout_id);
                 }
 
                 logout_dialog->timeout_id = g_timeout_add (1000,
-                                                           gsm_logout_dialog_timeout,
+                                                           csm_logout_dialog_timeout,
                                                            logout_dialog);
         }
         else {
@@ -411,7 +411,7 @@ gsm_logout_dialog_set_timeout (GsmLogoutDialog *logout_dialog)
 }
 
 static CtkWidget *
-gsm_get_dialog (GsmDialogLogoutType type,
+csm_get_dialog (GsmDialogLogoutType type,
                 CdkScreen          *screen,
                 guint32             activate_time)
 {
@@ -442,13 +442,13 @@ gsm_get_dialog (GsmDialogLogoutType type,
 
                 logout_dialog->default_response = CSM_LOGOUT_RESPONSE_LOGOUT;
 
-                if (gsm_logout_supports_switch_user (logout_dialog)) {
+                if (csm_logout_supports_switch_user (logout_dialog)) {
                         ctk_dialog_add_button (CTK_DIALOG (logout_dialog),
                                                _("_Switch User"),
                                                CSM_LOGOUT_RESPONSE_SWITCH_USER);
                 }
 
-                gsm_util_dialog_add_button (CTK_DIALOG (logout_dialog),
+                csm_util_dialog_add_button (CTK_DIALOG (logout_dialog),
                                             _("_Cancel"), "process-stop",
                                             CTK_RESPONSE_CANCEL);
 
@@ -463,29 +463,29 @@ gsm_get_dialog (GsmDialogLogoutType type,
 
                 logout_dialog->default_response = CSM_LOGOUT_RESPONSE_SHUTDOWN;
 
-                if (gsm_logout_supports_system_suspend (logout_dialog)) {
+                if (csm_logout_supports_system_suspend (logout_dialog)) {
                         ctk_dialog_add_button (CTK_DIALOG (logout_dialog),
                                                _("S_uspend"),
                                                CSM_LOGOUT_RESPONSE_SLEEP);
                 }
 
-                if (gsm_logout_supports_system_hibernate (logout_dialog)) {
+                if (csm_logout_supports_system_hibernate (logout_dialog)) {
                         ctk_dialog_add_button (CTK_DIALOG (logout_dialog),
                                                _("_Hibernate"),
                                                CSM_LOGOUT_RESPONSE_HIBERNATE);
                 }
 
-                if (gsm_logout_supports_reboot (logout_dialog)) {
+                if (csm_logout_supports_reboot (logout_dialog)) {
                         ctk_dialog_add_button (CTK_DIALOG (logout_dialog),
                                                _("_Restart"),
                                                CSM_LOGOUT_RESPONSE_REBOOT);
                 }
 
-                gsm_util_dialog_add_button (CTK_DIALOG (logout_dialog),
+                csm_util_dialog_add_button (CTK_DIALOG (logout_dialog),
                                             _("_Cancel"), "process-stop",
                                             CTK_RESPONSE_CANCEL);
 
-                if (gsm_logout_supports_shutdown (logout_dialog)) {
+                if (csm_logout_supports_shutdown (logout_dialog)) {
                         ctk_dialog_add_button (CTK_DIALOG (logout_dialog),
                                                _("_Shut Down"),
                                                CSM_LOGOUT_RESPONSE_SHUTDOWN);
@@ -518,19 +518,19 @@ gsm_get_dialog (GsmDialogLogoutType type,
 }
 
 CtkWidget *
-gsm_get_shutdown_dialog (CdkScreen *screen,
+csm_get_shutdown_dialog (CdkScreen *screen,
                          guint32    activate_time)
 {
-        return gsm_get_dialog (CSM_DIALOG_LOGOUT_TYPE_SHUTDOWN,
+        return csm_get_dialog (CSM_DIALOG_LOGOUT_TYPE_SHUTDOWN,
                                screen,
                                activate_time);
 }
 
 CtkWidget *
-gsm_get_logout_dialog (CdkScreen *screen,
+csm_get_logout_dialog (CdkScreen *screen,
                        guint32    activate_time)
 {
-        return gsm_get_dialog (CSM_DIALOG_LOGOUT_TYPE_LOGOUT,
+        return csm_get_dialog (CSM_DIALOG_LOGOUT_TYPE_LOGOUT,
                                screen,
                                activate_time);
 }

@@ -32,8 +32,8 @@
 
 G_BEGIN_DECLS
 
-#define CSM_TYPE_APP            (gsm_app_get_type ())
-G_DECLARE_DERIVABLE_TYPE (GsmApp, gsm_app, GSM, APP, GObject)
+#define CSM_TYPE_APP            (csm_app_get_type ())
+G_DECLARE_DERIVABLE_TYPE (GsmApp, csm_app, GSM, APP, GObject)
 
 struct _GsmAppClass
 {
@@ -72,45 +72,45 @@ typedef enum
         CSM_APP_NUM_ERRORS
 } GsmAppError;
 
-#define CSM_APP_ERROR gsm_app_error_quark ()
+#define CSM_APP_ERROR csm_app_error_quark ()
 
-GQuark           gsm_app_error_quark                    (void);
+GQuark           csm_app_error_quark                    (void);
 
-gboolean         gsm_app_peek_autorestart               (GsmApp     *app);
+gboolean         csm_app_peek_autorestart               (GsmApp     *app);
 
-const char      *gsm_app_peek_id                        (GsmApp     *app);
-const char      *gsm_app_peek_app_id                    (GsmApp     *app);
-const char      *gsm_app_peek_startup_id                (GsmApp     *app);
-GsmManagerPhase  gsm_app_peek_phase                     (GsmApp     *app);
-gboolean         gsm_app_peek_is_disabled               (GsmApp     *app);
-gboolean         gsm_app_peek_is_conditionally_disabled (GsmApp     *app);
+const char      *csm_app_peek_id                        (GsmApp     *app);
+const char      *csm_app_peek_app_id                    (GsmApp     *app);
+const char      *csm_app_peek_startup_id                (GsmApp     *app);
+GsmManagerPhase  csm_app_peek_phase                     (GsmApp     *app);
+gboolean         csm_app_peek_is_disabled               (GsmApp     *app);
+gboolean         csm_app_peek_is_conditionally_disabled (GsmApp     *app);
 
-gboolean         gsm_app_start                          (GsmApp     *app,
+gboolean         csm_app_start                          (GsmApp     *app,
                                                          GError    **error);
-gboolean         gsm_app_restart                        (GsmApp     *app,
+gboolean         csm_app_restart                        (GsmApp     *app,
                                                          GError    **error);
-gboolean         gsm_app_stop                           (GsmApp     *app,
+gboolean         csm_app_stop                           (GsmApp     *app,
                                                          GError    **error);
-gboolean         gsm_app_is_running                     (GsmApp     *app);
+gboolean         csm_app_is_running                     (GsmApp     *app);
 
-void             gsm_app_exited                         (GsmApp     *app);
-void             gsm_app_died                           (GsmApp     *app);
+void             csm_app_exited                         (GsmApp     *app);
+void             csm_app_died                           (GsmApp     *app);
 
-gboolean         gsm_app_provides                       (GsmApp     *app,
+gboolean         csm_app_provides                       (GsmApp     *app,
                                                          const char *service);
-gboolean         gsm_app_has_autostart_condition        (GsmApp     *app,
+gboolean         csm_app_has_autostart_condition        (GsmApp     *app,
                                                          const char *condition);
-void             gsm_app_registered                     (GsmApp     *app);
-int              gsm_app_peek_autostart_delay           (GsmApp     *app);
+void             csm_app_registered                     (GsmApp     *app);
+int              csm_app_peek_autostart_delay           (GsmApp     *app);
 
 /* exported to bus */
-gboolean         gsm_app_get_app_id                     (GsmApp     *app,
+gboolean         csm_app_get_app_id                     (GsmApp     *app,
                                                          char      **id,
                                                          GError    **error);
-gboolean         gsm_app_get_startup_id                 (GsmApp     *app,
+gboolean         csm_app_get_startup_id                 (GsmApp     *app,
                                                          char      **id,
                                                          GError    **error);
-gboolean         gsm_app_get_phase                      (GsmApp     *app,
+gboolean         csm_app_get_phase                      (GsmApp     *app,
                                                          guint      *phase,
                                                          GError    **error);
 

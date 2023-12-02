@@ -69,7 +69,7 @@ enum {
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GsmXSMPClient, gsm_xsmp_client, CSM_TYPE_CLIENT)
+G_DEFINE_TYPE_WITH_PRIVATE (GsmXSMPClient, csm_xsmp_client, CSM_TYPE_CLIENT)
 
 static gboolean
 client_iochannel_watch (GIOChannel    *channel,
@@ -80,7 +80,7 @@ client_iochannel_watch (GIOChannel    *channel,
         GsmXSMPClientPrivate *priv;
 
         g_object_ref (client);
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         switch (IceProcessMessages (priv->ice_connection, NULL, NULL)) {
         case IceProcessMessagesSuccess:
@@ -89,11 +89,11 @@ client_iochannel_watch (GIOChannel    *channel,
 
         case IceProcessMessagesIOError:
                 g_debug ("GsmXSMPClient: IceProcessMessagesIOError on '%s'", priv->description);
-                gsm_client_set_status (CSM_CLIENT (client), CSM_CLIENT_FAILED);
+                csm_client_set_status (CSM_CLIENT (client), CSM_CLIENT_FAILED);
                 /* Emitting "disconnected" will eventually cause
                  * IceCloseConnection() to be called.
                  */
-                gsm_client_disconnected (CSM_CLIENT (client));
+                csm_client_disconnected (CSM_CLIENT (client));
                 keep_going = FALSE;
                 break;
 
@@ -121,7 +121,7 @@ find_property (GsmXSMPClient *client,
         int i;
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         for (i = 0; i < priv->props->len; i++) {
                 prop = priv->props->pdata[i];
@@ -144,9 +144,9 @@ set_description (GsmXSMPClient *client)
         const char *id;
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
         prop = find_property (client, SmProgram, NULL);
-        id = gsm_client_peek_startup_id (CSM_CLIENT (client));
+        id = csm_client_peek_startup_id (CSM_CLIENT (client));
 
         g_free (priv->description);
         if (prop) {
@@ -169,7 +169,7 @@ setup_connection (GsmXSMPClient *client)
         int            fd;
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
         g_debug ("GsmXSMPClient: Setting up new connection");
 
         fd = IceConnectionNumber (priv->ice_connection);
@@ -187,13 +187,13 @@ setup_connection (GsmXSMPClient *client)
 }
 
 static GObject *
-gsm_xsmp_client_constructor (GType                  type,
+csm_xsmp_client_constructor (GType                  type,
                              guint                  n_construct_properties,
                              GObjectConstructParam *construct_properties)
 {
         GsmXSMPClient *client;
 
-        client = CSM_XSMP_CLIENT (G_OBJECT_CLASS (gsm_xsmp_client_parent_class)->constructor (type,
+        client = CSM_XSMP_CLIENT (G_OBJECT_CLASS (csm_xsmp_client_parent_class)->constructor (type,
                                                                                               n_construct_properties,
                                                                                               construct_properties));
         setup_connection (client);
@@ -202,11 +202,11 @@ gsm_xsmp_client_constructor (GType                  type,
 }
 
 static void
-gsm_xsmp_client_init (GsmXSMPClient *client)
+csm_xsmp_client_init (GsmXSMPClient *client)
 {
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         priv->props = g_ptr_array_new ();
         priv->current_save_yourself = -1;
@@ -223,7 +223,7 @@ delete_property (GsmXSMPClient *client,
         SmProp *prop;
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         prop = find_property (client, name, &index);
         if (!prop) {
@@ -239,7 +239,7 @@ delete_property (GsmXSMPClient *client,
          * again later.
          */
         if (!strcmp (name, SmDiscardCommand)) {
-                gsm_client_run_discard (CSM_CLIENT (client));
+                csm_client_run_discard (CSM_CLIENT (client));
         }
 #endif
 
@@ -290,7 +290,7 @@ set_properties_callback (SmsConn     conn,
         GsmXSMPClientPrivate *priv;
         GsmXSMPClient *client = manager_data;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         g_debug ("GsmXSMPClient: Set properties from client '%s'", priv->description);
 
@@ -318,7 +318,7 @@ delete_properties_callback (SmsConn     conn,
         GsmXSMPClientPrivate *priv;
         GsmXSMPClient *client = manager_data;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         g_debug ("GsmXSMPClient: Delete properties from '%s'", priv->description);
 
@@ -338,7 +338,7 @@ get_properties_callback (SmsConn   conn,
         GsmXSMPClientPrivate *priv;
         GsmXSMPClient *client = manager_data;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         g_debug ("GsmXSMPClient: Get properties request from '%s'", priv->description);
 
@@ -427,7 +427,7 @@ do_save_yourself (GsmXSMPClient *client,
 {
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
         g_assert (priv->conn != NULL);
 
         if (priv->next_save_yourself != -1) {
@@ -483,7 +483,7 @@ xsmp_save_yourself_phase2 (GsmClient *client)
 {
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
+        priv = csm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
 
         g_debug ("GsmXSMPClient: xsmp_save_yourself_phase2 ('%s')", priv->description);
 
@@ -495,7 +495,7 @@ xsmp_interact (GsmClient *client)
 {
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
+        priv = csm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
 
         g_debug ("GsmXSMPClient: xsmp_interact ('%s')", priv->description);
 
@@ -508,7 +508,7 @@ xsmp_cancel_end_session (GsmClient *client,
 {
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
+        priv = csm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
 
         g_debug ("GsmXSMPClient: xsmp_cancel_end_session ('%s')", priv->description);
 
@@ -559,17 +559,17 @@ get_desktop_file_path (GsmXSMPClient *client)
 
         program_name = prop->vals[0].value;
 
-        dirs = gsm_util_get_autostart_dirs ();
+        dirs = csm_util_get_autostart_dirs ();
 
         desktop_file_path =
-                gsm_util_find_desktop_file_for_app_name (program_name,
+                csm_util_find_desktop_file_for_app_name (program_name,
                                                          dirs);
 
         g_strfreev (dirs);
 
 out:
         g_debug ("GsmXSMPClient: desktop file for client %s is %s",
-                 gsm_client_peek_id (CSM_CLIENT (client)),
+                 csm_client_peek_id (CSM_CLIENT (client)),
                  desktop_file_path ? desktop_file_path : "(null)");
 
         return desktop_file_path;
@@ -596,7 +596,7 @@ set_desktop_file_keys_from_client (GsmClient *client,
         }
 
         comment = g_strdup_printf ("Client %s which was automatically saved",
-                                   gsm_client_peek_startup_id (client));
+                                   csm_client_peek_startup_id (client));
 
         g_key_file_set_string (keyfile,
                                G_KEY_FILE_DESKTOP_GROUP,
@@ -664,7 +664,7 @@ xsmp_save (GsmClient *client,
         GError   *local_error;
 
         g_debug ("GsmXSMPClient: saving client with id %s",
-                 gsm_client_peek_id (client));
+                 csm_client_peek_id (client));
 
         local_error = NULL;
 
@@ -732,7 +732,7 @@ xsmp_stop (GsmClient *client,
 {
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
+        priv = csm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
 
         g_debug ("GsmXSMPClient: xsmp_stop ('%s')", priv->description);
 
@@ -758,7 +758,7 @@ xsmp_query_end_session (GsmClient *client,
         int      save_type;
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
+        priv = csm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
 
         if (priv->conn == NULL) {
                 g_set_error (error,
@@ -789,7 +789,7 @@ xsmp_end_session (GsmClient *client,
         gboolean phase2;
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
+        priv = csm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(client));
 
         if (priv->conn == NULL) {
                 g_set_error (error,
@@ -839,17 +839,17 @@ xsmp_get_app_name (GsmClient *client)
 }
 
 static void
-gsm_client_set_ice_connection (GsmXSMPClient *client,
+csm_client_set_ice_connection (GsmXSMPClient *client,
                                gpointer       conn)
 {
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
         priv->ice_connection = conn;
 }
 
 static void
-gsm_xsmp_client_set_property (GObject       *object,
+csm_xsmp_client_set_property (GObject       *object,
                               guint          prop_id,
                               const GValue  *value,
                               GParamSpec    *pspec)
@@ -860,7 +860,7 @@ gsm_xsmp_client_set_property (GObject       *object,
 
         switch (prop_id) {
         case PROP_ICE_CONNECTION:
-                gsm_client_set_ice_connection (self, g_value_get_pointer (value));
+                csm_client_set_ice_connection (self, g_value_get_pointer (value));
                 break;
         default:
                 G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -869,14 +869,14 @@ gsm_xsmp_client_set_property (GObject       *object,
 }
 
 static void
-gsm_xsmp_client_get_property (GObject    *object,
+csm_xsmp_client_get_property (GObject    *object,
                               guint       prop_id,
                               GValue     *value,
                               GParamSpec *pspec)
 {
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(object));
+        priv = csm_xsmp_client_get_instance_private (CSM_XSMP_CLIENT(object));
 
         switch (prop_id) {
         case PROP_ICE_CONNECTION:
@@ -889,11 +889,11 @@ gsm_xsmp_client_get_property (GObject    *object,
 }
 
 static void
-gsm_xsmp_client_disconnect (GsmXSMPClient *client)
+csm_xsmp_client_disconnect (GsmXSMPClient *client)
 {
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
         if (priv->watch_id > 0) {
                 g_source_remove (priv->watch_id);
         }
@@ -909,23 +909,23 @@ gsm_xsmp_client_disconnect (GsmXSMPClient *client)
 }
 
 static void
-gsm_xsmp_client_finalize (GObject *object)
+csm_xsmp_client_finalize (GObject *object)
 {
         GsmXSMPClientPrivate *priv;
         GsmXSMPClient *client;
 
         client = CSM_XSMP_CLIENT(object);
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         g_debug ("GsmXSMPClient: xsmp_finalize (%s)", priv->description);
-        gsm_xsmp_client_disconnect (client);
+        csm_xsmp_client_disconnect (client);
 
         g_free (priv->description);
         g_ptr_array_foreach (priv->props, (GFunc)SmFreeProperty, NULL);
         g_ptr_array_free (priv->props, TRUE);
 
-        G_OBJECT_CLASS (gsm_xsmp_client_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csm_xsmp_client_parent_class)->finalize (object);
 }
 
 static gboolean
@@ -1029,15 +1029,15 @@ xsmp_get_unix_process_id (GsmClient *client)
 }
 
 static void
-gsm_xsmp_client_class_init (GsmXSMPClientClass *klass)
+csm_xsmp_client_class_init (GsmXSMPClientClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
         GsmClientClass *client_class = CSM_CLIENT_CLASS (klass);
 
-        object_class->finalize             = gsm_xsmp_client_finalize;
-        object_class->constructor          = gsm_xsmp_client_constructor;
-        object_class->get_property         = gsm_xsmp_client_get_property;
-        object_class->set_property         = gsm_xsmp_client_set_property;
+        object_class->finalize             = csm_xsmp_client_finalize;
+        object_class->constructor          = csm_xsmp_client_constructor;
+        object_class->get_property         = csm_xsmp_client_get_property;
+        object_class->set_property         = csm_xsmp_client_set_property;
 
         client_class->impl_save                   = xsmp_save;
         client_class->impl_stop                   = xsmp_stop;
@@ -1055,7 +1055,7 @@ gsm_xsmp_client_class_init (GsmXSMPClientClass *klass)
                               G_STRUCT_OFFSET (GsmXSMPClientClass, register_request),
                               _boolean_handled_accumulator,
                               NULL,
-                              gsm_marshal_BOOLEAN__POINTER,
+                              csm_marshal_BOOLEAN__POINTER,
                               G_TYPE_BOOLEAN,
                               1, G_TYPE_POINTER);
         signals[LOGOUT_REQUEST] =
@@ -1078,7 +1078,7 @@ gsm_xsmp_client_class_init (GsmXSMPClientClass *klass)
 }
 
 GsmClient *
-gsm_xsmp_client_new (IceConn ice_conn)
+csm_xsmp_client_new (IceConn ice_conn)
 {
         GsmXSMPClient *xsmp;
 
@@ -1099,7 +1099,7 @@ register_client_callback (SmsConn    conn,
         GsmXSMPClientPrivate *priv;
 
         GsmXSMPClient *client = manager_data;
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         g_debug ("GsmXSMPClient: Client '%s' received RegisterClient(%s)",
                  priv->description,
@@ -1144,7 +1144,7 @@ register_client_callback (SmsConn    conn,
                 priv->current_save_yourself = SmSaveLocal;
         }
 
-        gsm_client_set_status (CSM_CLIENT (client), CSM_CLIENT_REGISTERED);
+        csm_client_set_status (CSM_CLIENT (client), CSM_CLIENT_REGISTERED);
 
         g_free (id);
         free (previous_id);
@@ -1165,7 +1165,7 @@ save_yourself_request_callback (SmsConn   conn,
         GsmXSMPClientPrivate *priv;
         GsmXSMPClient *client = manager_data;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         g_debug ("GsmXSMPClient: Client '%s' received SaveYourselfRequest(%s, %s, %s, %s, %s)",
                  priv->description,
@@ -1225,7 +1225,7 @@ save_yourself_phase2_request_callback (SmsConn   conn,
         GsmXSMPClientPrivate *priv;
         GsmXSMPClient *client = manager_data;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         g_debug ("GsmXSMPClient: Client '%s' received SaveYourselfPhase2Request",
                  priv->description);
@@ -1234,7 +1234,7 @@ save_yourself_phase2_request_callback (SmsConn   conn,
 
         /* this is a valid response to SaveYourself and therefore
            may be a response to a QES or ES */
-        gsm_client_end_session_response (CSM_CLIENT (client),
+        csm_client_end_session_response (CSM_CLIENT (client),
                                          TRUE, TRUE, FALSE,
                                          NULL);
 }
@@ -1247,7 +1247,7 @@ interact_request_callback (SmsConn   conn,
         GsmXSMPClientPrivate *priv;
         GsmXSMPClient *client = manager_data;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 #if 0
         gboolean       res;
         GError        *error;
@@ -1257,7 +1257,7 @@ interact_request_callback (SmsConn   conn,
                  priv->description,
                  dialog_type == SmDialogNormal ? "Dialog" : "Errors");
 
-        gsm_client_end_session_response (CSM_CLIENT (client),
+        csm_client_end_session_response (CSM_CLIENT (client),
                                          FALSE, FALSE, FALSE,
                                          _("This program is blocking logout."));
 
@@ -1285,13 +1285,13 @@ interact_done_callback (SmsConn   conn,
         GsmXSMPClientPrivate *priv;
         GsmXSMPClient *client = manager_data;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         g_debug ("GsmXSMPClient: Client '%s' received InteractDone(cancel_shutdown = %s)",
                  priv->description,
                  cancel_shutdown ? "True" : "False");
 
-        gsm_client_end_session_response (CSM_CLIENT (client),
+        csm_client_end_session_response (CSM_CLIENT (client),
                                          TRUE, FALSE, cancel_shutdown,
                                          NULL);
 }
@@ -1304,7 +1304,7 @@ save_yourself_done_callback (SmsConn   conn,
         GsmXSMPClientPrivate *priv;
         GsmXSMPClient *client = manager_data;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         g_debug ("GsmXSMPClient: Client '%s' received SaveYourselfDone(success = %s)",
                  priv->description,
@@ -1318,7 +1318,7 @@ save_yourself_done_callback (SmsConn   conn,
         /* If success is false then the application couldn't save data. Nothing
          * the session manager can do about, though. FIXME: we could display a
          * dialog about this, I guess. */
-        gsm_client_end_session_response (CSM_CLIENT (client),
+        csm_client_end_session_response (CSM_CLIENT (client),
                                          TRUE, FALSE, FALSE,
                                          NULL);
 
@@ -1342,7 +1342,7 @@ close_connection_callback (SmsConn     conn,
         GsmXSMPClientPrivate *priv;
         GsmXSMPClient *client = manager_data;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
 
         g_debug ("GsmXSMPClient: Client '%s' received CloseConnection", priv->description);
         for (i = 0; i < count; i++) {
@@ -1350,19 +1350,19 @@ close_connection_callback (SmsConn     conn,
         }
         SmFreeReasons (count, reason_msgs);
 
-        gsm_client_set_status (CSM_CLIENT (client), CSM_CLIENT_FINISHED);
-        gsm_client_disconnected (CSM_CLIENT (client));
+        csm_client_set_status (CSM_CLIENT (client), CSM_CLIENT_FINISHED);
+        csm_client_disconnected (CSM_CLIENT (client));
 }
 
 void
-gsm_xsmp_client_connect (GsmXSMPClient *client,
+csm_xsmp_client_connect (GsmXSMPClient *client,
                          SmsConn        conn,
                          unsigned long *mask_ret,
                          SmsCallbacks  *callbacks_ret)
 {
         GsmXSMPClientPrivate *priv;
 
-        priv = gsm_xsmp_client_get_instance_private (client);
+        priv = csm_xsmp_client_get_instance_private (client);
         priv->conn = conn;
 
         g_debug ("GsmXSMPClient: Initializing client %s", priv->description);
@@ -1411,7 +1411,7 @@ gsm_xsmp_client_connect (GsmXSMPClient *client,
 }
 
 void
-gsm_xsmp_client_save_state (GsmXSMPClient *client)
+csm_xsmp_client_save_state (GsmXSMPClient *client)
 {
         g_return_if_fail (CSM_IS_XSMP_CLIENT (client));
 }

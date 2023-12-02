@@ -26,8 +26,8 @@
 
 G_BEGIN_DECLS
 
-#define CSM_TYPE_STORE         (gsm_store_get_type ())
-G_DECLARE_DERIVABLE_TYPE (GsmStore, gsm_store, GSM, STORE, GObject)
+#define CSM_TYPE_STORE         (csm_store_get_type ())
+G_DECLARE_DERIVABLE_TYPE (GsmStore, csm_store, GSM, STORE, GObject)
 
 struct _GsmStoreClass
 {
@@ -44,38 +44,38 @@ typedef enum
          CSM_STORE_ERROR_GENERAL
 } GsmStoreError;
 
-#define CSM_STORE_ERROR gsm_store_error_quark ()
+#define CSM_STORE_ERROR csm_store_error_quark ()
 
 typedef gboolean (*GsmStoreFunc) (const char *id,
                                   GObject    *object,
                                   gpointer    user_data);
 
-GQuark              gsm_store_error_quark              (void);
+GQuark              csm_store_error_quark              (void);
 
-GsmStore *          gsm_store_new                      (void);
+GsmStore *          csm_store_new                      (void);
 
-gboolean            gsm_store_get_locked               (GsmStore    *store);
-void                gsm_store_set_locked               (GsmStore    *store,
+gboolean            csm_store_get_locked               (GsmStore    *store);
+void                csm_store_set_locked               (GsmStore    *store,
                                                         gboolean     locked);
 
-guint               gsm_store_size                     (GsmStore    *store);
-gboolean            gsm_store_add                      (GsmStore    *store,
+guint               csm_store_size                     (GsmStore    *store);
+gboolean            csm_store_add                      (GsmStore    *store,
                                                         const char  *id,
                                                         GObject     *object);
-void                gsm_store_clear                    (GsmStore    *store);
-gboolean            gsm_store_remove                   (GsmStore    *store,
+void                csm_store_clear                    (GsmStore    *store);
+gboolean            csm_store_remove                   (GsmStore    *store,
                                                         const char  *id);
 
-void                gsm_store_foreach                  (GsmStore    *store,
+void                csm_store_foreach                  (GsmStore    *store,
                                                         GsmStoreFunc func,
                                                         gpointer     user_data);
-guint               gsm_store_foreach_remove           (GsmStore    *store,
+guint               csm_store_foreach_remove           (GsmStore    *store,
                                                         GsmStoreFunc func,
                                                         gpointer     user_data);
-GObject *           gsm_store_find                     (GsmStore    *store,
+GObject *           csm_store_find                     (GsmStore    *store,
                                                         GsmStoreFunc predicate,
                                                         gpointer     user_data);
-GObject *           gsm_store_lookup                   (GsmStore    *store,
+GObject *           csm_store_lookup                   (GsmStore    *store,
                                                         const char  *id);
 
 G_END_DECLS

@@ -39,7 +39,7 @@
 static gchar *_saved_session_dir = NULL;
 
 char *
-gsm_util_find_desktop_file_for_app_name (const char *name,
+csm_util_find_desktop_file_for_app_name (const char *name,
                                          char      **autostart_dirs)
 {
         char     *app_path;
@@ -50,7 +50,7 @@ gsm_util_find_desktop_file_for_app_name (const char *name,
 
         app_path = NULL;
 
-        app_dirs = gsm_util_get_app_dirs ();
+        app_dirs = csm_util_get_app_dirs ();
 
         key_file = g_key_file_new ();
 
@@ -140,7 +140,7 @@ ensure_dir_exists (const char *dir)
 }
 
 gchar *
-gsm_util_get_empty_tmp_session_dir (void)
+csm_util_get_empty_tmp_session_dir (void)
 {
         char *tmp;
         gboolean exists;
@@ -177,7 +177,7 @@ gsm_util_get_empty_tmp_session_dir (void)
 }
 
 const gchar *
-gsm_util_get_saved_session_dir (void)
+csm_util_get_saved_session_dir (void)
 {
         if (_saved_session_dir == NULL) {
                 gboolean exists;
@@ -209,7 +209,7 @@ gsm_util_get_saved_session_dir (void)
 
 
 char **
-gsm_util_get_autostart_dirs ()
+csm_util_get_autostart_dirs ()
 {
         GPtrArray          *dirs;
         const char * const *system_config_dirs;
@@ -242,7 +242,7 @@ gsm_util_get_autostart_dirs ()
 }
 
 char **
-gsm_util_get_app_dirs ()
+csm_util_get_app_dirs ()
 {
         GPtrArray          *dirs;
         const char * const *system_data_dirs;
@@ -269,7 +269,7 @@ gsm_util_get_app_dirs ()
 }
 
 char **
-gsm_util_get_desktop_dirs ()
+csm_util_get_desktop_dirs ()
 {
 	char **apps;
 	char **autostart;
@@ -277,8 +277,8 @@ gsm_util_get_desktop_dirs ()
 	int    size;
 	int    i;
 
-	apps = gsm_util_get_app_dirs ();
-	autostart = gsm_util_get_autostart_dirs ();
+	apps = csm_util_get_app_dirs ();
+	autostart = csm_util_get_autostart_dirs ();
 
 	size = 0;
 	for (i = 0; apps[i] != NULL; i++) { size++; }
@@ -299,14 +299,14 @@ gsm_util_get_desktop_dirs ()
 	g_free (autostart);
 	size = size + i;
 
-	result[size] = g_strdup (gsm_util_get_saved_session_dir ());
+	result[size] = g_strdup (csm_util_get_saved_session_dir ());
 	result[size + 1] = NULL;
 
 	return result;
 }
 
 gboolean
-gsm_util_text_is_blank (const char *str)
+csm_util_text_is_blank (const char *str)
 {
         if (str == NULL) {
                 return TRUE;
@@ -324,7 +324,7 @@ gsm_util_text_is_blank (const char *str)
 }
 
 /**
- * gsm_util_init_error:
+ * csm_util_init_error:
  * @fatal: whether or not the error is fatal to the login session
  * @format: printf-style error message format
  * @...: error message args
@@ -337,7 +337,7 @@ gsm_util_text_is_blank (const char *str)
  * itself, since no window manager will be running yet.)
  **/
 void
-gsm_util_init_error (gboolean    fatal,
+csm_util_init_error (gboolean    fatal,
                      const char *format, ...)
 {
         CtkWidget *dialog;
@@ -374,14 +374,14 @@ gsm_util_init_error (gboolean    fatal,
 }
 
 /**
- * gsm_util_generate_startup_id:
+ * csm_util_generate_startup_id:
  *
  * Generates a new SM client ID.
  *
  * Return value: an SM client ID.
  **/
 char *
-gsm_util_generate_startup_id (void)
+csm_util_generate_startup_id (void)
 {
         static int     sequence = -1;
         static guint   rand1 = 0;
@@ -431,7 +431,7 @@ gsm_util_generate_startup_id (void)
 }
 
 static gboolean
-gsm_util_update_activation_environment (const char  *variable,
+csm_util_update_activation_environment (const char  *variable,
                                         const char  *value,
                                         GError     **error)
 {
@@ -475,7 +475,7 @@ gsm_util_update_activation_environment (const char  *variable,
 }
 
 gboolean
-gsm_util_export_activation_environment (GError     **error)
+csm_util_export_activation_environment (GError     **error)
 {
         GDBusConnection *connection;
         gboolean         environment_updated = FALSE;
@@ -553,7 +553,7 @@ gsm_util_export_activation_environment (GError     **error)
 
 #ifdef HAVE_SYSTEMD
 gboolean
-gsm_util_export_user_environment (GError     **error)
+csm_util_export_user_environment (GError     **error)
 {
         GDBusConnection *connection;
         gboolean         environment_updated = FALSE;
@@ -616,7 +616,7 @@ gsm_util_export_user_environment (GError     **error)
 }
 
 static gboolean
-gsm_util_update_user_environment (const char  *variable,
+csm_util_update_user_environment (const char  *variable,
                                   const char  *value,
                                   GError     **error)
 {
@@ -664,7 +664,7 @@ gsm_util_update_user_environment (const char  *variable,
 #endif
 
 void
-gsm_util_setenv (const char *variable,
+csm_util_setenv (const char *variable,
                  const char *value)
 {
         GError *error = NULL;
@@ -674,7 +674,7 @@ gsm_util_setenv (const char *variable,
         /* If this fails it isn't fatal, it means some things like session
          * management and keyring won't work in activated clients.
          */
-        if (!gsm_util_update_activation_environment (variable, value, &error)) {
+        if (!csm_util_update_activation_environment (variable, value, &error)) {
                 g_warning ("Could not make bus activated clients aware of %s=%s environment variable: %s", variable, value, error->message);
                 g_clear_error (&error);
         }
@@ -682,7 +682,7 @@ gsm_util_setenv (const char *variable,
 #ifdef HAVE_SYSTEMD
         /* If this fails, the system user session won't get the updated environment
          */
-        if (!gsm_util_update_user_environment (variable, value, &error)) {
+        if (!csm_util_update_user_environment (variable, value, &error)) {
                 g_debug ("Could not make systemd aware of %s=%s environment variable: %s", variable, value, error->message);
                 g_clear_error (&error);
         }
@@ -690,7 +690,7 @@ gsm_util_setenv (const char *variable,
 }
 
 CtkWidget*
-gsm_util_dialog_add_button (CtkDialog   *dialog,
+csm_util_dialog_add_button (CtkDialog   *dialog,
                             const gchar *button_text,
                             const gchar *icon_name,
                             gint         response_id)

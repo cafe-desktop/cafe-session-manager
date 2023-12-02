@@ -29,9 +29,9 @@
 
 G_BEGIN_DECLS
 
-#define CSM_TYPE_SYSTEMD             (gsm_systemd_get_type ())
-#define CSM_SYSTEMD_ERROR            (gsm_systemd_error_quark ())
-G_DECLARE_DERIVABLE_TYPE (GsmSystemd, gsm_systemd, GSM, SYSTEMD, GObject)
+#define CSM_TYPE_SYSTEMD             (csm_systemd_get_type ())
+#define CSM_SYSTEMD_ERROR            (csm_systemd_error_quark ())
+G_DECLARE_DERIVABLE_TYPE (GsmSystemd, csm_systemd, GSM, SYSTEMD, GObject)
 
 #define LOGIND_RUNNING() (access("/run/systemd/seats/", F_OK) >= 0)
 typedef enum   _GsmSystemdError   GsmSystemdError;
@@ -56,40 +56,40 @@ enum _GsmSystemdError {
 
 #define CSM_SYSTEMD_SESSION_TYPE_LOGIN_WINDOW "greeter"
 
-GQuark           gsm_systemd_error_quark     (void);
+GQuark           csm_systemd_error_quark     (void);
 
-GsmSystemd      *gsm_systemd_new             (void) G_GNUC_MALLOC;
+GsmSystemd      *csm_systemd_new             (void) G_GNUC_MALLOC;
 
-gboolean         gsm_systemd_can_switch_user (GsmSystemd *manager);
+gboolean         csm_systemd_can_switch_user (GsmSystemd *manager);
 
-gboolean         gsm_systemd_get_restart_privileges (GsmSystemd *manager);
+gboolean         csm_systemd_get_restart_privileges (GsmSystemd *manager);
 
-gboolean         gsm_systemd_get_stop_privileges    (GsmSystemd *manager);
+gboolean         csm_systemd_get_stop_privileges    (GsmSystemd *manager);
 
-gboolean         gsm_systemd_can_stop        (GsmSystemd *manager);
+gboolean         csm_systemd_can_stop        (GsmSystemd *manager);
 
-gboolean         gsm_systemd_can_restart     (GsmSystemd *manager);
+gboolean         csm_systemd_can_restart     (GsmSystemd *manager);
 
-gboolean         gsm_systemd_can_hibernate     (GsmSystemd *manager);
+gboolean         csm_systemd_can_hibernate     (GsmSystemd *manager);
 
-gboolean         gsm_systemd_can_suspend     (GsmSystemd *manager);
+gboolean         csm_systemd_can_suspend     (GsmSystemd *manager);
 
-gboolean         gsm_systemd_is_last_session_for_user (GsmSystemd *manager);
+gboolean         csm_systemd_is_last_session_for_user (GsmSystemd *manager);
 
-void             gsm_systemd_attempt_stop    (GsmSystemd *manager);
+void             csm_systemd_attempt_stop    (GsmSystemd *manager);
 
-void             gsm_systemd_attempt_restart (GsmSystemd *manager);
+void             csm_systemd_attempt_restart (GsmSystemd *manager);
 
-void             gsm_systemd_attempt_hibernate (GsmSystemd *manager);
+void             csm_systemd_attempt_hibernate (GsmSystemd *manager);
 
-void             gsm_systemd_attempt_suspend (GsmSystemd *manager);
+void             csm_systemd_attempt_suspend (GsmSystemd *manager);
 
-void             gsm_systemd_set_session_idle (GsmSystemd *manager,
+void             csm_systemd_set_session_idle (GsmSystemd *manager,
                                                   gboolean       is_idle);
 
-gchar           *gsm_systemd_get_current_session_type (GsmSystemd *manager);
+gchar           *csm_systemd_get_current_session_type (GsmSystemd *manager);
 
-GsmSystemd      *gsm_get_systemd             (void);
+GsmSystemd      *csm_get_systemd             (void);
 
 G_END_DECLS
 

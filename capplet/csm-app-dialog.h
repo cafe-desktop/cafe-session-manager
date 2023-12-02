@@ -26,24 +26,24 @@
 
 G_BEGIN_DECLS
 
-#define CSM_TYPE_APP_DIALOG              (gsm_app_dialog_get_type ())
-G_DECLARE_FINAL_TYPE (GsmAppDialog, gsm_app_dialog, GSM, APP_DIALOG, CtkDialog)
+#define CSM_TYPE_APP_DIALOG              (csm_app_dialog_get_type ())
+G_DECLARE_FINAL_TYPE (GsmAppDialog, csm_app_dialog, GSM, APP_DIALOG, CtkDialog)
 
-CtkWidget            * gsm_app_dialog_new                (const char   *name,
+CtkWidget            * csm_app_dialog_new                (const char   *name,
                                                           const char   *command,
                                                           const char   *comment,
                                                           guint         delay);
 
-gboolean               gsm_app_dialog_run               (GsmAppDialog  *dialog,
+gboolean               csm_app_dialog_run               (GsmAppDialog  *dialog,
                                                          char         **name_p,
                                                          char         **command_p,
                                                          char         **comment_p,
                                                          guint         *delay);
 
-const char *           gsm_app_dialog_get_name           (GsmAppDialog *dialog);
-const char *           gsm_app_dialog_get_command        (GsmAppDialog *dialog);
-const char *           gsm_app_dialog_get_comment        (GsmAppDialog *dialog);
-guint                  gsm_app_dialog_get_delay          (GsmAppDialog *dialog);
+const char *           csm_app_dialog_get_name           (GsmAppDialog *dialog);
+const char *           csm_app_dialog_get_command        (GsmAppDialog *dialog);
+const char *           csm_app_dialog_get_comment        (GsmAppDialog *dialog);
+guint                  csm_app_dialog_get_delay          (GsmAppDialog *dialog);
 
 G_END_DECLS
 

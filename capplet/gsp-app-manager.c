@@ -502,7 +502,7 @@ gsp_app_manager_fill (GspAppManager *manager)
         if (priv->apps != NULL)
                 return;
 
-        autostart_dirs = gsm_util_get_autostart_dirs ();
+        autostart_dirs = csm_util_get_autostart_dirs ();
         /* we always assume that the first directory is the user one */
         g_assert (g_str_has_prefix (autostart_dirs[0],
                                     g_get_user_config_dir ()));

@@ -28,8 +28,8 @@
 
 G_BEGIN_DECLS
 
-#define CSM_TYPE_AUTOSTART_APP            (gsm_autostart_app_get_type ())
-G_DECLARE_DERIVABLE_TYPE (GsmAutostartApp, gsm_autostart_app, GSM, AUTOSTART_APP, GsmApp)
+#define CSM_TYPE_AUTOSTART_APP            (csm_autostart_app_get_type ())
+G_DECLARE_DERIVABLE_TYPE (GsmAutostartApp, csm_autostart_app, GSM, AUTOSTART_APP, GsmApp)
 
 struct _GsmAutostartAppClass
 {
@@ -40,7 +40,7 @@ struct _GsmAutostartAppClass
                                         gboolean condition);
 };
 
-GsmApp *gsm_autostart_app_new                (const char *desktop_file);
+GsmApp *csm_autostart_app_new                (const char *desktop_file);
 
 #define CSM_AUTOSTART_APP_ENABLED_KEY     "X-CAFE-Autostart-enabled"
 #define CSM_AUTOSTART_APP_PHASE_KEY       "X-CAFE-Autostart-Phase"

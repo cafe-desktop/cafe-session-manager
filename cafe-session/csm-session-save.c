@@ -29,7 +29,7 @@
 
 #include "csm-session-save.h"
 
-static gboolean gsm_session_clear_saved_session (const char *directory,
+static gboolean csm_session_clear_saved_session (const char *directory,
                                                  GHashTable *discard_hash);
 
 typedef struct {
@@ -56,7 +56,7 @@ save_one_client (char            *id,
 
         local_error = NULL;
 
-        keyfile = gsm_client_save (client, &local_error);
+        keyfile = csm_client_save (client, &local_error);
 
         if (keyfile == NULL || local_error) {
                 goto out;
@@ -69,7 +69,7 @@ save_one_client (char            *id,
         }
 
         filename = g_strdup_printf ("%s.desktop",
-                                    gsm_client_peek_startup_id (client));
+                                    csm_client_peek_startup_id (client));
 
         path = g_build_filename (data->dir, filename, NULL);
 
@@ -114,7 +114,7 @@ out:
 }
 
 void
-gsm_session_save (GsmStore  *client_store,
+csm_session_save (GsmStore  *client_store,
                   GError   **error)
 {
         const char      *save_dir;
@@ -123,13 +123,13 @@ gsm_session_save (GsmStore  *client_store,
 
         g_debug ("GsmSessionSave: Saving session");
 
-        save_dir = gsm_util_get_saved_session_dir ();
+        save_dir = csm_util_get_saved_session_dir ();
         if (save_dir == NULL) {
                 g_warning ("GsmSessionSave: cannot create saved session directory");
                 return;
         }
 
-        tmp_dir = gsm_util_get_empty_tmp_session_dir ();
+        tmp_dir = csm_util_get_empty_tmp_session_dir ();
         if (tmp_dir == NULL) {
                 g_warning ("GsmSessionSave: cannot create new saved session directory");
                 return;
@@ -142,13 +142,13 @@ gsm_session_save (GsmStore  *client_store,
                                                    g_free, NULL);
         data.error = error;
 
-        gsm_store_foreach (client_store,
+        csm_store_foreach (client_store,
                            (GsmStoreFunc) save_one_client,
                            &data);
 
         if (!*error) {
                 /* remove the old saved session */
-                gsm_session_clear_saved_session (save_dir, data.discard_hash);
+                csm_session_clear_saved_session (save_dir, data.discard_hash);
 
                 /* rename the temp session dir */
                 if (g_file_test (save_dir, G_FILE_TEST_IS_DIR))
@@ -158,7 +158,7 @@ gsm_session_save (GsmStore  *client_store,
                 g_warning ("GsmSessionSave: error saving session: %s", (*error)->message);
                 /* FIXME: we should create a hash table filled with the discard
                  * commands that are in desktop files from save_dir. */
-                gsm_session_clear_saved_session (tmp_dir, NULL);
+                csm_session_clear_saved_session (tmp_dir, NULL);
                 g_rmdir (tmp_dir);
         }
 
@@ -167,7 +167,7 @@ gsm_session_save (GsmStore  *client_store,
 }
 
 static gboolean
-gsm_session_clear_one_client (const char *filename,
+csm_session_clear_one_client (const char *filename,
                               GHashTable *discard_hash)
 {
         gboolean  result = TRUE;
@@ -215,7 +215,7 @@ out:
 }
 
 static gboolean
-gsm_session_clear_saved_session (const char *directory,
+csm_session_clear_saved_session (const char *directory,
                                  GHashTable *discard_hash)
 {
         GDir       *dir;
@@ -242,7 +242,7 @@ gsm_session_clear_saved_session (const char *directory,
                 char *path = g_build_filename (directory,
                                                filename, NULL);
 
-                result = gsm_session_clear_one_client (path, discard_hash)
+                result = csm_session_clear_one_client (path, discard_hash)
                          && result;
 
                 g_free (path);

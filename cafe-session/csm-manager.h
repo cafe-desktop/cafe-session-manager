@@ -29,8 +29,8 @@
 
 G_BEGIN_DECLS
 
-#define CSM_TYPE_MANAGER         (gsm_manager_get_type ())
-G_DECLARE_DERIVABLE_TYPE (GsmManager, gsm_manager, GSM, MANAGER, GObject)
+#define CSM_TYPE_MANAGER         (csm_manager_get_type ())
+G_DECLARE_DERIVABLE_TYPE (GsmManager, csm_manager, GSM, MANAGER, GObject)
 
 struct _GsmManagerClass
 {
@@ -86,7 +86,7 @@ typedef enum
         CSM_MANAGER_NUM_ERRORS
 } GsmManagerError;
 
-#define CSM_MANAGER_ERROR gsm_manager_error_quark ()
+#define CSM_MANAGER_ERROR csm_manager_error_quark ()
 
 typedef enum {
         CSM_MANAGER_LOGOUT_MODE_NORMAL = 0,
@@ -94,92 +94,92 @@ typedef enum {
         CSM_MANAGER_LOGOUT_MODE_FORCE
 } GsmManagerLogoutMode;
 
-GType               gsm_manager_error_get_type                 (void);
-#define CSM_MANAGER_TYPE_ERROR (gsm_manager_error_get_type ())
+GType               csm_manager_error_get_type                 (void);
+#define CSM_MANAGER_TYPE_ERROR (csm_manager_error_get_type ())
 
-GQuark              gsm_manager_error_quark                    (void);
+GQuark              csm_manager_error_quark                    (void);
 
-GsmManager *        gsm_manager_new                            (GsmStore       *client_store,
+GsmManager *        csm_manager_new                            (GsmStore       *client_store,
                                                                 gboolean        failsafe);
 
-gboolean            gsm_manager_add_autostart_app              (GsmManager     *manager,
+gboolean            csm_manager_add_autostart_app              (GsmManager     *manager,
                                                                 const char     *path,
                                                                 const char     *provides);
-gboolean            gsm_manager_add_autostart_apps_from_dir    (GsmManager     *manager,
+gboolean            csm_manager_add_autostart_apps_from_dir    (GsmManager     *manager,
                                                                 const char     *path);
-gboolean            gsm_manager_add_legacy_session_apps        (GsmManager     *manager,
+gboolean            csm_manager_add_legacy_session_apps        (GsmManager     *manager,
                                                                 const char     *path);
 
-void                gsm_manager_start                          (GsmManager     *manager);
+void                csm_manager_start                          (GsmManager     *manager);
 
 
 /* exported methods */
 
-gboolean            gsm_manager_register_client                (GsmManager            *manager,
+gboolean            csm_manager_register_client                (GsmManager            *manager,
                                                                 const char            *app_id,
                                                                 const char            *client_startup_id,
                                                                 DBusGMethodInvocation *context);
-gboolean            gsm_manager_unregister_client              (GsmManager            *manager,
+gboolean            csm_manager_unregister_client              (GsmManager            *manager,
                                                                 const char            *session_client_id,
                                                                 DBusGMethodInvocation *context);
 
-gboolean            gsm_manager_inhibit                        (GsmManager            *manager,
+gboolean            csm_manager_inhibit                        (GsmManager            *manager,
                                                                 const char            *app_id,
                                                                 guint                  toplevel_xid,
                                                                 const char            *reason,
                                                                 guint                  flags,
                                                                 DBusGMethodInvocation *context);
-gboolean            gsm_manager_uninhibit                      (GsmManager            *manager,
+gboolean            csm_manager_uninhibit                      (GsmManager            *manager,
                                                                 guint                  inhibit_cookie,
                                                                 DBusGMethodInvocation *context);
-gboolean            gsm_manager_is_inhibited                   (GsmManager            *manager,
+gboolean            csm_manager_is_inhibited                   (GsmManager            *manager,
                                                                 guint                  flags,
                                                                 gboolean              *is_inhibited,
                                                                 GError                *error);
 
-gboolean            gsm_manager_request_shutdown               (GsmManager     *manager,
+gboolean            csm_manager_request_shutdown               (GsmManager     *manager,
                                                                 GError        **error);
 
-gboolean            gsm_manager_request_reboot                 (GsmManager     *manager,
+gboolean            csm_manager_request_reboot                 (GsmManager     *manager,
                                                                 GError        **error);
 
-gboolean            gsm_manager_shutdown                       (GsmManager     *manager,
+gboolean            csm_manager_shutdown                       (GsmManager     *manager,
                                                                 GError        **error);
 
-gboolean            gsm_manager_can_shutdown                   (GsmManager     *manager,
+gboolean            csm_manager_can_shutdown                   (GsmManager     *manager,
                                                                 gboolean       *shutdown_available,
                                                                 GError        **error);
-gboolean            gsm_manager_logout                         (GsmManager     *manager,
+gboolean            csm_manager_logout                         (GsmManager     *manager,
                                                                 guint           logout_mode,
                                                                 GError        **error);
 
-gboolean            gsm_manager_setenv                         (GsmManager     *manager,
+gboolean            csm_manager_setenv                         (GsmManager     *manager,
                                                                 const char     *variable,
                                                                 const char     *value,
                                                                 GError        **error);
-gboolean            gsm_manager_initialization_error           (GsmManager     *manager,
+gboolean            csm_manager_initialization_error           (GsmManager     *manager,
                                                                 const char     *message,
                                                                 gboolean        fatal,
                                                                 GError        **error);
 
-gboolean            gsm_manager_get_clients                    (GsmManager     *manager,
+gboolean            csm_manager_get_clients                    (GsmManager     *manager,
                                                                 GPtrArray     **clients,
                                                                 GError        **error);
-gboolean            gsm_manager_get_inhibitors                 (GsmManager     *manager,
+gboolean            csm_manager_get_inhibitors                 (GsmManager     *manager,
                                                                 GPtrArray     **inhibitors,
                                                                 GError        **error);
-gboolean            gsm_manager_is_autostart_condition_handled (GsmManager     *manager,
+gboolean            csm_manager_is_autostart_condition_handled (GsmManager     *manager,
                                                                 const char     *condition,
                                                                 gboolean       *handled,
                                                                 GError        **error);
-gboolean            gsm_manager_set_phase                      (GsmManager     *manager,
+gboolean            csm_manager_set_phase                      (GsmManager     *manager,
                                                                 GsmManagerPhase phase);
 
-gboolean            gsm_manager_is_session_running             (GsmManager *manager,
+gboolean            csm_manager_is_session_running             (GsmManager *manager,
                                                                 gboolean *running,
                                                                 GError **error);
 
-void                _gsm_manager_set_renderer                  (GsmManager     *manager,
+void                _csm_manager_set_renderer                  (GsmManager     *manager,
                                                                 const char     *renderer);
 
 G_END_DECLS

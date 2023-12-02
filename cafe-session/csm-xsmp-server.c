@@ -77,11 +77,11 @@ enum {
         PROP_CLIENT_STORE
 };
 
-static void     gsm_xsmp_server_finalize    (GObject         *object);
+static void     csm_xsmp_server_finalize    (GObject         *object);
 
 static gpointer xsmp_server_object = NULL;
 
-G_DEFINE_TYPE (GsmXsmpServer, gsm_xsmp_server, G_TYPE_OBJECT)
+G_DEFINE_TYPE (GsmXsmpServer, csm_xsmp_server, G_TYPE_OBJECT)
 
 typedef struct {
         GsmXsmpServer *server;
@@ -221,7 +221,7 @@ accept_ice_connection (GIOChannel           *source,
 }
 
 void
-gsm_xsmp_server_start (GsmXsmpServer *server)
+csm_xsmp_server_start (GsmXsmpServer *server)
 {
         GIOChannel *channel;
         int         i;
@@ -245,7 +245,7 @@ gsm_xsmp_server_start (GsmXsmpServer *server)
 }
 
 static void
-gsm_xsmp_server_set_client_store (GsmXsmpServer *xsmp_server,
+csm_xsmp_server_set_client_store (GsmXsmpServer *xsmp_server,
                                   GsmStore      *store)
 {
         g_return_if_fail (CSM_IS_XSMP_SERVER (xsmp_server));
@@ -262,7 +262,7 @@ gsm_xsmp_server_set_client_store (GsmXsmpServer *xsmp_server,
 }
 
 static void
-gsm_xsmp_server_set_property (GObject      *object,
+csm_xsmp_server_set_property (GObject      *object,
                               guint         prop_id,
                               const GValue *value,
                               GParamSpec   *pspec)
@@ -273,7 +273,7 @@ gsm_xsmp_server_set_property (GObject      *object,
 
         switch (prop_id) {
         case PROP_CLIENT_STORE:
-                gsm_xsmp_server_set_client_store (self, g_value_get_object (value));
+                csm_xsmp_server_set_client_store (self, g_value_get_object (value));
                 break;
          default:
                 G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -282,7 +282,7 @@ gsm_xsmp_server_set_property (GObject      *object,
 }
 
 static void
-gsm_xsmp_server_get_property (GObject    *object,
+csm_xsmp_server_get_property (GObject    *object,
                               guint       prop_id,
                               GValue     *value,
                               GParamSpec *pspec)
@@ -315,7 +315,7 @@ accept_xsmp_connection (SmsConn        sms_conn,
         GsmClient             *client;
         GsmIceConnectionWatch *data;
 
-        /* FIXME: what about during shutdown but before gsm_xsmp_shutdown? */
+        /* FIXME: what about during shutdown but before csm_xsmp_shutdown? */
         if (server->xsmp_sockets == NULL) {
                 g_debug ("GsmXsmpServer: In shutdown, rejecting new client");
 
@@ -329,13 +329,13 @@ accept_xsmp_connection (SmsConn        sms_conn,
         /* Each GsmXSMPClient has its own IceConn watcher */
         free_ice_connection_watch (data);
 
-        client = gsm_xsmp_client_new (ice_conn);
+        client = csm_xsmp_client_new (ice_conn);
 
-        gsm_store_add (server->client_store, gsm_client_peek_id (client), G_OBJECT (client));
+        csm_store_add (server->client_store, csm_client_peek_id (client), G_OBJECT (client));
         /* the store will own the ref */
         g_object_unref (client);
 
-        gsm_xsmp_client_connect (CSM_XSMP_CLIENT (client), sms_conn, mask_ret, callbacks_ret);
+        csm_xsmp_client_connect (CSM_XSMP_CLIENT (client), sms_conn, mask_ret, callbacks_ret);
 
         return TRUE;
 }
@@ -554,7 +554,7 @@ setup_listener (GsmXsmpServer *server)
                              sizeof (error),
                              error);
         if (! res) {
-                gsm_util_init_error (TRUE, "Could not initialize libSM: %s", error);
+                csm_util_init_error (TRUE, "Could not initialize libSM: %s", error);
         }
 
 #if HAVE_XTRANS
@@ -581,7 +581,7 @@ setup_listener (GsmXsmpServer *server)
                                        sizeof (error),
                                        error);
         if (! res) {
-                gsm_util_init_error (TRUE, _("Could not create ICE listening socket: %s"), error);
+                csm_util_init_error (TRUE, _("Could not create ICE listening socket: %s"), error);
         }
 
         umask (saved_umask);
@@ -606,7 +606,7 @@ setup_listener (GsmXsmpServer *server)
         }
 
         if (server->num_local_xsmp_sockets == 0) {
-                gsm_util_init_error (TRUE, "IceListenForConnections did not return a local listener!");
+                csm_util_init_error (TRUE, "IceListenForConnections did not return a local listener!");
         }
 
 #ifdef HAVE_XTRANS
@@ -633,7 +633,7 @@ setup_listener (GsmXsmpServer *server)
         /* Update .ICEauthority with new auth entries for our socket */
         if (!update_iceauthority (server, TRUE)) {
                 /* FIXME: is this really fatal? Hm... */
-                gsm_util_init_error (TRUE,
+                csm_util_init_error (TRUE,
                                      "Could not update ICEauthority file %s",
                                      IceAuthFileName ());
         }
@@ -641,19 +641,19 @@ setup_listener (GsmXsmpServer *server)
         network_id_list = IceComposeNetworkIdList (server->num_local_xsmp_sockets,
                                                    server->xsmp_sockets);
 
-        gsm_util_setenv ("SESSION_MANAGER", network_id_list);
+        csm_util_setenv ("SESSION_MANAGER", network_id_list);
         g_debug ("GsmXsmpServer: SESSION_MANAGER=%s\n", network_id_list);
         free (network_id_list);
 }
 
 static GObject *
-gsm_xsmp_server_constructor (GType                  type,
+csm_xsmp_server_constructor (GType                  type,
                              guint                  n_construct_properties,
                              GObjectConstructParam *construct_properties)
 {
         GsmXsmpServer *xsmp_server;
 
-        xsmp_server = CSM_XSMP_SERVER (G_OBJECT_CLASS (gsm_xsmp_server_parent_class)->constructor (type,
+        xsmp_server = CSM_XSMP_SERVER (G_OBJECT_CLASS (csm_xsmp_server_parent_class)->constructor (type,
                                                                                        n_construct_properties,
                                                                                        construct_properties));
         setup_listener (xsmp_server);
@@ -662,14 +662,14 @@ gsm_xsmp_server_constructor (GType                  type,
 }
 
 static void
-gsm_xsmp_server_class_init (GsmXsmpServerClass *klass)
+csm_xsmp_server_class_init (GsmXsmpServerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->get_property = gsm_xsmp_server_get_property;
-        object_class->set_property = gsm_xsmp_server_set_property;
-        object_class->constructor = gsm_xsmp_server_constructor;
-        object_class->finalize = gsm_xsmp_server_finalize;
+        object_class->get_property = csm_xsmp_server_get_property;
+        object_class->set_property = csm_xsmp_server_set_property;
+        object_class->constructor = csm_xsmp_server_constructor;
+        object_class->finalize = csm_xsmp_server_finalize;
 
         g_object_class_install_property (object_class,
                                          PROP_CLIENT_STORE,
@@ -681,12 +681,12 @@ gsm_xsmp_server_class_init (GsmXsmpServerClass *klass)
 }
 
 static void
-gsm_xsmp_server_init (GsmXsmpServer *xsmp_server)
+csm_xsmp_server_init (GsmXsmpServer *xsmp_server)
 {
 }
 
 static void
-gsm_xsmp_server_finalize (GObject *object)
+csm_xsmp_server_finalize (GObject *object)
 {
         GsmXsmpServer *xsmp_server;
 
@@ -702,11 +702,11 @@ gsm_xsmp_server_finalize (GObject *object)
                 g_object_unref (xsmp_server->client_store);
         }
 
-        G_OBJECT_CLASS (gsm_xsmp_server_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csm_xsmp_server_parent_class)->finalize (object);
 }
 
 GsmXsmpServer *
-gsm_xsmp_server_new (GsmStore *client_store)
+csm_xsmp_server_new (GsmStore *client_store)
 {
         if (xsmp_server_object != NULL) {
                 g_object_ref (xsmp_server_object);
