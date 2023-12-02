@@ -697,7 +697,7 @@ int main(int argc, char** argv)
 	/* Set DISPLAY explicitly for all our children, in case --display
 	 * was specified on the command line.
 	 */
-	display_str = gdk_display_get_name (gdk_display_get_default());
+	display_str = cdk_display_get_name (cdk_display_get_default());
 	gsm_util_setenv("DISPLAY", display_str);
 
 	/* Some third-party programs rely on CAFE_DESKTOP_SESSION_ID to

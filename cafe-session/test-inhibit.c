@@ -27,7 +27,7 @@
 #include <unistd.h>
 
 #include <ctk/ctk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 #include <dbus/dbus-glib.h>
 
 #define SM_DBUS_NAME      "org.gnome.SessionManager"
@@ -74,7 +74,7 @@ do_inhibit_for_window (GdkWindow *window)
         startup_id = g_getenv ("DESKTOP_AUTOSTART_ID");
         app_id = "caja-cd-burner";
         reason = "A CD burn is in progress.";
-        toplevel_xid = gdk_x11_window_get_xid (window);
+        toplevel_xid = cdk_x11_window_get_xid (window);
 
         flags = GSM_INHIBITOR_FLAG_LOGOUT
                 | GSM_INHIBITOR_FLAG_SWITCH_USER

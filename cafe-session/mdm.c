@@ -38,7 +38,7 @@
 #include <sys/un.h>
 
 #include <X11/Xauth.h>
-#include <gdk/gdk.h>
+#include <cdk/cdk.h>
 
 #include "mdm.h"
 
@@ -132,7 +132,7 @@ static char* get_display_number(void)
 	char* retval;
 	char* p;
 
-	display_name = gdk_display_get_name(gdk_display_get_default());
+	display_name = cdk_display_get_name(cdk_display_get_default());
 
 	p = strchr(display_name, ':');
 

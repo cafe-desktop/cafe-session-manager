@@ -40,7 +40,7 @@
 
 #include <ctk/ctk.h> /* for logout dialog */
 #include <gio/gio.h> /* for gsettings */
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 
 #include "gsm-manager.h"
 #include "gsm-manager-glue.h"
@@ -3459,7 +3459,7 @@ show_shutdown_dialog (GsmManager *manager)
 
         priv->logout_mode = GSM_MANAGER_LOGOUT_MODE_NORMAL;
 
-        dialog = gsm_get_shutdown_dialog (gdk_screen_get_default (),
+        dialog = gsm_get_shutdown_dialog (cdk_screen_get_default (),
                                           ctk_get_current_event_time ());
 
         g_signal_connect (dialog,
@@ -3468,7 +3468,7 @@ show_shutdown_dialog (GsmManager *manager)
                           manager);
         ctk_widget_show (dialog);
         ctk_window_present_with_time (CTK_WINDOW (dialog),
-                                      gdk_x11_get_server_time (ctk_widget_get_window (CTK_WIDGET (dialog))));
+                                      cdk_x11_get_server_time (ctk_widget_get_window (CTK_WIDGET (dialog))));
 }
 
 static void
@@ -3485,7 +3485,7 @@ show_logout_dialog (GsmManager *manager)
 
         priv->logout_mode = GSM_MANAGER_LOGOUT_MODE_NORMAL;
 
-        dialog = gsm_get_logout_dialog (gdk_screen_get_default (),
+        dialog = gsm_get_logout_dialog (cdk_screen_get_default (),
                                         ctk_get_current_event_time ());
 
         g_signal_connect (dialog,
@@ -3494,7 +3494,7 @@ show_logout_dialog (GsmManager *manager)
                           manager);
         ctk_widget_show (dialog);
         ctk_window_present_with_time (CTK_WINDOW (dialog),
-                                      gdk_x11_get_server_time (ctk_widget_get_window (CTK_WIDGET (dialog))));
+                                      cdk_x11_get_server_time (ctk_widget_get_window (CTK_WIDGET (dialog))));
 }
 
 static void

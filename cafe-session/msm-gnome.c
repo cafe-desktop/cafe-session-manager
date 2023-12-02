@@ -36,7 +36,7 @@
 #include <X11/Xlib.h>
 
 #include <ctk/ctk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 #include <gio/gio.h>
 
 #include "msm-gnome.h"
@@ -98,17 +98,17 @@ msm_compat_gnome_smproxy_startup (void)
   Atom gnome_sm_proxy;
   Display *dpy;
   Window root;
-  GdkDisplay *gdkdisplay;
+  GdkDisplay *cdkdisplay;
 
-  gdkdisplay = gdk_display_get_default ();
-  gdk_x11_display_error_trap_push (gdkdisplay);
+  cdkdisplay = cdk_display_get_default ();
+  cdk_x11_display_error_trap_push (cdkdisplay);
 
   /* Set GNOME_SM_PROXY property, since some apps (like OOo) seem to require
    * it to behave properly. Thanks to Jasper/Francois for reporting this.
    * This has another advantage, since it prevents people from running
    * gnome-smproxy in xfce4, which would cause trouble otherwise.
    */
-  dpy = GDK_DISPLAY_XDISPLAY(gdkdisplay);
+  dpy = GDK_DISPLAY_XDISPLAY(cdkdisplay);
   root = RootWindow (dpy, 0);
 
   if (gnome_smproxy_window != None)
@@ -125,25 +125,25 @@ msm_compat_gnome_smproxy_startup (void)
                    (unsigned char *) (void *) &gnome_smproxy_window, 1);
 
   XSync (dpy, False);
-  gdk_x11_display_error_trap_pop_ignored (gdkdisplay);
+  cdk_x11_display_error_trap_pop_ignored (cdkdisplay);
 }
 
 
 static void
 msm_compat_gnome_smproxy_shutdown (void)
 {
-  GdkDisplay *gdkdisplay;
+  GdkDisplay *cdkdisplay;
 
-  gdkdisplay = gdk_display_get_default ();
-  gdk_x11_display_error_trap_push (gdkdisplay);
+  cdkdisplay = cdk_display_get_default ();
+  cdk_x11_display_error_trap_push (cdkdisplay);
 
   if (gnome_smproxy_window != None)
     {
-      XDestroyWindow (GDK_DISPLAY_XDISPLAY(gdkdisplay), gnome_smproxy_window);
-      XSync (GDK_DISPLAY_XDISPLAY(gdkdisplay), False);
+      XDestroyWindow (GDK_DISPLAY_XDISPLAY(cdkdisplay), gnome_smproxy_window);
+      XSync (GDK_DISPLAY_XDISPLAY(cdkdisplay), False);
       gnome_smproxy_window = None;
     }
-  gdk_x11_display_error_trap_pop_ignored (gdkdisplay);
+  cdk_x11_display_error_trap_pop_ignored (cdkdisplay);
 }
 
 

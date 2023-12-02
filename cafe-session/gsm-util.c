@@ -349,7 +349,7 @@ gsm_util_init_error (gboolean    fatal,
         va_end (args);
 
         /* If option parsing failed, Ctk won't have been initialized... */
-        if (!gdk_display_get_default ()) {
+        if (!cdk_display_get_default ()) {
                 if (!ctk_init_check (NULL, NULL)) {
                         /* Oh well, no X for you! */
                         g_printerr (_("Unable to start login session (and unable to connect to the X server)"));

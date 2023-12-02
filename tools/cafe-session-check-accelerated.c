@@ -29,7 +29,7 @@
 
 #include <ctk/ctk.h>
 #include <epoxy/gl.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 #include <X11/Xatom.h>
 #include <sys/wait.h>
 
@@ -80,13 +80,13 @@ wait_for_property_notify (void)
 
         property_changed = FALSE;
 
-        display = gdk_display_get_default ();
-        screen = gdk_display_get_default_screen (display);
-        root = gdk_screen_get_root_window (screen);
-        rootwin = gdk_x11_window_get_xid (root);
+        display = cdk_display_get_default ();
+        screen = cdk_display_get_default_screen (display);
+        root = cdk_screen_get_root_window (screen);
+        rootwin = cdk_x11_window_get_xid (root);
 
         XSelectInput (GDK_DISPLAY_XDISPLAY (display), rootwin, PropertyChangeMask);
-        gdk_window_add_filter (root, property_notify_filter, NULL);
+        cdk_window_add_filter (root, property_notify_filter, NULL);
         g_timeout_add (PROPERTY_CHANGE_TIMEOUT, on_property_notify_timeout, NULL);
 
         ctk_main ();
@@ -103,12 +103,12 @@ get_ctk_gles_renderer (void)
 
         win = ctk_window_new (CTK_WINDOW_TOPLEVEL);
         ctk_widget_realize (win);
-        context = gdk_window_create_gl_context (ctk_widget_get_window (win), NULL);
+        context = cdk_window_create_gl_context (ctk_widget_get_window (win), NULL);
         if (!context)
                 return NULL;
-        gdk_gl_context_make_current (context);
+        cdk_gl_context_make_current (context);
         renderer = g_strdup ((char *) glGetString (GL_RENDERER));
-        gdk_gl_context_clear_current ();
+        cdk_gl_context_clear_current ();
         g_object_unref (context);
 
         return renderer;
@@ -162,7 +162,7 @@ main (int argc, char **argv)
                 return 1;
         }
 
-        display = gdk_display_get_default ();
+        display = cdk_display_get_default ();
         /* when running on X11 with a nested wayland GDK will default to wayland
          * so looking for X11 atoms will not work (and crash).
          */
@@ -171,11 +171,11 @@ main (int argc, char **argv)
                 return 1;
         }
 
-        rootwin = gdk_x11_get_default_root_xwindow ();
+        rootwin = cdk_x11_get_default_root_xwindow ();
 
-        is_accelerated_atom = gdk_x11_get_xatom_by_name_for_display (display, "_GNOME_SESSION_ACCELERATED");
-        is_software_rendering_atom = gdk_x11_get_xatom_by_name_for_display (display, "_GNOME_IS_SOFTWARE_RENDERING");
-        renderer_atom = gdk_x11_get_xatom_by_name_for_display (display, "_GNOME_SESSION_RENDERER");
+        is_accelerated_atom = cdk_x11_get_xatom_by_name_for_display (display, "_GNOME_SESSION_ACCELERATED");
+        is_software_rendering_atom = cdk_x11_get_xatom_by_name_for_display (display, "_GNOME_IS_SOFTWARE_RENDERING");
+        renderer_atom = cdk_x11_get_xatom_by_name_for_display (display, "_GNOME_SESSION_RENDERER");
 
         {
                 Atom type;
@@ -185,12 +185,12 @@ main (int argc, char **argv)
                 guchar *data;
 
  read:
-                gdk_x11_display_error_trap_push (display);
+                cdk_x11_display_error_trap_push (display);
                 XGetWindowProperty (GDK_DISPLAY_XDISPLAY (display), rootwin,
                                     is_accelerated_atom,
                                     0, G_MAXLONG, False, XA_CARDINAL, &type, &format, &nitems,
                                     &bytes_after, &data);
-                gdk_x11_display_error_trap_pop_ignored (display);
+                cdk_x11_display_error_trap_pop_ignored (display);
 
                 if (type == XA_CARDINAL) {
                         glong *is_accelerated_ptr = (glong*) data;
@@ -202,12 +202,12 @@ main (int argc, char **argv)
                                 /* else fall through and do the check ourselves */
 
                         } else {
-                                gdk_x11_display_error_trap_push (display);
+                                cdk_x11_display_error_trap_push (display);
                                 XGetWindowProperty (GDK_DISPLAY_XDISPLAY (display), rootwin,
                                                     renderer_atom,
                                                     0, G_MAXLONG, False, XA_STRING, &type, &format, &nitems,
                                                     &bytes_after, &data);
-                                gdk_x11_display_error_trap_pop_ignored (display);
+                                cdk_x11_display_error_trap_pop_ignored (display);
 
                                 if (type == XA_STRING) {
                                         g_print ("%s", data);
@@ -232,7 +232,7 @@ main (int argc, char **argv)
                          is_accelerated_atom,
                          XA_CARDINAL, 32, PropModeReplace, (guchar *) &is_accelerated, 1);
 
-        gdk_display_sync (display);
+        cdk_display_sync (display);
 
         /* First, try the GL helper */
         if (g_spawn_sync (NULL, (char **) gl_helper_argv, NULL, 0,
@@ -315,7 +315,7 @@ main (int argc, char **argv)
                 g_print ("%s", renderer_string);
         }
 
-        gdk_display_sync (display);
+        cdk_display_sync (display);
 
         g_free (gl_renderer_string);
 #ifdef HAVE_GLESV2

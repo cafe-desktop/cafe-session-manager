@@ -66,7 +66,7 @@
   * Avoid compile warning for g_type_class_add_private
   * Only show application name when run with --version
   * Strip outer single quotes from string value returned by gsettings in cafe-wm script.
-  * replace deprecated gdk_error_trap functions
+  * replace deprecated cdk_error_trap functions
   * Fixed typo in --logout-dialog option
 
 ### cafe-session-manager 1.21.0
@@ -87,13 +87,13 @@
   * don't lose focus when displaying logout or shutdown dialog
   * README: remove link to mailing list
   * add style class logout-dialog
-  * avoid deprecated gdk_screen_make_display_name
+  * avoid deprecated cdk_screen_make_display_name
   * don't use deprecated ctk_show_uri
 
 ### cafe-session-manager 1.19.0
 
   * Translations update
-  * avoid deprecated gdk_screen_get_number
+  * avoid deprecated cdk_screen_get_number
   * systemd user-session needs to be updated to get all user-defined
     enviroment when the session starts.
   * dbus needs to be updated to get all user-defined environment when
