@@ -1,5 +1,5 @@
 bin_PROGRAMS = cafe-session
-noinst_LTLIBRARIES = libgsmutil.la
+noinst_LTLIBRARIES = libcsmutil.la
 noinst_PROGRAMS = 		\
 	test-client-dbus	\
 	test-inhibit
@@ -71,7 +71,7 @@ cafe_session_CPPFLAGS =			\
 	-DI_KNOW_THE_DEVICEKIT_POWER_API_IS_SUBJECT_TO_CHANGE
 
 cafe_session_LDADD =				\
-	libgsmutil.la 				\
+	libcsmutil.la 				\
 	$(X11_LIBS)                             \
 	$(top_builddir)/egg/libeggdesktopfile.la \
 	$(SM_LIBS)				\
@@ -84,11 +84,11 @@ cafe_session_LDADD =				\
 	$(LIBELOGIND_LIBS)			\
 	$(EXECINFO_LIBS)
 
-libgsmutil_la_SOURCES =				\
+libcsmutil_la_SOURCES =				\
 	csm-util.c				\
 	csm-util.h
 
-libgsmutil_la_LIBADD = 				\
+libcsmutil_la_LIBADD = 				\
 	$(CAFE_SESSION_LIBS)
 
 test_inhibit_SOURCES = test-inhibit.c
