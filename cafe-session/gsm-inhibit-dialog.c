@@ -899,7 +899,7 @@ setup_dialog (GsmInhibitDialog *dialog)
                           dialog);
 
         dialog->list_store = ctk_list_store_new (NUMBER_OF_COLUMNS,
-                                                 CDK_TYPE_PIXBUF,
+                                                 GDK_TYPE_PIXBUF,
                                                  G_TYPE_STRING,
                                                  G_TYPE_STRING,
                                                  G_TYPE_STRING);
