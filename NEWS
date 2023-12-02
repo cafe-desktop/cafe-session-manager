@@ -35,7 +35,7 @@
   * [ci] Enable Clang Static Analyzer
   * Add missing CPPFLAGS for cafe_session_check_accelerated helpers
   * Add hardware-compatibility file
-  * Fix unable to retrieve org.gnome.SessionManager.Renderer property
+  * Fix unable to retrieve org.cafe.SessionManager.Renderer property
   * cafe-session-check-accelerated-gles-helper
   * Add cafe_session_check_accelerated helpers
   * add installation instructions and update URL
@@ -147,7 +147,7 @@
 
   * Add support for an optional dock, such as Plank
   * Retrieve strings directly from gschema (requires intltool 0.50.1)
-  * Switch to org.gnome.SessionManager
+  * Switch to org.cafe.SessionManager
   * Add support for new libsystemd library (in addition to libsystemd-login)
   * Only wait 1 second max on logout/shutdown
   * Turn CTK+3 overlay scrolling on/off on start using new gsettings key

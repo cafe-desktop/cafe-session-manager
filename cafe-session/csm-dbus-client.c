@@ -38,8 +38,8 @@
 #include "csm-manager.h"
 #include "csm-util.h"
 
-#define SM_DBUS_NAME                     "org.gnome.SessionManager"
-#define SM_DBUS_CLIENT_PRIVATE_INTERFACE "org.gnome.SessionManager.ClientPrivate"
+#define SM_DBUS_NAME                     "org.cafe.SessionManager"
+#define SM_DBUS_CLIENT_PRIVATE_INTERFACE "org.cafe.SessionManager.ClientPrivate"
 
 struct _CsmDBusClient
 {
