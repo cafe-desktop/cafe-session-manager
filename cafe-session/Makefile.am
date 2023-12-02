@@ -37,12 +37,12 @@ cafe_session_SOURCES =				\
 	gs-idle-monitor.c			\
 	gsm-presence.h				\
 	gsm-presence.c				\
-	mdm.h					\
-	mdm.c					\
-	mdm-signal-handler.h			\
-	mdm-signal-handler.c			\
-	mdm-log.h				\
-	mdm-log.c				\
+	cdm.h					\
+	cdm.c					\
+	cdm-signal-handler.h			\
+	cdm-signal-handler.c			\
+	cdm-log.h				\
+	cdm-log.c				\
 	msm-gnome.c				\
 	msm-gnome.h				\
 	main.c					\

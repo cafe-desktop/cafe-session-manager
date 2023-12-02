@@ -39,7 +39,7 @@
 #include <glib/gstdio.h>
 #include <glib-object.h>
 
-#include "mdm-signal-handler.h"
+#include "cdm-signal-handler.h"
 
 #ifdef __GNUC__
 #define UNUSED_VARIABLE __attribute__ ((unused))
@@ -64,7 +64,7 @@ struct _MdmSignalHandler {
 	gpointer fatal_data;
 };
 
-static void mdm_signal_handler_finalize (GObject* object);
+static void cdm_signal_handler_finalize (GObject* object);
 
 static gpointer signal_handler_object = NULL;
 static int signal_pipes[2];
@@ -72,7 +72,7 @@ static int signals_blocked = 0;
 static sigset_t signals_block_mask;
 static sigset_t signals_oldmask;
 
-G_DEFINE_TYPE(MdmSignalHandler, mdm_signal_handler, G_TYPE_OBJECT)
+G_DEFINE_TYPE(MdmSignalHandler, cdm_signal_handler, G_TYPE_OBJECT)
 
 static void block_signals_push(void)
 {
@@ -226,23 +226,23 @@ static gboolean crashlogger_get_backtrace(void)
 	else if (pid == 0)
 	{
 		/* Child process */
-		execl(LIBEXECDIR "/mdm-crash-logger", LIBEXECDIR "/mdm-crash-logger", NULL);
+		execl(LIBEXECDIR "/cdm-crash-logger", LIBEXECDIR "/cdm-crash-logger", NULL);
 	}
 
 	return success;
 }
 
 
-static void mdm_signal_handler_backtrace(void)
+static void cdm_signal_handler_backtrace(void)
 {
 	struct stat s;
 	gboolean fallback = TRUE;
 
-	/* Try to use gdb via mdm-crash-logger if it exists, since
+	/* Try to use gdb via cdm-crash-logger if it exists, since
 	 * we get much better information out of it.  Otherwise
 	 * fall back to execinfo.
 	 */
-	if (g_stat(LIBEXECDIR "/mdm-crash-logger", &s) == 0)
+	if (g_stat(LIBEXECDIR "/cdm-crash-logger", &s) == 0)
 	{
 		fallback = crashlogger_get_backtrace() ? FALSE : TRUE;
 	}
@@ -274,14 +274,14 @@ static void signal_handler(int signo)
 		case SIGILL:
 		case SIGABRT:
 		case SIGTRAP:
-			mdm_signal_handler_backtrace();
+			cdm_signal_handler_backtrace();
 			exit(1);
 			break;
 		case SIGFPE:
 		case SIGPIPE:
 			/* let the fatal signals interrupt us */
 			--in_fatal;
-			mdm_signal_handler_backtrace();
+			cdm_signal_handler_backtrace();
 			ignore = write(signal_pipes [1], &signo_byte, 1);
 			break;
 		default:
@@ -323,7 +323,7 @@ static void uncatch_signal(MdmSignalHandler* handler, int signal_number)
 	g_free(old_action);
 }
 
-guint mdm_signal_handler_add(MdmSignalHandler* handler, int signal_number, MdmSignalHandlerFunc callback, gpointer data)
+guint cdm_signal_handler_add(MdmSignalHandler* handler, int signal_number, MdmSignalHandlerFunc callback, gpointer data)
 {
 	CallbackData* cdata;
 	GSList* list;
@@ -354,15 +354,15 @@ guint mdm_signal_handler_add(MdmSignalHandler* handler, int signal_number, MdmSi
 	return cdata->id;
 }
 
-void mdm_signal_handler_add_fatal(MdmSignalHandler* handler)
+void cdm_signal_handler_add_fatal(MdmSignalHandler* handler)
 {
 	g_return_if_fail(CDM_IS_SIGNAL_HANDLER(handler));
 
-	mdm_signal_handler_add(handler, SIGILL, NULL, NULL);
-	mdm_signal_handler_add(handler, SIGBUS, NULL, NULL);
-	mdm_signal_handler_add(handler, SIGSEGV, NULL, NULL);
-	mdm_signal_handler_add(handler, SIGABRT, NULL, NULL);
-	mdm_signal_handler_add(handler, SIGTRAP, NULL, NULL);
+	cdm_signal_handler_add(handler, SIGILL, NULL, NULL);
+	cdm_signal_handler_add(handler, SIGBUS, NULL, NULL);
+	cdm_signal_handler_add(handler, SIGSEGV, NULL, NULL);
+	cdm_signal_handler_add(handler, SIGABRT, NULL, NULL);
+	cdm_signal_handler_add(handler, SIGTRAP, NULL, NULL);
 }
 
 static void callback_data_free(CallbackData* d)
@@ -370,7 +370,7 @@ static void callback_data_free(CallbackData* d)
 	g_free(d);
 }
 
-static void mdm_signal_handler_remove_and_free_data(MdmSignalHandler* handler, CallbackData* cdata)
+static void cdm_signal_handler_remove_and_free_data(MdmSignalHandler* handler, CallbackData* cdata)
 {
 	GSList* list;
 
@@ -391,7 +391,7 @@ static void mdm_signal_handler_remove_and_free_data(MdmSignalHandler* handler, C
 	g_hash_table_remove(handler->id_lookup, GUINT_TO_POINTER(cdata->id));
 }
 
-void mdm_signal_handler_remove(MdmSignalHandler* handler, guint id)
+void cdm_signal_handler_remove(MdmSignalHandler* handler, guint id)
 {
 	CallbackData* found;
 
@@ -401,7 +401,7 @@ void mdm_signal_handler_remove(MdmSignalHandler* handler, guint id)
 
 	if (found != NULL)
 	{
-		mdm_signal_handler_remove_and_free_data(handler, found);
+		cdm_signal_handler_remove_and_free_data(handler, found);
 		found = NULL;
 	}
 }
@@ -435,7 +435,7 @@ static CallbackData* find_callback_data_by_func(MdmSignalHandler* handler, guint
 	return found;
 }
 
-void mdm_signal_handler_remove_func(MdmSignalHandler* handler, guint signal_number, MdmSignalHandlerFunc callback, gpointer data)
+void cdm_signal_handler_remove_func(MdmSignalHandler* handler, guint signal_number, MdmSignalHandlerFunc callback, gpointer data)
 {
 	CallbackData* found;
 
@@ -445,18 +445,18 @@ void mdm_signal_handler_remove_func(MdmSignalHandler* handler, guint signal_numb
 
 	if (found != NULL)
 	{
-		mdm_signal_handler_remove_and_free_data(handler, found);
+		cdm_signal_handler_remove_and_free_data(handler, found);
 		found = NULL;
 	}
 
 	/* FIXME: once all handlers are removed deregister signum handler */
 }
 
-static void mdm_signal_handler_class_init(MdmSignalHandlerClass* klass)
+static void cdm_signal_handler_class_init(MdmSignalHandlerClass* klass)
 {
 	GObjectClass* object_class = G_OBJECT_CLASS(klass);
 
-	object_class->finalize = mdm_signal_handler_finalize;
+	object_class->finalize = cdm_signal_handler_finalize;
 }
 
 static void signal_list_free(GSList *list)
@@ -464,7 +464,7 @@ static void signal_list_free(GSList *list)
 	g_slist_free(list);
 }
 
-void mdm_signal_handler_set_fatal_func(MdmSignalHandler* handler, MdmShutdownHandlerFunc func, gpointer user_data)
+void cdm_signal_handler_set_fatal_func(MdmSignalHandler* handler, MdmShutdownHandlerFunc func, gpointer user_data)
 {
 	g_return_if_fail(CDM_IS_SIGNAL_HANDLER(handler));
 
@@ -472,7 +472,7 @@ void mdm_signal_handler_set_fatal_func(MdmSignalHandler* handler, MdmShutdownHan
 	handler->fatal_data = user_data;
 }
 
-static void mdm_signal_handler_init(MdmSignalHandler* handler)
+static void cdm_signal_handler_init(MdmSignalHandler* handler)
 {
 	GIOChannel* ioc;
 
@@ -494,7 +494,7 @@ static void mdm_signal_handler_init(MdmSignalHandler* handler)
 	g_io_channel_unref(ioc);
 }
 
-static void mdm_signal_handler_finalize(GObject* object)
+static void cdm_signal_handler_finalize(GObject* object)
 {
 	MdmSignalHandler* handler;
 	GList* l;
@@ -530,10 +530,10 @@ static void mdm_signal_handler_finalize(GObject* object)
 	close(signal_pipes[0]);
 	close(signal_pipes[1]);
 
-	G_OBJECT_CLASS(mdm_signal_handler_parent_class)->finalize(object);
+	G_OBJECT_CLASS(cdm_signal_handler_parent_class)->finalize(object);
 }
 
-MdmSignalHandler* mdm_signal_handler_new(void)
+MdmSignalHandler* cdm_signal_handler_new(void)
 {
 	if (signal_handler_object != NULL)
 	{

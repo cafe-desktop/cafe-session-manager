@@ -1,4 +1,4 @@
-/* mdm.h
+/* cdm.h
  * Copyright (C) 2005 Raffaele Sandrini
  * Copyright (C) 2005 Red Hat, Inc.
  * Copyright (C) 2002, 2003 George Lebl
@@ -41,15 +41,15 @@ typedef enum {
 	CDM_LOGOUT_ACTION_SUSPEND = 1 << 2
 } MdmLogoutAction;
 
-gboolean mdm_is_available(void);
+gboolean cdm_is_available(void);
 
-void mdm_new_login(void);
+void cdm_new_login(void);
 
-void mdm_set_logout_action(MdmLogoutAction action);
+void cdm_set_logout_action(MdmLogoutAction action);
 
-MdmLogoutAction mdm_get_logout_action(void);
+MdmLogoutAction cdm_get_logout_action(void);
 
-gboolean mdm_supports_logout_action(MdmLogoutAction action);
+gboolean cdm_supports_logout_action(MdmLogoutAction action);
 
 #ifdef __cplusplus
 }

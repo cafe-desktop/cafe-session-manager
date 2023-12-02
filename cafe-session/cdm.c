@@ -40,11 +40,11 @@
 #include <X11/Xauth.h>
 #include <cdk/cdk.h>
 
-#include "mdm.h"
+#include "cdm.h"
 
 #define CDM_PROTOCOL_UPDATE_INTERVAL 1 /* seconds */
 
-#define CDM_PROTOCOL_SOCKET_PATH "/var/run/mdm_socket"
+#define CDM_PROTOCOL_SOCKET_PATH "/var/run/cdm_socket"
 
 #define CDM_PROTOCOL_MSG_CLOSE "CLOSE"
 #define CDM_PROTOCOL_MSG_VERSION "VERSION"
@@ -68,7 +68,7 @@ typedef struct {
 	time_t last_update;
 } MdmProtocolData;
 
-static MdmProtocolData mdm_protocol_data = {
+static MdmProtocolData cdm_protocol_data = {
 	0,
 	NULL,
 	CDM_LOGOUT_ACTION_NONE,
@@ -76,7 +76,7 @@ static MdmProtocolData mdm_protocol_data = {
 	0
 };
 
-static char* mdm_send_protocol_msg(MdmProtocolData* data, const char* msg)
+static char* cdm_send_protocol_msg(MdmProtocolData* data, const char* msg)
 {
 	GString* retval;
 	char buf[256];
@@ -158,7 +158,7 @@ static char* get_display_number(void)
 	return retval;
 }
 
-static gboolean mdm_authenticate_connection(MdmProtocolData* data)
+static gboolean cdm_authenticate_connection(MdmProtocolData* data)
 {
 	#define CDM_MIT_MAGIC_COOKIE_LEN 16
 
@@ -174,7 +174,7 @@ static gboolean mdm_authenticate_connection(MdmProtocolData* data)
 		char* response;
 
 		msg = g_strdup_printf(CDM_PROTOCOL_MSG_AUTHENTICATE " %s", data->auth_cookie);
-		response = mdm_send_protocol_msg(data, msg);
+		response = cdm_send_protocol_msg(data, msg);
 		g_free(msg);
 
 		if (response && !strcmp(response, "OK"))
@@ -224,7 +224,7 @@ static gboolean mdm_authenticate_connection(MdmProtocolData* data)
 		XauDisposeAuth(xau);
 
 		msg = g_strdup_printf(CDM_PROTOCOL_MSG_AUTHENTICATE " %s", buffer);
-		response = mdm_send_protocol_msg(data, msg);
+		response = cdm_send_protocol_msg(data, msg);
 		g_free(msg);
 
 		if (response && !strcmp(response, "OK"))
@@ -247,7 +247,7 @@ static gboolean mdm_authenticate_connection(MdmProtocolData* data)
 	#undef CDM_MIT_MAGIC_COOKIE_LEN
 }
 
-static void mdm_shutdown_protocol_connection(MdmProtocolData *data)
+static void cdm_shutdown_protocol_connection(MdmProtocolData *data)
 {
 	if (data->fd)
 	{
@@ -257,7 +257,7 @@ static void mdm_shutdown_protocol_connection(MdmProtocolData *data)
 	data->fd = 0;
 }
 
-static gboolean mdm_init_protocol_connection(MdmProtocolData* data)
+static gboolean cdm_init_protocol_connection(MdmProtocolData* data)
 {
 	struct sockaddr_un addr;
 	char* response;
@@ -268,9 +268,9 @@ static gboolean mdm_init_protocol_connection(MdmProtocolData* data)
 	{
 		g_strlcpy (addr.sun_path, CDM_PROTOCOL_SOCKET_PATH, sizeof (addr.sun_path));
 	}
-	else if (g_file_test("/tmp/.mdm_socket", G_FILE_TEST_EXISTS))
+	else if (g_file_test("/tmp/.cdm_socket", G_FILE_TEST_EXISTS))
 	{
-		g_strlcpy (addr.sun_path, "/tmp/.mdm_socket", sizeof (addr.sun_path));
+		g_strlcpy (addr.sun_path, "/tmp/.cdm_socket", sizeof (addr.sun_path));
 	}
 	else
 	{
@@ -283,7 +283,7 @@ static gboolean mdm_init_protocol_connection(MdmProtocolData* data)
 	{
 		g_warning("Failed to create CDM socket: %s", g_strerror(errno));
 
-		mdm_shutdown_protocol_connection(data);
+		cdm_shutdown_protocol_connection(data);
 
 		return FALSE;
 	}
@@ -294,36 +294,36 @@ static gboolean mdm_init_protocol_connection(MdmProtocolData* data)
 	{
 		g_warning("Failed to establish a connection with CDM: %s", g_strerror(errno));
 
-		mdm_shutdown_protocol_connection(data);
+		cdm_shutdown_protocol_connection(data);
 
 		return FALSE;
 	}
 
-	response = mdm_send_protocol_msg(data, CDM_PROTOCOL_MSG_VERSION);
+	response = cdm_send_protocol_msg(data, CDM_PROTOCOL_MSG_VERSION);
 
 	if (!response || strncmp(response, "CDM ", strlen("CDM ")) != 0)
 	{
 		g_free(response);
 
 		g_warning("Failed to get protocol version from CDM");
-		mdm_shutdown_protocol_connection(data);
+		cdm_shutdown_protocol_connection(data);
 
 		return FALSE;
 	}
 
 	g_free(response);
 
-	if (!mdm_authenticate_connection(data))
+	if (!cdm_authenticate_connection(data))
 	{
 		g_warning("Failed to authenticate with CDM");
-		mdm_shutdown_protocol_connection(data);
+		cdm_shutdown_protocol_connection(data);
 		return FALSE;
 	}
 
 	return TRUE;
 }
 
-static void mdm_parse_query_response(MdmProtocolData* data, const char* response)
+static void cdm_parse_query_response(MdmProtocolData* data, const char* response)
 {
 	char** actions;
 	int i;
@@ -384,7 +384,7 @@ static void mdm_parse_query_response(MdmProtocolData* data, const char* response
 	g_strfreev(actions);
 }
 
-static void mdm_update_logout_actions(MdmProtocolData* data)
+static void cdm_update_logout_actions(MdmProtocolData* data)
 {
 	time_t current_time;
 	char* response;
@@ -398,53 +398,53 @@ static void mdm_update_logout_actions(MdmProtocolData* data)
 
 	data->last_update = current_time;
 
-	if (!mdm_init_protocol_connection(data))
+	if (!cdm_init_protocol_connection(data))
 	{
 		return;
 	}
 
-	if ((response = mdm_send_protocol_msg(data, CDM_PROTOCOL_MSG_QUERY_ACTION)))
+	if ((response = cdm_send_protocol_msg(data, CDM_PROTOCOL_MSG_QUERY_ACTION)))
 	{
-		mdm_parse_query_response(data, response);
+		cdm_parse_query_response(data, response);
 		g_free(response);
 	}
 
-	mdm_shutdown_protocol_connection(data);
+	cdm_shutdown_protocol_connection(data);
 }
 
-gboolean mdm_is_available(void)
+gboolean cdm_is_available(void)
 {
-	if (!mdm_init_protocol_connection(&mdm_protocol_data))
+	if (!cdm_init_protocol_connection(&cdm_protocol_data))
 	{
 		return FALSE;
 	}
 
-	mdm_shutdown_protocol_connection(&mdm_protocol_data);
+	cdm_shutdown_protocol_connection(&cdm_protocol_data);
 
 	return TRUE;
 }
 
-gboolean mdm_supports_logout_action(MdmLogoutAction action)
+gboolean cdm_supports_logout_action(MdmLogoutAction action)
 {
-	mdm_update_logout_actions(&mdm_protocol_data);
+	cdm_update_logout_actions(&cdm_protocol_data);
 
-	return (mdm_protocol_data.available_actions & action) != 0;
+	return (cdm_protocol_data.available_actions & action) != 0;
 }
 
-MdmLogoutAction mdm_get_logout_action(void)
+MdmLogoutAction cdm_get_logout_action(void)
 {
-	mdm_update_logout_actions(&mdm_protocol_data);
+	cdm_update_logout_actions(&cdm_protocol_data);
 
-	return mdm_protocol_data.current_actions;
+	return cdm_protocol_data.current_actions;
 }
 
-void mdm_set_logout_action(MdmLogoutAction action)
+void cdm_set_logout_action(MdmLogoutAction action)
 {
 	char* action_str = NULL;
 	char* msg;
 	char* response;
 
-	if (!mdm_init_protocol_connection(&mdm_protocol_data))
+	if (!cdm_init_protocol_connection(&cdm_protocol_data))
 	{
 		return;
 	}
@@ -467,30 +467,30 @@ void mdm_set_logout_action(MdmLogoutAction action)
 
 	msg = g_strdup_printf(CDM_PROTOCOL_MSG_SET_ACTION " %s", action_str);
 
-	response = mdm_send_protocol_msg(&mdm_protocol_data, msg);
+	response = cdm_send_protocol_msg(&cdm_protocol_data, msg);
 
 	g_free(msg);
 	g_free(response);
 
-	mdm_protocol_data.last_update = 0;
+	cdm_protocol_data.last_update = 0;
 
-	mdm_shutdown_protocol_connection(&mdm_protocol_data);
+	cdm_shutdown_protocol_connection(&cdm_protocol_data);
 }
 
-void mdm_new_login(void)
+void cdm_new_login(void)
 {
     char* response;
 
-    if (!mdm_init_protocol_connection(&mdm_protocol_data))
+    if (!cdm_init_protocol_connection(&cdm_protocol_data))
     {
         return;
     }
 
-    response = mdm_send_protocol_msg(&mdm_protocol_data, CDM_PROTOCOL_MSG_FLEXI_XSERVER);
+    response = cdm_send_protocol_msg(&cdm_protocol_data, CDM_PROTOCOL_MSG_FLEXI_XSERVER);
 
     g_free(response);
 
-    mdm_protocol_data.last_update = 0;
+    cdm_protocol_data.last_update = 0;
 
-    mdm_shutdown_protocol_connection(&mdm_protocol_data);
+    cdm_shutdown_protocol_connection(&cdm_protocol_data);
 }

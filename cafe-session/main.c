@@ -39,8 +39,8 @@
 #include <dbus/dbus-glib-bindings.h>
 #include <dbus/dbus-glib-lowlevel.h>
 
-#include "mdm-signal-handler.h"
-#include "mdm-log.h"
+#include "cdm-signal-handler.h"
+#include "cdm-log.h"
 
 #include "gsm-consolekit.h"
 #ifdef HAVE_SYSTEMD
@@ -465,7 +465,7 @@ static gboolean signal_cb(int signo, gpointer data)
 		case SIGUSR1:
 			g_debug("Got USR1 signal");
 			ret = TRUE;
-			mdm_log_toggle_debug();
+			cdm_log_toggle_debug();
 			break;
 		default:
 			g_debug("Caught unhandled signal %d", signo);
@@ -538,7 +538,7 @@ static void
 debug_changed (GSettings *settings, gchar *key, gpointer user_data)
 {
 	debug = g_settings_get_boolean (settings, DEBUG_KEY);
-	mdm_log_set_debug (debug);
+	cdm_log_set_debug (debug);
 }
 
 static gboolean
@@ -652,7 +652,7 @@ int main(int argc, char** argv)
         gsm_util_export_user_environment (NULL);
 #endif
 
-	mdm_log_init();
+	cdm_log_init();
 
 	/* Allows to enable/disable debug from GSettings only if it is not set from argument */
 	if (!debug && schema_exists(DEBUG_SCHEMA))
@@ -662,7 +662,7 @@ int main(int argc, char** argv)
 		debug = g_settings_get_boolean (debug_settings, DEBUG_KEY);
 	}
 
-	mdm_log_set_debug(debug);
+	cdm_log_set_debug(debug);
 
 	if (disable_acceleration_check) {
 		g_debug ("hardware acceleration check is disabled");
@@ -737,14 +737,14 @@ int main(int argc, char** argv)
 
 	manager = gsm_manager_new(client_store, failsafe);
 
-	signal_handler = mdm_signal_handler_new();
-	mdm_signal_handler_add_fatal(signal_handler);
-	mdm_signal_handler_add(signal_handler, SIGFPE, signal_cb, NULL);
-	mdm_signal_handler_add(signal_handler, SIGHUP, signal_cb, NULL);
-	mdm_signal_handler_add(signal_handler, SIGUSR1, signal_cb, NULL);
-	mdm_signal_handler_add(signal_handler, SIGTERM, signal_cb, manager);
-	mdm_signal_handler_add(signal_handler, SIGINT, signal_cb, manager);
-	mdm_signal_handler_set_fatal_func(signal_handler, shutdown_cb, manager);
+	signal_handler = cdm_signal_handler_new();
+	cdm_signal_handler_add_fatal(signal_handler);
+	cdm_signal_handler_add(signal_handler, SIGFPE, signal_cb, NULL);
+	cdm_signal_handler_add(signal_handler, SIGHUP, signal_cb, NULL);
+	cdm_signal_handler_add(signal_handler, SIGUSR1, signal_cb, NULL);
+	cdm_signal_handler_add(signal_handler, SIGTERM, signal_cb, manager);
+	cdm_signal_handler_add(signal_handler, SIGINT, signal_cb, manager);
+	cdm_signal_handler_set_fatal_func(signal_handler, shutdown_cb, manager);
 
 	if (override_autostart_dirs != NULL)
 	{
@@ -788,7 +788,7 @@ int main(int argc, char** argv)
 	}
 
 	msm_gnome_stop();
-	mdm_log_shutdown();
+	cdm_log_shutdown();
 
 	return 0;
 }

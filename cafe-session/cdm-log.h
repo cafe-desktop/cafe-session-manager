@@ -30,23 +30,23 @@
 extern "C" {
 #endif
 
-void      mdm_log_default_handler (const gchar   *log_domain,
+void      cdm_log_default_handler (const gchar   *log_domain,
                                    GLogLevelFlags log_level,
                                    const gchar   *message,
                                    gpointer      unused_data);
-void      mdm_log_set_debug       (gboolean       debug);
-void      mdm_log_toggle_debug    (void);
-void      mdm_log_init            (void);
-void      mdm_log_shutdown        (void);
+void      cdm_log_set_debug       (gboolean       debug);
+void      cdm_log_toggle_debug    (void);
+void      cdm_log_init            (void);
+void      cdm_log_shutdown        (void);
 
 /* compatibility */
-#define   mdm_fail               g_critical
-#define   mdm_error              g_warning
-#define   mdm_info               g_message
-#define   mdm_debug              g_debug
+#define   cdm_fail               g_critical
+#define   cdm_error              g_warning
+#define   cdm_info               g_message
+#define   cdm_debug              g_debug
 
-#define   mdm_assert             g_assert
-#define   mdm_assert_not_reached g_assert_not_reached
+#define   cdm_assert             g_assert
+#define   cdm_assert_not_reached g_assert_not_reached
 
 #ifdef __cplusplus
 }
