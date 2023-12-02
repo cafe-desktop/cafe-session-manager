@@ -29,7 +29,7 @@
 #include <glib/gi18n.h>
 #include <glib-object.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 #include <cairo-xlib.h>
 
 #include "gsm-inhibit-dialog.h"
@@ -253,7 +253,7 @@ _load_icon (CtkIconTheme  *icon_theme,
         }
 
         error = NULL;
-        retval = gdk_pixbuf_new_from_file_at_size (file,
+        retval = cdk_pixbuf_new_from_file_at_size (file,
                                                    desired_width,
                                                    desired_height,
                                                    &error);
@@ -281,8 +281,8 @@ scale_pixbuf (GdkPixbuf *pixbuf,
         float      scale_factor_y = 1.0;
         float      scale_factor = 1.0;
 
-        pw = gdk_pixbuf_get_width (pixbuf);
-        ph = gdk_pixbuf_get_height (pixbuf);
+        pw = cdk_pixbuf_get_width (pixbuf);
+        ph = cdk_pixbuf_get_height (pixbuf);
 
         /* Determine which dimension requires the smallest scale. */
         scale_factor_x = (float) max_width / (float) pw;
@@ -299,7 +299,7 @@ scale_pixbuf (GdkPixbuf *pixbuf,
                 int scale_x = (int) (pw * scale_factor);
                 int scale_y = (int) (ph * scale_factor);
                 g_debug ("Scaling to %dx%d", scale_x, scale_y);
-                return gdk_pixbuf_scale_simple (pixbuf,
+                return cdk_pixbuf_scale_simple (pixbuf,
                                                 scale_x,
                                                 scale_y,
                                                 GDK_INTERP_BILINEAR);
@@ -330,7 +330,7 @@ pixbuf_get_from_pixmap (Display *display,
                                              height);
         if (surface != NULL) {
                 g_debug ("GsmInhibitDialog: getting pixbuf w=%d h=%d", width, height);
-                retval = gdk_pixbuf_get_from_surface (surface,
+                retval = cdk_pixbuf_get_from_surface (surface,
                                                       0, 0,
                                                       width, height);
                 cairo_surface_destroy (surface);
@@ -394,7 +394,7 @@ get_pixmap_for_window (Display *display,
 #endif /* HAVE_COMPOSITE */
 
 static GdkPixbuf *
-get_pixbuf_for_window (GdkDisplay *gdkdisplay,
+get_pixbuf_for_window (GdkDisplay *cdkdisplay,
                        guint xid,
                        int thumb_width,
                        int thumb_height)
@@ -407,7 +407,7 @@ get_pixbuf_for_window (GdkDisplay *gdkdisplay,
         int width;
         int height;
 
-        display = GDK_DISPLAY_XDISPLAY (gdkdisplay);
+        display = GDK_DISPLAY_XDISPLAY (cdkdisplay);
         xwindow = (Window) xid;
         xpixmap = get_pixmap_for_window (display, xwindow, &width, &height);
         if (xpixmap == None) {
@@ -420,10 +420,10 @@ get_pixbuf_for_window (GdkDisplay *gdkdisplay,
         pixbuf = pixbuf_get_from_pixmap (display, xpixmap, width, height);
 
         if (xpixmap != None) {
-                gdk_x11_display_error_trap_push (gdkdisplay);
+                cdk_x11_display_error_trap_push (cdkdisplay);
                 XFreePixmap (display, xpixmap);
-                gdk_display_sync (gdkdisplay);
-                gdk_x11_display_error_trap_pop_ignored (gdkdisplay);
+                cdk_display_sync (cdkdisplay);
+                cdk_x11_display_error_trap_pop_ignored (cdkdisplay);
         }
 
         if (pixbuf != NULL) {
@@ -443,7 +443,7 @@ static void
 add_inhibitor (GsmInhibitDialog *dialog,
                GsmInhibitor     *inhibitor)
 {
-        GdkDisplay     *gdkdisplay;
+        GdkDisplay     *cdkdisplay;
         const char     *name;
         const char     *icon_name;
         const char     *app_id;
@@ -455,7 +455,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
         guint           xid;
         char           *freeme;
 
-        gdkdisplay = ctk_widget_get_display (CTK_WIDGET (dialog));
+        cdkdisplay = ctk_widget_get_display (CTK_WIDGET (dialog));
 
         /* FIXME: get info from xid */
 
@@ -477,7 +477,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
         xid = gsm_inhibitor_peek_toplevel_xid (inhibitor);
         g_debug ("GsmInhibitDialog: inhibitor has XID %u", xid);
         if (xid > 0 && dialog->have_xrender) {
-                pixbuf = get_pixbuf_for_window (gdkdisplay, xid, DEFAULT_SNAPSHOT_SIZE, DEFAULT_SNAPSHOT_SIZE);
+                pixbuf = get_pixbuf_for_window (cdkdisplay, xid, DEFAULT_SNAPSHOT_SIZE, DEFAULT_SNAPSHOT_SIZE);
                 if (pixbuf == NULL) {
                         g_debug ("GsmInhibitDialog: unable to read pixbuf from %u", xid);
                 }
@@ -947,24 +947,24 @@ gsm_inhibit_dialog_constructor (GType                  type,
 {
         GsmInhibitDialog *dialog;
 #ifdef HAVE_XRENDER
-        GdkDisplay *gdkdisplay;
+        GdkDisplay *cdkdisplay;
 #endif /* HAVE_XRENDER */
         dialog = GSM_INHIBIT_DIALOG (G_OBJECT_CLASS (gsm_inhibit_dialog_parent_class)->constructor (type,
                                                                                                     n_construct_properties,
                                                                                                     construct_properties));
 
 #ifdef HAVE_XRENDER
-        gdkdisplay = gdk_display_get_default ();
-        gdk_x11_display_error_trap_push (gdkdisplay);
-        if (XRenderQueryExtension (GDK_DISPLAY_XDISPLAY (gdkdisplay), &dialog->xrender_event_base, &dialog->xrender_error_base)) {
+        cdkdisplay = cdk_display_get_default ();
+        cdk_x11_display_error_trap_push (cdkdisplay);
+        if (XRenderQueryExtension (GDK_DISPLAY_XDISPLAY (cdkdisplay), &dialog->xrender_event_base, &dialog->xrender_error_base)) {
                 g_debug ("GsmInhibitDialog: Initialized XRender extension");
                 dialog->have_xrender = TRUE;
         } else {
                 g_debug ("GsmInhibitDialog: Unable to initialize XRender extension");
                 dialog->have_xrender = FALSE;
         }
-        gdk_display_sync (gdkdisplay);
-        gdk_x11_display_error_trap_pop_ignored (gdkdisplay);
+        cdk_display_sync (cdkdisplay);
+        cdk_x11_display_error_trap_pop_ignored (cdkdisplay);
 #endif /* HAVE_XRENDER */
 
         /* FIXME: turn this on when it is ready */

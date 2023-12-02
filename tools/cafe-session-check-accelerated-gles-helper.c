@@ -34,7 +34,7 @@
 #ifdef GDK_WINDOWING_X11
 #define GL_GLEXT_PROTOTYPES
 
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 #include <GLES2/gl2.h>
 #include <GLES2/gl2ext.h>
 #include <EGL/egl.h>
@@ -93,7 +93,7 @@ get_gles_renderer (void)
         };
 
         gboolean egl_inited = FALSE;
-        GdkDisplay *gdk_dpy;
+        GdkDisplay *cdk_dpy;
         Display *display;
         Window win = None;
         EGLContext egl_ctx = NULL;
@@ -101,9 +101,9 @@ get_gles_renderer (void)
         EGLSurface egl_surf = NULL;
         char *renderer = NULL;
 
-        gdk_dpy = gdk_display_get_default ();
-        gdk_x11_display_error_trap_push (gdk_dpy);
-        display = GDK_DISPLAY_XDISPLAY (gdk_dpy);
+        cdk_dpy = cdk_display_get_default ();
+        cdk_x11_display_error_trap_push (cdk_dpy);
+        display = GDK_DISPLAY_XDISPLAY (cdk_dpy);
         egl_dpy = get_display (display);
         if (!egl_dpy) {
                 g_warning ("eglGetDisplay() failed");
@@ -183,7 +183,7 @@ get_gles_renderer (void)
         if (win != None)
                 XDestroyWindow (display, win);
 
-        gdk_x11_display_error_trap_pop_ignored (gdk_dpy);
+        cdk_x11_display_error_trap_pop_ignored (cdk_dpy);
         return renderer;
 }
 #endif
