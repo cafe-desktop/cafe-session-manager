@@ -1668,7 +1668,7 @@ debug_app_summary (CsmManager *manager)
 void
 csm_manager_start (CsmManager *manager)
 {
-        g_debug ("CsmManager: GSM starting to manage");
+        g_debug ("CsmManager: CSM starting to manage");
 
         g_return_if_fail (CSM_IS_MANAGER (manager));
 

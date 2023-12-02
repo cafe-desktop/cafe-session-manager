@@ -32,7 +32,7 @@ G_BEGIN_DECLS
 #define CSM_TYPE_CONSOLEKIT             (csm_consolekit_get_type ())
 #define CSM_CONSOLEKIT_ERROR            (csm_consolekit_error_quark ())
 
-G_DECLARE_DERIVABLE_TYPE (CsmConsolekit, csm_consolekit, GSM, CONSOLEKIT, GObject)
+G_DECLARE_DERIVABLE_TYPE (CsmConsolekit, csm_consolekit, CSM, CONSOLEKIT, GObject)
 
 typedef enum   _CsmConsolekitError   CsmConsolekitError;
 

@@ -27,7 +27,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_STORE         (csm_store_get_type ())
-G_DECLARE_DERIVABLE_TYPE (CsmStore, csm_store, GSM, STORE, GObject)
+G_DECLARE_DERIVABLE_TYPE (CsmStore, csm_store, CSM, STORE, GObject)
 
 struct _CsmStoreClass
 {

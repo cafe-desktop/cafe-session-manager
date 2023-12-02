@@ -33,7 +33,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_APP            (csm_app_get_type ())
-G_DECLARE_DERIVABLE_TYPE (CsmApp, csm_app, GSM, APP, GObject)
+G_DECLARE_DERIVABLE_TYPE (CsmApp, csm_app, CSM, APP, GObject)
 
 struct _CsmAppClass
 {

@@ -29,7 +29,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_CLIENT            (csm_client_get_type ())
-G_DECLARE_DERIVABLE_TYPE (CsmClient, csm_client, GSM, CLIENT, GObject)
+G_DECLARE_DERIVABLE_TYPE (CsmClient, csm_client, CSM, CLIENT, GObject)
 
 typedef enum {
         CSM_CLIENT_UNREGISTERED = 0,

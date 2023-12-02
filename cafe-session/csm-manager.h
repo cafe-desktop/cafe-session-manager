@@ -30,7 +30,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_MANAGER         (csm_manager_get_type ())
-G_DECLARE_DERIVABLE_TYPE (CsmManager, csm_manager, GSM, MANAGER, GObject)
+G_DECLARE_DERIVABLE_TYPE (CsmManager, csm_manager, CSM, MANAGER, GObject)
 
 struct _CsmManagerClass
 {

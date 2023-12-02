@@ -29,7 +29,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_XSMP_SERVER         (csm_xsmp_server_get_type ())
-G_DECLARE_FINAL_TYPE (CsmXsmpServer, csm_xsmp_server, GSM, XSMP_SERVER, GObject)
+G_DECLARE_FINAL_TYPE (CsmXsmpServer, csm_xsmp_server, CSM, XSMP_SERVER, GObject)
 
 CsmXsmpServer *     csm_xsmp_server_new                            (CsmStore      *client_store);
 void                csm_xsmp_server_start                          (CsmXsmpServer *server);

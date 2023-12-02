@@ -27,7 +27,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_PRESENCE            (csm_presence_get_type ())
-G_DECLARE_DERIVABLE_TYPE (CsmPresence, csm_presence, GSM, PRESENCE, GObject)
+G_DECLARE_DERIVABLE_TYPE (CsmPresence, csm_presence, CSM, PRESENCE, GObject)
 
 struct _CsmPresenceClass
 {
