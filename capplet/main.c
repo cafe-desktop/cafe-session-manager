@@ -40,25 +40,25 @@ static void dialog_response(GsmPropertiesDialog* dialog, guint response_id, gpoi
 {
 	GError* error;
 
-	if (response_id == GTK_RESPONSE_HELP)
+	if (response_id == CTK_RESPONSE_HELP)
 	{
 		error = NULL;
-		ctk_show_uri_on_window (GTK_WINDOW (dialog), "help:cafe-user-guide/gosstartsession-2",
+		ctk_show_uri_on_window (CTK_WINDOW (dialog), "help:cafe-user-guide/gosstartsession-2",
 					ctk_get_current_event_time (), &error);
 
 		if (error != NULL)
 		{
-			GtkWidget* d = ctk_message_dialog_new(GTK_WINDOW(dialog), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", _("Could not display help document"));
-			ctk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(d), "%s", error->message);
+			GtkWidget* d = ctk_message_dialog_new(CTK_WINDOW(dialog), CTK_DIALOG_MODAL | CTK_DIALOG_DESTROY_WITH_PARENT, CTK_MESSAGE_ERROR, CTK_BUTTONS_CLOSE, "%s", _("Could not display help document"));
+			ctk_message_dialog_format_secondary_text(CTK_MESSAGE_DIALOG(d), "%s", error->message);
 			g_error_free(error);
 
-			ctk_dialog_run(GTK_DIALOG (d));
+			ctk_dialog_run(CTK_DIALOG (d));
 			ctk_widget_destroy(d);
 		}
 	}
 	else
 	{
-		ctk_widget_destroy(GTK_WIDGET (dialog));
+		ctk_widget_destroy(CTK_WIDGET (dialog));
 		ctk_main_quit();
 	}
 }

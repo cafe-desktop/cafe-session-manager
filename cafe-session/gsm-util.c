@@ -358,13 +358,13 @@ gsm_util_init_error (gboolean    fatal,
                 }
         }
 
-        dialog = ctk_message_dialog_new (NULL, 0, GTK_MESSAGE_ERROR,
-                                         GTK_BUTTONS_CLOSE, "%s", msg);
+        dialog = ctk_message_dialog_new (NULL, 0, CTK_MESSAGE_ERROR,
+                                         CTK_BUTTONS_CLOSE, "%s", msg);
 
         g_free (msg);
 
-        ctk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
-        ctk_dialog_run (GTK_DIALOG (dialog));
+        ctk_window_set_position (CTK_WINDOW (dialog), CTK_WIN_POS_CENTER);
+        ctk_dialog_run (CTK_DIALOG (dialog));
 
         ctk_widget_destroy (dialog);
 
@@ -698,13 +698,13 @@ gsm_util_dialog_add_button (GtkDialog   *dialog,
 	GtkWidget *button;
 
 	button = ctk_button_new_with_mnemonic (button_text);
-	ctk_button_set_image (GTK_BUTTON (button), ctk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_BUTTON));
+	ctk_button_set_image (CTK_BUTTON (button), ctk_image_new_from_icon_name (icon_name, CTK_ICON_SIZE_BUTTON));
 
-	ctk_button_set_use_underline (GTK_BUTTON (button), TRUE);
+	ctk_button_set_use_underline (CTK_BUTTON (button), TRUE);
 	ctk_style_context_add_class (ctk_widget_get_style_context (button), "text-button");
 	ctk_widget_set_can_default (button, TRUE);
 	ctk_widget_show (button);
-	ctk_dialog_add_action_widget (GTK_DIALOG (dialog), button, response_id);
+	ctk_dialog_add_action_widget (CTK_DIALOG (dialog), button, response_id);
 
 	return button;
 }

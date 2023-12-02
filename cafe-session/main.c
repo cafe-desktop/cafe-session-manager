@@ -73,7 +73,7 @@
 #define MOBILITY_STARTUP_KEY  "startup"
 
 #define CAFE_INTERFACE_SCHEMA "org.cafe.interface"
-#define GTK_OVERLAY_SCROLL    "ctk-overlay-scrolling"
+#define CTK_OVERLAY_SCROLL    "ctk-overlay-scrolling"
 
 #define GSM_DBUS_NAME "org.gnome.SessionManager"
 
@@ -563,12 +563,12 @@ static void set_overlay_scroll (void)
 	gboolean   enabled;
 
 	settings = g_settings_new (CAFE_INTERFACE_SCHEMA);
-	enabled = g_settings_get_boolean (settings, GTK_OVERLAY_SCROLL);
+	enabled = g_settings_get_boolean (settings, CTK_OVERLAY_SCROLL);
 
 	if (enabled) {
-		gsm_util_setenv ("GTK_OVERLAY_SCROLLING", "1");
+		gsm_util_setenv ("CTK_OVERLAY_SCROLLING", "1");
 	} else {
-		gsm_util_setenv ("GTK_OVERLAY_SCROLLING", "0");
+		gsm_util_setenv ("CTK_OVERLAY_SCROLLING", "0");
 	}
 
 	g_object_unref (settings);
@@ -716,7 +716,7 @@ int main(int argc, char** argv)
 	accessibility_settings = g_settings_new (ACCESSIBILITY_SCHEMA);
 	if (g_settings_get_boolean (accessibility_settings, ACCESSIBILITY_KEY))
 	{
-		gsm_util_setenv("GTK_MODULES", "gail:atk-bridge");
+		gsm_util_setenv("CTK_MODULES", "gail:atk-bridge");
 	}
 	g_object_unref (accessibility_settings);
 

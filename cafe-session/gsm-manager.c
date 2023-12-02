@@ -1087,7 +1087,7 @@ cancel_end_session (GsmManager *manager)
          * will activate itself automatically when the last inhibitor will be
          * removed */
         if (priv->inhibit_dialog)
-                ctk_widget_destroy (GTK_WIDGET (priv->inhibit_dialog));
+                ctk_widget_destroy (CTK_WIDGET (priv->inhibit_dialog));
         priv->inhibit_dialog = NULL;
 
         /* clear all JIT inhibitors */
@@ -1349,23 +1349,23 @@ inhibit_dialog_response (GsmInhibitDialog *dialog,
            remove JIT inhibitors and we don't want to trigger
            action. */
         g_object_get (dialog, "action", &action, NULL);
-        ctk_widget_destroy (GTK_WIDGET (dialog));
+        ctk_widget_destroy (CTK_WIDGET (dialog));
         priv->inhibit_dialog = NULL;
 
         /* In case of dialog cancel, switch user, hibernate and
          * suspend, we just perform the respective action and return,
          * without shutting down the session. */
         switch (response_id) {
-        case GTK_RESPONSE_CANCEL:
-        case GTK_RESPONSE_NONE:
-        case GTK_RESPONSE_DELETE_EVENT:
+        case CTK_RESPONSE_CANCEL:
+        case CTK_RESPONSE_NONE:
+        case CTK_RESPONSE_DELETE_EVENT:
                 if (action == GSM_LOGOUT_ACTION_LOGOUT
                     || action == GSM_LOGOUT_ACTION_SHUTDOWN
                     || action == GSM_LOGOUT_ACTION_REBOOT) {
                         cancel_end_session (manager);
                 }
                 break;
-        case GTK_RESPONSE_ACCEPT:
+        case CTK_RESPONSE_ACCEPT:
                 g_debug ("GsmManager: doing action %d", action);
                 do_inhibit_dialog_action (manager, action);
                 break;
@@ -1399,7 +1399,7 @@ query_end_session_complete (GsmManager *manager)
 
         if (priv->inhibit_dialog != NULL) {
                 g_debug ("GsmManager: inhibit dialog already up");
-                ctk_window_present (GTK_WINDOW (priv->inhibit_dialog));
+                ctk_window_present (CTK_WINDOW (priv->inhibit_dialog));
                 return;
         }
 
@@ -3289,7 +3289,7 @@ request_suspend (GsmManager *manager)
         priv = gsm_manager_get_instance_private (manager);
         if (priv->inhibit_dialog != NULL) {
                 g_debug ("GsmManager: inhibit dialog already up");
-                ctk_window_present (GTK_WINDOW (priv->inhibit_dialog));
+                ctk_window_present (CTK_WINDOW (priv->inhibit_dialog));
                 return;
         }
 
@@ -3320,7 +3320,7 @@ request_hibernate (GsmManager *manager)
         priv = gsm_manager_get_instance_private (manager);
         if (priv->inhibit_dialog != NULL) {
                 g_debug ("GsmManager: inhibit dialog already up");
-                ctk_window_present (GTK_WINDOW (priv->inhibit_dialog));
+                ctk_window_present (CTK_WINDOW (priv->inhibit_dialog));
                 return;
         }
 
@@ -3374,7 +3374,7 @@ request_switch_user (GsmManager *manager)
         priv = gsm_manager_get_instance_private (manager);
         if (priv->inhibit_dialog != NULL) {
                 g_debug ("GsmManager: inhibit dialog already up");
-                ctk_window_present (GTK_WINDOW (priv->inhibit_dialog));
+                ctk_window_present (CTK_WINDOW (priv->inhibit_dialog));
                 return;
         }
 
@@ -3404,15 +3404,15 @@ logout_dialog_response (GsmLogoutDialog *logout_dialog,
 
         g_debug ("GsmManager: Logout dialog response: %d", response_id);
 
-        ctk_widget_destroy (GTK_WIDGET (logout_dialog));
+        ctk_widget_destroy (CTK_WIDGET (logout_dialog));
 
         /* In case of dialog cancel, switch user, hibernate and
          * suspend, we just perform the respective action and return,
          * without shutting down the session. */
         switch (response_id) {
-        case GTK_RESPONSE_CANCEL:
-        case GTK_RESPONSE_NONE:
-        case GTK_RESPONSE_DELETE_EVENT:
+        case CTK_RESPONSE_CANCEL:
+        case CTK_RESPONSE_NONE:
+        case CTK_RESPONSE_DELETE_EVENT:
                 break;
         case GSM_LOGOUT_RESPONSE_SWITCH_USER:
                 request_switch_user (manager);
@@ -3467,8 +3467,8 @@ show_shutdown_dialog (GsmManager *manager)
                           G_CALLBACK (logout_dialog_response),
                           manager);
         ctk_widget_show (dialog);
-        ctk_window_present_with_time (GTK_WINDOW (dialog),
-                                      gdk_x11_get_server_time (ctk_widget_get_window (GTK_WIDGET (dialog))));
+        ctk_window_present_with_time (CTK_WINDOW (dialog),
+                                      gdk_x11_get_server_time (ctk_widget_get_window (CTK_WIDGET (dialog))));
 }
 
 static void
@@ -3493,8 +3493,8 @@ show_logout_dialog (GsmManager *manager)
                           G_CALLBACK (logout_dialog_response),
                           manager);
         ctk_widget_show (dialog);
-        ctk_window_present_with_time (GTK_WINDOW (dialog),
-                                      gdk_x11_get_server_time (ctk_widget_get_window (GTK_WIDGET (dialog))));
+        ctk_window_present_with_time (CTK_WINDOW (dialog),
+                                      gdk_x11_get_server_time (ctk_widget_get_window (CTK_WIDGET (dialog))));
 }
 
 static void

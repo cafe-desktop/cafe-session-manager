@@ -67,7 +67,7 @@ cafe_session_CPPFLAGS =			\
 	-DLOCALE_DIR=\""$(datadir)/locale"\"	\
 	-DDATA_DIR=\""$(datadir)/cafe-session"\" \
 	-DLIBEXECDIR=\"$(libexecdir)\"		\
-	-DGTKBUILDER_DIR=\""$(pkgdatadir)"\"	\
+	-DCTKBUILDER_DIR=\""$(pkgdatadir)"\"	\
 	-DI_KNOW_THE_DEVICEKIT_POWER_API_IS_SUBJECT_TO_CHANGE
 
 cafe_session_LDADD =				\
