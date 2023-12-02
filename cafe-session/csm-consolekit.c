@@ -64,24 +64,24 @@ enum {
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-static void     gsm_consolekit_finalize     (GObject            *object);
+static void     csm_consolekit_finalize     (GObject            *object);
 
-static void     gsm_consolekit_free_dbus    (GsmConsolekit      *manager);
+static void     csm_consolekit_free_dbus    (GsmConsolekit      *manager);
 
-static DBusHandlerResult gsm_consolekit_dbus_filter (DBusConnection *connection,
+static DBusHandlerResult csm_consolekit_dbus_filter (DBusConnection *connection,
                                                      DBusMessage    *message,
                                                      void           *user_data);
 
-static void     gsm_consolekit_on_name_owner_changed (DBusGProxy        *bus_proxy,
+static void     csm_consolekit_on_name_owner_changed (DBusGProxy        *bus_proxy,
                                                       const char        *name,
                                                       const char        *prev_owner,
                                                       const char        *new_owner,
                                                       GsmConsolekit   *manager);
 
-G_DEFINE_TYPE_WITH_PRIVATE (GsmConsolekit, gsm_consolekit, G_TYPE_OBJECT);
+G_DEFINE_TYPE_WITH_PRIVATE (GsmConsolekit, csm_consolekit, G_TYPE_OBJECT);
 
 static void
-gsm_consolekit_get_property (GObject    *object,
+csm_consolekit_get_property (GObject    *object,
                              guint       prop_id,
                              GValue     *value,
                              GParamSpec *pspec)
@@ -89,7 +89,7 @@ gsm_consolekit_get_property (GObject    *object,
         GsmConsolekit *manager = CSM_CONSOLEKIT (object);
         GsmConsolekitPrivate *priv;
 
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
         switch (prop_id) {
         case PROP_IS_CONNECTED:
@@ -105,15 +105,15 @@ gsm_consolekit_get_property (GObject    *object,
 }
 
 static void
-gsm_consolekit_class_init (GsmConsolekitClass *manager_class)
+csm_consolekit_class_init (GsmConsolekitClass *manager_class)
 {
         GObjectClass *object_class;
         GParamSpec   *param_spec;
 
         object_class = G_OBJECT_CLASS (manager_class);
 
-        object_class->finalize = gsm_consolekit_finalize;
-        object_class->get_property = gsm_consolekit_get_property;
+        object_class->finalize = csm_consolekit_finalize;
+        object_class->get_property = csm_consolekit_get_property;
 
         param_spec = g_param_spec_boolean ("is-connected",
                                            "Is connected",
@@ -142,14 +142,14 @@ gsm_consolekit_class_init (GsmConsolekitClass *manager_class)
                               G_STRUCT_OFFSET (GsmConsolekitClass, privileges_completed),
                               NULL,
                               NULL,
-                              gsm_marshal_VOID__BOOLEAN_BOOLEAN_POINTER,
+                              csm_marshal_VOID__BOOLEAN_BOOLEAN_POINTER,
                               G_TYPE_NONE,
                               3, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN, G_TYPE_POINTER);
 
 }
 
 static DBusHandlerResult
-gsm_consolekit_dbus_filter (DBusConnection *connection,
+csm_consolekit_dbus_filter (DBusConnection *connection,
                             DBusMessage    *message,
                             void           *user_data)
 {
@@ -160,7 +160,7 @@ gsm_consolekit_dbus_filter (DBusConnection *connection,
         if (dbus_message_is_signal (message,
                                     DBUS_INTERFACE_LOCAL, "Disconnected") &&
             strcmp (dbus_message_get_path (message), DBUS_PATH_LOCAL) == 0) {
-                gsm_consolekit_free_dbus (manager);
+                csm_consolekit_free_dbus (manager);
                 /* let other filters get this disconnected signal, so that they
                  * can handle it too */
         }
@@ -169,7 +169,7 @@ gsm_consolekit_dbus_filter (DBusConnection *connection,
 }
 
 static gboolean
-gsm_consolekit_ensure_ck_connection (GsmConsolekit  *manager,
+csm_consolekit_ensure_ck_connection (GsmConsolekit  *manager,
                                      GError        **error)
 {
         GError  *connection_error;
@@ -177,7 +177,7 @@ gsm_consolekit_ensure_ck_connection (GsmConsolekit  *manager,
         GsmConsolekitPrivate *priv;
 
         connection_error = NULL;
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
         if (priv->dbus_connection == NULL) {
                 DBusConnection *connection;
@@ -194,7 +194,7 @@ gsm_consolekit_ensure_ck_connection (GsmConsolekit  *manager,
                 connection = dbus_g_connection_get_connection (priv->dbus_connection);
                 dbus_connection_set_exit_on_disconnect (connection, FALSE);
                 dbus_connection_add_filter (connection,
-                                            gsm_consolekit_dbus_filter,
+                                            csm_consolekit_dbus_filter,
                                             manager, NULL);
         }
 
@@ -221,7 +221,7 @@ gsm_consolekit_ensure_ck_connection (GsmConsolekit  *manager,
 
                 dbus_g_proxy_connect_signal (priv->bus_proxy,
                                              "NameOwnerChanged",
-                                             G_CALLBACK (gsm_consolekit_on_name_owner_changed),
+                                             G_CALLBACK (csm_consolekit_on_name_owner_changed),
                                              manager, NULL);
         }
 
@@ -271,7 +271,7 @@ out:
 }
 
 static void
-gsm_consolekit_on_name_owner_changed (DBusGProxy    *bus_proxy,
+csm_consolekit_on_name_owner_changed (DBusGProxy    *bus_proxy,
                                       const char    *name,
                                       const char    *prev_owner,
                                       const char    *new_owner,
@@ -283,24 +283,24 @@ gsm_consolekit_on_name_owner_changed (DBusGProxy    *bus_proxy,
                 return;
         }
 
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
         if (priv->ck_proxy != NULL) {
                 g_object_unref (priv->ck_proxy);
                 priv->ck_proxy = NULL;
         }
 
-        gsm_consolekit_ensure_ck_connection (manager, NULL);
+        csm_consolekit_ensure_ck_connection (manager, NULL);
 }
 
 static void
-gsm_consolekit_init (GsmConsolekit *manager)
+csm_consolekit_init (GsmConsolekit *manager)
 {
         GError *error;
 
         error = NULL;
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &error)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &error)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            error->message);
                 g_error_free (error);
@@ -308,11 +308,11 @@ gsm_consolekit_init (GsmConsolekit *manager)
 }
 
 static void
-gsm_consolekit_free_dbus (GsmConsolekit *manager)
+csm_consolekit_free_dbus (GsmConsolekit *manager)
 {
         GsmConsolekitPrivate *priv;
 
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
         if (priv->bus_proxy != NULL) {
                 g_object_unref (priv->bus_proxy);
                 priv->bus_proxy = NULL;
@@ -327,7 +327,7 @@ gsm_consolekit_free_dbus (GsmConsolekit *manager)
                 DBusConnection *connection;
                 connection = dbus_g_connection_get_connection (priv->dbus_connection);
                 dbus_connection_remove_filter (connection,
-                                               gsm_consolekit_dbus_filter,
+                                               csm_consolekit_dbus_filter,
                                                manager);
 
                 dbus_g_connection_unref (priv->dbus_connection);
@@ -336,16 +336,16 @@ gsm_consolekit_free_dbus (GsmConsolekit *manager)
 }
 
 static void
-gsm_consolekit_finalize (GObject *object)
+csm_consolekit_finalize (GObject *object)
 {
         GsmConsolekit *manager;
         GObjectClass  *parent_class;
 
         manager = CSM_CONSOLEKIT (object);
 
-        parent_class = G_OBJECT_CLASS (gsm_consolekit_parent_class);
+        parent_class = G_OBJECT_CLASS (csm_consolekit_parent_class);
 
-        gsm_consolekit_free_dbus (manager);
+        csm_consolekit_free_dbus (manager);
 
         if (parent_class->finalize != NULL) {
                 parent_class->finalize (object);
@@ -353,7 +353,7 @@ gsm_consolekit_finalize (GObject *object)
 }
 
 GQuark
-gsm_consolekit_error_quark (void)
+csm_consolekit_error_quark (void)
 {
         static GQuark error_quark = 0;
 
@@ -365,7 +365,7 @@ gsm_consolekit_error_quark (void)
 }
 
 GsmConsolekit *
-gsm_consolekit_new (void)
+csm_consolekit_new (void)
 {
         GsmConsolekit *manager;
 
@@ -421,16 +421,16 @@ emit_stop_complete (GsmConsolekit *manager,
 }
 
 void
-gsm_consolekit_attempt_restart (GsmConsolekit *manager)
+csm_consolekit_attempt_restart (GsmConsolekit *manager)
 {
         gboolean res;
         GError  *error;
         GsmConsolekitPrivate *priv;
 
         error = NULL;
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &error)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &error)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            error->message);
                 emit_restart_complete (manager, error);
@@ -455,16 +455,16 @@ gsm_consolekit_attempt_restart (GsmConsolekit *manager)
 }
 
 void
-gsm_consolekit_attempt_stop (GsmConsolekit *manager)
+csm_consolekit_attempt_stop (GsmConsolekit *manager)
 {
         gboolean res;
         GError  *error;
         GsmConsolekitPrivate *priv;
 
         error = NULL;
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &error)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &error)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            error->message);
                 emit_stop_complete (manager, error);
@@ -489,16 +489,16 @@ gsm_consolekit_attempt_stop (GsmConsolekit *manager)
 }
 
 void
-gsm_consolekit_attempt_suspend (GsmConsolekit *manager)
+csm_consolekit_attempt_suspend (GsmConsolekit *manager)
 {
         gboolean res;
         GError  *error;
         GsmConsolekitPrivate *priv;
 
         error = NULL;
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &error)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &error)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            error->message);
                 g_error_free (error);
@@ -520,16 +520,16 @@ gsm_consolekit_attempt_suspend (GsmConsolekit *manager)
 }
 
 void
-gsm_consolekit_attempt_hibernate (GsmConsolekit *manager)
+csm_consolekit_attempt_hibernate (GsmConsolekit *manager)
 {
         gboolean res;
         GError  *error;
         GsmConsolekitPrivate *priv;
 
         error = NULL;
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &error)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &error)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            error->message);
                 g_error_free (error);
@@ -680,7 +680,7 @@ get_current_seat_id (DBusConnection *connection)
 }
 
 void
-gsm_consolekit_set_session_idle (GsmConsolekit *manager,
+csm_consolekit_set_session_idle (GsmConsolekit *manager,
                                  gboolean       is_idle)
 {
         gboolean        res;
@@ -693,9 +693,9 @@ gsm_consolekit_set_session_idle (GsmConsolekit *manager,
         GsmConsolekitPrivate *priv;
 
         error = NULL;
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &error)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &error)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            error->message);
                 g_error_free (error);
@@ -794,7 +794,7 @@ out:
 }
 
 gboolean
-gsm_consolekit_can_switch_user (GsmConsolekit *manager)
+csm_consolekit_can_switch_user (GsmConsolekit *manager)
 {
         GError  *error;
         char    *seat_id;
@@ -802,9 +802,9 @@ gsm_consolekit_can_switch_user (GsmConsolekit *manager)
         GsmConsolekitPrivate *priv;
 
         error = NULL;
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &error)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &error)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            error->message);
                 g_error_free (error);
@@ -825,7 +825,7 @@ gsm_consolekit_can_switch_user (GsmConsolekit *manager)
 }
 
 gboolean
-gsm_consolekit_get_restart_privileges (GsmConsolekit *manager)
+csm_consolekit_get_restart_privileges (GsmConsolekit *manager)
 {
         g_signal_emit (G_OBJECT (manager),
                        signals [PRIVILEGES_COMPLETED],
@@ -835,7 +835,7 @@ gsm_consolekit_get_restart_privileges (GsmConsolekit *manager)
 }
 
 gboolean
-gsm_consolekit_get_stop_privileges (GsmConsolekit *manager)
+csm_consolekit_get_stop_privileges (GsmConsolekit *manager)
 {
         g_signal_emit (G_OBJECT (manager),
                        signals [PRIVILEGES_COMPLETED],
@@ -845,7 +845,7 @@ gsm_consolekit_get_stop_privileges (GsmConsolekit *manager)
 }
 
 gboolean
-gsm_consolekit_can_restart (GsmConsolekit *manager)
+csm_consolekit_can_restart (GsmConsolekit *manager)
 {
         gboolean res;
         gboolean can_restart;
@@ -853,9 +853,9 @@ gsm_consolekit_can_restart (GsmConsolekit *manager)
         GsmConsolekitPrivate *priv;
 
         error = NULL;
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &error)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &error)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            error->message);
                 g_error_free (error);
@@ -880,7 +880,7 @@ gsm_consolekit_can_restart (GsmConsolekit *manager)
 }
 
 gboolean
-gsm_consolekit_can_stop (GsmConsolekit *manager)
+csm_consolekit_can_stop (GsmConsolekit *manager)
 {
         gboolean res;
         gboolean can_stop;
@@ -888,9 +888,9 @@ gsm_consolekit_can_stop (GsmConsolekit *manager)
         GsmConsolekitPrivate *priv;
 
         error = NULL;
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &error)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &error)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            error->message);
                 g_error_free (error);
@@ -916,7 +916,7 @@ gsm_consolekit_can_stop (GsmConsolekit *manager)
 }
 
 gboolean
-gsm_consolekit_can_suspend (GsmConsolekit *manager)
+csm_consolekit_can_suspend (GsmConsolekit *manager)
 {
         gboolean res;
         gboolean can_suspend;
@@ -924,9 +924,9 @@ gsm_consolekit_can_suspend (GsmConsolekit *manager)
         GError *error = NULL;
         GsmConsolekitPrivate *priv;
 
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &error)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &error)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            error->message);
                 g_error_free (error);
@@ -956,7 +956,7 @@ gsm_consolekit_can_suspend (GsmConsolekit *manager)
 }
 
 gboolean
-gsm_consolekit_can_hibernate (GsmConsolekit *manager)
+csm_consolekit_can_hibernate (GsmConsolekit *manager)
 {
         gboolean res;
         gboolean can_hibernate;
@@ -964,9 +964,9 @@ gsm_consolekit_can_hibernate (GsmConsolekit *manager)
         GError *error = NULL;
         GsmConsolekitPrivate *priv;
 
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &error)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &error)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            error->message);
                 g_error_free (error);
@@ -996,7 +996,7 @@ gsm_consolekit_can_hibernate (GsmConsolekit *manager)
 }
 
 gchar *
-gsm_consolekit_get_current_session_type (GsmConsolekit *manager)
+csm_consolekit_get_current_session_type (GsmConsolekit *manager)
 {
         GError *gerror;
         DBusConnection *connection;
@@ -1012,9 +1012,9 @@ gsm_consolekit_get_current_session_type (GsmConsolekit *manager)
         session_id = NULL;
         ret = NULL;
         gerror = NULL;
-        priv = gsm_consolekit_get_instance_private (manager);
+        priv = csm_consolekit_get_instance_private (manager);
 
-        if (!gsm_consolekit_ensure_ck_connection (manager, &gerror)) {
+        if (!csm_consolekit_ensure_ck_connection (manager, &gerror)) {
                 g_warning ("Could not connect to ConsoleKit: %s",
                            gerror->message);
                 g_error_free (gerror);
@@ -1066,12 +1066,12 @@ out:
 
 
 GsmConsolekit *
-gsm_get_consolekit (void)
+csm_get_consolekit (void)
 {
         static GsmConsolekit *manager = NULL;
 
         if (manager == NULL) {
-                manager = gsm_consolekit_new ();
+                manager = csm_consolekit_new ();
         }
 
         return g_object_ref (manager);

@@ -29,36 +29,36 @@ extern "C" {
 
 #define IS_STRING_EMPTY(x) ((x)==NULL||(x)[0]=='\0')
 
-char *      gsm_util_find_desktop_file_for_app_name (const char  *app_name,
+char *      csm_util_find_desktop_file_for_app_name (const char  *app_name,
                                                      char       **dirs);
 
-gchar      *gsm_util_get_empty_tmp_session_dir      (void);
+gchar      *csm_util_get_empty_tmp_session_dir      (void);
 
-const char *gsm_util_get_saved_session_dir          (void);
+const char *csm_util_get_saved_session_dir          (void);
 
-gchar**     gsm_util_get_app_dirs                   (void);
+gchar**     csm_util_get_app_dirs                   (void);
 
-gchar**     gsm_util_get_autostart_dirs             (void);
+gchar**     csm_util_get_autostart_dirs             (void);
 
-gchar **    gsm_util_get_desktop_dirs               (void);
+gchar **    csm_util_get_desktop_dirs               (void);
 
-gboolean    gsm_util_text_is_blank                  (const char *str);
+gboolean    csm_util_text_is_blank                  (const char *str);
 
-void        gsm_util_init_error                     (gboolean    fatal,
+void        csm_util_init_error                     (gboolean    fatal,
                                                      const char *format, ...);
 
-char *      gsm_util_generate_startup_id            (void);
+char *      csm_util_generate_startup_id            (void);
 
-gboolean    gsm_util_export_activation_environment  (GError     **error);
+gboolean    csm_util_export_activation_environment  (GError     **error);
 
 #ifdef HAVE_SYSTEMD
-gboolean    gsm_util_export_user_environment        (GError     **error);
+gboolean    csm_util_export_user_environment        (GError     **error);
 #endif
 
-void        gsm_util_setenv                         (const char *variable,
+void        csm_util_setenv                         (const char *variable,
                                                      const char *value);
 
-CtkWidget*  gsm_util_dialog_add_button              (CtkDialog   *dialog,
+CtkWidget*  csm_util_dialog_add_button              (CtkDialog   *dialog,
                                                      const gchar *button_text,
                                                      const gchar *icon_name,
                                                      gint         response_id);

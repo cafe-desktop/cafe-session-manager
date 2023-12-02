@@ -27,8 +27,8 @@
 
 G_BEGIN_DECLS
 
-#define CSM_TYPE_XSMP_CLIENT              (gsm_xsmp_client_get_type ())
-G_DECLARE_DERIVABLE_TYPE                  (GsmXSMPClient, gsm_xsmp_client, GSM, XSMP_CLIENT, GsmClient)
+#define CSM_TYPE_XSMP_CLIENT              (csm_xsmp_client_get_type ())
+G_DECLARE_DERIVABLE_TYPE                  (GsmXSMPClient, csm_xsmp_client, GSM, XSMP_CLIENT, GsmClient)
 
 struct _GsmXSMPClientClass
 {
@@ -53,19 +53,19 @@ struct _GsmXSMPClientClass
 
 };
 
-GsmClient  *gsm_xsmp_client_new                  (IceConn         ice_conn);
+GsmClient  *csm_xsmp_client_new                  (IceConn         ice_conn);
 
-void        gsm_xsmp_client_connect              (GsmXSMPClient  *client,
+void        csm_xsmp_client_connect              (GsmXSMPClient  *client,
                                                   SmsConn         conn,
                                                   unsigned long  *mask_ret,
                                                   SmsCallbacks   *callbacks_ret);
 
-void        gsm_xsmp_client_save_state           (GsmXSMPClient  *client);
-void        gsm_xsmp_client_save_yourself        (GsmXSMPClient  *client,
+void        csm_xsmp_client_save_state           (GsmXSMPClient  *client);
+void        csm_xsmp_client_save_yourself        (GsmXSMPClient  *client,
                                                   gboolean        save_state);
-void        gsm_xsmp_client_save_yourself_phase2 (GsmXSMPClient  *client);
-void        gsm_xsmp_client_interact             (GsmXSMPClient  *client);
-void        gsm_xsmp_client_shutdown_cancelled   (GsmXSMPClient  *client);
+void        csm_xsmp_client_save_yourself_phase2 (GsmXSMPClient  *client);
+void        csm_xsmp_client_interact             (GsmXSMPClient  *client);
+void        csm_xsmp_client_shutdown_cancelled   (GsmXSMPClient  *client);
 
 G_END_DECLS
 

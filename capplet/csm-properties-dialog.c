@@ -78,9 +78,9 @@ enum {
         NUMBER_OF_COLUMNS
 };
 
-static void     gsm_properties_dialog_finalize    (GObject                  *object);
+static void     csm_properties_dialog_finalize    (GObject                  *object);
 
-G_DEFINE_TYPE (GsmPropertiesDialog, gsm_properties_dialog, CTK_TYPE_DIALOG)
+G_DEFINE_TYPE (GsmPropertiesDialog, csm_properties_dialog, CTK_TYPE_DIALOG)
 
 static gboolean
 find_by_app (CtkTreeModel *model,
@@ -367,11 +367,11 @@ on_add_app_clicked (CtkWidget           *widget,
         char       *comment;
         guint       delay;
 
-        add_dialog = gsm_app_dialog_new (NULL, NULL, NULL, 0);
+        add_dialog = csm_app_dialog_new (NULL, NULL, NULL, 0);
         ctk_window_set_transient_for (CTK_WINDOW (add_dialog),
                                       CTK_WINDOW (dialog));
 
-        if (gsm_app_dialog_run (CSM_APP_DIALOG (add_dialog),
+        if (csm_app_dialog_run (CSM_APP_DIALOG (add_dialog),
                                 &name, &exec, &comment, &delay)) {
                 gsp_app_create (name, comment, exec, delay);
                 g_free (name);
@@ -433,14 +433,14 @@ on_edit_app_clicked (CtkWidget           *widget,
                 char       *comment;
                 guint       delay;
 
-                edit_dialog = gsm_app_dialog_new (gsp_app_get_name (app),
+                edit_dialog = csm_app_dialog_new (gsp_app_get_name (app),
                                                   gsp_app_get_exec (app),
                                                   gsp_app_get_comment (app),
                                                   gsp_app_get_delay (app));
                 ctk_window_set_transient_for (CTK_WINDOW (edit_dialog),
                                               CTK_WINDOW (dialog));
 
-                if (gsm_app_dialog_run (CSM_APP_DIALOG (edit_dialog),
+                if (csm_app_dialog_run (CSM_APP_DIALOG (edit_dialog),
                                         &name, &exec, &comment, &delay)) {
                         gsp_app_update (app, name, comment, exec, delay);
                         g_free (name);
@@ -510,11 +510,11 @@ setup_dialog (GsmPropertiesDialog *dialog)
         CtkTreeSelection  *selection;
         CtkTargetList     *targetlist;
 
-        gsm_util_dialog_add_button (CTK_DIALOG (dialog),
+        csm_util_dialog_add_button (CTK_DIALOG (dialog),
                                     _("_Help"), "help-browser",
                                     CTK_RESPONSE_HELP);
 
-        gsm_util_dialog_add_button (CTK_DIALOG (dialog),
+        csm_util_dialog_add_button (CTK_DIALOG (dialog),
                                     _("_Close"), "window-close",
                                     CTK_RESPONSE_CLOSE);
 
@@ -698,13 +698,13 @@ setup_dialog (GsmPropertiesDialog *dialog)
 }
 
 static GObject *
-gsm_properties_dialog_constructor (GType                  type,
+csm_properties_dialog_constructor (GType                  type,
                                 guint                  n_construct_properties,
                                 GObjectConstructParam *construct_properties)
 {
         GsmPropertiesDialog *dialog;
 
-        dialog = CSM_PROPERTIES_DIALOG (G_OBJECT_CLASS (gsm_properties_dialog_parent_class)->constructor (type,
+        dialog = CSM_PROPERTIES_DIALOG (G_OBJECT_CLASS (csm_properties_dialog_parent_class)->constructor (type,
                                                                                                           n_construct_properties,
                                                                                                           construct_properties));
 
@@ -714,7 +714,7 @@ gsm_properties_dialog_constructor (GType                  type,
 }
 
 static void
-gsm_properties_dialog_dispose (GObject *object)
+csm_properties_dialog_dispose (GObject *object)
 {
         GsmPropertiesDialog *dialog;
 
@@ -733,7 +733,7 @@ gsm_properties_dialog_dispose (GObject *object)
                 dialog->settings = NULL;
         }
 
-        G_OBJECT_CLASS (gsm_properties_dialog_parent_class)->dispose (object);
+        G_OBJECT_CLASS (csm_properties_dialog_parent_class)->dispose (object);
 
         /* it's important to do this after chaining to the parent dispose
          * method because we want to make sure the treeview has been disposed
@@ -745,17 +745,17 @@ gsm_properties_dialog_dispose (GObject *object)
 }
 
 static void
-gsm_properties_dialog_class_init (GsmPropertiesDialogClass *klass)
+csm_properties_dialog_class_init (GsmPropertiesDialogClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->constructor = gsm_properties_dialog_constructor;
-        object_class->dispose = gsm_properties_dialog_dispose;
-        object_class->finalize = gsm_properties_dialog_finalize;
+        object_class->constructor = csm_properties_dialog_constructor;
+        object_class->dispose = csm_properties_dialog_dispose;
+        object_class->finalize = csm_properties_dialog_finalize;
 }
 
 static void
-gsm_properties_dialog_init (GsmPropertiesDialog *dialog)
+csm_properties_dialog_init (GsmPropertiesDialog *dialog)
 {
         CtkWidget   *content_area;
         CtkWidget   *widget;
@@ -790,16 +790,16 @@ gsm_properties_dialog_init (GsmPropertiesDialog *dialog)
 }
 
 static void
-gsm_properties_dialog_finalize (GObject *object)
+csm_properties_dialog_finalize (GObject *object)
 {
         g_return_if_fail (object != NULL);
         g_return_if_fail (CSM_IS_PROPERTIES_DIALOG (object));
 
-        G_OBJECT_CLASS (gsm_properties_dialog_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csm_properties_dialog_parent_class)->finalize (object);
 }
 
 CtkWidget *
-gsm_properties_dialog_new (void)
+csm_properties_dialog_new (void)
 {
         GObject *object;
 

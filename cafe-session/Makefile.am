@@ -99,25 +99,25 @@ test_client_dbus_LDADD = $(CAFE_SESSION_LIBS)
 
 csm-marshal.c: csm-marshal.list
 	$(AM_V_GEN)echo "#include \"csm-marshal.h\"" > $@ && \
-	$(GLIB_GENMARSHAL) $< --prefix=gsm_marshal --body >> $@
+	$(GLIB_GENMARSHAL) $< --prefix=csm_marshal --body >> $@
 
 csm-marshal.h: csm-marshal.list
-	$(AM_V_GEN)$(GLIB_GENMARSHAL) $< --prefix=gsm_marshal --header > $@
+	$(AM_V_GEN)$(GLIB_GENMARSHAL) $< --prefix=csm_marshal --header > $@
 
 csm-manager-glue.h: org.gnome.SessionManager.xml Makefile.am
-	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_manager --mode=glib-server --output=csm-manager-glue.h $(srcdir)/org.gnome.SessionManager.xml
+	$(AM_V_GEN)dbus-binding-tool --prefix=csm_manager --mode=glib-server --output=csm-manager-glue.h $(srcdir)/org.gnome.SessionManager.xml
 
 csm-client-glue.h: org.gnome.SessionManager.Client.xml Makefile.am
-	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_client --mode=glib-server --output=csm-client-glue.h $(srcdir)/org.gnome.SessionManager.Client.xml
+	$(AM_V_GEN)dbus-binding-tool --prefix=csm_client --mode=glib-server --output=csm-client-glue.h $(srcdir)/org.gnome.SessionManager.Client.xml
 
 csm-app-glue.h: org.gnome.SessionManager.App.xml Makefile.am
-	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_app --mode=glib-server --output=csm-app-glue.h $(srcdir)/org.gnome.SessionManager.App.xml
+	$(AM_V_GEN)dbus-binding-tool --prefix=csm_app --mode=glib-server --output=csm-app-glue.h $(srcdir)/org.gnome.SessionManager.App.xml
 
 csm-inhibitor-glue.h: org.gnome.SessionManager.Inhibitor.xml Makefile.am
-	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_inhibitor --mode=glib-server --output=csm-inhibitor-glue.h $(srcdir)/org.gnome.SessionManager.Inhibitor.xml
+	$(AM_V_GEN)dbus-binding-tool --prefix=csm_inhibitor --mode=glib-server --output=csm-inhibitor-glue.h $(srcdir)/org.gnome.SessionManager.Inhibitor.xml
 
 csm-presence-glue.h: org.gnome.SessionManager.Presence.xml Makefile.am
-	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_presence --mode=glib-server --output=csm-presence-glue.h $(srcdir)/org.gnome.SessionManager.Presence.xml
+	$(AM_V_GEN)dbus-binding-tool --prefix=csm_presence --mode=glib-server --output=csm-presence-glue.h $(srcdir)/org.gnome.SessionManager.Presence.xml
 
 BUILT_SOURCES =			\
 	csm-marshal.c		\

@@ -55,14 +55,14 @@ enum {
         PROP_BUS_NAME
 };
 
-G_DEFINE_TYPE (GsmDBusClient, gsm_dbus_client, CSM_TYPE_CLIENT)
+G_DEFINE_TYPE (GsmDBusClient, csm_dbus_client, CSM_TYPE_CLIENT)
 
 GQuark
-gsm_dbus_client_error_quark (void)
+csm_dbus_client_error_quark (void)
 {
         static GQuark ret = 0;
         if (ret == 0) {
-                ret = g_quark_from_static_string ("gsm_dbus_client_error");
+                ret = g_quark_from_static_string ("csm_dbus_client_error");
         }
 
         return ret;
@@ -71,7 +71,7 @@ gsm_dbus_client_error_quark (void)
 #define ENUM_ENTRY(NAME, DESC) { NAME, "" #NAME "", DESC }
 
 GType
-gsm_dbus_client_error_get_type (void)
+csm_dbus_client_error_get_type (void)
 {
         static GType etype = 0;
 
@@ -186,7 +186,7 @@ handle_end_session_response (GsmDBusClient *client,
                 g_error ("No memory");
         }
 
-        gsm_client_end_session_response (CSM_CLIENT (client),
+        csm_client_end_session_response (CSM_CLIENT (client),
                                          is_ok, FALSE, FALSE, reason);
 
 
@@ -216,9 +216,9 @@ client_dbus_filter_function (DBusConnection *connection,
                  dbus_message_get_member (message));
 
         if (dbus_message_is_method_call (message, SM_DBUS_CLIENT_PRIVATE_INTERFACE, "EndSessionResponse")) {
-                g_assert (gsm_client_peek_id (CSM_CLIENT (client)) != NULL);
+                g_assert (csm_client_peek_id (CSM_CLIENT (client)) != NULL);
 
-                if (path != NULL && strcmp (path, gsm_client_peek_id (CSM_CLIENT (client))) != 0) {
+                if (path != NULL && strcmp (path, csm_client_peek_id (CSM_CLIENT (client))) != 0) {
                         /* Different object path */
                         return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
                 }
@@ -230,13 +230,13 @@ client_dbus_filter_function (DBusConnection *connection,
 }
 
 static GObject *
-gsm_dbus_client_constructor (GType                  type,
+csm_dbus_client_constructor (GType                  type,
                              guint                  n_construct_properties,
                              GObjectConstructParam *construct_properties)
 {
         GsmDBusClient *client;
 
-        client = CSM_DBUS_CLIENT (G_OBJECT_CLASS (gsm_dbus_client_parent_class)->constructor (type,
+        client = CSM_DBUS_CLIENT (G_OBJECT_CLASS (csm_dbus_client_parent_class)->constructor (type,
                                                                                               n_construct_properties,
                                                                                               construct_properties));
 
@@ -252,7 +252,7 @@ gsm_dbus_client_constructor (GType                  type,
 }
 
 static void
-gsm_dbus_client_init (GsmDBusClient *client)
+csm_dbus_client_init (GsmDBusClient *client)
 {
 }
 
@@ -325,7 +325,7 @@ out:
 }
 
 static void
-gsm_dbus_client_set_bus_name (GsmDBusClient  *client,
+csm_dbus_client_set_bus_name (GsmDBusClient  *client,
                               const char     *bus_name)
 {
         uid_t    uid;
@@ -352,7 +352,7 @@ gsm_dbus_client_set_bus_name (GsmDBusClient  *client,
 }
 
 const char *
-gsm_dbus_client_get_bus_name (GsmDBusClient  *client)
+csm_dbus_client_get_bus_name (GsmDBusClient  *client)
 {
         g_return_val_if_fail (CSM_IS_DBUS_CLIENT (client), NULL);
 
@@ -360,7 +360,7 @@ gsm_dbus_client_get_bus_name (GsmDBusClient  *client)
 }
 
 static void
-gsm_dbus_client_set_property (GObject       *object,
+csm_dbus_client_set_property (GObject       *object,
                               guint          prop_id,
                               const GValue  *value,
                               GParamSpec    *pspec)
@@ -371,7 +371,7 @@ gsm_dbus_client_set_property (GObject       *object,
 
         switch (prop_id) {
         case PROP_BUS_NAME:
-                gsm_dbus_client_set_bus_name (self, g_value_get_string (value));
+                csm_dbus_client_set_bus_name (self, g_value_get_string (value));
                 break;
         default:
                 G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -380,7 +380,7 @@ gsm_dbus_client_set_property (GObject       *object,
 }
 
 static void
-gsm_dbus_client_get_property (GObject    *object,
+csm_dbus_client_get_property (GObject    *object,
                               guint       prop_id,
                               GValue     *value,
                               GParamSpec *pspec)
@@ -400,13 +400,13 @@ gsm_dbus_client_get_property (GObject    *object,
 }
 
 static void
-gsm_dbus_client_finalize (GObject *object)
+csm_dbus_client_finalize (GObject *object)
 {
         GsmDBusClient *client = (GsmDBusClient *) object;
 
         g_free (client->bus_name);
 
-        G_OBJECT_CLASS (gsm_dbus_client_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csm_dbus_client_parent_class)->finalize (object);
 }
 
 static GKeyFile *
@@ -414,7 +414,7 @@ dbus_client_save (GsmClient *client,
                   GError   **error)
 {
         g_debug ("GsmDBusClient: saving client with id %s",
-                 gsm_client_peek_id (client));
+                 csm_client_peek_id (client));
 
         /* FIXME: We still don't support client saving for D-Bus
          * session clients */
@@ -433,7 +433,7 @@ dbus_client_stop (GsmClient *client,
         ret = FALSE;
 
         /* unicast the signal to only the registered bus name */
-        message = dbus_message_new_signal (gsm_client_peek_id (client),
+        message = dbus_message_new_signal (csm_client_peek_id (client),
                                            SM_DBUS_CLIENT_PRIVATE_INTERFACE,
                                            "Stop");
         if (message == NULL) {
@@ -499,7 +499,7 @@ dbus_client_query_end_session (GsmClient *client,
         g_debug ("GsmDBusClient: sending QueryEndSession signal to %s", dbus_client->bus_name);
 
         /* unicast the signal to only the registered bus name */
-        message = dbus_message_new_signal (gsm_client_peek_id (client),
+        message = dbus_message_new_signal (csm_client_peek_id (client),
                                            SM_DBUS_CLIENT_PRIVATE_INTERFACE,
                                            "QueryEndSession");
         if (message == NULL) {
@@ -551,7 +551,7 @@ dbus_client_end_session (GsmClient *client,
         ret = FALSE;
 
         /* unicast the signal to only the registered bus name */
-        message = dbus_message_new_signal (gsm_client_peek_id (client),
+        message = dbus_message_new_signal (csm_client_peek_id (client),
                                            SM_DBUS_CLIENT_PRIVATE_INTERFACE,
                                            "EndSession");
         if (message == NULL) {
@@ -598,7 +598,7 @@ dbus_client_cancel_end_session (GsmClient *client,
         gboolean        ret = FALSE;
 
         /* unicast the signal to only the registered bus name */
-        message = dbus_message_new_signal (gsm_client_peek_id (client),
+        message = dbus_message_new_signal (csm_client_peek_id (client),
                                            SM_DBUS_CLIENT_PRIVATE_INTERFACE,
                                            "CancelEndSession");
         if (message == NULL) {
@@ -635,7 +635,7 @@ dbus_client_cancel_end_session (GsmClient *client,
 }
 
 static void
-gsm_dbus_client_dispose (GObject *object)
+csm_dbus_client_dispose (GObject *object)
 {
         GsmDBusClient *client;
 
@@ -646,20 +646,20 @@ gsm_dbus_client_dispose (GObject *object)
 
         dbus_connection_remove_filter (client->connection, client_dbus_filter_function, client);
 
-        G_OBJECT_CLASS (gsm_dbus_client_parent_class)->dispose (object);
+        G_OBJECT_CLASS (csm_dbus_client_parent_class)->dispose (object);
 }
 
 static void
-gsm_dbus_client_class_init (GsmDBusClientClass *klass)
+csm_dbus_client_class_init (GsmDBusClientClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
         GsmClientClass *client_class = CSM_CLIENT_CLASS (klass);
 
-        object_class->finalize             = gsm_dbus_client_finalize;
-        object_class->constructor          = gsm_dbus_client_constructor;
-        object_class->get_property         = gsm_dbus_client_get_property;
-        object_class->set_property         = gsm_dbus_client_set_property;
-        object_class->dispose              = gsm_dbus_client_dispose;
+        object_class->finalize             = csm_dbus_client_finalize;
+        object_class->constructor          = csm_dbus_client_constructor;
+        object_class->get_property         = csm_dbus_client_get_property;
+        object_class->set_property         = csm_dbus_client_set_property;
+        object_class->dispose              = csm_dbus_client_dispose;
 
         client_class->impl_save                   = dbus_client_save;
         client_class->impl_stop                   = dbus_client_stop;
@@ -680,7 +680,7 @@ gsm_dbus_client_class_init (GsmDBusClientClass *klass)
 }
 
 GsmClient *
-gsm_dbus_client_new (const char *startup_id,
+csm_dbus_client_new (const char *startup_id,
                      const char *bus_name)
 {
         GsmDBusClient *client;

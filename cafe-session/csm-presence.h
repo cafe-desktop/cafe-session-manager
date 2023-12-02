@@ -26,8 +26,8 @@
 
 G_BEGIN_DECLS
 
-#define CSM_TYPE_PRESENCE            (gsm_presence_get_type ())
-G_DECLARE_DERIVABLE_TYPE (GsmPresence, gsm_presence, GSM, PRESENCE, GObject)
+#define CSM_TYPE_PRESENCE            (csm_presence_get_type ())
+G_DECLARE_DERIVABLE_TYPE (GsmPresence, csm_presence, GSM, PRESENCE, GObject)
 
 struct _GsmPresenceClass
 {
@@ -53,24 +53,24 @@ typedef enum
         CSM_PRESENCE_NUM_ERRORS
 } GsmPresenceError;
 
-#define CSM_PRESENCE_ERROR gsm_presence_error_quark ()
-GType          gsm_presence_error_get_type       (void);
-#define CSM_PRESENCE_TYPE_ERROR (gsm_presence_error_get_type ())
+#define CSM_PRESENCE_ERROR csm_presence_error_quark ()
+GType          csm_presence_error_get_type       (void);
+#define CSM_PRESENCE_TYPE_ERROR (csm_presence_error_get_type ())
 
-GQuark         gsm_presence_error_quark          (void);
+GQuark         csm_presence_error_quark          (void);
 
-GsmPresence *  gsm_presence_new                  (void);
+GsmPresence *  csm_presence_new                  (void);
 
-void           gsm_presence_set_idle_enabled     (GsmPresence  *presence,
+void           csm_presence_set_idle_enabled     (GsmPresence  *presence,
                                                   gboolean      enabled);
-void           gsm_presence_set_idle_timeout     (GsmPresence  *presence,
+void           csm_presence_set_idle_timeout     (GsmPresence  *presence,
                                                   guint         n_seconds);
 
 /* exported to bus */
-gboolean       gsm_presence_set_status           (GsmPresence  *presence,
+gboolean       csm_presence_set_status           (GsmPresence  *presence,
                                                   guint         status,
                                                   GError      **error);
-gboolean       gsm_presence_set_status_text      (GsmPresence  *presence,
+gboolean       csm_presence_set_status_text      (GsmPresence  *presence,
                                                   const char   *status_text,
                                                   GError      **error);
 

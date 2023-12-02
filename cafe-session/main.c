@@ -181,7 +181,7 @@ static gboolean acquire_name(void)
 
 	if (connection == NULL)
 	{
-		gsm_util_init_error(TRUE, "Could not connect to session bus: %s", error->message);
+		csm_util_init_error(TRUE, "Could not connect to session bus: %s", error->message);
 		/* not reached */
 	}
 
@@ -189,7 +189,7 @@ static gboolean acquire_name(void)
 
 	if (!acquire_name_on_proxy(bus_proxy, CSM_DBUS_NAME))
 	{
-		gsm_util_init_error(TRUE, "%s", "Could not acquire name on session bus");
+		csm_util_init_error(TRUE, "%s", "Could not acquire name on session bus");
 		/* not reached */
 	}
 
@@ -224,11 +224,11 @@ static void append_default_apps(GsmManager* manager, const char* default_session
 			continue;
 		}
 
-		app_path = gsm_util_find_desktop_file_for_app_name(default_apps[i], autostart_dirs);
+		app_path = csm_util_find_desktop_file_for_app_name(default_apps[i], autostart_dirs);
 
 		if (app_path != NULL)
 		{
-			gsm_manager_add_autostart_app(manager, app_path, NULL);
+			csm_manager_add_autostart_app(manager, app_path, NULL);
 			g_free(app_path);
 		}
 	}
@@ -276,11 +276,11 @@ static void append_required_apps(GsmManager* manager)
 			{
 				char* app_path;
 
-				app_path = gsm_util_find_desktop_file_for_app_name(default_provider, NULL);
+				app_path = csm_util_find_desktop_file_for_app_name(default_provider, NULL);
 
 				if (app_path != NULL)
 				{
-					gsm_manager_add_autostart_app(manager, app_path, component);
+					csm_manager_add_autostart_app(manager, app_path, component);
 				}
 				else
 				{
@@ -319,10 +319,10 @@ static void append_accessibility_apps(GsmManager* manager)
 		if (mobility_exec != NULL && mobility_exec[0] != 0)
 		{
 			char* app_path;
-			app_path = gsm_util_find_desktop_file_for_app_name(mobility_exec, NULL);
+			app_path = csm_util_find_desktop_file_for_app_name(mobility_exec, NULL);
 			if (app_path != NULL)
 			{
-				gsm_manager_add_autostart_app(manager, app_path, NULL);
+				csm_manager_add_autostart_app(manager, app_path, NULL);
 				g_free (app_path);
 			}
 			g_free (mobility_exec);
@@ -336,10 +336,10 @@ static void append_accessibility_apps(GsmManager* manager)
 		if (visual_exec != NULL && visual_exec[0] != 0)
 		{
 			char* app_path;
-			app_path = gsm_util_find_desktop_file_for_app_name(visual_exec, NULL);
+			app_path = csm_util_find_desktop_file_for_app_name(visual_exec, NULL);
 			if (app_path != NULL)
 			{
-				gsm_manager_add_autostart_app(manager, app_path, NULL);
+				csm_manager_add_autostart_app(manager, app_path, NULL);
 				g_free (app_path);
 			}
 			g_free (visual_exec);
@@ -361,14 +361,14 @@ static void maybe_load_saved_session_apps(GsmManager* manager)
 
 #ifdef HAVE_SYSTEMD
 	if (LOGIND_RUNNING()) {
-		systemd = gsm_get_systemd();
-		session_type = gsm_systemd_get_current_session_type(systemd);
+		systemd = csm_get_systemd();
+		session_type = csm_systemd_get_current_session_type(systemd);
 		is_login = g_strcmp0 (session_type, CSM_SYSTEMD_SESSION_TYPE_LOGIN_WINDOW) == 0;
 	}
 	else {
 #endif
-	consolekit = gsm_get_consolekit();
-	session_type = gsm_consolekit_get_current_session_type(consolekit);
+	consolekit = csm_get_consolekit();
+	session_type = csm_consolekit_get_current_session_type(consolekit);
 	is_login = g_strcmp0 (session_type, CSM_CONSOLEKIT_SESSION_TYPE_LOGIN_WINDOW) == 0;
 #ifdef HAVE_SYSTEMD
 	}
@@ -384,7 +384,7 @@ static void maybe_load_saved_session_apps(GsmManager* manager)
 		g_object_unref (settings);
 
 		if (autostart == TRUE)
-			gsm_manager_add_autostart_apps_from_dir(manager, gsm_util_get_saved_session_dir());
+			csm_manager_add_autostart_apps_from_dir(manager, csm_util_get_saved_session_dir());
 	}
 
 	if (consolekit != NULL)
@@ -401,7 +401,7 @@ static void load_standard_apps (GsmManager* manager, const char* default_session
 	char** autostart_dirs;
 	int i;
 
-	autostart_dirs = gsm_util_get_autostart_dirs();
+	autostart_dirs = csm_util_get_autostart_dirs();
 
 	if (!failsafe)
 	{
@@ -409,7 +409,7 @@ static void load_standard_apps (GsmManager* manager, const char* default_session
 
 		for (i = 0; autostart_dirs[i]; i++)
 		{
-			gsm_manager_add_autostart_apps_from_dir(manager, autostart_dirs[i]);
+			csm_manager_add_autostart_apps_from_dir(manager, autostart_dirs[i]);
 		}
 	}
 
@@ -428,7 +428,7 @@ static void load_override_apps(GsmManager* manager, char** override_autostart_di
 
 	for (i = 0; override_autostart_dirs[i]; i++)
 	{
-		gsm_manager_add_autostart_apps_from_dir(manager, override_autostart_dirs[i]);
+		csm_manager_add_autostart_apps_from_dir(manager, override_autostart_dirs[i]);
 	}
 }
 
@@ -452,7 +452,7 @@ static gboolean signal_cb(int signo, gpointer data)
 		case SIGINT:
 		case SIGTERM:
 			manager = (GsmManager*) data;
-			gsm_manager_logout(manager, CSM_MANAGER_LOGOUT_MODE_FORCE, NULL);
+			csm_manager_logout(manager, CSM_MANAGER_LOGOUT_MODE_FORCE, NULL);
 
 			/* let the fatal signals interrupt us */
 			g_debug("Caught signal %d, shutting down normally.", signo);
@@ -488,7 +488,7 @@ static void shutdown_cb(gpointer data)
 	 * applications in the off chance a handler is already queued
 	 * to dispatch following the below call to ctk_main_quit.
 	 */
-	gsm_manager_set_phase(manager, CSM_MANAGER_PHASE_EXIT);
+	csm_manager_set_phase(manager, CSM_MANAGER_PHASE_EXIT);
 
 	ctk_main_quit();
 }
@@ -566,9 +566,9 @@ static void set_overlay_scroll (void)
 	enabled = g_settings_get_boolean (settings, CTK_OVERLAY_SCROLL);
 
 	if (enabled) {
-		gsm_util_setenv ("CTK_OVERLAY_SCROLLING", "1");
+		csm_util_setenv ("CTK_OVERLAY_SCROLLING", "1");
 	} else {
-		gsm_util_setenv ("CTK_OVERLAY_SCROLLING", "0");
+		csm_util_setenv ("CTK_OVERLAY_SCROLLING", "0");
 	}
 
 	g_object_unref (settings);
@@ -619,7 +619,7 @@ int main(int argc, char** argv)
 	/* Make sure that we have a session bus */
 	if (!require_dbus_session(argc, argv, &error))
 	{
-		gsm_util_init_error(TRUE, "%s", error->message);
+		csm_util_init_error(TRUE, "%s", error->message);
 	}
 
 	bindtextdomain(GETTEXT_PACKAGE, LOCALE_DIR);
@@ -646,10 +646,10 @@ int main(int argc, char** argv)
 		exit(1);
 	}
 
-        gsm_util_export_activation_environment (NULL);
+        csm_util_export_activation_environment (NULL);
 
 #ifdef HAVE_SYSTEMD
-        gsm_util_export_user_environment (NULL);
+        csm_util_export_user_environment (NULL);
 #endif
 
 	cdm_log_init();
@@ -692,18 +692,18 @@ int main(int argc, char** argv)
 	}
 
 	if (g_getenv ("XDG_CURRENT_DESKTOP") == NULL)
-		gsm_util_setenv ("XDG_CURRENT_DESKTOP", "CAFE");
+		csm_util_setenv ("XDG_CURRENT_DESKTOP", "CAFE");
 
 	/* Set DISPLAY explicitly for all our children, in case --display
 	 * was specified on the command line.
 	 */
 	display_str = cdk_display_get_name (cdk_display_get_default());
-	gsm_util_setenv("DISPLAY", display_str);
+	csm_util_setenv("DISPLAY", display_str);
 
 	/* Some third-party programs rely on CAFE_DESKTOP_SESSION_ID to
 	 * detect if CAFE is running. We keep this for compatibility reasons.
 	 */
-	gsm_util_setenv("CAFE_DESKTOP_SESSION_ID", "this-is-deprecated");
+	csm_util_setenv("CAFE_DESKTOP_SESSION_ID", "this-is-deprecated");
 
 	/*
 	 * Make sure gsettings is set up correctly.  If not, then bail.
@@ -716,16 +716,16 @@ int main(int argc, char** argv)
 	accessibility_settings = g_settings_new (ACCESSIBILITY_SCHEMA);
 	if (g_settings_get_boolean (accessibility_settings, ACCESSIBILITY_KEY))
 	{
-		gsm_util_setenv("CTK_MODULES", "cail:atk-bridge");
+		csm_util_setenv("CTK_MODULES", "cail:atk-bridge");
 	}
 	g_object_unref (accessibility_settings);
 
-	client_store = gsm_store_new();
+	client_store = csm_store_new();
 
-	xsmp_server = gsm_xsmp_server_new(client_store);
+	xsmp_server = csm_xsmp_server_new(client_store);
 
 	/* Now make sure they succeeded. (They'll call
-	 * gsm_util_init_error() if they failed.)
+	 * csm_util_init_error() if they failed.)
 	 */
 	acquire_name();
 
@@ -735,7 +735,7 @@ int main(int argc, char** argv)
 	/* Set to use Ctk3 overlay scroll */
 	set_overlay_scroll ();
 
-	manager = gsm_manager_new(client_store, failsafe);
+	manager = csm_manager_new(client_store, failsafe);
 
 	signal_handler = cdm_signal_handler_new();
 	cdm_signal_handler_add_fatal(signal_handler);
@@ -755,9 +755,9 @@ int main(int argc, char** argv)
 		load_standard_apps(manager, CSM_DEFAULT_SESSION_KEY);
 	}
 
-	gsm_xsmp_server_start(xsmp_server);
-	_gsm_manager_set_renderer (manager, gl_renderer);
-	gsm_manager_start(manager);
+	csm_xsmp_server_start(xsmp_server);
+	_csm_manager_set_renderer (manager, gl_renderer);
+	csm_manager_start(manager);
 
 	ctk_main();
 

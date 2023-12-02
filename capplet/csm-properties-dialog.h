@@ -26,10 +26,10 @@
 
 G_BEGIN_DECLS
 
-#define CSM_TYPE_PROPERTIES_DIALOG         (gsm_properties_dialog_get_type ())
-G_DECLARE_FINAL_TYPE (GsmPropertiesDialog, gsm_properties_dialog, GSM, PROPERTIES_DIALOG, CtkDialog)
+#define CSM_TYPE_PROPERTIES_DIALOG         (csm_properties_dialog_get_type ())
+G_DECLARE_FINAL_TYPE (GsmPropertiesDialog, csm_properties_dialog, GSM, PROPERTIES_DIALOG, CtkDialog)
 
-CtkWidget            * gsm_properties_dialog_new                (void);
+CtkWidget            * csm_properties_dialog_new                (void);
 
 #define CSM_PROPERTIES_ICON_SIZE CTK_ICON_SIZE_LARGE_TOOLBAR
 

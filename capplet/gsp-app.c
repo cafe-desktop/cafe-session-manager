@@ -276,15 +276,15 @@ _gsp_app_update_description (GspApp *app)
 
         priv = gsp_app_get_instance_private (app);
 
-        if (!gsm_util_text_is_blank (priv->name)) {
+        if (!csm_util_text_is_blank (priv->name)) {
                 primary = priv->name;
-        } else if (!gsm_util_text_is_blank (priv->exec)) {
+        } else if (!csm_util_text_is_blank (priv->exec)) {
                 primary = priv->exec;
         } else {
                 primary = _("No name");
         }
 
-        if (!gsm_util_text_is_blank (priv->comment)) {
+        if (!csm_util_text_is_blank (priv->comment)) {
                 secondary = priv->comment;
         } else {
                 secondary = _("No description");
@@ -977,7 +977,7 @@ gsp_app_new (const char   *path,
                                                         G_KEY_FILE_DESKTOP_KEY_COMMENT);
         priv->delay = gsp_key_file_get_delay (keyfile);
 
-        if (gsm_util_text_is_blank (priv->name)) {
+        if (csm_util_text_is_blank (priv->name)) {
                 g_free (priv->name);
                 priv->name = g_strdup (priv->exec);
         }
@@ -1093,7 +1093,7 @@ gsp_app_create (const char *name,
         char          **argv;
         int             argc;
 
-        g_return_if_fail (!gsm_util_text_is_blank (exec));
+        g_return_if_fail (!csm_util_text_is_blank (exec));
 
         if (!g_shell_parse_argv (exec, &argc, &argv, NULL)) {
                 return;
@@ -1117,7 +1117,7 @@ gsp_app_create (const char *name,
         priv->enabled = TRUE;
         priv->nodisplay = FALSE;
 
-        if (!gsm_util_text_is_blank (name)) {
+        if (!csm_util_text_is_blank (name)) {
                 priv->name = g_strdup (name);
         } else {
                 priv->name = g_strdup (exec);

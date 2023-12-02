@@ -28,8 +28,8 @@
 
 G_BEGIN_DECLS
 
-#define CSM_TYPE_CLIENT            (gsm_client_get_type ())
-G_DECLARE_DERIVABLE_TYPE (GsmClient, gsm_client, GSM, CLIENT, GObject)
+#define CSM_TYPE_CLIENT            (csm_client_get_type ())
+G_DECLARE_DERIVABLE_TYPE (GsmClient, csm_client, GSM, CLIENT, GObject)
 
 typedef enum {
         CSM_CLIENT_UNREGISTERED = 0,
@@ -88,62 +88,62 @@ typedef enum
         CSM_CLIENT_NUM_ERRORS
 } GsmClientError;
 
-#define CSM_CLIENT_ERROR gsm_client_error_quark ()
-#define CSM_CLIENT_TYPE_ERROR (gsm_client_error_get_type ())
+#define CSM_CLIENT_ERROR csm_client_error_quark ()
+#define CSM_CLIENT_TYPE_ERROR (csm_client_error_get_type ())
 
-GType                 gsm_client_error_get_type             (void);
-GQuark                gsm_client_error_quark                (void);
+GType                 csm_client_error_get_type             (void);
+GQuark                csm_client_error_quark                (void);
 
-const char           *gsm_client_peek_id                    (GsmClient  *client);
-
-
-const char *          gsm_client_peek_startup_id            (GsmClient  *client);
-const char *          gsm_client_peek_app_id                (GsmClient  *client);
-guint                 gsm_client_peek_restart_style_hint    (GsmClient  *client);
-guint                 gsm_client_peek_status                (GsmClient  *client);
+const char           *csm_client_peek_id                    (GsmClient  *client);
 
 
-char                 *gsm_client_get_app_name               (GsmClient  *client);
-void                  gsm_client_set_app_id                 (GsmClient  *client,
+const char *          csm_client_peek_startup_id            (GsmClient  *client);
+const char *          csm_client_peek_app_id                (GsmClient  *client);
+guint                 csm_client_peek_restart_style_hint    (GsmClient  *client);
+guint                 csm_client_peek_status                (GsmClient  *client);
+
+
+char                 *csm_client_get_app_name               (GsmClient  *client);
+void                  csm_client_set_app_id                 (GsmClient  *client,
                                                              const char *app_id);
-void                  gsm_client_set_status                 (GsmClient  *client,
+void                  csm_client_set_status                 (GsmClient  *client,
                                                              guint       status);
 
-gboolean              gsm_client_end_session                (GsmClient  *client,
+gboolean              csm_client_end_session                (GsmClient  *client,
                                                              guint       flags,
                                                              GError    **error);
-gboolean              gsm_client_query_end_session          (GsmClient  *client,
+gboolean              csm_client_query_end_session          (GsmClient  *client,
                                                              guint       flags,
                                                              GError    **error);
-gboolean              gsm_client_cancel_end_session         (GsmClient  *client,
+gboolean              csm_client_cancel_end_session         (GsmClient  *client,
                                                              GError    **error);
 
-void                  gsm_client_disconnected               (GsmClient  *client);
+void                  csm_client_disconnected               (GsmClient  *client);
 
-GKeyFile             *gsm_client_save                       (GsmClient  *client,
+GKeyFile             *csm_client_save                       (GsmClient  *client,
                                                              GError    **error);
 /* exported to bus */
-gboolean              gsm_client_stop                       (GsmClient  *client,
+gboolean              csm_client_stop                       (GsmClient  *client,
                                                              GError    **error);
-gboolean              gsm_client_get_startup_id             (GsmClient  *client,
+gboolean              csm_client_get_startup_id             (GsmClient  *client,
                                                              char      **startup_id,
                                                              GError    **error);
-gboolean              gsm_client_get_app_id                 (GsmClient  *client,
+gboolean              csm_client_get_app_id                 (GsmClient  *client,
                                                              char      **app_id,
                                                              GError    **error);
-gboolean              gsm_client_get_restart_style_hint     (GsmClient  *client,
+gboolean              csm_client_get_restart_style_hint     (GsmClient  *client,
                                                              guint      *hint,
                                                              GError    **error);
-gboolean              gsm_client_get_status                 (GsmClient  *client,
+gboolean              csm_client_get_status                 (GsmClient  *client,
                                                              guint      *status,
                                                              GError    **error);
-gboolean              gsm_client_get_unix_process_id        (GsmClient  *client,
+gboolean              csm_client_get_unix_process_id        (GsmClient  *client,
                                                              guint      *pid,
                                                              GError    **error);
 
 /* private */
 
-void                  gsm_client_end_session_response       (GsmClient  *client,
+void                  csm_client_end_session_response       (GsmClient  *client,
                                                              gboolean    is_ok,
                                                              gboolean    do_last,
                                                              gboolean    cancel,
