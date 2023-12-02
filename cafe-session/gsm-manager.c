@@ -421,7 +421,7 @@ quit_request_completed_consolekit (GsmConsolekit *consolekit,
                                    GError        *error,
                                    gpointer       user_data)
 {
-        MdmLogoutAction fallback_action = GPOINTER_TO_INT (user_data);
+        CdmLogoutAction fallback_action = GPOINTER_TO_INT (user_data);
 
         if (error != NULL) {
                 cdm_set_logout_action (fallback_action);
@@ -438,7 +438,7 @@ quit_request_completed_systemd (GsmSystemd *systemd,
                                 GError     *error,
                                 gpointer    user_data)
 {
-        MdmLogoutAction fallback_action = GPOINTER_TO_INT (user_data);
+        CdmLogoutAction fallback_action = GPOINTER_TO_INT (user_data);
 
         if (error != NULL) {
                 cdm_set_logout_action (fallback_action);
