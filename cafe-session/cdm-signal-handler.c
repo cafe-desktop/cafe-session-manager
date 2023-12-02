@@ -196,7 +196,7 @@ static void fallback_get_backtrace(void)
 		else
 		{
 	#endif
-			g_warning ("MDM crashed, but symbols couldn't be retrieved.");
+			g_warning ("CDM crashed, but symbols couldn't be retrieved.");
 	#if HAVE_EXECINFO_H
 		}
 	#endif
@@ -328,7 +328,7 @@ guint mdm_signal_handler_add(MdmSignalHandler* handler, int signal_number, MdmSi
 	CallbackData* cdata;
 	GSList* list;
 
-	g_return_val_if_fail(MDM_IS_SIGNAL_HANDLER(handler), 0);
+	g_return_val_if_fail(CDM_IS_SIGNAL_HANDLER(handler), 0);
 
 	cdata = g_new0(CallbackData, 1);
 	cdata->signal_number = signal_number;
@@ -356,7 +356,7 @@ guint mdm_signal_handler_add(MdmSignalHandler* handler, int signal_number, MdmSi
 
 void mdm_signal_handler_add_fatal(MdmSignalHandler* handler)
 {
-	g_return_if_fail(MDM_IS_SIGNAL_HANDLER(handler));
+	g_return_if_fail(CDM_IS_SIGNAL_HANDLER(handler));
 
 	mdm_signal_handler_add(handler, SIGILL, NULL, NULL);
 	mdm_signal_handler_add(handler, SIGBUS, NULL, NULL);
@@ -374,7 +374,7 @@ static void mdm_signal_handler_remove_and_free_data(MdmSignalHandler* handler, C
 {
 	GSList* list;
 
-	g_return_if_fail(MDM_IS_SIGNAL_HANDLER(handler));
+	g_return_if_fail(CDM_IS_SIGNAL_HANDLER(handler));
 
 	list = g_hash_table_lookup(handler->lookup, GINT_TO_POINTER(cdata->signal_number));
 	list = g_slist_remove_all(list, GUINT_TO_POINTER(cdata->id));
@@ -395,7 +395,7 @@ void mdm_signal_handler_remove(MdmSignalHandler* handler, guint id)
 {
 	CallbackData* found;
 
-	g_return_if_fail(MDM_IS_SIGNAL_HANDLER(handler));
+	g_return_if_fail(CDM_IS_SIGNAL_HANDLER(handler));
 
 	found = g_hash_table_lookup(handler->id_lookup, GUINT_TO_POINTER(id));
 
@@ -439,7 +439,7 @@ void mdm_signal_handler_remove_func(MdmSignalHandler* handler, guint signal_numb
 {
 	CallbackData* found;
 
-	g_return_if_fail(MDM_IS_SIGNAL_HANDLER(handler));
+	g_return_if_fail(CDM_IS_SIGNAL_HANDLER(handler));
 
 	found = find_callback_data_by_func(handler, signal_number, callback, data);
 
@@ -466,7 +466,7 @@ static void signal_list_free(GSList *list)
 
 void mdm_signal_handler_set_fatal_func(MdmSignalHandler* handler, MdmShutdownHandlerFunc func, gpointer user_data)
 {
-	g_return_if_fail(MDM_IS_SIGNAL_HANDLER(handler));
+	g_return_if_fail(CDM_IS_SIGNAL_HANDLER(handler));
 
 	handler->fatal_func = func;
 	handler->fatal_data = user_data;
@@ -500,9 +500,9 @@ static void mdm_signal_handler_finalize(GObject* object)
 	GList* l;
 
 	g_return_if_fail(object != NULL);
-	g_return_if_fail(MDM_IS_SIGNAL_HANDLER(object));
+	g_return_if_fail(CDM_IS_SIGNAL_HANDLER(object));
 
-	handler = MDM_SIGNAL_HANDLER(object);
+	handler = CDM_SIGNAL_HANDLER(object);
 
 	g_debug("MdmSignalHandler: Finalizing signal handler");
 
@@ -541,9 +541,9 @@ MdmSignalHandler* mdm_signal_handler_new(void)
 	}
 	else
 	{
-		signal_handler_object = g_object_new(MDM_TYPE_SIGNAL_HANDLER, NULL);
+		signal_handler_object = g_object_new(CDM_TYPE_SIGNAL_HANDLER, NULL);
 		g_object_add_weak_pointer(signal_handler_object, (gpointer*) &signal_handler_object);
 	}
 
-	return MDM_SIGNAL_HANDLER(signal_handler_object);
+	return CDM_SIGNAL_HANDLER(signal_handler_object);
 }

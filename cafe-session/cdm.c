@@ -42,21 +42,21 @@
 
 #include "mdm.h"
 
-#define MDM_PROTOCOL_UPDATE_INTERVAL 1 /* seconds */
+#define CDM_PROTOCOL_UPDATE_INTERVAL 1 /* seconds */
 
-#define MDM_PROTOCOL_SOCKET_PATH "/var/run/mdm_socket"
+#define CDM_PROTOCOL_SOCKET_PATH "/var/run/mdm_socket"
 
-#define MDM_PROTOCOL_MSG_CLOSE "CLOSE"
-#define MDM_PROTOCOL_MSG_VERSION "VERSION"
-#define MDM_PROTOCOL_MSG_AUTHENTICATE "AUTH_LOCAL"
-#define MDM_PROTOCOL_MSG_QUERY_ACTION "QUERY_LOGOUT_ACTION"
-#define MDM_PROTOCOL_MSG_SET_ACTION "SET_SAFE_LOGOUT_ACTION"
-#define MDM_PROTOCOL_MSG_FLEXI_XSERVER "FLEXI_XSERVER"
+#define CDM_PROTOCOL_MSG_CLOSE "CLOSE"
+#define CDM_PROTOCOL_MSG_VERSION "VERSION"
+#define CDM_PROTOCOL_MSG_AUTHENTICATE "AUTH_LOCAL"
+#define CDM_PROTOCOL_MSG_QUERY_ACTION "QUERY_LOGOUT_ACTION"
+#define CDM_PROTOCOL_MSG_SET_ACTION "SET_SAFE_LOGOUT_ACTION"
+#define CDM_PROTOCOL_MSG_FLEXI_XSERVER "FLEXI_XSERVER"
 
-#define MDM_ACTION_STR_NONE "NONE"
-#define MDM_ACTION_STR_SHUTDOWN "HALT"
-#define MDM_ACTION_STR_REBOOT "REBOOT"
-#define MDM_ACTION_STR_SUSPEND "SUSPEND"
+#define CDM_ACTION_STR_NONE "NONE"
+#define CDM_ACTION_STR_SHUTDOWN "HALT"
+#define CDM_ACTION_STR_REBOOT "REBOOT"
+#define CDM_ACTION_STR_SUSPEND "SUSPEND"
 
 typedef struct {
 	int fd;
@@ -71,8 +71,8 @@ typedef struct {
 static MdmProtocolData mdm_protocol_data = {
 	0,
 	NULL,
-	MDM_LOGOUT_ACTION_NONE,
-	MDM_LOGOUT_ACTION_NONE,
+	CDM_LOGOUT_ACTION_NONE,
+	CDM_LOGOUT_ACTION_NONE,
 	0
 };
 
@@ -89,7 +89,7 @@ static char* mdm_send_protocol_msg(MdmProtocolData* data, const char* msg)
 	{
 		g_free(p);
 
-		g_warning("Failed to send message to MDM: %s", g_strerror(errno));
+		g_warning("Failed to send message to CDM: %s", g_strerror(errno));
 
 		return NULL;
 	}
@@ -160,7 +160,7 @@ static char* get_display_number(void)
 
 static gboolean mdm_authenticate_connection(MdmProtocolData* data)
 {
-	#define MDM_MIT_MAGIC_COOKIE_LEN 16
+	#define CDM_MIT_MAGIC_COOKIE_LEN 16
 
 	const char* xau_path;
 	FILE* f;
@@ -173,7 +173,7 @@ static gboolean mdm_authenticate_connection(MdmProtocolData* data)
 		char* msg;
 		char* response;
 
-		msg = g_strdup_printf(MDM_PROTOCOL_MSG_AUTHENTICATE " %s", data->auth_cookie);
+		msg = g_strdup_printf(CDM_PROTOCOL_MSG_AUTHENTICATE " %s", data->auth_cookie);
 		response = mdm_send_protocol_msg(data, msg);
 		g_free(msg);
 
@@ -210,20 +210,20 @@ static gboolean mdm_authenticate_connection(MdmProtocolData* data)
 		char* response;
 		int   i;
 
-		if (xau->family != FamilyLocal || strncmp(xau->number, display_number, xau->number_length) || strncmp(xau->name, "MIT-MAGIC-COOKIE-1", xau->name_length) || xau->data_length != MDM_MIT_MAGIC_COOKIE_LEN)
+		if (xau->family != FamilyLocal || strncmp(xau->number, display_number, xau->number_length) || strncmp(xau->name, "MIT-MAGIC-COOKIE-1", xau->name_length) || xau->data_length != CDM_MIT_MAGIC_COOKIE_LEN)
 		{
 			XauDisposeAuth(xau);
 			continue;
 		}
 
-		for (i = 0; i < MDM_MIT_MAGIC_COOKIE_LEN; i++)
+		for (i = 0; i < CDM_MIT_MAGIC_COOKIE_LEN; i++)
 		{
 			g_snprintf(buffer + 2 * i, 3, "%02x", (guint)(guchar) xau->data[i]);
 		}
 
 		XauDisposeAuth(xau);
 
-		msg = g_strdup_printf(MDM_PROTOCOL_MSG_AUTHENTICATE " %s", buffer);
+		msg = g_strdup_printf(CDM_PROTOCOL_MSG_AUTHENTICATE " %s", buffer);
 		response = mdm_send_protocol_msg(data, msg);
 		g_free(msg);
 
@@ -244,7 +244,7 @@ static gboolean mdm_authenticate_connection(MdmProtocolData* data)
 
 	return retval;
 
-	#undef MDM_MIT_MAGIC_COOKIE_LEN
+	#undef CDM_MIT_MAGIC_COOKIE_LEN
 }
 
 static void mdm_shutdown_protocol_connection(MdmProtocolData *data)
@@ -264,9 +264,9 @@ static gboolean mdm_init_protocol_connection(MdmProtocolData* data)
 
 	g_assert(data->fd <= 0);
 
-	if (g_file_test(MDM_PROTOCOL_SOCKET_PATH, G_FILE_TEST_EXISTS))
+	if (g_file_test(CDM_PROTOCOL_SOCKET_PATH, G_FILE_TEST_EXISTS))
 	{
-		g_strlcpy (addr.sun_path, MDM_PROTOCOL_SOCKET_PATH, sizeof (addr.sun_path));
+		g_strlcpy (addr.sun_path, CDM_PROTOCOL_SOCKET_PATH, sizeof (addr.sun_path));
 	}
 	else if (g_file_test("/tmp/.mdm_socket", G_FILE_TEST_EXISTS))
 	{
@@ -281,7 +281,7 @@ static gboolean mdm_init_protocol_connection(MdmProtocolData* data)
 
 	if (data->fd < 0)
 	{
-		g_warning("Failed to create MDM socket: %s", g_strerror(errno));
+		g_warning("Failed to create CDM socket: %s", g_strerror(errno));
 
 		mdm_shutdown_protocol_connection(data);
 
@@ -292,20 +292,20 @@ static gboolean mdm_init_protocol_connection(MdmProtocolData* data)
 
 	if (connect(data->fd, (struct sockaddr*) &addr, sizeof(addr)) < 0)
 	{
-		g_warning("Failed to establish a connection with MDM: %s", g_strerror(errno));
+		g_warning("Failed to establish a connection with CDM: %s", g_strerror(errno));
 
 		mdm_shutdown_protocol_connection(data);
 
 		return FALSE;
 	}
 
-	response = mdm_send_protocol_msg(data, MDM_PROTOCOL_MSG_VERSION);
+	response = mdm_send_protocol_msg(data, CDM_PROTOCOL_MSG_VERSION);
 
-	if (!response || strncmp(response, "MDM ", strlen("MDM ")) != 0)
+	if (!response || strncmp(response, "CDM ", strlen("CDM ")) != 0)
 	{
 		g_free(response);
 
-		g_warning("Failed to get protocol version from MDM");
+		g_warning("Failed to get protocol version from CDM");
 		mdm_shutdown_protocol_connection(data);
 
 		return FALSE;
@@ -315,7 +315,7 @@ static gboolean mdm_init_protocol_connection(MdmProtocolData* data)
 
 	if (!mdm_authenticate_connection(data))
 	{
-		g_warning("Failed to authenticate with MDM");
+		g_warning("Failed to authenticate with CDM");
 		mdm_shutdown_protocol_connection(data);
 		return FALSE;
 	}
@@ -328,8 +328,8 @@ static void mdm_parse_query_response(MdmProtocolData* data, const char* response
 	char** actions;
 	int i;
 
-	data->available_actions = MDM_LOGOUT_ACTION_NONE;
-	data->current_actions = MDM_LOGOUT_ACTION_NONE;
+	data->available_actions = CDM_LOGOUT_ACTION_NONE;
+	data->current_actions = CDM_LOGOUT_ACTION_NONE;
 
 	if (strncmp(response, "OK ", 3) != 0)
 	{
@@ -342,7 +342,7 @@ static void mdm_parse_query_response(MdmProtocolData* data, const char* response
 
 	for (i = 0; actions[i]; i++)
 	{
-		MdmLogoutAction action = MDM_LOGOUT_ACTION_NONE;
+		MdmLogoutAction action = CDM_LOGOUT_ACTION_NONE;
 		gboolean selected = FALSE;
 		char* str = actions [i];
 		int len;
@@ -360,17 +360,17 @@ static void mdm_parse_query_response(MdmProtocolData* data, const char* response
 			str[len - 1] = '\0';
 		}
 
-		if (!strcmp(str, MDM_ACTION_STR_SHUTDOWN))
+		if (!strcmp(str, CDM_ACTION_STR_SHUTDOWN))
 		{
-				action = MDM_LOGOUT_ACTION_SHUTDOWN;
+				action = CDM_LOGOUT_ACTION_SHUTDOWN;
 		}
-		else if (!strcmp(str, MDM_ACTION_STR_REBOOT))
+		else if (!strcmp(str, CDM_ACTION_STR_REBOOT))
 		{
-				action = MDM_LOGOUT_ACTION_REBOOT;
+				action = CDM_LOGOUT_ACTION_REBOOT;
 		}
-		else if (!strcmp(str, MDM_ACTION_STR_SUSPEND))
+		else if (!strcmp(str, CDM_ACTION_STR_SUSPEND))
 		{
-				action = MDM_LOGOUT_ACTION_SUSPEND;
+				action = CDM_LOGOUT_ACTION_SUSPEND;
 		}
 
 		data->available_actions |= action;
@@ -391,7 +391,7 @@ static void mdm_update_logout_actions(MdmProtocolData* data)
 
 	current_time = time(NULL);
 
-	if (current_time <= (data->last_update + MDM_PROTOCOL_UPDATE_INTERVAL))
+	if (current_time <= (data->last_update + CDM_PROTOCOL_UPDATE_INTERVAL))
 	{
 		return;
 	}
@@ -403,7 +403,7 @@ static void mdm_update_logout_actions(MdmProtocolData* data)
 		return;
 	}
 
-	if ((response = mdm_send_protocol_msg(data, MDM_PROTOCOL_MSG_QUERY_ACTION)))
+	if ((response = mdm_send_protocol_msg(data, CDM_PROTOCOL_MSG_QUERY_ACTION)))
 	{
 		mdm_parse_query_response(data, response);
 		g_free(response);
@@ -451,21 +451,21 @@ void mdm_set_logout_action(MdmLogoutAction action)
 
 	switch (action)
 	{
-		case MDM_LOGOUT_ACTION_NONE:
-			action_str = MDM_ACTION_STR_NONE;
+		case CDM_LOGOUT_ACTION_NONE:
+			action_str = CDM_ACTION_STR_NONE;
 			break;
-		case MDM_LOGOUT_ACTION_SHUTDOWN:
-			action_str = MDM_ACTION_STR_SHUTDOWN;
+		case CDM_LOGOUT_ACTION_SHUTDOWN:
+			action_str = CDM_ACTION_STR_SHUTDOWN;
 			break;
-		case MDM_LOGOUT_ACTION_REBOOT:
-			action_str = MDM_ACTION_STR_REBOOT;
+		case CDM_LOGOUT_ACTION_REBOOT:
+			action_str = CDM_ACTION_STR_REBOOT;
 			break;
-		case MDM_LOGOUT_ACTION_SUSPEND:
-			action_str = MDM_ACTION_STR_SUSPEND;
+		case CDM_LOGOUT_ACTION_SUSPEND:
+			action_str = CDM_ACTION_STR_SUSPEND;
 			break;
 	}
 
-	msg = g_strdup_printf(MDM_PROTOCOL_MSG_SET_ACTION " %s", action_str);
+	msg = g_strdup_printf(CDM_PROTOCOL_MSG_SET_ACTION " %s", action_str);
 
 	response = mdm_send_protocol_msg(&mdm_protocol_data, msg);
 
@@ -486,7 +486,7 @@ void mdm_new_login(void)
         return;
     }
 
-    response = mdm_send_protocol_msg(&mdm_protocol_data, MDM_PROTOCOL_MSG_FLEXI_XSERVER);
+    response = mdm_send_protocol_msg(&mdm_protocol_data, CDM_PROTOCOL_MSG_FLEXI_XSERVER);
 
     g_free(response);
 
