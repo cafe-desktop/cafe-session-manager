@@ -55,9 +55,9 @@ on_property_notify_timeout (gpointer data)
         return FALSE;
 }
 
-static GdkFilterReturn
-property_notify_filter (GdkXEvent *xevent,
-                        GdkEvent  *event,
+static CdkFilterReturn
+property_notify_filter (CdkXEvent *xevent,
+                        CdkEvent  *event,
                         gpointer   data)
 {
         XPropertyEvent *ev = xevent;
@@ -73,9 +73,9 @@ property_notify_filter (GdkXEvent *xevent,
 static gboolean
 wait_for_property_notify (void)
 {
-        GdkDisplay *display;
-        GdkScreen *screen;
-        GdkWindow *root;
+        CdkDisplay *display;
+        CdkScreen *screen;
+        CdkWindow *root;
         Window rootwin;
 
         property_changed = FALSE;
@@ -98,7 +98,7 @@ static char *
 get_ctk_gles_renderer (void)
 {
         CtkWidget *win;
-        GdkGLContext *context;
+        CdkGLContext *context;
         char *renderer = NULL;
 
         win = ctk_window_new (CTK_WINDOW_TOPLEVEL);
@@ -130,7 +130,7 @@ is_discrete_gpu_check (void)
 int
 main (int argc, char **argv)
 {
-        GdkDisplay *display = NULL;
+        CdkDisplay *display = NULL;
         int estatus;
         char *gl_helper_argv[] = { LIBEXECDIR "/cafe-session-check-accelerated-gl-helper", "--print-renderer", NULL };
 #ifdef HAVE_GLESV2

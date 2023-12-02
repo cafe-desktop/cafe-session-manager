@@ -273,7 +273,7 @@ on_startup_enabled_toggled (CtkCellRendererToggle *cell_renderer,
 
 static void
 on_drag_data_received (CtkWidget           *widget,
-                       GdkDragContext      *drag_context,
+                       CdkDragContext      *drag_context,
                        gint                 x,
                        gint                 y,
                        CtkSelectionData    *data,
@@ -307,7 +307,7 @@ on_drag_data_received (CtkWidget           *widget,
 
 static void
 on_drag_begin (CtkWidget           *widget,
-               GdkDragContext      *context,
+               CdkDragContext      *context,
                GsmPropertiesDialog *dialog)
 {
         CtkTreePath *path;
@@ -334,7 +334,7 @@ on_drag_begin (CtkWidget           *widget,
 
 static void
 on_drag_data_get (CtkWidget           *widget,
-                  GdkDragContext      *context,
+                  CdkDragContext      *context,
                   CtkSelectionData    *selection_data,
                   guint                info,
                   guint                time,

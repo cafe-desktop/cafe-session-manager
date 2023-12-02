@@ -229,7 +229,7 @@ _find_icon (CtkIconTheme  *icon_theme,
 }
 
 /* copied from cafe-panel panel-util.c */
-static GdkPixbuf *
+static CdkPixbuf *
 _load_icon (CtkIconTheme  *icon_theme,
             const char    *icon_name,
             int            size,
@@ -237,7 +237,7 @@ _load_icon (CtkIconTheme  *icon_theme,
             int            desired_height,
             char         **error_msg)
 {
-        GdkPixbuf *retval;
+        CdkPixbuf *retval;
         char      *file;
         GError    *error;
 
@@ -269,8 +269,8 @@ _load_icon (CtkIconTheme  *icon_theme,
 }
 
 
-static GdkPixbuf *
-scale_pixbuf (GdkPixbuf *pixbuf,
+static CdkPixbuf *
+scale_pixbuf (CdkPixbuf *pixbuf,
               int        max_width,
               int        max_height,
               gboolean   no_stretch_hint)
@@ -309,13 +309,13 @@ scale_pixbuf (GdkPixbuf *pixbuf,
 }
 
 #ifdef HAVE_XRENDER
-static GdkPixbuf *
+static CdkPixbuf *
 pixbuf_get_from_pixmap (Display *display,
                         Pixmap xpixmap,
                         int width,
                         int height)
 {
-        GdkPixbuf   *retval;
+        CdkPixbuf   *retval;
         cairo_surface_t *surface;
         Visual *visual;
         retval = NULL;
@@ -393,13 +393,13 @@ get_pixmap_for_window (Display *display,
 
 #endif /* HAVE_COMPOSITE */
 
-static GdkPixbuf *
-get_pixbuf_for_window (GdkDisplay *cdkdisplay,
+static CdkPixbuf *
+get_pixbuf_for_window (CdkDisplay *cdkdisplay,
                        guint xid,
                        int thumb_width,
                        int thumb_height)
 {
-        GdkPixbuf *pixbuf = NULL;
+        CdkPixbuf *pixbuf = NULL;
 #ifdef HAVE_XRENDER
         Display   *display;
         Window     xwindow;
@@ -427,7 +427,7 @@ get_pixbuf_for_window (GdkDisplay *cdkdisplay,
         }
 
         if (pixbuf != NULL) {
-                GdkPixbuf *scaled;
+                CdkPixbuf *scaled;
                 g_debug ("GsmInhibitDialog: scaling pixbuf to w=%d h=%d", width, height);
                 scaled = scale_pixbuf (pixbuf, thumb_width, thumb_height, TRUE);
                 g_object_unref (pixbuf);
@@ -443,12 +443,12 @@ static void
 add_inhibitor (GsmInhibitDialog *dialog,
                GsmInhibitor     *inhibitor)
 {
-        GdkDisplay     *cdkdisplay;
+        CdkDisplay     *cdkdisplay;
         const char     *name;
         const char     *icon_name;
         const char     *app_id;
         char           *desktop_filename;
-        GdkPixbuf      *pixbuf;
+        CdkPixbuf      *pixbuf;
         EggDesktopFile *desktop_file;
         GError         *error;
         char          **search_dirs;
@@ -947,7 +947,7 @@ gsm_inhibit_dialog_constructor (GType                  type,
 {
         GsmInhibitDialog *dialog;
 #ifdef HAVE_XRENDER
-        GdkDisplay *cdkdisplay;
+        CdkDisplay *cdkdisplay;
 #endif /* HAVE_XRENDER */
         dialog = GSM_INHIBIT_DIALOG (G_OBJECT_CLASS (gsm_inhibit_dialog_parent_class)->constructor (type,
                                                                                                     n_construct_properties,
