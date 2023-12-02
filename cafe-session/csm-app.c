@@ -35,7 +35,7 @@ typedef struct {
         int              phase;
         char            *startup_id;
         DBusGConnection *connection;
-} GsmAppPrivate;
+} CsmAppPrivate;
 
 enum {
         EXITED,
@@ -56,7 +56,7 @@ enum {
         LAST_PROP
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GsmApp, csm_app, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsmApp, csm_app, G_TYPE_OBJECT)
 
 GQuark
 csm_app_error_quark (void)
@@ -85,10 +85,10 @@ get_next_app_serial (void)
 }
 
 static gboolean
-register_app (GsmApp *app)
+register_app (CsmApp *app)
 {
         GError *error;
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
 
         error = NULL;
         priv = csm_app_get_instance_private (app);
@@ -112,9 +112,9 @@ csm_app_constructor (GType                  type,
                      guint                  n_construct_properties,
                      GObjectConstructParam *construct_properties)
 {
-        GsmApp    *app;
+        CsmApp    *app;
         gboolean   res;
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
 
         app = CSM_APP (G_OBJECT_CLASS (csm_app_parent_class)->constructor (type,
                                                                            n_construct_properties,
@@ -133,15 +133,15 @@ csm_app_constructor (GType                  type,
 }
 
 static void
-csm_app_init (GsmApp *app)
+csm_app_init (CsmApp *app)
 {
 }
 
 static void
-csm_app_set_phase (GsmApp *app,
+csm_app_set_phase (CsmApp *app,
                    int     phase)
 {
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
         g_return_if_fail (CSM_IS_APP (app));
 
         priv = csm_app_get_instance_private (app);
@@ -150,10 +150,10 @@ csm_app_set_phase (GsmApp *app,
 }
 
 static void
-csm_app_set_id (GsmApp     *app,
+csm_app_set_id (CsmApp     *app,
                 const char *id)
 {
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
         g_return_if_fail (CSM_IS_APP (app));
 
         priv = csm_app_get_instance_private (app);
@@ -165,10 +165,10 @@ csm_app_set_id (GsmApp     *app,
 
 }
 static void
-csm_app_set_startup_id (GsmApp     *app,
+csm_app_set_startup_id (CsmApp     *app,
                         const char *startup_id)
 {
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
         g_return_if_fail (CSM_IS_APP (app));
 
         priv = csm_app_get_instance_private (app);
@@ -186,7 +186,7 @@ csm_app_set_property (GObject      *object,
                       const GValue *value,
                       GParamSpec   *pspec)
 {
-        GsmApp *app = CSM_APP (object);
+        CsmApp *app = CSM_APP (object);
 
         switch (prop_id) {
         case PROP_STARTUP_ID:
@@ -209,8 +209,8 @@ csm_app_get_property (GObject    *object,
                       GValue     *value,
                       GParamSpec *pspec)
 {
-        GsmAppPrivate *priv;
-        GsmApp *app = CSM_APP (object);
+        CsmAppPrivate *priv;
+        CsmApp *app = CSM_APP (object);
 
         priv = csm_app_get_instance_private (app);
 
@@ -232,8 +232,8 @@ csm_app_get_property (GObject    *object,
 static void
 csm_app_dispose (GObject *object)
 {
-        GsmAppPrivate *priv;
-        GsmApp *app = CSM_APP (object);
+        CsmAppPrivate *priv;
+        CsmApp *app = CSM_APP (object);
 
         priv = csm_app_get_instance_private (app);
 
@@ -247,7 +247,7 @@ csm_app_dispose (GObject *object)
 }
 
 static void
-csm_app_class_init (GsmAppClass *klass)
+csm_app_class_init (CsmAppClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -291,7 +291,7 @@ csm_app_class_init (GsmAppClass *klass)
                 g_signal_new ("exited",
                               G_OBJECT_CLASS_TYPE (object_class),
                               G_SIGNAL_RUN_LAST,
-                              G_STRUCT_OFFSET (GsmAppClass, exited),
+                              G_STRUCT_OFFSET (CsmAppClass, exited),
                               NULL, NULL,
                               g_cclosure_marshal_VOID__VOID,
                               G_TYPE_NONE,
@@ -300,7 +300,7 @@ csm_app_class_init (GsmAppClass *klass)
                 g_signal_new ("died",
                               G_OBJECT_CLASS_TYPE (object_class),
                               G_SIGNAL_RUN_LAST,
-                              G_STRUCT_OFFSET (GsmAppClass, died),
+                              G_STRUCT_OFFSET (CsmAppClass, died),
                               NULL, NULL,
                               g_cclosure_marshal_VOID__VOID,
                               G_TYPE_NONE,
@@ -310,7 +310,7 @@ csm_app_class_init (GsmAppClass *klass)
                 g_signal_new ("registered",
                               G_OBJECT_CLASS_TYPE (object_class),
                               G_SIGNAL_RUN_LAST,
-                              G_STRUCT_OFFSET (GsmAppClass, registered),
+                              G_STRUCT_OFFSET (CsmAppClass, registered),
                               NULL, NULL,
                               g_cclosure_marshal_VOID__VOID,
                               G_TYPE_NONE,
@@ -320,24 +320,24 @@ csm_app_class_init (GsmAppClass *klass)
 }
 
 const char *
-csm_app_peek_id (GsmApp *app)
+csm_app_peek_id (CsmApp *app)
 {
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
         priv = csm_app_get_instance_private (app);
 
         return priv->id;
 }
 
 const char *
-csm_app_peek_app_id (GsmApp *app)
+csm_app_peek_app_id (CsmApp *app)
 {
         return CSM_APP_GET_CLASS (app)->impl_get_app_id (app);
 }
 
 const char *
-csm_app_peek_startup_id (GsmApp *app)
+csm_app_peek_startup_id (CsmApp *app)
 {
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
 
         priv = csm_app_get_instance_private (app);
         return priv->startup_id;
@@ -345,16 +345,16 @@ csm_app_peek_startup_id (GsmApp *app)
 
 /**
  * csm_app_peek_phase:
- * @app: a %GsmApp
+ * @app: a %CsmApp
  *
  * Returns @app's startup phase.
  *
  * Return value: @app's startup phase
  **/
-GsmManagerPhase
-csm_app_peek_phase (GsmApp *app)
+CsmManagerPhase
+csm_app_peek_phase (CsmApp *app)
 {
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
         g_return_val_if_fail (CSM_IS_APP (app), CSM_MANAGER_PHASE_APPLICATION);
 
         priv = csm_app_get_instance_private (app);
@@ -363,7 +363,7 @@ csm_app_peek_phase (GsmApp *app)
 }
 
 gboolean
-csm_app_peek_is_disabled (GsmApp *app)
+csm_app_peek_is_disabled (CsmApp *app)
 {
         g_return_val_if_fail (CSM_IS_APP (app), FALSE);
 
@@ -375,7 +375,7 @@ csm_app_peek_is_disabled (GsmApp *app)
 }
 
 gboolean
-csm_app_peek_is_conditionally_disabled (GsmApp *app)
+csm_app_peek_is_conditionally_disabled (CsmApp *app)
 {
         g_return_val_if_fail (CSM_IS_APP (app), FALSE);
 
@@ -387,7 +387,7 @@ csm_app_peek_is_conditionally_disabled (GsmApp *app)
 }
 
 gboolean
-csm_app_is_running (GsmApp *app)
+csm_app_is_running (CsmApp *app)
 {
         g_return_val_if_fail (CSM_IS_APP (app), FALSE);
 
@@ -399,7 +399,7 @@ csm_app_is_running (GsmApp *app)
 }
 
 gboolean
-csm_app_peek_autorestart (GsmApp *app)
+csm_app_peek_autorestart (CsmApp *app)
 {
         g_return_val_if_fail (CSM_IS_APP (app), FALSE);
 
@@ -411,7 +411,7 @@ csm_app_peek_autorestart (GsmApp *app)
 }
 
 gboolean
-csm_app_provides (GsmApp *app, const char *service)
+csm_app_provides (CsmApp *app, const char *service)
 {
 
         if (CSM_APP_GET_CLASS (app)->impl_provides) {
@@ -422,7 +422,7 @@ csm_app_provides (GsmApp *app, const char *service)
 }
 
 gboolean
-csm_app_has_autostart_condition (GsmApp     *app,
+csm_app_has_autostart_condition (CsmApp     *app,
                                  const char *condition)
 {
 
@@ -434,10 +434,10 @@ csm_app_has_autostart_condition (GsmApp     *app,
 }
 
 gboolean
-csm_app_start (GsmApp  *app,
+csm_app_start (CsmApp  *app,
                GError **error)
 {
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
 
         priv = csm_app_get_instance_private (app);
         g_debug ("Starting app: %s", priv->id);
@@ -446,10 +446,10 @@ csm_app_start (GsmApp  *app,
 }
 
 gboolean
-csm_app_restart (GsmApp  *app,
+csm_app_restart (CsmApp  *app,
                  GError **error)
 {
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
 
         priv = csm_app_get_instance_private (app);
 
@@ -459,14 +459,14 @@ csm_app_restart (GsmApp  *app,
 }
 
 gboolean
-csm_app_stop (GsmApp  *app,
+csm_app_stop (CsmApp  *app,
               GError **error)
 {
         return CSM_APP_GET_CLASS (app)->impl_stop (app, error);
 }
 
 void
-csm_app_registered (GsmApp *app)
+csm_app_registered (CsmApp *app)
 {
         g_return_if_fail (CSM_IS_APP (app));
 
@@ -474,7 +474,7 @@ csm_app_registered (GsmApp *app)
 }
 
 int
-csm_app_peek_autostart_delay (GsmApp *app)
+csm_app_peek_autostart_delay (CsmApp *app)
 {
         g_return_val_if_fail (CSM_IS_APP (app), FALSE);
 
@@ -486,7 +486,7 @@ csm_app_peek_autostart_delay (GsmApp *app)
 }
 
 void
-csm_app_exited (GsmApp *app)
+csm_app_exited (CsmApp *app)
 {
         g_return_if_fail (CSM_IS_APP (app));
 
@@ -494,7 +494,7 @@ csm_app_exited (GsmApp *app)
 }
 
 void
-csm_app_died (GsmApp *app)
+csm_app_died (CsmApp *app)
 {
         g_return_if_fail (CSM_IS_APP (app));
 
@@ -502,7 +502,7 @@ csm_app_died (GsmApp *app)
 }
 
 gboolean
-csm_app_get_app_id (GsmApp     *app,
+csm_app_get_app_id (CsmApp     *app,
                     char      **id,
                     GError    **error)
 {
@@ -512,11 +512,11 @@ csm_app_get_app_id (GsmApp     *app,
 }
 
 gboolean
-csm_app_get_startup_id (GsmApp     *app,
+csm_app_get_startup_id (CsmApp     *app,
                         char      **id,
                         GError    **error)
 {
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
         g_return_val_if_fail (CSM_IS_APP (app), FALSE);
 
         priv = csm_app_get_instance_private (app);
@@ -525,11 +525,11 @@ csm_app_get_startup_id (GsmApp     *app,
 }
 
 gboolean
-csm_app_get_phase (GsmApp     *app,
+csm_app_get_phase (CsmApp     *app,
                    guint      *phase,
                    GError    **error)
 {
-        GsmAppPrivate *priv;
+        CsmAppPrivate *priv;
         g_return_val_if_fail (CSM_IS_APP (app), FALSE);
 
         priv = csm_app_get_instance_private (app);

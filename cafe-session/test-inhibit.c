@@ -58,7 +58,7 @@ typedef enum {
         CSM_INHIBITOR_FLAG_LOGOUT      = 1 << 0,
         CSM_INHIBITOR_FLAG_SWITCH_USER = 1 << 1,
         CSM_INHIBITOR_FLAG_SUSPEND     = 1 << 2
-} GsmInhibitFlag;
+} CsmInhibitFlag;
 
 static gboolean
 do_inhibit_for_window (CdkWindow *window)

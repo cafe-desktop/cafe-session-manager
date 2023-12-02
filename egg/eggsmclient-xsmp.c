@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2007 Novell, Inc.
  *
- * Inspired by various other pieces of code including GsmClient (C)
+ * Inspired by various other pieces of code including CsmClient (C)
  * 2001 Havoc Pennington, CafeClient (C) 1998 Carsten Schaar, and twm
  * session code (C) 1998 The Open Group.
  *

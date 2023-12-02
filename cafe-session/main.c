@@ -200,7 +200,7 @@ static gboolean acquire_name(void)
 
 /* This doesn't contain the required components, so we need to always
  * call append_required_apps() after a call to append_default_apps(). */
-static void append_default_apps(GsmManager* manager, const char* default_session_key, char** autostart_dirs)
+static void append_default_apps(CsmManager* manager, const char* default_session_key, char** autostart_dirs)
 {
 	gint i;
 	gchar** default_apps;
@@ -236,7 +236,7 @@ static void append_default_apps(GsmManager* manager, const char* default_session
 	g_strfreev (default_apps);
 }
 
-static void append_required_apps(GsmManager* manager)
+static void append_required_apps(CsmManager* manager)
 {
 	gchar** required_components;
 	gint i;
@@ -302,7 +302,7 @@ static void append_required_apps(GsmManager* manager)
 	g_object_unref(settings_required_components);
 }
 
-static void append_accessibility_apps(GsmManager* manager)
+static void append_accessibility_apps(CsmManager* manager)
 {
 	GSettings* mobility_settings;
 	GSettings* visual_settings;
@@ -350,11 +350,11 @@ static void append_accessibility_apps(GsmManager* manager)
 	g_object_unref (visual_settings);
 }
 
-static void maybe_load_saved_session_apps(GsmManager* manager)
+static void maybe_load_saved_session_apps(CsmManager* manager)
 {
-	GsmConsolekit* consolekit = NULL;
+	CsmConsolekit* consolekit = NULL;
 #ifdef HAVE_SYSTEMD
-	GsmSystemd* systemd = NULL;
+	CsmSystemd* systemd = NULL;
 #endif
 	char* session_type;
 	gboolean is_login;
@@ -396,7 +396,7 @@ static void maybe_load_saved_session_apps(GsmManager* manager)
 	g_free(session_type);
 }
 
-static void load_standard_apps (GsmManager* manager, const char* default_session_key)
+static void load_standard_apps (CsmManager* manager, const char* default_session_key)
 {
 	char** autostart_dirs;
 	int i;
@@ -422,7 +422,7 @@ static void load_standard_apps (GsmManager* manager, const char* default_session
 	g_strfreev(autostart_dirs);
 }
 
-static void load_override_apps(GsmManager* manager, char** override_autostart_dirs)
+static void load_override_apps(CsmManager* manager, char** override_autostart_dirs)
 {
 	int i;
 
@@ -435,7 +435,7 @@ static void load_override_apps(GsmManager* manager, char** override_autostart_di
 static gboolean signal_cb(int signo, gpointer data)
 {
 	int ret;
-	GsmManager* manager;
+	CsmManager* manager;
 
 	g_debug("Got callback for signal %d", signo);
 
@@ -451,7 +451,7 @@ static gboolean signal_cb(int signo, gpointer data)
 			break;
 		case SIGINT:
 		case SIGTERM:
-			manager = (GsmManager*) data;
+			manager = (CsmManager*) data;
 			csm_manager_logout(manager, CSM_MANAGER_LOGOUT_MODE_FORCE, NULL);
 
 			/* let the fatal signals interrupt us */
@@ -479,12 +479,12 @@ static gboolean signal_cb(int signo, gpointer data)
 
 static void shutdown_cb(gpointer data)
 {
-	GsmManager* manager = (GsmManager*) data;
+	CsmManager* manager = (CsmManager*) data;
 	g_debug("Calling shutdown callback function");
 
 	/*
 	 * When the signal handler gets a shutdown signal, it calls
-	 * this function to inform GsmManager to not restart
+	 * this function to inform CsmManager to not restart
 	 * applications in the off chance a handler is already queued
 	 * to dispatch following the below call to ctk_main_quit.
 	 */
@@ -598,9 +598,9 @@ int main(int argc, char** argv)
 	struct sigaction sa;
 	GError* error;
 	const char* display_str;
-	GsmManager* manager;
-	GsmStore* client_store;
-	GsmXsmpServer* xsmp_server;
+	CsmManager* manager;
+	CsmStore* client_store;
+	CsmXsmpServer* xsmp_server;
 	GSettings* debug_settings = NULL;
 	GSettings* accessibility_settings;
 	CdmSignalHandler* signal_handler;

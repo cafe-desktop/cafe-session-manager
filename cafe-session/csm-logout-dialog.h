@@ -29,7 +29,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_LOGOUT_DIALOG         (csm_logout_dialog_get_type ())
-G_DECLARE_FINAL_TYPE (GsmLogoutDialog, csm_logout_dialog, GSM, LOGOUT_DIALOG, CtkMessageDialog)
+G_DECLARE_FINAL_TYPE (CsmLogoutDialog, csm_logout_dialog, GSM, LOGOUT_DIALOG, CtkMessageDialog)
 
 enum
 {

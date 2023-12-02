@@ -27,15 +27,15 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_PRESENCE            (csm_presence_get_type ())
-G_DECLARE_DERIVABLE_TYPE (GsmPresence, csm_presence, GSM, PRESENCE, GObject)
+G_DECLARE_DERIVABLE_TYPE (CsmPresence, csm_presence, GSM, PRESENCE, GObject)
 
-struct _GsmPresenceClass
+struct _CsmPresenceClass
 {
         GObjectClass parent_class;
 
-        void          (* status_changed)        (GsmPresence     *presence,
+        void          (* status_changed)        (CsmPresence     *presence,
                                                  guint            status);
-        void          (* status_text_changed)   (GsmPresence     *presence,
+        void          (* status_text_changed)   (CsmPresence     *presence,
                                                  const char      *status_text);
 
 };
@@ -45,13 +45,13 @@ typedef enum {
         CSM_PRESENCE_STATUS_INVISIBLE,
         CSM_PRESENCE_STATUS_BUSY,
         CSM_PRESENCE_STATUS_IDLE,
-} GsmPresenceStatus;
+} CsmPresenceStatus;
 
 typedef enum
 {
         CSM_PRESENCE_ERROR_GENERAL = 0,
         CSM_PRESENCE_NUM_ERRORS
-} GsmPresenceError;
+} CsmPresenceError;
 
 #define CSM_PRESENCE_ERROR csm_presence_error_quark ()
 GType          csm_presence_error_get_type       (void);
@@ -59,18 +59,18 @@ GType          csm_presence_error_get_type       (void);
 
 GQuark         csm_presence_error_quark          (void);
 
-GsmPresence *  csm_presence_new                  (void);
+CsmPresence *  csm_presence_new                  (void);
 
-void           csm_presence_set_idle_enabled     (GsmPresence  *presence,
+void           csm_presence_set_idle_enabled     (CsmPresence  *presence,
                                                   gboolean      enabled);
-void           csm_presence_set_idle_timeout     (GsmPresence  *presence,
+void           csm_presence_set_idle_timeout     (CsmPresence  *presence,
                                                   guint         n_seconds);
 
 /* exported to bus */
-gboolean       csm_presence_set_status           (GsmPresence  *presence,
+gboolean       csm_presence_set_status           (CsmPresence  *presence,
                                                   guint         status,
                                                   GError      **error);
-gboolean       csm_presence_set_status_text      (GsmPresence  *presence,
+gboolean       csm_presence_set_status_text      (CsmPresence  *presence,
                                                   const char   *status_text,
                                                   GError      **error);
 

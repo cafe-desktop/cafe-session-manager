@@ -28,44 +28,44 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_XSMP_CLIENT              (csm_xsmp_client_get_type ())
-G_DECLARE_DERIVABLE_TYPE                  (GsmXSMPClient, csm_xsmp_client, GSM, XSMP_CLIENT, GsmClient)
+G_DECLARE_DERIVABLE_TYPE                  (CsmXSMPClient, csm_xsmp_client, GSM, XSMP_CLIENT, CsmClient)
 
-struct _GsmXSMPClientClass
+struct _CsmXSMPClientClass
 {
-        GsmClientClass parent_class;
+        CsmClientClass parent_class;
 
         /* signals */
-        gboolean (*register_request)     (GsmXSMPClient  *client,
+        gboolean (*register_request)     (CsmXSMPClient  *client,
                                           char          **client_id);
-        gboolean (*logout_request)       (GsmXSMPClient  *client,
+        gboolean (*logout_request)       (CsmXSMPClient  *client,
                                           gboolean        prompt);
 
 
-        void     (*saved_state)          (GsmXSMPClient  *client);
+        void     (*saved_state)          (CsmXSMPClient  *client);
 
-        void     (*request_phase2)       (GsmXSMPClient  *client);
+        void     (*request_phase2)       (CsmXSMPClient  *client);
 
-        void     (*request_interaction)  (GsmXSMPClient  *client);
-        void     (*interaction_done)     (GsmXSMPClient  *client,
+        void     (*request_interaction)  (CsmXSMPClient  *client);
+        void     (*interaction_done)     (CsmXSMPClient  *client,
                                           gboolean        cancel_shutdown);
 
-        void     (*save_yourself_done)   (GsmXSMPClient  *client);
+        void     (*save_yourself_done)   (CsmXSMPClient  *client);
 
 };
 
-GsmClient  *csm_xsmp_client_new                  (IceConn         ice_conn);
+CsmClient  *csm_xsmp_client_new                  (IceConn         ice_conn);
 
-void        csm_xsmp_client_connect              (GsmXSMPClient  *client,
+void        csm_xsmp_client_connect              (CsmXSMPClient  *client,
                                                   SmsConn         conn,
                                                   unsigned long  *mask_ret,
                                                   SmsCallbacks   *callbacks_ret);
 
-void        csm_xsmp_client_save_state           (GsmXSMPClient  *client);
-void        csm_xsmp_client_save_yourself        (GsmXSMPClient  *client,
+void        csm_xsmp_client_save_state           (CsmXSMPClient  *client);
+void        csm_xsmp_client_save_yourself        (CsmXSMPClient  *client,
                                                   gboolean        save_state);
-void        csm_xsmp_client_save_yourself_phase2 (GsmXSMPClient  *client);
-void        csm_xsmp_client_interact             (GsmXSMPClient  *client);
-void        csm_xsmp_client_shutdown_cancelled   (GsmXSMPClient  *client);
+void        csm_xsmp_client_save_yourself_phase2 (CsmXSMPClient  *client);
+void        csm_xsmp_client_interact             (CsmXSMPClient  *client);
+void        csm_xsmp_client_shutdown_cancelled   (CsmXSMPClient  *client);
 
 G_END_DECLS
 

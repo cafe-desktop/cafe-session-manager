@@ -32,24 +32,24 @@ G_BEGIN_DECLS
 #define CSM_TYPE_CONSOLEKIT             (csm_consolekit_get_type ())
 #define CSM_CONSOLEKIT_ERROR            (csm_consolekit_error_quark ())
 
-G_DECLARE_DERIVABLE_TYPE (GsmConsolekit, csm_consolekit, GSM, CONSOLEKIT, GObject)
+G_DECLARE_DERIVABLE_TYPE (CsmConsolekit, csm_consolekit, GSM, CONSOLEKIT, GObject)
 
-typedef enum   _GsmConsolekitError   GsmConsolekitError;
+typedef enum   _CsmConsolekitError   CsmConsolekitError;
 
-struct _GsmConsolekitClass
+struct _CsmConsolekitClass
 {
         GObjectClass parent_class;
 
-        void (* request_completed) (GsmConsolekit *manager,
+        void (* request_completed) (CsmConsolekit *manager,
                                     GError        *error);
 
-        void (* privileges_completed) (GsmConsolekit *manager,
+        void (* privileges_completed) (CsmConsolekit *manager,
                                        gboolean       success,
                                        gboolean       ask_later,
                                        GError        *error);
 };
 
-enum _GsmConsolekitError {
+enum _CsmConsolekitError {
         CSM_CONSOLEKIT_ERROR_RESTARTING = 0,
         CSM_CONSOLEKIT_ERROR_STOPPING
 };
@@ -58,36 +58,36 @@ enum _GsmConsolekitError {
 
 GQuark           csm_consolekit_error_quark     (void);
 
-GsmConsolekit   *csm_consolekit_new             (void) G_GNUC_MALLOC;
+CsmConsolekit   *csm_consolekit_new             (void) G_GNUC_MALLOC;
 
-gboolean         csm_consolekit_can_switch_user (GsmConsolekit *manager);
+gboolean         csm_consolekit_can_switch_user (CsmConsolekit *manager);
 
-gboolean         csm_consolekit_get_restart_privileges (GsmConsolekit *manager);
+gboolean         csm_consolekit_get_restart_privileges (CsmConsolekit *manager);
 
-gboolean         csm_consolekit_get_stop_privileges    (GsmConsolekit *manager);
+gboolean         csm_consolekit_get_stop_privileges    (CsmConsolekit *manager);
 
-gboolean         csm_consolekit_can_stop        (GsmConsolekit *manager);
+gboolean         csm_consolekit_can_stop        (CsmConsolekit *manager);
 
-gboolean         csm_consolekit_can_restart     (GsmConsolekit *manager);
+gboolean         csm_consolekit_can_restart     (CsmConsolekit *manager);
 
-gboolean         csm_consolekit_can_suspend     (GsmConsolekit *manager);
+gboolean         csm_consolekit_can_suspend     (CsmConsolekit *manager);
 
-gboolean         csm_consolekit_can_hibernate   (GsmConsolekit *manager);
+gboolean         csm_consolekit_can_hibernate   (CsmConsolekit *manager);
 
-void             csm_consolekit_attempt_stop    (GsmConsolekit *manager);
+void             csm_consolekit_attempt_stop    (CsmConsolekit *manager);
 
-void             csm_consolekit_attempt_restart (GsmConsolekit *manager);
+void             csm_consolekit_attempt_restart (CsmConsolekit *manager);
 
-void             csm_consolekit_attempt_suspend (GsmConsolekit *manager);
+void             csm_consolekit_attempt_suspend (CsmConsolekit *manager);
 
-void             csm_consolekit_attempt_hibernate (GsmConsolekit *manager);
+void             csm_consolekit_attempt_hibernate (CsmConsolekit *manager);
 
-void             csm_consolekit_set_session_idle (GsmConsolekit *manager,
+void             csm_consolekit_set_session_idle (CsmConsolekit *manager,
                                                   gboolean       is_idle);
 
-gchar           *csm_consolekit_get_current_session_type (GsmConsolekit *manager);
+gchar           *csm_consolekit_get_current_session_type (CsmConsolekit *manager);
 
-GsmConsolekit   *csm_get_consolekit             (void);
+CsmConsolekit   *csm_get_consolekit             (void);
 
 G_END_DECLS
 
