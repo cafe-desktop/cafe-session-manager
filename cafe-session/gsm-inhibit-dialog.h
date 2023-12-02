@@ -22,7 +22,7 @@
 #define __GSM_INHIBIT_DIALOG_H
 
 #include <glib-object.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "gsm-store.h"
 

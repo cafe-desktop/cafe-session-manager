@@ -24,7 +24,7 @@
 #ifndef __GSM_LOGOUT_DIALOG_H__
 #define __GSM_LOGOUT_DIALOG_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

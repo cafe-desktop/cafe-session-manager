@@ -30,7 +30,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <dbus/dbus-glib.h>
 
@@ -350,7 +350,7 @@ gsm_util_init_error (gboolean    fatal,
 
         /* If option parsing failed, Gtk won't have been initialized... */
         if (!gdk_display_get_default ()) {
-                if (!gtk_init_check (NULL, NULL)) {
+                if (!ctk_init_check (NULL, NULL)) {
                         /* Oh well, no X for you! */
                         g_printerr (_("Unable to start login session (and unable to connect to the X server)"));
                         g_printerr ("%s", msg);
@@ -358,18 +358,18 @@ gsm_util_init_error (gboolean    fatal,
                 }
         }
 
-        dialog = gtk_message_dialog_new (NULL, 0, GTK_MESSAGE_ERROR,
+        dialog = ctk_message_dialog_new (NULL, 0, GTK_MESSAGE_ERROR,
                                          GTK_BUTTONS_CLOSE, "%s", msg);
 
         g_free (msg);
 
-        gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
-        gtk_dialog_run (GTK_DIALOG (dialog));
+        ctk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
+        ctk_dialog_run (GTK_DIALOG (dialog));
 
-        gtk_widget_destroy (dialog);
+        ctk_widget_destroy (dialog);
 
         if (fatal) {
-                gtk_main_quit ();
+                ctk_main_quit ();
         }
 }
 
@@ -697,14 +697,14 @@ gsm_util_dialog_add_button (GtkDialog   *dialog,
 {
 	GtkWidget *button;
 
-	button = gtk_button_new_with_mnemonic (button_text);
-	gtk_button_set_image (GTK_BUTTON (button), gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_BUTTON));
+	button = ctk_button_new_with_mnemonic (button_text);
+	ctk_button_set_image (GTK_BUTTON (button), ctk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_BUTTON));
 
-	gtk_button_set_use_underline (GTK_BUTTON (button), TRUE);
-	gtk_style_context_add_class (gtk_widget_get_style_context (button), "text-button");
-	gtk_widget_set_can_default (button, TRUE);
-	gtk_widget_show (button);
-	gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, response_id);
+	ctk_button_set_use_underline (GTK_BUTTON (button), TRUE);
+	ctk_style_context_add_class (ctk_widget_get_style_context (button), "text-button");
+	ctk_widget_set_can_default (button, TRUE);
+	ctk_widget_show (button);
+	ctk_dialog_add_action_widget (GTK_DIALOG (dialog), button, response_id);
 
 	return button;
 }

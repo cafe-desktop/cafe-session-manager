@@ -28,7 +28,7 @@
 #include <string.h>
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #define GSM_SERVICE_DBUS "org.gnome.SessionManager"
 #define GSM_PATH_DBUS "/org/gnome/SessionManager"
@@ -79,12 +79,12 @@ static void display_error(const char* message)
 {
 	if (show_error_dialogs && !no_interaction)
 	{
-		GtkWidget* dialog = gtk_message_dialog_new(NULL, 0, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", message);
+		GtkWidget* dialog = ctk_message_dialog_new(NULL, 0, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", message);
 
-		gtk_window_set_default_icon_name ("dialog-error");
+		ctk_window_set_default_icon_name ("dialog-error");
 
-		gtk_dialog_run(GTK_DIALOG(dialog));
-		gtk_widget_destroy(dialog);
+		ctk_dialog_run(GTK_DIALOG(dialog));
+		ctk_widget_destroy(dialog);
 	}
 	else
 	{
@@ -212,7 +212,7 @@ int main(int argc, char* argv[])
 
 	error = NULL;
 
-	if (!gtk_init_with_args(&argc, &argv, NULL, options, NULL, &error))
+	if (!ctk_init_with_args(&argc, &argv, NULL, options, NULL, &error))
 	{
 		g_warning("Unable to start: %s", error->message);
 		g_error_free(error);

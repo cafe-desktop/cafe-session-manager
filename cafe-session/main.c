@@ -31,7 +31,7 @@
 
 #include <glib/gi18n.h>
 #include <glib.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gio/gio.h>
 
 #include <dbus/dbus.h>
@@ -73,7 +73,7 @@
 #define MOBILITY_STARTUP_KEY  "startup"
 
 #define CAFE_INTERFACE_SCHEMA "org.cafe.interface"
-#define GTK_OVERLAY_SCROLL    "gtk-overlay-scrolling"
+#define GTK_OVERLAY_SCROLL    "ctk-overlay-scrolling"
 
 #define GSM_DBUS_NAME "org.gnome.SessionManager"
 
@@ -486,11 +486,11 @@ static void shutdown_cb(gpointer data)
 	 * When the signal handler gets a shutdown signal, it calls
 	 * this function to inform GsmManager to not restart
 	 * applications in the off chance a handler is already queued
-	 * to dispatch following the below call to gtk_main_quit.
+	 * to dispatch following the below call to ctk_main_quit.
 	 */
 	gsm_manager_set_phase(manager, GSM_MANAGER_PHASE_EXIT);
 
-	gtk_main_quit();
+	ctk_main_quit();
 }
 
 static gboolean require_dbus_session(int argc, char** argv, GError** error)
@@ -632,7 +632,7 @@ int main(int argc, char** argv)
 	sigaction(SIGPIPE, &sa, 0);
 
 	error = NULL;
-	gtk_init_with_args(&argc, &argv, (char*) _(" - the CAFE session manager"), entries, GETTEXT_PACKAGE, &error);
+	ctk_init_with_args(&argc, &argv, (char*) _(" - the CAFE session manager"), entries, GETTEXT_PACKAGE, &error);
 
 	if (error != NULL)
 	{
@@ -759,7 +759,7 @@ int main(int argc, char** argv)
 	_gsm_manager_set_renderer (manager, gl_renderer);
 	gsm_manager_start(manager);
 
-	gtk_main();
+	ctk_main();
 
 	if (xsmp_server != NULL)
 	{

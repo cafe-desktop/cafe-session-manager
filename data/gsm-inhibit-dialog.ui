@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <interface>
-  <requires lib="gtk+" version="3.22"/>
+  <requires lib="ctk+" version="3.22"/>
   <!-- interface-naming-policy toplevel-contextual -->
   <object class="GtkBox" id="main-box">
     <property name="visible">True</property>

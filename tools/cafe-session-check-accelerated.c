@@ -27,7 +27,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <epoxy/gl.h>
 #include <gdk/gdkx.h>
 #include <X11/Xatom.h>
@@ -51,7 +51,7 @@ static gboolean property_changed;
 static gboolean
 on_property_notify_timeout (gpointer data)
 {
-        gtk_main_quit ();
+        ctk_main_quit ();
         return FALSE;
 }
 
@@ -64,7 +64,7 @@ property_notify_filter (GdkXEvent *xevent,
 
         if (ev->type == PropertyNotify && ev->atom == is_accelerated_atom) {
                 property_changed = TRUE;
-                gtk_main_quit ();
+                ctk_main_quit ();
         }
 
         return GDK_FILTER_CONTINUE;
@@ -89,21 +89,21 @@ wait_for_property_notify (void)
         gdk_window_add_filter (root, property_notify_filter, NULL);
         g_timeout_add (PROPERTY_CHANGE_TIMEOUT, on_property_notify_timeout, NULL);
 
-        gtk_main ();
+        ctk_main ();
 
         return property_changed;
 }
 
 static char *
-get_gtk_gles_renderer (void)
+get_ctk_gles_renderer (void)
 {
         GtkWidget *win;
         GdkGLContext *context;
         char *renderer = NULL;
 
-        win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-        gtk_widget_realize (win);
-        context = gdk_window_create_gl_context (gtk_widget_get_window (win), NULL);
+        win = ctk_window_new (GTK_WINDOW_TOPLEVEL);
+        ctk_widget_realize (win);
+        context = gdk_window_create_gl_context (ctk_widget_get_window (win), NULL);
         if (!context)
                 return NULL;
         gdk_gl_context_make_current (context);
@@ -145,7 +145,7 @@ main (int argc, char **argv)
         glong is_accelerated, is_software_rendering;
         GError *gl_error = NULL;
 
-        gtk_init (NULL, NULL);
+        ctk_init (NULL, NULL);
 
         /* cafe-session-check-accelerated gets run before X is started in the wayland
          * case, and it currently requires X. Until we have that working, just always
@@ -154,7 +154,7 @@ main (int argc, char **argv)
          * when requesting information about the second.
          */
         if (is_discrete_gpu_check () || g_strcmp0 (g_getenv ("XDG_SESSION_TYPE"), "x11") != 0) {
-                renderer_string = get_gtk_gles_renderer ();
+                renderer_string = get_ctk_gles_renderer ();
                 if (renderer_string) {
                         g_print ("%s", renderer_string);
                         return 0;

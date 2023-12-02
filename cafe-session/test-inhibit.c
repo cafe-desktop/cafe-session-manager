@@ -26,7 +26,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkx.h>
 #include <dbus/dbus-glib.h>
 
@@ -143,7 +143,7 @@ on_widget_show (GtkWidget *dialog,
 {
         gboolean res;
 
-        res = do_inhibit_for_window (gtk_widget_get_window (dialog));
+        res = do_inhibit_for_window (ctk_widget_get_window (dialog));
         if (! res) {
                 g_warning ("Unable to register client with session manager");
         }
@@ -158,7 +158,7 @@ main (int   argc,
 
         g_log_set_always_fatal (G_LOG_LEVEL_ERROR | G_LOG_LEVEL_CRITICAL | G_LOG_LEVEL_WARNING);
 
-        gtk_init (&argc, &argv);
+        ctk_init (&argc, &argv);
 
         res = session_manager_connect ();
         if (! res) {
@@ -166,19 +166,19 @@ main (int   argc,
                 exit (1);
         }
 
-        g_timeout_add_seconds (30, (GSourceFunc)gtk_main_quit, NULL);
+        g_timeout_add_seconds (30, (GSourceFunc)ctk_main_quit, NULL);
 
-        dialog = gtk_message_dialog_new (NULL,
+        dialog = ctk_message_dialog_new (NULL,
                                          0,
                                          GTK_MESSAGE_INFO,
                                          GTK_BUTTONS_CANCEL,
                                          "Inhibiting logout, switch user, and suspend.");
 
-        g_signal_connect (dialog, "response", G_CALLBACK (gtk_main_quit), NULL);
+        g_signal_connect (dialog, "response", G_CALLBACK (ctk_main_quit), NULL);
         g_signal_connect (dialog, "show", G_CALLBACK (on_widget_show), NULL);
-        gtk_widget_show (dialog);
+        ctk_widget_show (dialog);
 
-        gtk_main ();
+        ctk_main ();
 
         do_uninhibit ();
         session_manager_disconnect ();

@@ -56,8 +56,8 @@
   * change app startup dalay where it in system path
   * Remove X-GNOME-Autostart-Delay support
   * Add a delay setting to Startup Manager
-  * gsm-properties-dialog: avoid 'gtk_dialog_add_buttons' with stock ids
-  * avoid 'gtk_dialog_add_button' with stock ids
+  * gsm-properties-dialog: avoid 'ctk_dialog_add_buttons' with stock ids
+  * avoid 'ctk_dialog_add_button' with stock ids
   * cafe-session-save: show icon in error dialog
   * Migrate from dbus-glib to gdbus
   * gsm-inhibit-dialog.ui: avoid deprecated GtkVBox
@@ -88,7 +88,7 @@
   * README: remove link to mailing list
   * add style class logout-dialog
   * avoid deprecated gdk_screen_make_display_name
-  * don't use deprecated gtk_show_uri
+  * don't use deprecated ctk_show_uri
 
 ### cafe-session-manager 1.19.0
 
@@ -117,7 +117,7 @@
 
 ### cafe-session-manager 1.16.0
 
-  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
+  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-ctk
     build option
   * Translations update
 
