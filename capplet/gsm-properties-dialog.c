@@ -53,15 +53,15 @@
 
 struct _GsmPropertiesDialog
 {
-        GtkDialog          parent;
-        GtkBuilder        *xml;
-        GtkListStore      *list_store;
-        GtkTreeModel      *tree_filter;
+        CtkDialog          parent;
+        CtkBuilder        *xml;
+        CtkListStore      *list_store;
+        CtkTreeModel      *tree_filter;
 
-        GtkTreeView       *treeview;
-        GtkWidget         *add_button;
-        GtkWidget         *delete_button;
-        GtkWidget         *edit_button;
+        CtkTreeView       *treeview;
+        CtkWidget         *add_button;
+        CtkWidget         *delete_button;
+        CtkWidget         *edit_button;
 
         GspAppManager     *manager;
 
@@ -83,8 +83,8 @@ static void     gsm_properties_dialog_finalize    (GObject                  *obj
 G_DEFINE_TYPE (GsmPropertiesDialog, gsm_properties_dialog, CTK_TYPE_DIALOG)
 
 static gboolean
-find_by_app (GtkTreeModel *model,
-             GtkTreeIter  *iter,
+find_by_app (CtkTreeModel *model,
+             CtkTreeIter  *iter,
              GspApp       *app)
 {
         GspApp *iter_app = NULL;
@@ -108,8 +108,8 @@ find_by_app (GtkTreeModel *model,
 }
 
 static void
-_fill_iter_from_app (GtkListStore *list_store,
-                     GtkTreeIter  *iter,
+_fill_iter_from_app (CtkListStore *list_store,
+                     CtkTreeIter  *iter,
                      GspApp       *app)
 {
         gboolean    hidden;
@@ -125,7 +125,7 @@ _fill_iter_from_app (GtkListStore *list_store,
         app_name    = gsp_app_get_name (app);
 
         if (G_IS_THEMED_ICON (icon)) {
-                GtkIconTheme       *theme;
+                CtkIconTheme       *theme;
                 const char * const *icon_names;
 
                 theme = ctk_icon_theme_get_default ();
@@ -164,7 +164,7 @@ static void
 _app_changed (GsmPropertiesDialog *dialog,
               GspApp              *app)
 {
-        GtkTreeIter iter;
+        CtkTreeIter iter;
 
         if (!find_by_app (CTK_TREE_MODEL (dialog->list_store),
                           &iter, app)) {
@@ -178,7 +178,7 @@ static void
 append_app (GsmPropertiesDialog *dialog,
             GspApp              *app)
 {
-        GtkTreeIter   iter;
+        CtkTreeIter   iter;
         if (find_by_app (CTK_TREE_MODEL (dialog->list_store),
                          &iter, app)) {
                 return;
@@ -204,7 +204,7 @@ _app_removed (GsmPropertiesDialog *dialog,
               GspApp              *app,
               GspAppManager       *manager)
 {
-        GtkTreeIter iter;
+        CtkTreeIter iter;
 
         if (!find_by_app (CTK_TREE_MODEL (dialog->list_store),
                           &iter, app)) {
@@ -231,7 +231,7 @@ populate_model (GsmPropertiesDialog *dialog)
 }
 
 static void
-on_selection_changed (GtkTreeSelection    *selection,
+on_selection_changed (CtkTreeSelection    *selection,
                       GsmPropertiesDialog *dialog)
 {
         gboolean sel;
@@ -243,11 +243,11 @@ on_selection_changed (GtkTreeSelection    *selection,
 }
 
 static void
-on_startup_enabled_toggled (GtkCellRendererToggle *cell_renderer,
+on_startup_enabled_toggled (CtkCellRendererToggle *cell_renderer,
                             char                  *path,
                             GsmPropertiesDialog   *dialog)
 {
-        GtkTreeIter iter;
+        CtkTreeIter iter;
         GspApp     *app;
         gboolean    active;
 
@@ -272,11 +272,11 @@ on_startup_enabled_toggled (GtkCellRendererToggle *cell_renderer,
 }
 
 static void
-on_drag_data_received (GtkWidget           *widget,
+on_drag_data_received (CtkWidget           *widget,
                        GdkDragContext      *drag_context,
                        gint                 x,
                        gint                 y,
-                       GtkSelectionData    *data,
+                       CtkSelectionData    *data,
                        guint                info,
                        guint                time,
                        GsmPropertiesDialog *dialog)
@@ -306,12 +306,12 @@ on_drag_data_received (GtkWidget           *widget,
 }
 
 static void
-on_drag_begin (GtkWidget           *widget,
+on_drag_begin (CtkWidget           *widget,
                GdkDragContext      *context,
                GsmPropertiesDialog *dialog)
 {
-        GtkTreePath *path;
-        GtkTreeIter  iter;
+        CtkTreePath *path;
+        CtkTreeIter  iter;
         GspApp      *app;
 
         ctk_tree_view_get_cursor (CTK_TREE_VIEW (widget), &path, NULL);
@@ -333,9 +333,9 @@ on_drag_begin (GtkWidget           *widget,
 }
 
 static void
-on_drag_data_get (GtkWidget           *widget,
+on_drag_data_get (CtkWidget           *widget,
                   GdkDragContext      *context,
-                  GtkSelectionData    *selection_data,
+                  CtkSelectionData    *selection_data,
                   guint                info,
                   guint                time,
                   GsmPropertiesDialog *dialog)
@@ -358,10 +358,10 @@ on_drag_data_get (GtkWidget           *widget,
 }
 
 static void
-on_add_app_clicked (GtkWidget           *widget,
+on_add_app_clicked (CtkWidget           *widget,
                     GsmPropertiesDialog *dialog)
 {
-        GtkWidget  *add_dialog;
+        CtkWidget  *add_dialog;
         char       *name;
         char       *exec;
         char       *comment;
@@ -381,11 +381,11 @@ on_add_app_clicked (GtkWidget           *widget,
 }
 
 static void
-on_delete_app_clicked (GtkWidget           *widget,
+on_delete_app_clicked (CtkWidget           *widget,
                        GsmPropertiesDialog *dialog)
 {
-        GtkTreeSelection *selection;
-        GtkTreeIter       iter;
+        CtkTreeSelection *selection;
+        CtkTreeIter       iter;
         GspApp           *app;
 
         selection = ctk_tree_view_get_selection (dialog->treeview);
@@ -407,11 +407,11 @@ on_delete_app_clicked (GtkWidget           *widget,
 }
 
 static void
-on_edit_app_clicked (GtkWidget           *widget,
+on_edit_app_clicked (CtkWidget           *widget,
                      GsmPropertiesDialog *dialog)
 {
-        GtkTreeSelection *selection;
-        GtkTreeIter       iter;
+        CtkTreeSelection *selection;
+        CtkTreeIter       iter;
         GspApp           *app;
 
         selection = ctk_tree_view_get_selection (dialog->treeview);
@@ -427,7 +427,7 @@ on_edit_app_clicked (GtkWidget           *widget,
                             -1);
 
         if (app) {
-                GtkWidget  *edit_dialog;
+                CtkWidget  *edit_dialog;
                 char       *name;
                 char       *exec;
                 char       *comment;
@@ -453,9 +453,9 @@ on_edit_app_clicked (GtkWidget           *widget,
 }
 
 static void
-on_row_activated (GtkTreeView         *tree_view,
-                  GtkTreePath         *path,
-                  GtkTreeViewColumn   *column,
+on_row_activated (CtkTreeView         *tree_view,
+                  CtkTreePath         *path,
+                  CtkTreeViewColumn   *column,
                   GsmPropertiesDialog *dialog)
 {
         on_edit_app_clicked (NULL, dialog);
@@ -486,14 +486,14 @@ update_tree_view (GsmPropertiesDialog *dialog)
 }
 
 static void
-on_show_hidden_clicked (GtkWidget           *widget,
+on_show_hidden_clicked (CtkWidget           *widget,
                         GsmPropertiesDialog *dialog)
 {
         update_tree_view (dialog);
 }
 
 static void
-on_save_session_clicked (GtkWidget           *widget,
+on_save_session_clicked (CtkWidget           *widget,
                          GsmPropertiesDialog *dialog)
 {
         g_debug ("Session saving is not implemented yet!");
@@ -502,13 +502,13 @@ on_save_session_clicked (GtkWidget           *widget,
 static void
 setup_dialog (GsmPropertiesDialog *dialog)
 {
-        GtkTreeView       *treeview;
-        GtkWidget         *button;
-        GtkTreeModel      *tree_filter;
-        GtkTreeViewColumn *column;
-        GtkCellRenderer   *renderer;
-        GtkTreeSelection  *selection;
-        GtkTargetList     *targetlist;
+        CtkTreeView       *treeview;
+        CtkWidget         *button;
+        CtkTreeModel      *tree_filter;
+        CtkTreeViewColumn *column;
+        CtkCellRenderer   *renderer;
+        CtkTreeSelection  *selection;
+        CtkTargetList     *targetlist;
 
         gsm_util_dialog_add_button (CTK_DIALOG (dialog),
                                     _("_Help"), "help-browser",
@@ -608,7 +608,7 @@ setup_dialog (GsmPropertiesDialog *dialog)
         /* we don't want to accept drags coming from this widget */
         targetlist = ctk_drag_dest_get_target_list (CTK_WIDGET (treeview));
         if (targetlist != NULL) {
-                GtkTargetEntry *targets;
+                CtkTargetEntry *targets;
                 gint n_targets;
                 gint i;
                 targets = ctk_target_table_new_from_list (targetlist, &n_targets);
@@ -757,8 +757,8 @@ gsm_properties_dialog_class_init (GsmPropertiesDialogClass *klass)
 static void
 gsm_properties_dialog_init (GsmPropertiesDialog *dialog)
 {
-        GtkWidget   *content_area;
-        GtkWidget   *widget;
+        CtkWidget   *content_area;
+        CtkWidget   *widget;
         GError      *error;
 
         dialog->xml = ctk_builder_new ();
@@ -798,7 +798,7 @@ gsm_properties_dialog_finalize (GObject *object)
         G_OBJECT_CLASS (gsm_properties_dialog_parent_class)->finalize (object);
 }
 
-GtkWidget *
+CtkWidget *
 gsm_properties_dialog_new (void)
 {
         GObject *object;

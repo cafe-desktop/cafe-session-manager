@@ -134,7 +134,7 @@ typedef struct {
         /* This is the action that will be done just before we exit */
         GsmManagerLogoutType    logout_type;
 
-        GtkWidget              *inhibit_dialog;
+        CtkWidget              *inhibit_dialog;
 
         /* List of clients which were disconnected due to disabled condition
          * and shouldn't be automatically restarted */
@@ -3448,7 +3448,7 @@ logout_dialog_response (GsmLogoutDialog *logout_dialog,
 static void
 show_shutdown_dialog (GsmManager *manager)
 {
-        GtkWidget *dialog;
+        CtkWidget *dialog;
         GsmManagerPrivate *priv;
 
         priv = gsm_manager_get_instance_private (manager);
@@ -3474,7 +3474,7 @@ show_shutdown_dialog (GsmManager *manager)
 static void
 show_logout_dialog (GsmManager *manager)
 {
-        GtkWidget *dialog;
+        CtkWidget *dialog;
         GsmManagerPrivate *priv;
 
         priv = gsm_manager_get_instance_private (manager);

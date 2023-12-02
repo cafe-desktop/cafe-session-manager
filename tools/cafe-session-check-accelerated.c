@@ -97,7 +97,7 @@ wait_for_property_notify (void)
 static char *
 get_ctk_gles_renderer (void)
 {
-        GtkWidget *win;
+        CtkWidget *win;
         GdkGLContext *context;
         char *renderer = NULL;
 

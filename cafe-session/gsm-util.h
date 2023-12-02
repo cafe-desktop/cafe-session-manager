@@ -58,7 +58,7 @@ gboolean    gsm_util_export_user_environment        (GError     **error);
 void        gsm_util_setenv                         (const char *variable,
                                                      const char *value);
 
-GtkWidget*  gsm_util_dialog_add_button              (GtkDialog   *dialog,
+CtkWidget*  gsm_util_dialog_add_button              (CtkDialog   *dialog,
                                                      const gchar *button_text,
                                                      const gchar *icon_name,
                                                      gint         response_id);

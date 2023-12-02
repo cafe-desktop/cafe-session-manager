@@ -2,13 +2,13 @@
 <interface>
   <requires lib="ctk+" version="3.22"/>
   <!-- interface-naming-policy toplevel-contextual -->
-  <object class="GtkBox" id="main-box">
+  <object class="CtkBox" id="main-box">
     <property name="visible">True</property>
     <property name="border_width">6</property>
     <property name="orientation">vertical</property>
     <property name="spacing">6</property>
     <child>
-      <object class="GtkLabel" id="header-label">
+      <object class="CtkLabel" id="header-label">
         <property name="visible">True</property>
         <property name="xalign">0</property>
         <property name="label" translatable="yes">&lt;b&gt;Some programs are still running:&lt;/b&gt;</property>
@@ -22,14 +22,14 @@
       </packing>
     </child>
     <child>
-      <object class="GtkScrolledWindow" id="scrolledwindow1">
+      <object class="CtkScrolledWindow" id="scrolledwindow1">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="hscrollbar_policy">automatic</property>
         <property name="vscrollbar_policy">automatic</property>
         <property name="shadow_type">in</property>
         <child>
-          <object class="GtkTreeView" id="inhibitors-treeview">
+          <object class="CtkTreeView" id="inhibitors-treeview">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="headers_visible">False</property>
@@ -45,7 +45,7 @@
       </packing>
     </child>
     <child>
-      <object class="GtkLabel" id="description-label">
+      <object class="CtkLabel" id="description-label">
         <property name="visible">True</property>
         <property name="xalign">0</property>
         <property name="yalign">0</property>

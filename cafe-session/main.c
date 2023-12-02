@@ -732,7 +732,7 @@ int main(int argc, char** argv)
 	/* Starts gnome compat mode */
 	msm_gnome_start();
 
-	/* Set to use Gtk3 overlay scroll */
+	/* Set to use Ctk3 overlay scroll */
 	set_overlay_scroll ();
 
 	manager = gsm_manager_new(client_store, failsafe);

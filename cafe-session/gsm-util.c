@@ -340,7 +340,7 @@ void
 gsm_util_init_error (gboolean    fatal,
                      const char *format, ...)
 {
-        GtkWidget *dialog;
+        CtkWidget *dialog;
         char      *msg;
         va_list    args;
 
@@ -348,7 +348,7 @@ gsm_util_init_error (gboolean    fatal,
         msg = g_strdup_vprintf (format, args);
         va_end (args);
 
-        /* If option parsing failed, Gtk won't have been initialized... */
+        /* If option parsing failed, Ctk won't have been initialized... */
         if (!gdk_display_get_default ()) {
                 if (!ctk_init_check (NULL, NULL)) {
                         /* Oh well, no X for you! */
@@ -689,13 +689,13 @@ gsm_util_setenv (const char *variable,
 #endif
 }
 
-GtkWidget*
-gsm_util_dialog_add_button (GtkDialog   *dialog,
+CtkWidget*
+gsm_util_dialog_add_button (CtkDialog   *dialog,
                             const gchar *button_text,
                             const gchar *icon_name,
                             gint         response_id)
 {
-	GtkWidget *button;
+	CtkWidget *button;
 
 	button = ctk_button_new_with_mnemonic (button_text);
 	ctk_button_set_image (CTK_BUTTON (button), ctk_image_new_from_icon_name (icon_name, CTK_ICON_SIZE_BUTTON));

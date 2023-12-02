@@ -138,7 +138,7 @@ do_uninhibit (void)
 }
 
 static void
-on_widget_show (GtkWidget *dialog,
+on_widget_show (CtkWidget *dialog,
                 gpointer   data)
 {
         gboolean res;
@@ -154,7 +154,7 @@ main (int   argc,
       char *argv[])
 {
         gboolean   res;
-        GtkWidget *dialog;
+        CtkWidget *dialog;
 
         g_log_set_always_fatal (G_LOG_LEVEL_ERROR | G_LOG_LEVEL_CRITICAL | G_LOG_LEVEL_WARNING);
 
