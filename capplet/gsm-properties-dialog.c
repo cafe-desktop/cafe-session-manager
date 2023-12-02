@@ -25,7 +25,7 @@
 
 #include <glib.h>
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <gio/gio.h>
 
@@ -89,12 +89,12 @@ find_by_app (GtkTreeModel *model,
 {
         GspApp *iter_app = NULL;
 
-        if (!gtk_tree_model_get_iter_first (model, iter)) {
+        if (!ctk_tree_model_get_iter_first (model, iter)) {
                 return FALSE;
         }
 
         do {
-                gtk_tree_model_get (model, iter,
+                ctk_tree_model_get (model, iter,
                                     STORE_COL_APP, &iter_app,
                                     -1);
 
@@ -102,7 +102,7 @@ find_by_app (GtkTreeModel *model,
                         g_object_unref (iter_app);
                         return TRUE;
                 }
-        } while (gtk_tree_model_iter_next (model, iter));
+        } while (ctk_tree_model_iter_next (model, iter));
 
         return FALSE;
 }
@@ -128,10 +128,10 @@ _fill_iter_from_app (GtkListStore *list_store,
                 GtkIconTheme       *theme;
                 const char * const *icon_names;
 
-                theme = gtk_icon_theme_get_default ();
+                theme = ctk_icon_theme_get_default ();
                 icon_names = g_themed_icon_get_names (G_THEMED_ICON (icon));
                 if (icon_names[0] == NULL ||
-                    !gtk_icon_theme_has_icon (theme, icon_names[0])) {
+                    !ctk_icon_theme_has_icon (theme, icon_names[0])) {
                         g_object_unref (icon);
                         icon = NULL;
                 }
@@ -149,7 +149,7 @@ _fill_iter_from_app (GtkListStore *list_store,
                 icon = g_themed_icon_new (STARTUP_APP_ICON);
         }
 
-        gtk_list_store_set (list_store, iter,
+        ctk_list_store_set (list_store, iter,
                             STORE_COL_VISIBLE, !hidden,
                             STORE_COL_ENABLED, enabled,
                             STORE_COL_GICON, icon,
@@ -184,7 +184,7 @@ append_app (GsmPropertiesDialog *dialog,
                 return;
         }
 
-        gtk_list_store_append (dialog->list_store, &iter);
+        ctk_list_store_append (dialog->list_store, &iter);
         _fill_iter_from_app (dialog->list_store, &iter, app);
 
         g_signal_connect_swapped (app, "changed",
@@ -214,7 +214,7 @@ _app_removed (GsmPropertiesDialog *dialog,
         g_signal_handlers_disconnect_by_func (app,
                                               _app_changed,
                                               dialog);
-        gtk_list_store_remove (dialog->list_store, &iter);
+        ctk_list_store_remove (dialog->list_store, &iter);
 }
 
 static void
@@ -236,10 +236,10 @@ on_selection_changed (GtkTreeSelection    *selection,
 {
         gboolean sel;
 
-        sel = gtk_tree_selection_get_selected (selection, NULL, NULL);
+        sel = ctk_tree_selection_get_selected (selection, NULL, NULL);
 
-        gtk_widget_set_sensitive (dialog->edit_button, sel);
-        gtk_widget_set_sensitive (dialog->delete_button, sel);
+        ctk_widget_set_sensitive (dialog->edit_button, sel);
+        ctk_widget_set_sensitive (dialog->delete_button, sel);
 }
 
 static void
@@ -251,18 +251,18 @@ on_startup_enabled_toggled (GtkCellRendererToggle *cell_renderer,
         GspApp     *app;
         gboolean    active;
 
-        if (!gtk_tree_model_get_iter_from_string (GTK_TREE_MODEL (dialog->tree_filter),
+        if (!ctk_tree_model_get_iter_from_string (GTK_TREE_MODEL (dialog->tree_filter),
                                                   &iter, path)) {
                 return;
         }
 
         app = NULL;
-        gtk_tree_model_get (GTK_TREE_MODEL (dialog->tree_filter),
+        ctk_tree_model_get (GTK_TREE_MODEL (dialog->tree_filter),
                             &iter,
                             STORE_COL_APP, &app,
                             -1);
 
-        active = gtk_cell_renderer_toggle_get_active (cell_renderer);
+        active = ctk_cell_renderer_toggle_get_active (cell_renderer);
         active = !active;
 
         if (app) {
@@ -289,7 +289,7 @@ on_drag_data_received (GtkWidget           *widget,
                 char **filenames;
                 int    i;
 
-                filenames = gtk_selection_data_get_uris (data);
+                filenames = ctk_selection_data_get_uris (data);
 
                 for (i = 0; filenames[i] && filenames[i][0]; i++) {
                         /* Return success if at least one file succeeded */
@@ -301,7 +301,7 @@ on_drag_data_received (GtkWidget           *widget,
                 g_strfreev (filenames);
         }
 
-        gtk_drag_finish (drag_context, dnd_success, FALSE, time);
+        ctk_drag_finish (drag_context, dnd_success, FALSE, time);
         g_signal_stop_emission_by_name (widget, "drag_data_received");
 }
 
@@ -314,12 +314,12 @@ on_drag_begin (GtkWidget           *widget,
         GtkTreeIter  iter;
         GspApp      *app;
 
-        gtk_tree_view_get_cursor (GTK_TREE_VIEW (widget), &path, NULL);
-        gtk_tree_model_get_iter (GTK_TREE_MODEL (dialog->tree_filter),
+        ctk_tree_view_get_cursor (GTK_TREE_VIEW (widget), &path, NULL);
+        ctk_tree_model_get_iter (GTK_TREE_MODEL (dialog->tree_filter),
                                  &iter, path);
-        gtk_tree_path_free (path);
+        ctk_tree_path_free (path);
 
-        gtk_tree_model_get (GTK_TREE_MODEL (dialog->tree_filter),
+        ctk_tree_model_get (GTK_TREE_MODEL (dialog->tree_filter),
                             &iter,
                             STORE_COL_APP, &app,
                             -1);
@@ -351,7 +351,7 @@ on_drag_data_get (GtkWidget           *widget,
 
                 uris[0] = uri;
                 uris[1] = NULL;
-                gtk_selection_data_set_uris (selection_data, (char **) uris);
+                ctk_selection_data_set_uris (selection_data, (char **) uris);
 
                 g_free (uri);
         }
@@ -368,7 +368,7 @@ on_add_app_clicked (GtkWidget           *widget,
         guint       delay;
 
         add_dialog = gsm_app_dialog_new (NULL, NULL, NULL, 0);
-        gtk_window_set_transient_for (GTK_WINDOW (add_dialog),
+        ctk_window_set_transient_for (GTK_WINDOW (add_dialog),
                                       GTK_WINDOW (dialog));
 
         if (gsm_app_dialog_run (GSM_APP_DIALOG (add_dialog),
@@ -388,14 +388,14 @@ on_delete_app_clicked (GtkWidget           *widget,
         GtkTreeIter       iter;
         GspApp           *app;
 
-        selection = gtk_tree_view_get_selection (dialog->treeview);
+        selection = ctk_tree_view_get_selection (dialog->treeview);
 
-        if (!gtk_tree_selection_get_selected (selection, NULL, &iter)) {
+        if (!ctk_tree_selection_get_selected (selection, NULL, &iter)) {
                 return;
         }
 
         app = NULL;
-        gtk_tree_model_get (GTK_TREE_MODEL (dialog->tree_filter),
+        ctk_tree_model_get (GTK_TREE_MODEL (dialog->tree_filter),
                             &iter,
                             STORE_COL_APP, &app,
                             -1);
@@ -414,14 +414,14 @@ on_edit_app_clicked (GtkWidget           *widget,
         GtkTreeIter       iter;
         GspApp           *app;
 
-        selection = gtk_tree_view_get_selection (dialog->treeview);
+        selection = ctk_tree_view_get_selection (dialog->treeview);
 
-        if (!gtk_tree_selection_get_selected (selection, NULL, &iter)) {
+        if (!ctk_tree_selection_get_selected (selection, NULL, &iter)) {
                 return;
         }
 
         app = NULL;
-        gtk_tree_model_get (GTK_TREE_MODEL (dialog->tree_filter),
+        ctk_tree_model_get (GTK_TREE_MODEL (dialog->tree_filter),
                             &iter,
                             STORE_COL_APP, &app,
                             -1);
@@ -437,7 +437,7 @@ on_edit_app_clicked (GtkWidget           *widget,
                                                   gsp_app_get_exec (app),
                                                   gsp_app_get_comment (app),
                                                   gsp_app_get_delay (app));
-                gtk_window_set_transient_for (GTK_WINDOW (edit_dialog),
+                ctk_window_set_transient_for (GTK_WINDOW (edit_dialog),
                                               GTK_WINDOW (dialog));
 
                 if (gsm_app_dialog_run (GSM_APP_DIALOG (edit_dialog),
@@ -518,56 +518,56 @@ setup_dialog (GsmPropertiesDialog *dialog)
                                     _("_Close"), "window-close",
                                     GTK_RESPONSE_CLOSE);
 
-        dialog->list_store = gtk_list_store_new (NUMBER_OF_COLUMNS,
+        dialog->list_store = ctk_list_store_new (NUMBER_OF_COLUMNS,
                                                  G_TYPE_BOOLEAN,
                                                  G_TYPE_BOOLEAN,
                                                  G_TYPE_ICON,
                                                  G_TYPE_STRING,
                                                  G_TYPE_OBJECT,
                                                  G_TYPE_STRING);
-        tree_filter = gtk_tree_model_filter_new (GTK_TREE_MODEL (dialog->list_store),
+        tree_filter = ctk_tree_model_filter_new (GTK_TREE_MODEL (dialog->list_store),
                                                  NULL);
         g_object_unref (dialog->list_store);
         dialog->tree_filter = tree_filter;
 
-        gtk_tree_model_filter_set_visible_column (GTK_TREE_MODEL_FILTER (tree_filter),
+        ctk_tree_model_filter_set_visible_column (GTK_TREE_MODEL_FILTER (tree_filter),
                                                   STORE_COL_VISIBLE);
 
-        treeview = GTK_TREE_VIEW (gtk_builder_get_object (dialog->xml,
+        treeview = GTK_TREE_VIEW (ctk_builder_get_object (dialog->xml,
                                                           CAPPLET_TREEVIEW_WIDGET_NAME));
         dialog->treeview = treeview;
 
-        gtk_tree_view_set_model (treeview, tree_filter);
+        ctk_tree_view_set_model (treeview, tree_filter);
         g_object_unref (tree_filter);
 
-        gtk_tree_view_set_headers_visible (treeview, FALSE);
+        ctk_tree_view_set_headers_visible (treeview, FALSE);
         g_signal_connect (treeview,
                           "row-activated",
                           G_CALLBACK (on_row_activated),
                           dialog);
 
-        selection = gtk_tree_view_get_selection (treeview);
-        gtk_tree_selection_set_mode (selection, GTK_SELECTION_BROWSE);
+        selection = ctk_tree_view_get_selection (treeview);
+        ctk_tree_selection_set_mode (selection, GTK_SELECTION_BROWSE);
         g_signal_connect (selection,
                           "changed",
                           G_CALLBACK (on_selection_changed),
                           dialog);
 
         /* CHECKBOX COLUMN */
-        renderer = gtk_cell_renderer_toggle_new ();
-        column = gtk_tree_view_column_new_with_attributes (_("Enabled"),
+        renderer = ctk_cell_renderer_toggle_new ();
+        column = ctk_tree_view_column_new_with_attributes (_("Enabled"),
                                                            renderer,
                                                            "active", STORE_COL_ENABLED,
                                                            NULL);
-        gtk_tree_view_append_column (treeview, column);
+        ctk_tree_view_append_column (treeview, column);
         g_signal_connect (renderer,
                           "toggled",
                           G_CALLBACK (on_startup_enabled_toggled),
                           dialog);
 
         /* ICON COLUMN */
-        renderer = gtk_cell_renderer_pixbuf_new ();
-        column = gtk_tree_view_column_new_with_attributes (_("Icon"),
+        renderer = ctk_cell_renderer_pixbuf_new ();
+        column = ctk_tree_view_column_new_with_attributes (_("Icon"),
                                                            renderer,
                                                            "gicon", STORE_COL_GICON,
                                                            "sensitive", STORE_COL_ENABLED,
@@ -575,11 +575,11 @@ setup_dialog (GsmPropertiesDialog *dialog)
         g_object_set (renderer,
                       "stock-size", GSM_PROPERTIES_ICON_SIZE,
                       NULL);
-        gtk_tree_view_append_column (treeview, column);
+        ctk_tree_view_append_column (treeview, column);
 
         /* NAME COLUMN */
-        renderer = gtk_cell_renderer_text_new ();
-        column = gtk_tree_view_column_new_with_attributes (_("Program"),
+        renderer = ctk_cell_renderer_text_new ();
+        column = ctk_tree_view_column_new_with_attributes (_("Program"),
                                                            renderer,
                                                            "markup", STORE_COL_DESCRIPTION,
                                                            "sensitive", STORE_COL_ENABLED,
@@ -587,37 +587,37 @@ setup_dialog (GsmPropertiesDialog *dialog)
         g_object_set (renderer,
                       "ellipsize", PANGO_ELLIPSIZE_END,
                       NULL);
-        gtk_tree_view_append_column (treeview, column);
+        ctk_tree_view_append_column (treeview, column);
 
 
-        gtk_tree_view_column_set_sort_column_id (column, STORE_COL_DESCRIPTION);
-        gtk_tree_view_set_search_column (treeview, STORE_COL_SEARCH);
+        ctk_tree_view_column_set_sort_column_id (column, STORE_COL_DESCRIPTION);
+        ctk_tree_view_set_search_column (treeview, STORE_COL_SEARCH);
 
-        gtk_tree_view_enable_model_drag_source (treeview,
+        ctk_tree_view_enable_model_drag_source (treeview,
                                                 GDK_BUTTON1_MASK|GDK_BUTTON2_MASK,
                                                 NULL, 0,
                                                 GDK_ACTION_COPY);
-        gtk_drag_source_add_uri_targets (GTK_WIDGET (treeview));
+        ctk_drag_source_add_uri_targets (GTK_WIDGET (treeview));
 
-        gtk_drag_dest_set (GTK_WIDGET (treeview),
+        ctk_drag_dest_set (GTK_WIDGET (treeview),
                            GTK_DEST_DEFAULT_ALL,
                            NULL, 0,
                            GDK_ACTION_COPY);
-        gtk_drag_dest_add_uri_targets (GTK_WIDGET (treeview));
+        ctk_drag_dest_add_uri_targets (GTK_WIDGET (treeview));
 
         /* we don't want to accept drags coming from this widget */
-        targetlist = gtk_drag_dest_get_target_list (GTK_WIDGET (treeview));
+        targetlist = ctk_drag_dest_get_target_list (GTK_WIDGET (treeview));
         if (targetlist != NULL) {
                 GtkTargetEntry *targets;
                 gint n_targets;
                 gint i;
-                targets = gtk_target_table_new_from_list (targetlist, &n_targets);
+                targets = ctk_target_table_new_from_list (targetlist, &n_targets);
                 for (i = 0; i < n_targets; i++)
                         targets[i].flags = GTK_TARGET_OTHER_WIDGET;
-                targetlist = gtk_target_list_new (targets, n_targets);
-                gtk_drag_dest_set_target_list (GTK_WIDGET (treeview), targetlist);
-                gtk_target_list_unref (targetlist);
-                gtk_target_table_free (targets, n_targets);
+                targetlist = ctk_target_list_new (targets, n_targets);
+                ctk_drag_dest_set_target_list (GTK_WIDGET (treeview), targetlist);
+                ctk_target_list_unref (targetlist);
+                ctk_target_table_free (targets, n_targets);
         }
 
         g_signal_connect (treeview, "drag_begin",
@@ -630,12 +630,12 @@ setup_dialog (GsmPropertiesDialog *dialog)
                           G_CALLBACK (on_drag_data_received),
                           dialog);
 
-        gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (dialog->list_store),
+        ctk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (dialog->list_store),
                                               STORE_COL_DESCRIPTION,
                                               GTK_SORT_ASCENDING);
 
 
-        button = GTK_WIDGET (gtk_builder_get_object (dialog->xml,
+        button = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      CAPPLET_ADD_WIDGET_NAME));
         dialog->add_button = button;
         g_signal_connect (button,
@@ -643,7 +643,7 @@ setup_dialog (GsmPropertiesDialog *dialog)
                           G_CALLBACK (on_add_app_clicked),
                           dialog);
 
-        button = GTK_WIDGET (gtk_builder_get_object (dialog->xml,
+        button = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      CAPPLET_DELETE_WIDGET_NAME));
         dialog->delete_button = button;
         g_signal_connect (button,
@@ -651,7 +651,7 @@ setup_dialog (GsmPropertiesDialog *dialog)
                           G_CALLBACK (on_delete_app_clicked),
                           dialog);
 
-        button = GTK_WIDGET (gtk_builder_get_object (dialog->xml,
+        button = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      CAPPLET_EDIT_WIDGET_NAME));
         dialog->edit_button = button;
         g_signal_connect (button,
@@ -662,13 +662,13 @@ setup_dialog (GsmPropertiesDialog *dialog)
 
         dialog->settings = g_settings_new (SPC_CONFIG_SCHEMA);
 
-        button = GTK_WIDGET (gtk_builder_get_object (dialog->xml,
+        button = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      CAPPLET_REMEMBER_WIDGET_NAME));
 
         g_settings_bind (dialog->settings, SPC_AUTOSAVE_KEY,
                          button, "active", G_SETTINGS_BIND_DEFAULT);
 
-        button = GTK_WIDGET (gtk_builder_get_object (dialog->xml,
+        button = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      CAPPLET_SHOW_HIDDEN_WIDGET_NAME));
 
         g_settings_bind (dialog->settings, SPC_SHOW_HIDDEN_KEY,
@@ -679,7 +679,7 @@ setup_dialog (GsmPropertiesDialog *dialog)
                           G_CALLBACK (on_show_hidden_clicked),
                           dialog);
 
-        button = GTK_WIDGET (gtk_builder_get_object (dialog->xml,
+        button = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      CAPPLET_SAVE_WIDGET_NAME));
         g_signal_connect (button,
                           "clicked",
@@ -761,11 +761,11 @@ gsm_properties_dialog_init (GsmPropertiesDialog *dialog)
         GtkWidget   *widget;
         GError      *error;
 
-        dialog->xml = gtk_builder_new ();
-        gtk_builder_set_translation_domain (dialog->xml, GETTEXT_PACKAGE);
+        dialog->xml = ctk_builder_new ();
+        ctk_builder_set_translation_domain (dialog->xml, GETTEXT_PACKAGE);
 
         error = NULL;
-        if (!gtk_builder_add_from_file (dialog->xml,
+        if (!ctk_builder_add_from_file (dialog->xml,
                                         GTKBUILDER_DIR "/" GTKBUILDER_FILE,
                                         &error)) {
                 if (error) {
@@ -777,16 +777,16 @@ gsm_properties_dialog_init (GsmPropertiesDialog *dialog)
                 }
         }
 
-        content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
-        widget = GTK_WIDGET (gtk_builder_get_object (dialog->xml,
+        content_area = ctk_dialog_get_content_area (GTK_DIALOG (dialog));
+        widget = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      "main-notebook"));
-        gtk_box_pack_start (GTK_BOX (content_area), widget, TRUE, TRUE, 0);
+        ctk_box_pack_start (GTK_BOX (content_area), widget, TRUE, TRUE, 0);
 
-        gtk_window_set_resizable (GTK_WINDOW (dialog), TRUE);
-        gtk_container_set_border_width (GTK_CONTAINER (dialog), 6);
-        gtk_box_set_spacing (GTK_BOX (content_area), 2);
-        gtk_window_set_icon_name (GTK_WINDOW (dialog), "cafe-session-properties");
-        gtk_window_set_title (GTK_WINDOW (dialog), _("Startup Applications Preferences"));
+        ctk_window_set_resizable (GTK_WINDOW (dialog), TRUE);
+        ctk_container_set_border_width (GTK_CONTAINER (dialog), 6);
+        ctk_box_set_spacing (GTK_BOX (content_area), 2);
+        ctk_window_set_icon_name (GTK_WINDOW (dialog), "cafe-session-properties");
+        ctk_window_set_title (GTK_WINDOW (dialog), _("Startup Applications Preferences"));
 }
 
 static void

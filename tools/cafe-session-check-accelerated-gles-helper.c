@@ -26,7 +26,7 @@
 
 #include <config.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <locale.h>
 #include <stdlib.h>
 #include <string.h>
@@ -206,7 +206,7 @@ main (int argc,
         setlocale (LC_ALL, "");
 
         context = g_option_context_new (NULL);
-        g_option_context_add_group (context, gtk_get_option_group (TRUE));
+        g_option_context_add_group (context, ctk_get_option_group (TRUE));
         g_option_context_add_main_entries (context, entries, NULL);
 
         if (!g_option_context_parse (context, &argc, &argv, &error)) {

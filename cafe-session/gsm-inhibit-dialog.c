@@ -28,7 +28,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib-object.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkx.h>
 #include <cairo-xlib.h>
 
@@ -141,14 +141,14 @@ find_inhibitor (GsmInhibitDialog *dialog,
         found_item = FALSE;
         model = GTK_TREE_MODEL (dialog->list_store);
 
-        if (!gtk_tree_model_get_iter_first (model, iter)) {
+        if (!ctk_tree_model_get_iter_first (model, iter)) {
                 return FALSE;
         }
 
         do {
                 char *item_id;
 
-                gtk_tree_model_get (model,
+                ctk_tree_model_get (model,
                                     iter,
                                     INHIBIT_ID_COLUMN, &item_id,
                                     -1);
@@ -158,7 +158,7 @@ find_inhibitor (GsmInhibitDialog *dialog,
                         found_item = TRUE;
                 }
                 g_free (item_id);
-        } while (!found_item && gtk_tree_model_iter_next (model, iter));
+        } while (!found_item && ctk_tree_model_iter_next (model, iter));
 
         return found_item;
 }
@@ -214,13 +214,13 @@ _find_icon (GtkIconTheme  *icon_theme,
          * an extension as icon */
         icon_no_extension = _util_icon_remove_extension (icon_name);
 
-        info = gtk_icon_theme_lookup_icon (icon_theme, icon_no_extension,
+        info = ctk_icon_theme_lookup_icon (icon_theme, icon_no_extension,
                                            size, 0);
 
         g_free (icon_no_extension);
 
         if (info) {
-                retval = g_strdup (gtk_icon_info_get_filename (info));
+                retval = g_strdup (ctk_icon_info_get_filename (info));
                 g_object_unref (info);
         } else
                 retval = NULL;
@@ -455,7 +455,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
         guint           xid;
         char           *freeme;
 
-        gdkdisplay = gtk_widget_get_display (GTK_WIDGET (dialog));
+        gdkdisplay = ctk_widget_get_display (GTK_WIDGET (dialog));
 
         /* FIXME: get info from xid */
 
@@ -548,7 +548,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
                         icon_name = egg_desktop_file_get_icon (desktop_file);
 
                         if (pixbuf == NULL) {
-                                pixbuf = _load_icon (gtk_icon_theme_get_default (),
+                                pixbuf = _load_icon (ctk_icon_theme_get_default (),
                                                      icon_name,
                                                      DEFAULT_ICON_SIZE,
                                                      DEFAULT_ICON_SIZE,
@@ -581,7 +581,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
         }
 
         if (pixbuf == NULL) {
-                pixbuf = _load_icon (gtk_icon_theme_get_default (),
+                pixbuf = _load_icon (ctk_icon_theme_get_default (),
                                      "cafe-windows",
                                      DEFAULT_ICON_SIZE,
                                      DEFAULT_ICON_SIZE,
@@ -589,7 +589,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
                                      NULL);
         }
 
-        gtk_list_store_insert_with_values (dialog->list_store,
+        ctk_list_store_insert_with_values (dialog->list_store,
                                            NULL, 0,
                                            INHIBIT_IMAGE_COLUMN, pixbuf,
                                            INHIBIT_NAME_COLUMN, name,
@@ -612,7 +612,7 @@ model_has_one_entry (GtkTreeModel *model)
 {
         guint n_rows;
 
-        n_rows = gtk_tree_model_iter_n_children (model, NULL);
+        n_rows = ctk_tree_model_iter_n_children (model, NULL);
         g_debug ("Model has %d rows", n_rows);
 
         return (n_rows > 0 && n_rows < 2);
@@ -635,19 +635,19 @@ update_dialog_text (GsmInhibitDialog *dialog)
                 description_text = _("Waiting for programs to finish.  Interrupting these programs may cause you to lose work.");
         }
 
-        widget = GTK_WIDGET (gtk_builder_get_object (dialog->xml,
+        widget = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      "header-label"));
         if (widget != NULL) {
                 char *markup;
                 markup = g_strdup_printf ("<b>%s</b>", header_text);
-                gtk_label_set_markup (GTK_LABEL (widget), markup);
+                ctk_label_set_markup (GTK_LABEL (widget), markup);
                 g_free (markup);
         }
 
-        widget = GTK_WIDGET (gtk_builder_get_object (dialog->xml,
+        widget = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      "description-label"));
         if (widget != NULL) {
-                gtk_label_set_text (GTK_LABEL (widget), description_text);
+                ctk_label_set_text (GTK_LABEL (widget), description_text);
         }
 }
 
@@ -690,13 +690,13 @@ on_store_inhibitor_removed (GsmStore          *store,
 
         /* Remove from model */
         if (find_inhibitor (dialog, id, &iter)) {
-                gtk_list_store_remove (dialog->list_store, &iter);
+                ctk_list_store_remove (dialog->list_store, &iter);
                 update_dialog_text (dialog);
         }
 
         /* if there are no inhibitors left then trigger response */
-        if (! gtk_tree_model_get_iter_first (GTK_TREE_MODEL (dialog->list_store), &iter)) {
-                gtk_dialog_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
+        if (! ctk_tree_model_get_iter_first (GTK_TREE_MODEL (dialog->list_store), &iter)) {
+                ctk_dialog_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
         }
 }
 
@@ -816,7 +816,7 @@ name_cell_data_func (GtkTreeViewColumn *tree_column,
 
         name = NULL;
         reason = NULL;
-        gtk_tree_model_get (model,
+        ctk_tree_model_get (model,
                             iter,
                             INHIBIT_NAME_COLUMN, &name,
                             INHIBIT_REASON_COLUMN, &reason,
@@ -884,13 +884,13 @@ setup_dialog (GsmInhibitDialog *dialog)
                 break;
         }
 
-        gtk_dialog_add_button (GTK_DIALOG (dialog),
+        ctk_dialog_add_button (GTK_DIALOG (dialog),
                                _("Lock Screen"),
                                DIALOG_RESPONSE_LOCK_SCREEN);
-        gtk_dialog_add_button (GTK_DIALOG (dialog),
+        ctk_dialog_add_button (GTK_DIALOG (dialog),
                                _("Cancel"),
                                GTK_RESPONSE_CANCEL);
-        gtk_dialog_add_button (GTK_DIALOG (dialog),
+        ctk_dialog_add_button (GTK_DIALOG (dialog),
                                button_text,
                                GTK_RESPONSE_ACCEPT);
         g_signal_connect (dialog,
@@ -898,25 +898,25 @@ setup_dialog (GsmInhibitDialog *dialog)
                           G_CALLBACK (on_response),
                           dialog);
 
-        dialog->list_store = gtk_list_store_new (NUMBER_OF_COLUMNS,
+        dialog->list_store = ctk_list_store_new (NUMBER_OF_COLUMNS,
                                                  GDK_TYPE_PIXBUF,
                                                  G_TYPE_STRING,
                                                  G_TYPE_STRING,
                                                  G_TYPE_STRING);
 
-        treeview = GTK_WIDGET (gtk_builder_get_object (dialog->xml,
+        treeview = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                        "inhibitors-treeview"));
-        gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
-        gtk_tree_view_set_model (GTK_TREE_VIEW (treeview),
+        ctk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
+        ctk_tree_view_set_model (GTK_TREE_VIEW (treeview),
                                  GTK_TREE_MODEL (dialog->list_store));
 
         /* IMAGE COLUMN */
-        renderer = gtk_cell_renderer_pixbuf_new ();
-        column = gtk_tree_view_column_new ();
-        gtk_tree_view_column_pack_start (column, renderer, FALSE);
-        gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
+        renderer = ctk_cell_renderer_pixbuf_new ();
+        column = ctk_tree_view_column_new ();
+        ctk_tree_view_column_pack_start (column, renderer, FALSE);
+        ctk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
 
-        gtk_tree_view_column_set_attributes (column,
+        ctk_tree_view_column_set_attributes (column,
                                              renderer,
                                              "pixbuf", INHIBIT_IMAGE_COLUMN,
                                              NULL);
@@ -924,17 +924,17 @@ setup_dialog (GsmInhibitDialog *dialog)
         g_object_set (renderer, "xalign", 1.0, NULL);
 
         /* NAME COLUMN */
-        renderer = gtk_cell_renderer_text_new ();
-        column = gtk_tree_view_column_new ();
-        gtk_tree_view_column_pack_start (column, renderer, FALSE);
-        gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
-        gtk_tree_view_column_set_cell_data_func (column,
+        renderer = ctk_cell_renderer_text_new ();
+        column = ctk_tree_view_column_new ();
+        ctk_tree_view_column_pack_start (column, renderer, FALSE);
+        ctk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
+        ctk_tree_view_column_set_cell_data_func (column,
                                                  renderer,
                                                  (GtkTreeCellDataFunc) name_cell_data_func,
                                                  dialog,
                                                  NULL);
 
-        gtk_tree_view_set_tooltip_column (GTK_TREE_VIEW (treeview),
+        ctk_tree_view_set_tooltip_column (GTK_TREE_VIEW (treeview),
                                           INHIBIT_REASON_COLUMN);
 
         populate_model (dialog);
@@ -972,7 +972,7 @@ gsm_inhibit_dialog_constructor (GType                  type,
 
         setup_dialog (dialog);
 
-        gtk_widget_show_all (GTK_WIDGET (dialog));
+        ctk_widget_show_all (GTK_WIDGET (dialog));
 
         return G_OBJECT (dialog);
 }
@@ -1057,11 +1057,11 @@ gsm_inhibit_dialog_init (GsmInhibitDialog *dialog)
         GtkWidget *widget;
         GError    *error;
 
-        dialog->xml = gtk_builder_new ();
-        gtk_builder_set_translation_domain (dialog->xml, GETTEXT_PACKAGE);
+        dialog->xml = ctk_builder_new ();
+        ctk_builder_set_translation_domain (dialog->xml, GETTEXT_PACKAGE);
 
         error = NULL;
-        if (!gtk_builder_add_from_file (dialog->xml,
+        if (!ctk_builder_add_from_file (dialog->xml,
                                         GTKBUILDER_DIR "/" GTKBUILDER_FILE,
                                         &error)) {
                 if (error) {
@@ -1073,14 +1073,14 @@ gsm_inhibit_dialog_init (GsmInhibitDialog *dialog)
                 }
         }
 
-        content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
-        widget = GTK_WIDGET (gtk_builder_get_object (dialog->xml,
+        content_area = ctk_dialog_get_content_area (GTK_DIALOG (dialog));
+        widget = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      "main-box"));
-        gtk_container_add (GTK_CONTAINER (content_area), widget);
+        ctk_container_add (GTK_CONTAINER (content_area), widget);
 
-        gtk_container_set_border_width (GTK_CONTAINER (dialog), 6);
-        gtk_window_set_icon_name (GTK_WINDOW (dialog), "system-log-out");
-        gtk_window_set_title (GTK_WINDOW (dialog), "");
+        ctk_container_set_border_width (GTK_CONTAINER (dialog), 6);
+        ctk_window_set_icon_name (GTK_WINDOW (dialog), "system-log-out");
+        ctk_window_set_title (GTK_WINDOW (dialog), "");
         g_object_set (dialog,
                       "resizable", FALSE,
                       NULL);

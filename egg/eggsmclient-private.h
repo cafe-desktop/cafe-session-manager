@@ -20,7 +20,7 @@
 #ifndef __EGG_SM_CLIENT_PRIVATE_H__
 #define __EGG_SM_CLIENT_PRIVATE_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include "eggsmclient.h"
 
 #ifdef __cplusplus

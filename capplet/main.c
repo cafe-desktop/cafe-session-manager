@@ -25,7 +25,7 @@
 #include <stdlib.h>
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "gsm-properties-dialog.h"
 
@@ -43,23 +43,23 @@ static void dialog_response(GsmPropertiesDialog* dialog, guint response_id, gpoi
 	if (response_id == GTK_RESPONSE_HELP)
 	{
 		error = NULL;
-		gtk_show_uri_on_window (GTK_WINDOW (dialog), "help:cafe-user-guide/gosstartsession-2",
-					gtk_get_current_event_time (), &error);
+		ctk_show_uri_on_window (GTK_WINDOW (dialog), "help:cafe-user-guide/gosstartsession-2",
+					ctk_get_current_event_time (), &error);
 
 		if (error != NULL)
 		{
-			GtkWidget* d = gtk_message_dialog_new(GTK_WINDOW(dialog), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", _("Could not display help document"));
-			gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(d), "%s", error->message);
+			GtkWidget* d = ctk_message_dialog_new(GTK_WINDOW(dialog), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", _("Could not display help document"));
+			ctk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(d), "%s", error->message);
 			g_error_free(error);
 
-			gtk_dialog_run(GTK_DIALOG (d));
-			gtk_widget_destroy(d);
+			ctk_dialog_run(GTK_DIALOG (d));
+			ctk_widget_destroy(d);
 		}
 	}
 	else
 	{
-		gtk_widget_destroy(GTK_WIDGET (dialog));
-		gtk_main_quit();
+		ctk_widget_destroy(GTK_WIDGET (dialog));
+		ctk_main_quit();
 	}
 }
 
@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 
 	error = NULL;
 
-	if (!gtk_init_with_args(&argc, &argv, " - CAFE Session Properties", options, GETTEXT_PACKAGE, &error))
+	if (!ctk_init_with_args(&argc, &argv, " - CAFE Session Properties", options, GETTEXT_PACKAGE, &error))
 	{
 		g_warning("Unable to start: %s", error->message);
 		g_error_free(error);
@@ -89,9 +89,9 @@ int main(int argc, char* argv[])
 
 	dialog = gsm_properties_dialog_new();
 	g_signal_connect(dialog, "response", G_CALLBACK(dialog_response), NULL);
-	gtk_widget_show(dialog);
+	ctk_widget_show(dialog);
 
-	gtk_main();
+	ctk_main();
 
 	return 0;
 }
