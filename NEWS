@@ -78,7 +78,7 @@
 ### cafe-session-manager 1.20.0
 
   * Translations update
-  * require GTK+ 3.22 and GLib 2.50
+  * require CTK+ 3.22 and GLib 2.50
   * gsm-manager.c: Fix build warning:
 
 ### cafe-session-manager 1.19.1
@@ -117,19 +117,19 @@
 
 ### cafe-session-manager 1.16.0
 
-  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-ctk
+  * Move to CTK+3 (require CTK+ >= 3.14), drop CTK+2 code and --with-ctk
     build option
   * Translations update
 
 ### cafe-session-manager 1.14.1
 
-  * GTK+3: fix critical warning in logout/shutdown dialogs
+  * CTK+3: fix critical warning in logout/shutdown dialogs
   * Translations update
 
 ### cafe-session-manager 1.14.0
 
   * Drop CafeConf migration script
-  * GTK+3: fix some deprecations
+  * CTK+3: fix some deprecations
   * Some more fixes and cleanups
   * Translations update
   * Add Changelog generation
@@ -150,7 +150,7 @@
   * Switch to org.gnome.SessionManager
   * Add support for new libsystemd library (in addition to libsystemd-login)
   * Only wait 1 second max on logout/shutdown
-  * Turn GTK+3 overlay scrolling on/off on start using new gsettings key
+  * Turn CTK+3 overlay scrolling on/off on start using new gsettings key
   * Some more fixes and cleanups
 
 ### cafe-session-manager 1.10.2
@@ -177,7 +177,7 @@
 ### cafe-session-manager 1.8.0
 
   * Show a progress bar in logout dialog
-  * Add GTK3 support
+  * Add CTK3 support
   * Add gnome keyring support
   * Add support for X-CAFE-Autostart-Delay in desktop files
 

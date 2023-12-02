@@ -101,7 +101,7 @@ get_ctk_gles_renderer (void)
         GdkGLContext *context;
         char *renderer = NULL;
 
-        win = ctk_window_new (GTK_WINDOW_TOPLEVEL);
+        win = ctk_window_new (CTK_WINDOW_TOPLEVEL);
         ctk_widget_realize (win);
         context = gdk_window_create_gl_context (ctk_widget_get_window (win), NULL);
         if (!context)

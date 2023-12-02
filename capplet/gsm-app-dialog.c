@@ -28,7 +28,7 @@
 
 #include "gsm-app-dialog.h"
 
-#define GTKBUILDER_FILE "session-properties.ui"
+#define CTKBUILDER_FILE "session-properties.ui"
 
 #define CAPPLET_NAME_ENTRY_WIDGET_NAME    "session_properties_name_entry"
 #define CAPPLET_COMMAND_ENTRY_WIDGET_NAME "session_properties_command_entry"
@@ -64,7 +64,7 @@ enum {
         PROP_DELAY
 };
 
-G_DEFINE_TYPE (GsmAppDialog, gsm_app_dialog, GTK_TYPE_DIALOG)
+G_DEFINE_TYPE (GsmAppDialog, gsm_app_dialog, CTK_TYPE_DIALOG)
 
 static char *
 make_exec_uri (const char *exec)
@@ -108,36 +108,36 @@ on_browse_button_clicked (GtkWidget    *widget,
         int        response;
 
         chooser = ctk_file_chooser_dialog_new ("",
-                                               GTK_WINDOW (dialog),
-                                               GTK_FILE_CHOOSER_ACTION_OPEN,
+                                               CTK_WINDOW (dialog),
+                                               CTK_FILE_CHOOSER_ACTION_OPEN,
                                                "ctk-cancel",
-                                               GTK_RESPONSE_CANCEL,
+                                               CTK_RESPONSE_CANCEL,
                                                "ctk-open",
-                                               GTK_RESPONSE_ACCEPT,
+                                               CTK_RESPONSE_ACCEPT,
                                                NULL);
 
-        ctk_window_set_transient_for (GTK_WINDOW (chooser),
-                                      GTK_WINDOW (dialog));
+        ctk_window_set_transient_for (CTK_WINDOW (chooser),
+                                      CTK_WINDOW (dialog));
 
-        ctk_window_set_destroy_with_parent (GTK_WINDOW (chooser), TRUE);
+        ctk_window_set_destroy_with_parent (CTK_WINDOW (chooser), TRUE);
 
-        ctk_window_set_title (GTK_WINDOW (chooser), _("Select Command"));
+        ctk_window_set_title (CTK_WINDOW (chooser), _("Select Command"));
 
         ctk_widget_show (chooser);
 
-        response = ctk_dialog_run (GTK_DIALOG (chooser));
+        response = ctk_dialog_run (CTK_DIALOG (chooser));
 
-        if (response == GTK_RESPONSE_ACCEPT) {
+        if (response == CTK_RESPONSE_ACCEPT) {
                 char *text;
                 char *uri;
 
-                text = ctk_file_chooser_get_filename (GTK_FILE_CHOOSER (chooser));
+                text = ctk_file_chooser_get_filename (CTK_FILE_CHOOSER (chooser));
 
                 uri = make_exec_uri (text);
 
                 g_free (text);
 
-                ctk_entry_set_text (GTK_ENTRY (dialog->command_entry), uri);
+                ctk_entry_set_text (CTK_ENTRY (dialog->command_entry), uri);
 
                 g_free (uri);
         }
@@ -149,7 +149,7 @@ static void
 on_entry_activate (GtkEntry     *entry,
                    GsmAppDialog *dialog)
 {
-        ctk_dialog_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
+        ctk_dialog_response (CTK_DIALOG (dialog), CTK_RESPONSE_OK);
 }
 
 static gboolean
@@ -170,7 +170,7 @@ on_spin_output (GtkSpinButton *spin, GsmAppDialog *dialog)
         else
                 text = g_strdup_printf ("%d", value);
 
-        ctk_entry_set_text (GTK_ENTRY (spin), text);
+        ctk_entry_set_text (CTK_ENTRY (spin), text);
         g_free (text);
 
         return TRUE;
@@ -189,7 +189,7 @@ setup_dialog (GsmAppDialog *dialog)
 
         error = NULL;
         if (!ctk_builder_add_from_file (xml,
-                                        GTKBUILDER_DIR "/" GTKBUILDER_FILE,
+                                        CTKBUILDER_DIR "/" CTKBUILDER_FILE,
                                         &error)) {
                 if (error) {
                         g_warning ("Could not load capplet UI file: %s",
@@ -200,76 +200,76 @@ setup_dialog (GsmAppDialog *dialog)
                 }
         }
 
-        content_area = ctk_dialog_get_content_area (GTK_DIALOG (dialog));
-        widget = GTK_WIDGET (ctk_builder_get_object (xml, "main-table"));
-        ctk_container_add (GTK_CONTAINER (content_area), widget);
+        content_area = ctk_dialog_get_content_area (CTK_DIALOG (dialog));
+        widget = CTK_WIDGET (ctk_builder_get_object (xml, "main-table"));
+        ctk_container_add (CTK_CONTAINER (content_area), widget);
 
-        ctk_container_set_border_width (GTK_CONTAINER (dialog), 6);
-        ctk_window_set_icon_name (GTK_WINDOW (dialog), "cafe-session-properties");
+        ctk_container_set_border_width (CTK_CONTAINER (dialog), 6);
+        ctk_window_set_icon_name (CTK_WINDOW (dialog), "cafe-session-properties");
 
         g_object_set (dialog,
                       "resizable", FALSE,
                       NULL);
 
-        gsm_util_dialog_add_button (GTK_DIALOG (dialog),
+        gsm_util_dialog_add_button (CTK_DIALOG (dialog),
                                     _("_Cancel"), "process-stop",
-                                    GTK_RESPONSE_CANCEL);
+                                    CTK_RESPONSE_CANCEL);
 
         if (dialog->name == NULL
             && dialog->command == NULL
             && dialog->comment == NULL) {
-                ctk_window_set_title (GTK_WINDOW (dialog), _("Add Startup Program"));
-                gsm_util_dialog_add_button (GTK_DIALOG (dialog),
+                ctk_window_set_title (CTK_WINDOW (dialog), _("Add Startup Program"));
+                gsm_util_dialog_add_button (CTK_DIALOG (dialog),
                                             _("_Add"), "list-add",
-                                            GTK_RESPONSE_OK);
+                                            CTK_RESPONSE_OK);
         } else {
-                ctk_window_set_title (GTK_WINDOW (dialog), _("Edit Startup Program"));
-                gsm_util_dialog_add_button (GTK_DIALOG (dialog),
+                ctk_window_set_title (CTK_WINDOW (dialog), _("Edit Startup Program"));
+                gsm_util_dialog_add_button (CTK_DIALOG (dialog),
                                             _("_Save"), "document-save",
-                                            GTK_RESPONSE_OK);
+                                            CTK_RESPONSE_OK);
         }
 
-        dialog->name_entry = GTK_WIDGET (ctk_builder_get_object (xml, CAPPLET_NAME_ENTRY_WIDGET_NAME));
+        dialog->name_entry = CTK_WIDGET (ctk_builder_get_object (xml, CAPPLET_NAME_ENTRY_WIDGET_NAME));
         g_signal_connect (dialog->name_entry,
                           "activate",
                           G_CALLBACK (on_entry_activate),
                           dialog);
         if (dialog->name != NULL) {
-                ctk_entry_set_text (GTK_ENTRY (dialog->name_entry), dialog->name);
+                ctk_entry_set_text (CTK_ENTRY (dialog->name_entry), dialog->name);
         }
 
-        dialog->browse_button = GTK_WIDGET (ctk_builder_get_object (xml, CAPPLET_BROWSE_WIDGET_NAME));
+        dialog->browse_button = CTK_WIDGET (ctk_builder_get_object (xml, CAPPLET_BROWSE_WIDGET_NAME));
         g_signal_connect (dialog->browse_button,
                           "clicked",
                           G_CALLBACK (on_browse_button_clicked),
                           dialog);
 
-        dialog->command_entry = GTK_WIDGET (ctk_builder_get_object (xml, CAPPLET_COMMAND_ENTRY_WIDGET_NAME));
+        dialog->command_entry = CTK_WIDGET (ctk_builder_get_object (xml, CAPPLET_COMMAND_ENTRY_WIDGET_NAME));
         g_signal_connect (dialog->command_entry,
                           "activate",
                           G_CALLBACK (on_entry_activate),
                           dialog);
         if (dialog->command != NULL) {
-                ctk_entry_set_text (GTK_ENTRY (dialog->command_entry), dialog->command);
+                ctk_entry_set_text (CTK_ENTRY (dialog->command_entry), dialog->command);
         }
 
-        dialog->comment_entry = GTK_WIDGET (ctk_builder_get_object (xml, CAPPLET_COMMENT_ENTRY_WIDGET_NAME));
+        dialog->comment_entry = CTK_WIDGET (ctk_builder_get_object (xml, CAPPLET_COMMENT_ENTRY_WIDGET_NAME));
         g_signal_connect (dialog->comment_entry,
                           "activate",
                           G_CALLBACK (on_entry_activate),
                           dialog);
         if (dialog->comment != NULL) {
-                ctk_entry_set_text (GTK_ENTRY (dialog->comment_entry), dialog->comment);
+                ctk_entry_set_text (CTK_ENTRY (dialog->comment_entry), dialog->comment);
         }
 
-        dialog->delay_spin = GTK_WIDGET(ctk_builder_get_object (xml, CAPPLET_DELAY_SPIN_WIDGET_NAME));
+        dialog->delay_spin = CTK_WIDGET(ctk_builder_get_object (xml, CAPPLET_DELAY_SPIN_WIDGET_NAME));
         g_signal_connect (dialog->delay_spin,
                           "output",
                           G_CALLBACK (on_spin_output),
                           dialog);
         if (dialog->delay > 0) {
                 GtkAdjustment *adjustment;
-                adjustment = ctk_spin_button_get_adjustment (GTK_SPIN_BUTTON(dialog->delay_spin));
+                adjustment = ctk_spin_button_get_adjustment (CTK_SPIN_BUTTON(dialog->delay_spin));
                 ctk_adjustment_set_value (adjustment, (gdouble) dialog->delay);
         }
 
@@ -364,21 +364,21 @@ const char *
 gsm_app_dialog_get_name (GsmAppDialog *dialog)
 {
         g_return_val_if_fail (GSM_IS_APP_DIALOG (dialog), NULL);
-        return ctk_entry_get_text (GTK_ENTRY (dialog->name_entry));
+        return ctk_entry_get_text (CTK_ENTRY (dialog->name_entry));
 }
 
 const char *
 gsm_app_dialog_get_command (GsmAppDialog *dialog)
 {
         g_return_val_if_fail (GSM_IS_APP_DIALOG (dialog), NULL);
-        return ctk_entry_get_text (GTK_ENTRY (dialog->command_entry));
+        return ctk_entry_get_text (CTK_ENTRY (dialog->command_entry));
 }
 
 const char *
 gsm_app_dialog_get_comment (GsmAppDialog *dialog)
 {
         g_return_val_if_fail (GSM_IS_APP_DIALOG (dialog), NULL);
-        return ctk_entry_get_text (GTK_ENTRY (dialog->comment_entry));
+        return ctk_entry_get_text (CTK_ENTRY (dialog->comment_entry));
 }
 
 guint
@@ -505,7 +505,7 @@ gsm_app_dialog_new (const char *name,
                                "delay", delay,
                                NULL);
 
-        return GTK_WIDGET (object);
+        return CTK_WIDGET (object);
 }
 
 gboolean
@@ -519,7 +519,7 @@ gsm_app_dialog_run (GsmAppDialog  *dialog,
 
         retval = FALSE;
 
-        while (ctk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_OK) {
+        while (ctk_dialog_run (CTK_DIALOG (dialog)) == CTK_RESPONSE_OK) {
                 const char *name;
                 const char *exec;
                 const char *comment;
@@ -552,17 +552,17 @@ gsm_app_dialog_run (GsmAppDialog  *dialog,
                 if (error_msg != NULL) {
                         GtkWidget *msgbox;
 
-                        msgbox = ctk_message_dialog_new (GTK_WINDOW (dialog),
-                                                         GTK_DIALOG_MODAL,
-                                                         GTK_MESSAGE_ERROR,
-                                                         GTK_BUTTONS_CLOSE,
+                        msgbox = ctk_message_dialog_new (CTK_WINDOW (dialog),
+                                                         CTK_DIALOG_MODAL,
+                                                         CTK_MESSAGE_ERROR,
+                                                         CTK_BUTTONS_CLOSE,
                                                          "%s", error_msg);
 
                         if (error != NULL) {
                                 g_error_free (error);
                         }
 
-                        ctk_dialog_run (GTK_DIALOG (msgbox));
+                        ctk_dialog_run (CTK_DIALOG (msgbox));
 
                         ctk_widget_destroy (msgbox);
 
@@ -595,7 +595,7 @@ gsm_app_dialog_run (GsmAppDialog  *dialog,
                 break;
         }
 
-        ctk_widget_destroy (GTK_WIDGET (dialog));
+        ctk_widget_destroy (CTK_WIDGET (dialog));
 
         return retval;
 }

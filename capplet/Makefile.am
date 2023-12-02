@@ -4,7 +4,7 @@ AM_CPPFLAGS =						\
 	$(SESSION_PROPERTIES_CFLAGS)			\
 	-I$(top_srcdir)/cafe-session			\
 	-DLOCALE_DIR=\""$(datadir)/locale"\"		\
-	-DGTKBUILDER_DIR=\""$(pkgdatadir)"\"		\
+	-DCTKBUILDER_DIR=\""$(pkgdatadir)"\"		\
 	$(DISABLE_DEPRECATED_CFLAGS)
 
 AM_CFLAGS = $(WARN_CFLAGS)

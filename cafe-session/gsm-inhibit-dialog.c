@@ -43,7 +43,7 @@
 #include <X11/extensions/Xrender.h>
 #endif
 
-#define GTKBUILDER_FILE "gsm-inhibit-dialog.ui"
+#define CTKBUILDER_FILE "gsm-inhibit-dialog.ui"
 
 #ifndef DEFAULT_ICON_SIZE
 #define DEFAULT_ICON_SIZE 32
@@ -86,7 +86,7 @@ enum {
 
 static void     gsm_inhibit_dialog_finalize    (GObject               *object);
 
-G_DEFINE_TYPE (GsmInhibitDialog, gsm_inhibit_dialog, GTK_TYPE_DIALOG)
+G_DEFINE_TYPE (GsmInhibitDialog, gsm_inhibit_dialog, CTK_TYPE_DIALOG)
 
 static void
 lock_screen (GsmInhibitDialog *dialog)
@@ -139,7 +139,7 @@ find_inhibitor (GsmInhibitDialog *dialog,
         g_assert (GSM_IS_INHIBIT_DIALOG (dialog));
 
         found_item = FALSE;
-        model = GTK_TREE_MODEL (dialog->list_store);
+        model = CTK_TREE_MODEL (dialog->list_store);
 
         if (!ctk_tree_model_get_iter_first (model, iter)) {
                 return FALSE;
@@ -455,7 +455,7 @@ add_inhibitor (GsmInhibitDialog *dialog,
         guint           xid;
         char           *freeme;
 
-        gdkdisplay = ctk_widget_get_display (GTK_WIDGET (dialog));
+        gdkdisplay = ctk_widget_get_display (CTK_WIDGET (dialog));
 
         /* FIXME: get info from xid */
 
@@ -625,7 +625,7 @@ update_dialog_text (GsmInhibitDialog *dialog)
         const char *header_text;
         GtkWidget  *widget;
 
-        if (model_has_one_entry (GTK_TREE_MODEL (dialog->list_store))) {
+        if (model_has_one_entry (CTK_TREE_MODEL (dialog->list_store))) {
                 g_debug ("Found one entry in model");
                 header_text = _("A program is still running:");
                 description_text = _("Waiting for the program to finish.  Interrupting the program may cause you to lose work.");
@@ -635,19 +635,19 @@ update_dialog_text (GsmInhibitDialog *dialog)
                 description_text = _("Waiting for programs to finish.  Interrupting these programs may cause you to lose work.");
         }
 
-        widget = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
+        widget = CTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      "header-label"));
         if (widget != NULL) {
                 char *markup;
                 markup = g_strdup_printf ("<b>%s</b>", header_text);
-                ctk_label_set_markup (GTK_LABEL (widget), markup);
+                ctk_label_set_markup (CTK_LABEL (widget), markup);
                 g_free (markup);
         }
 
-        widget = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
+        widget = CTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      "description-label"));
         if (widget != NULL) {
-                ctk_label_set_text (GTK_LABEL (widget), description_text);
+                ctk_label_set_text (CTK_LABEL (widget), description_text);
         }
 }
 
@@ -695,8 +695,8 @@ on_store_inhibitor_removed (GsmStore          *store,
         }
 
         /* if there are no inhibitors left then trigger response */
-        if (! ctk_tree_model_get_iter_first (GTK_TREE_MODEL (dialog->list_store), &iter)) {
-                ctk_dialog_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
+        if (! ctk_tree_model_get_iter_first (CTK_TREE_MODEL (dialog->list_store), &iter)) {
+                ctk_dialog_response (CTK_DIALOG (dialog), CTK_RESPONSE_ACCEPT);
         }
 }
 
@@ -884,15 +884,15 @@ setup_dialog (GsmInhibitDialog *dialog)
                 break;
         }
 
-        ctk_dialog_add_button (GTK_DIALOG (dialog),
+        ctk_dialog_add_button (CTK_DIALOG (dialog),
                                _("Lock Screen"),
                                DIALOG_RESPONSE_LOCK_SCREEN);
-        ctk_dialog_add_button (GTK_DIALOG (dialog),
+        ctk_dialog_add_button (CTK_DIALOG (dialog),
                                _("Cancel"),
-                               GTK_RESPONSE_CANCEL);
-        ctk_dialog_add_button (GTK_DIALOG (dialog),
+                               CTK_RESPONSE_CANCEL);
+        ctk_dialog_add_button (CTK_DIALOG (dialog),
                                button_text,
-                               GTK_RESPONSE_ACCEPT);
+                               CTK_RESPONSE_ACCEPT);
         g_signal_connect (dialog,
                           "response",
                           G_CALLBACK (on_response),
@@ -904,17 +904,17 @@ setup_dialog (GsmInhibitDialog *dialog)
                                                  G_TYPE_STRING,
                                                  G_TYPE_STRING);
 
-        treeview = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
+        treeview = CTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                        "inhibitors-treeview"));
-        ctk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
-        ctk_tree_view_set_model (GTK_TREE_VIEW (treeview),
-                                 GTK_TREE_MODEL (dialog->list_store));
+        ctk_tree_view_set_headers_visible (CTK_TREE_VIEW (treeview), FALSE);
+        ctk_tree_view_set_model (CTK_TREE_VIEW (treeview),
+                                 CTK_TREE_MODEL (dialog->list_store));
 
         /* IMAGE COLUMN */
         renderer = ctk_cell_renderer_pixbuf_new ();
         column = ctk_tree_view_column_new ();
         ctk_tree_view_column_pack_start (column, renderer, FALSE);
-        ctk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
+        ctk_tree_view_append_column (CTK_TREE_VIEW (treeview), column);
 
         ctk_tree_view_column_set_attributes (column,
                                              renderer,
@@ -927,14 +927,14 @@ setup_dialog (GsmInhibitDialog *dialog)
         renderer = ctk_cell_renderer_text_new ();
         column = ctk_tree_view_column_new ();
         ctk_tree_view_column_pack_start (column, renderer, FALSE);
-        ctk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
+        ctk_tree_view_append_column (CTK_TREE_VIEW (treeview), column);
         ctk_tree_view_column_set_cell_data_func (column,
                                                  renderer,
                                                  (GtkTreeCellDataFunc) name_cell_data_func,
                                                  dialog,
                                                  NULL);
 
-        ctk_tree_view_set_tooltip_column (GTK_TREE_VIEW (treeview),
+        ctk_tree_view_set_tooltip_column (CTK_TREE_VIEW (treeview),
                                           INHIBIT_REASON_COLUMN);
 
         populate_model (dialog);
@@ -972,7 +972,7 @@ gsm_inhibit_dialog_constructor (GType                  type,
 
         setup_dialog (dialog);
 
-        ctk_widget_show_all (GTK_WIDGET (dialog));
+        ctk_widget_show_all (CTK_WIDGET (dialog));
 
         return G_OBJECT (dialog);
 }
@@ -1062,7 +1062,7 @@ gsm_inhibit_dialog_init (GsmInhibitDialog *dialog)
 
         error = NULL;
         if (!ctk_builder_add_from_file (dialog->xml,
-                                        GTKBUILDER_DIR "/" GTKBUILDER_FILE,
+                                        CTKBUILDER_DIR "/" CTKBUILDER_FILE,
                                         &error)) {
                 if (error) {
                         g_warning ("Could not load inhibitor UI file: %s",
@@ -1073,14 +1073,14 @@ gsm_inhibit_dialog_init (GsmInhibitDialog *dialog)
                 }
         }
 
-        content_area = ctk_dialog_get_content_area (GTK_DIALOG (dialog));
-        widget = GTK_WIDGET (ctk_builder_get_object (dialog->xml,
+        content_area = ctk_dialog_get_content_area (CTK_DIALOG (dialog));
+        widget = CTK_WIDGET (ctk_builder_get_object (dialog->xml,
                                                      "main-box"));
-        ctk_container_add (GTK_CONTAINER (content_area), widget);
+        ctk_container_add (CTK_CONTAINER (content_area), widget);
 
-        ctk_container_set_border_width (GTK_CONTAINER (dialog), 6);
-        ctk_window_set_icon_name (GTK_WINDOW (dialog), "system-log-out");
-        ctk_window_set_title (GTK_WINDOW (dialog), "");
+        ctk_container_set_border_width (CTK_CONTAINER (dialog), 6);
+        ctk_window_set_icon_name (CTK_WINDOW (dialog), "system-log-out");
+        ctk_window_set_title (CTK_WINDOW (dialog), "");
         g_object_set (dialog,
                       "resizable", FALSE,
                       NULL);
@@ -1116,5 +1116,5 @@ gsm_inhibit_dialog_new (GsmStore *inhibitors,
                                "client-store", clients,
                                NULL);
 
-        return GTK_WIDGET (object);
+        return CTK_WIDGET (object);
 }

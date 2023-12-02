@@ -40,13 +40,13 @@ cafe_session_check_accelerated_gles_helper_SOURCES =	\
 cafe_session_check_accelerated_gles_helper_CPPFLAGS =	\
 	-DPKGDATADIR=\""$(pkgdatadir)"\"		\
 	$(AM_CPPFLAGS)					\
-	$(GTK3_CFLAGS)					\
+	$(CTK3_CFLAGS)					\
 	$(GLES_TEST_CFLAGS)				\
 	$(X11_CFLAGS)
 
 cafe_session_check_accelerated_gles_helper_LDADD =	\
 	$(GLES_TEST_LIBS)				\
-	$(GTK3_LIBS)					\
+	$(CTK3_LIBS)					\
 	$(X11_LIBS)
 endif
 
@@ -71,12 +71,12 @@ cafe_session_check_accelerated_SOURCES =       	\
 cafe_session_check_accelerated_CPPFLAGS =	\
 	-DLIBEXECDIR=\""$(libexecdir)"\"	\
 	$(AM_CPPFLAGS)				\
-	$(GTK3_CFLAGS)				\
+	$(CTK3_CFLAGS)				\
 	$(GL_TEST_CFLAGS)			\
 	$(X11_CPPFLAGS)
 
 cafe_session_check_accelerated_LDADD =	\
-	$(GTK3_LIBS)			\
+	$(CTK3_LIBS)			\
 	$(GL_TEST_LIBS)			\
 	$(X11_LIBS)
 

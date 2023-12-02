@@ -170,8 +170,8 @@ main (int   argc,
 
         dialog = ctk_message_dialog_new (NULL,
                                          0,
-                                         GTK_MESSAGE_INFO,
-                                         GTK_BUTTONS_CANCEL,
+                                         CTK_MESSAGE_INFO,
+                                         CTK_BUTTONS_CANCEL,
                                          "Inhibiting logout, switch user, and suspend.");
 
         g_signal_connect (dialog, "response", G_CALLBACK (ctk_main_quit), NULL);

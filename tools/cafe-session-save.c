@@ -79,11 +79,11 @@ static void display_error(const char* message)
 {
 	if (show_error_dialogs && !no_interaction)
 	{
-		GtkWidget* dialog = ctk_message_dialog_new(NULL, 0, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", message);
+		GtkWidget* dialog = ctk_message_dialog_new(NULL, 0, CTK_MESSAGE_ERROR, CTK_BUTTONS_CLOSE, "%s", message);
 
 		ctk_window_set_default_icon_name ("dialog-error");
 
-		ctk_dialog_run(GTK_DIALOG(dialog));
+		ctk_dialog_run(CTK_DIALOG(dialog));
 		ctk_widget_destroy(dialog);
 	}
 	else

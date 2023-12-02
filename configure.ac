@@ -37,7 +37,7 @@ fi
 
 GLIB_REQUIRED=2.50.0
 GIO_REQUIRED=2.25.0
-GTK_REQUIRED=3.22.0
+CTK_REQUIRED=3.22.0
 DBUS_GLIB_REQUIRED=0.76
 
 dnl ====================================================================
@@ -48,20 +48,20 @@ PKG_PROG_PKG_CONFIG()
 PKG_CHECK_MODULES(CAFE_SESSION,
         glib-2.0 >= $GLIB_REQUIRED
         gio-2.0 >= $GIO_REQUIRED
-        ctk+-3.0 >= $GTK_REQUIRED
+        ctk+-3.0 >= $CTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
 )
 
 PKG_CHECK_MODULES(SESSION_PROPERTIES,
         glib-2.0 >= $GLIB_REQUIRED
-        ctk+-3.0 >= $GTK_REQUIRED
+        ctk+-3.0 >= $CTK_REQUIRED
 )
 
 PKG_CHECK_MODULES(X11, x11)
 PKG_CHECK_MODULES(SM, sm)
 PKG_CHECK_MODULES(ICE, ice)
 PKG_CHECK_MODULES(XEXT, xext xau)
-PKG_CHECK_MODULES(GTK3, ctk+-3.0 >= $GTK_REQUIRED)
+PKG_CHECK_MODULES(CTK3, ctk+-3.0 >= $CTK_REQUIRED)
 PKG_CHECK_MODULES(GL_TEST, xcomposite gl glib-2.0 epoxy)
 
 PKG_CHECK_MODULES(DBUS_GLIB, dbus-glib-1 >= $DBUS_GLIB_REQUIRED)
