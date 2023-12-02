@@ -28,7 +28,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_XSMP_CLIENT              (csm_xsmp_client_get_type ())
-G_DECLARE_DERIVABLE_TYPE                  (CsmXSMPClient, csm_xsmp_client, GSM, XSMP_CLIENT, CsmClient)
+G_DECLARE_DERIVABLE_TYPE                  (CsmXSMPClient, csm_xsmp_client, CSM, XSMP_CLIENT, CsmClient)
 
 struct _CsmXSMPClientClass
 {

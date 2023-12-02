@@ -29,7 +29,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_AUTOSTART_APP            (csm_autostart_app_get_type ())
-G_DECLARE_DERIVABLE_TYPE (CsmAutostartApp, csm_autostart_app, GSM, AUTOSTART_APP, CsmApp)
+G_DECLARE_DERIVABLE_TYPE (CsmAutostartApp, csm_autostart_app, CSM, AUTOSTART_APP, CsmApp)
 
 struct _CsmAutostartAppClass
 {

@@ -29,7 +29,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_INHIBIT_DIALOG         (csm_inhibit_dialog_get_type ())
-G_DECLARE_FINAL_TYPE (CsmInhibitDialog, csm_inhibit_dialog, GSM, INHIBIT_DIALOG, CtkDialog)
+G_DECLARE_FINAL_TYPE (CsmInhibitDialog, csm_inhibit_dialog, CSM, INHIBIT_DIALOG, CtkDialog)
 
 typedef enum
 {

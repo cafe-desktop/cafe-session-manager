@@ -27,7 +27,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_PROPERTIES_DIALOG         (csm_properties_dialog_get_type ())
-G_DECLARE_FINAL_TYPE (CsmPropertiesDialog, csm_properties_dialog, GSM, PROPERTIES_DIALOG, CtkDialog)
+G_DECLARE_FINAL_TYPE (CsmPropertiesDialog, csm_properties_dialog, CSM, PROPERTIES_DIALOG, CtkDialog)
 
 CtkWidget            * csm_properties_dialog_new                (void);
 

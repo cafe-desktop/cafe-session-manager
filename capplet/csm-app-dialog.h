@@ -27,7 +27,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_APP_DIALOG              (csm_app_dialog_get_type ())
-G_DECLARE_FINAL_TYPE (CsmAppDialog, csm_app_dialog, GSM, APP_DIALOG, CtkDialog)
+G_DECLARE_FINAL_TYPE (CsmAppDialog, csm_app_dialog, CSM, APP_DIALOG, CtkDialog)
 
 CtkWidget            * csm_app_dialog_new                (const char   *name,
                                                           const char   *command,

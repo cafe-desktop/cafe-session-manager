@@ -29,7 +29,7 @@ G_BEGIN_DECLS
 #define CSM_TYPE_INHIBITOR            (csm_inhibitor_get_type ())
 #define CSM_INHIBITOR_ERROR           (csm_inhibitor_error_quark ())
 #define CSM_INHIBITOR_TYPE_ERROR      (csm_inhibitor_error_get_type ())
-G_DECLARE_FINAL_TYPE (CsmInhibitor, csm_inhibitor, GSM, INHIBITOR, GObject)
+G_DECLARE_FINAL_TYPE (CsmInhibitor, csm_inhibitor, CSM, INHIBITOR, GObject)
 
 typedef enum {
         CSM_INHIBITOR_FLAG_LOGOUT      = 1 << 0,

@@ -26,7 +26,7 @@
 G_BEGIN_DECLS
 
 #define CSM_TYPE_DBUS_CLIENT            (csm_dbus_client_get_type ())
-G_DECLARE_FINAL_TYPE (CsmDBusClient, csm_dbus_client, GSM, DBUS_CLIENT, CsmClient)
+G_DECLARE_FINAL_TYPE (CsmDBusClient, csm_dbus_client, CSM, DBUS_CLIENT, CsmClient)
 
 typedef enum
 {

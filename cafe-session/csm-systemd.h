@@ -31,7 +31,7 @@ G_BEGIN_DECLS
 
 #define CSM_TYPE_SYSTEMD             (csm_systemd_get_type ())
 #define CSM_SYSTEMD_ERROR            (csm_systemd_error_quark ())
-G_DECLARE_DERIVABLE_TYPE (CsmSystemd, csm_systemd, GSM, SYSTEMD, GObject)
+G_DECLARE_DERIVABLE_TYPE (CsmSystemd, csm_systemd, CSM, SYSTEMD, GObject)
 
 #define LOGIND_RUNNING() (access("/run/systemd/seats/", F_OK) >= 0)
 typedef enum   _CsmSystemdError   CsmSystemdError;
