@@ -329,7 +329,7 @@ csm_util_text_is_blank (const char *str)
  * @format: printf-style error message format
  * @...: error message args
  *
- * Displays the error message to the user. If @fatal is %TRUE, gsm
+ * Displays the error message to the user. If @fatal is %TRUE, csm
  * will exit after displaying the message.
  *
  * This should be called for major errors that occur before the
