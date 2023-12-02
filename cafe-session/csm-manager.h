@@ -54,7 +54,7 @@ struct _CsmManagerClass
 }; //CsmManagerClass;
 
 typedef enum {
-        /* gsm's own startup/initialization phase */
+        /* csm's own startup/initialization phase */
         CSM_MANAGER_PHASE_STARTUP = 0,
         /* xrandr setup, cafe-settings-daemon, etc */
         CSM_MANAGER_PHASE_INITIALIZATION,
