@@ -55,7 +55,7 @@
 #include "gsm-autostart-app.h"
 
 #include "gsm-util.h"
-#include "mdm.h"
+#include "cdm.h"
 #include "gsm-logout-dialog.h"
 #include "gsm-inhibit-dialog.h"
 #include "gsm-consolekit.h"
@@ -76,7 +76,7 @@
  */
 #define GSM_MANAGER_EXIT_PHASE_TIMEOUT 1 /* seconds */
 
-#define CDM_FLEXISERVER_COMMAND "mdmflexiserver"
+#define CDM_FLEXISERVER_COMMAND "cdmflexiserver"
 #define CDM_FLEXISERVER_ARGS    "--startnew Standard"
 
 #define GDM_FLEXISERVER_COMMAND "gdmflexiserver"
@@ -424,7 +424,7 @@ quit_request_completed_consolekit (GsmConsolekit *consolekit,
         MdmLogoutAction fallback_action = GPOINTER_TO_INT (user_data);
 
         if (error != NULL) {
-                mdm_set_logout_action (fallback_action);
+                cdm_set_logout_action (fallback_action);
         }
 
         g_object_unref (consolekit);
@@ -441,7 +441,7 @@ quit_request_completed_systemd (GsmSystemd *systemd,
         MdmLogoutAction fallback_action = GPOINTER_TO_INT (user_data);
 
         if (error != NULL) {
-                mdm_set_logout_action (fallback_action);
+                cdm_set_logout_action (fallback_action);
         }
 
         g_object_unref (systemd);
@@ -469,7 +469,7 @@ gsm_manager_quit (GsmManager *manager)
                 break;
         case GSM_MANAGER_LOGOUT_REBOOT:
         case GSM_MANAGER_LOGOUT_REBOOT_INTERACT:
-                mdm_set_logout_action (CDM_LOGOUT_ACTION_NONE);
+                cdm_set_logout_action (CDM_LOGOUT_ACTION_NONE);
 
 #ifdef HAVE_SYSTEMD
                 if (LOGIND_RUNNING()) {
@@ -493,12 +493,12 @@ gsm_manager_quit (GsmManager *manager)
 #endif
                 break;
         case GSM_MANAGER_LOGOUT_REBOOT_CDM:
-                mdm_set_logout_action (CDM_LOGOUT_ACTION_REBOOT);
+                cdm_set_logout_action (CDM_LOGOUT_ACTION_REBOOT);
                 ctk_main_quit ();
                 break;
         case GSM_MANAGER_LOGOUT_SHUTDOWN:
         case GSM_MANAGER_LOGOUT_SHUTDOWN_INTERACT:
-                mdm_set_logout_action (CDM_LOGOUT_ACTION_NONE);
+                cdm_set_logout_action (CDM_LOGOUT_ACTION_NONE);
 
 #ifdef HAVE_SYSTEMD
                 if (LOGIND_RUNNING()) {
@@ -522,7 +522,7 @@ gsm_manager_quit (GsmManager *manager)
 #endif
                 break;
         case GSM_MANAGER_LOGOUT_SHUTDOWN_CDM:
-                mdm_set_logout_action (CDM_LOGOUT_ACTION_SHUTDOWN);
+                cdm_set_logout_action (CDM_LOGOUT_ACTION_SHUTDOWN);
                 ctk_main_quit ();
                 break;
         default:
@@ -1103,7 +1103,7 @@ cancel_end_session (GsmManager *manager)
         priv->logout_mode = GSM_MANAGER_LOGOUT_MODE_NORMAL;
 
         priv->logout_type = GSM_MANAGER_LOGOUT_NONE;
-        mdm_set_logout_action (CDM_LOGOUT_ACTION_NONE);
+        cdm_set_logout_action (CDM_LOGOUT_ACTION_NONE);
 
         start_phase (manager);
 }
@@ -1145,7 +1145,7 @@ manager_switch_user (GsmManager *manager)
                 return;
         }
 
-        if (process_is_running("mdm")) {
+        if (process_is_running("cdm")) {
                 /* CDM */
                 command = g_strdup_printf ("%s %s",
                                            CDM_FLEXISERVER_COMMAND,

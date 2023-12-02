@@ -25,8 +25,8 @@
 
 G_BEGIN_DECLS
 
-#define CDM_TYPE_SIGNAL_HANDLER (mdm_signal_handler_get_type())
-G_DECLARE_FINAL_TYPE (MdmSignalHandler, mdm_signal_handler, CDM, SIGNAL_HANDLER, GObject)
+#define CDM_TYPE_SIGNAL_HANDLER (cdm_signal_handler_get_type())
+G_DECLARE_FINAL_TYPE (MdmSignalHandler, cdm_signal_handler, CDM, SIGNAL_HANDLER, GObject)
 
 typedef gboolean (*MdmSignalHandlerFunc)(int signal, gpointer data);
 
@@ -34,13 +34,13 @@ typedef void (*MdmShutdownHandlerFunc)(gpointer data);
 
 typedef struct MdmSignalHandlerPrivate MdmSignalHandlerPrivate;
 
-MdmSignalHandler* mdm_signal_handler_new(void);
-void mdm_signal_handler_set_fatal_func(MdmSignalHandler* handler, MdmShutdownHandlerFunc func, gpointer user_data);
+MdmSignalHandler* cdm_signal_handler_new(void);
+void cdm_signal_handler_set_fatal_func(MdmSignalHandler* handler, MdmShutdownHandlerFunc func, gpointer user_data);
 
-void mdm_signal_handler_add_fatal(MdmSignalHandler* handler);
-guint mdm_signal_handler_add(MdmSignalHandler* handler, int signal_number, MdmSignalHandlerFunc callback, gpointer data);
-void mdm_signal_handler_remove(MdmSignalHandler* handler, guint id);
-void mdm_signal_handler_remove_func(MdmSignalHandler* handler, guint signal_number, MdmSignalHandlerFunc callback, gpointer data);
+void cdm_signal_handler_add_fatal(MdmSignalHandler* handler);
+guint cdm_signal_handler_add(MdmSignalHandler* handler, int signal_number, MdmSignalHandlerFunc callback, gpointer data);
+void cdm_signal_handler_remove(MdmSignalHandler* handler, guint id);
+void cdm_signal_handler_remove_func(MdmSignalHandler* handler, guint signal_number, MdmSignalHandlerFunc callback, gpointer data);
 
 G_END_DECLS
 
