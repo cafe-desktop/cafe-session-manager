@@ -716,7 +716,7 @@ int main(int argc, char** argv)
 	accessibility_settings = g_settings_new (ACCESSIBILITY_SCHEMA);
 	if (g_settings_get_boolean (accessibility_settings, ACCESSIBILITY_KEY))
 	{
-		gsm_util_setenv("CTK_MODULES", "gail:atk-bridge");
+		gsm_util_setenv("CTK_MODULES", "cail:atk-bridge");
 	}
 	g_object_unref (accessibility_settings);
 
