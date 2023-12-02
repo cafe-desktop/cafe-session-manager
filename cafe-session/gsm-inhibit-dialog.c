@@ -302,7 +302,7 @@ scale_pixbuf (GdkPixbuf *pixbuf,
                 return gdk_pixbuf_scale_simple (pixbuf,
                                                 scale_x,
                                                 scale_y,
-                                                CDK_INTERP_BILINEAR);
+                                                GDK_INTERP_BILINEAR);
         } else {
                 return g_object_ref (pixbuf);
         }
