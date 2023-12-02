@@ -24,6 +24,6 @@ cafe_session_properties_SOURCES =			\
 
 cafe_session_properties_LDADD =			\
 	$(SESSION_PROPERTIES_LIBS)			\
-	$(top_builddir)/cafe-session/libgsmutil.la
+	$(top_builddir)/cafe-session/libcsmutil.la
 
 -include $(top_srcdir)/git.mk
