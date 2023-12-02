@@ -108,7 +108,7 @@ msm_compat_gnome_smproxy_startup (void)
    * This has another advantage, since it prevents people from running
    * gnome-smproxy in xfce4, which would cause trouble otherwise.
    */
-  dpy = GDK_DISPLAY_XDISPLAY(cdkdisplay);
+  dpy = CDK_DISPLAY_XDISPLAY(cdkdisplay);
   root = RootWindow (dpy, 0);
 
   if (gnome_smproxy_window != None)
@@ -139,8 +139,8 @@ msm_compat_gnome_smproxy_shutdown (void)
 
   if (gnome_smproxy_window != None)
     {
-      XDestroyWindow (GDK_DISPLAY_XDISPLAY(cdkdisplay), gnome_smproxy_window);
-      XSync (GDK_DISPLAY_XDISPLAY(cdkdisplay), False);
+      XDestroyWindow (CDK_DISPLAY_XDISPLAY(cdkdisplay), gnome_smproxy_window);
+      XSync (CDK_DISPLAY_XDISPLAY(cdkdisplay), False);
       gnome_smproxy_window = None;
     }
   cdk_x11_display_error_trap_pop_ignored (cdkdisplay);

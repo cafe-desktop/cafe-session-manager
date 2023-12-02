@@ -302,7 +302,7 @@ scale_pixbuf (GdkPixbuf *pixbuf,
                 return cdk_pixbuf_scale_simple (pixbuf,
                                                 scale_x,
                                                 scale_y,
-                                                GDK_INTERP_BILINEAR);
+                                                CDK_INTERP_BILINEAR);
         } else {
                 return g_object_ref (pixbuf);
         }
@@ -407,7 +407,7 @@ get_pixbuf_for_window (GdkDisplay *cdkdisplay,
         int width;
         int height;
 
-        display = GDK_DISPLAY_XDISPLAY (cdkdisplay);
+        display = CDK_DISPLAY_XDISPLAY (cdkdisplay);
         xwindow = (Window) xid;
         xpixmap = get_pixmap_for_window (display, xwindow, &width, &height);
         if (xpixmap == None) {
@@ -899,7 +899,7 @@ setup_dialog (GsmInhibitDialog *dialog)
                           dialog);
 
         dialog->list_store = ctk_list_store_new (NUMBER_OF_COLUMNS,
-                                                 GDK_TYPE_PIXBUF,
+                                                 CDK_TYPE_PIXBUF,
                                                  G_TYPE_STRING,
                                                  G_TYPE_STRING,
                                                  G_TYPE_STRING);
@@ -956,7 +956,7 @@ gsm_inhibit_dialog_constructor (GType                  type,
 #ifdef HAVE_XRENDER
         cdkdisplay = cdk_display_get_default ();
         cdk_x11_display_error_trap_push (cdkdisplay);
-        if (XRenderQueryExtension (GDK_DISPLAY_XDISPLAY (cdkdisplay), &dialog->xrender_event_base, &dialog->xrender_error_base)) {
+        if (XRenderQueryExtension (CDK_DISPLAY_XDISPLAY (cdkdisplay), &dialog->xrender_event_base, &dialog->xrender_error_base)) {
                 g_debug ("GsmInhibitDialog: Initialized XRender extension");
                 dialog->have_xrender = TRUE;
         } else {

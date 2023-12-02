@@ -67,7 +67,7 @@ property_notify_filter (GdkXEvent *xevent,
                 ctk_main_quit ();
         }
 
-        return GDK_FILTER_CONTINUE;
+        return CDK_FILTER_CONTINUE;
 }
 
 static gboolean
@@ -85,7 +85,7 @@ wait_for_property_notify (void)
         root = cdk_screen_get_root_window (screen);
         rootwin = cdk_x11_window_get_xid (root);
 
-        XSelectInput (GDK_DISPLAY_XDISPLAY (display), rootwin, PropertyChangeMask);
+        XSelectInput (CDK_DISPLAY_XDISPLAY (display), rootwin, PropertyChangeMask);
         cdk_window_add_filter (root, property_notify_filter, NULL);
         g_timeout_add (PROPERTY_CHANGE_TIMEOUT, on_property_notify_timeout, NULL);
 
@@ -163,10 +163,10 @@ main (int argc, char **argv)
         }
 
         display = cdk_display_get_default ();
-        /* when running on X11 with a nested wayland GDK will default to wayland
+        /* when running on X11 with a nested wayland CDK will default to wayland
          * so looking for X11 atoms will not work (and crash).
          */
-        if (!GDK_IS_X11_DISPLAY (display)) {
+        if (!CDK_IS_X11_DISPLAY (display)) {
                 g_printerr ("cafe-session-check-accelerated: no X11 display found\n");
                 return 1;
         }
@@ -186,7 +186,7 @@ main (int argc, char **argv)
 
  read:
                 cdk_x11_display_error_trap_push (display);
-                XGetWindowProperty (GDK_DISPLAY_XDISPLAY (display), rootwin,
+                XGetWindowProperty (CDK_DISPLAY_XDISPLAY (display), rootwin,
                                     is_accelerated_atom,
                                     0, G_MAXLONG, False, XA_CARDINAL, &type, &format, &nitems,
                                     &bytes_after, &data);
@@ -203,7 +203,7 @@ main (int argc, char **argv)
 
                         } else {
                                 cdk_x11_display_error_trap_push (display);
-                                XGetWindowProperty (GDK_DISPLAY_XDISPLAY (display), rootwin,
+                                XGetWindowProperty (CDK_DISPLAY_XDISPLAY (display), rootwin,
                                                     renderer_atom,
                                                     0, G_MAXLONG, False, XA_STRING, &type, &format, &nitems,
                                                     &bytes_after, &data);
@@ -227,7 +227,7 @@ main (int argc, char **argv)
         is_software_rendering = FALSE;
         estatus = 1;
 
-        XChangeProperty (GDK_DISPLAY_XDISPLAY (display),
+        XChangeProperty (CDK_DISPLAY_XDISPLAY (display),
                          rootwin,
                          is_accelerated_atom,
                          XA_CARDINAL, 32, PropModeReplace, (guchar *) &is_accelerated, 1);
@@ -292,21 +292,21 @@ main (int argc, char **argv)
 
  finish:
 	if (is_accelerated) {
-		XChangeProperty (GDK_DISPLAY_XDISPLAY (display),
+		XChangeProperty (CDK_DISPLAY_XDISPLAY (display),
 				rootwin,
 				is_accelerated_atom,
 				XA_CARDINAL, 32, PropModeReplace, (guchar *) &is_accelerated, 1);
 	}
 
 	if (is_software_rendering) {
-		XChangeProperty (GDK_DISPLAY_XDISPLAY (display),
+		XChangeProperty (CDK_DISPLAY_XDISPLAY (display),
 				rootwin,
 				is_software_rendering_atom,
 				XA_CARDINAL, 32, PropModeReplace, (guchar *) &is_software_rendering, 1);
 	}
 
         if (renderer_string != NULL) {
-                XChangeProperty (GDK_DISPLAY_XDISPLAY (display),
+                XChangeProperty (CDK_DISPLAY_XDISPLAY (display),
 				rootwin,
 				renderer_atom,
 				XA_STRING, 8, PropModeReplace, (guchar *) renderer_string, strlen (renderer_string));
