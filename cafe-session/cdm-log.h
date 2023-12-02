@@ -20,8 +20,8 @@
  *
  */
 
-#ifndef __MDM_LOG_H
-#define __MDM_LOG_H
+#ifndef __CDM_LOG_H
+#define __CDM_LOG_H
 
 #include <stdarg.h>
 #include <glib.h>
@@ -52,4 +52,4 @@ void      mdm_log_shutdown        (void);
 }
 #endif
 
-#endif /* __MDM_LOG_H */
+#endif /* __CDM_LOG_H */

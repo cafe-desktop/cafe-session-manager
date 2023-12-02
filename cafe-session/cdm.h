@@ -25,8 +25,8 @@
  *      Mark McLoughlin <mark@skynet.ie>
  */
 
-#ifndef __MDM_LOGOUT_ACTION_H__
-#define __MDM_LOGOUT_ACTION_H__
+#ifndef __CDM_LOGOUT_ACTION_H__
+#define __CDM_LOGOUT_ACTION_H__
 
 #include <glib.h>
 
@@ -35,10 +35,10 @@ extern "C" {
 #endif
 
 typedef enum {
-	MDM_LOGOUT_ACTION_NONE = 0,
-	MDM_LOGOUT_ACTION_SHUTDOWN = 1 << 0,
-	MDM_LOGOUT_ACTION_REBOOT = 1 << 1,
-	MDM_LOGOUT_ACTION_SUSPEND = 1 << 2
+	CDM_LOGOUT_ACTION_NONE = 0,
+	CDM_LOGOUT_ACTION_SHUTDOWN = 1 << 0,
+	CDM_LOGOUT_ACTION_REBOOT = 1 << 1,
+	CDM_LOGOUT_ACTION_SUSPEND = 1 << 2
 } MdmLogoutAction;
 
 gboolean mdm_is_available(void);
@@ -55,4 +55,4 @@ gboolean mdm_supports_logout_action(MdmLogoutAction action);
 }
 #endif
 
-#endif /* __MDM_LOGOUT_ACTION_H__ */
+#endif /* __CDM_LOGOUT_ACTION_H__ */

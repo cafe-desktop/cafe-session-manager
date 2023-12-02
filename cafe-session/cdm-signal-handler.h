@@ -18,15 +18,15 @@
  *
  */
 
-#ifndef __MDM_SIGNAL_HANDLER_H
-#define __MDM_SIGNAL_HANDLER_H
+#ifndef __CDM_SIGNAL_HANDLER_H
+#define __CDM_SIGNAL_HANDLER_H
 
 #include <glib-object.h>
 
 G_BEGIN_DECLS
 
-#define MDM_TYPE_SIGNAL_HANDLER (mdm_signal_handler_get_type())
-G_DECLARE_FINAL_TYPE (MdmSignalHandler, mdm_signal_handler, MDM, SIGNAL_HANDLER, GObject)
+#define CDM_TYPE_SIGNAL_HANDLER (mdm_signal_handler_get_type())
+G_DECLARE_FINAL_TYPE (MdmSignalHandler, mdm_signal_handler, CDM, SIGNAL_HANDLER, GObject)
 
 typedef gboolean (*MdmSignalHandlerFunc)(int signal, gpointer data);
 
@@ -44,4 +44,4 @@ void mdm_signal_handler_remove_func(MdmSignalHandler* handler, guint signal_numb
 
 G_END_DECLS
 
-#endif /* __MDM_SIGNAL_HANDLER_H */
+#endif /* __CDM_SIGNAL_HANDLER_H */

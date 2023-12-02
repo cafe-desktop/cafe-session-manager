@@ -265,8 +265,8 @@ msgstr "start;CAFE;skrivebord;økt;"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
-msgid "CAFE;window;manager;launch;MDM;"
-msgstr "CAFE;vindu;behandler;start;MDM;"
+msgid "CAFE;window;manager;launch;CDM;"
+msgstr "CAFE;vindu;behandler;start;CDM;"
 
 #: data/gsm-inhibit-dialog.ui:14
 msgid "<b>Some programs are still running:</b>"

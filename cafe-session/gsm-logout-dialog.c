@@ -253,7 +253,7 @@ gsm_logout_supports_reboot (GsmLogoutDialog *logout_dialog)
 #endif
         ret = gsm_consolekit_can_restart (logout_dialog->consolekit);
         if (!ret) {
-                ret = mdm_supports_logout_action (MDM_LOGOUT_ACTION_REBOOT);
+                ret = mdm_supports_logout_action (CDM_LOGOUT_ACTION_REBOOT);
         }
 
         return ret;
@@ -272,7 +272,7 @@ gsm_logout_supports_shutdown (GsmLogoutDialog *logout_dialog)
         ret = gsm_consolekit_can_stop (logout_dialog->consolekit);
 
         if (!ret) {
-                ret = mdm_supports_logout_action (MDM_LOGOUT_ACTION_SHUTDOWN);
+                ret = mdm_supports_logout_action (CDM_LOGOUT_ACTION_SHUTDOWN);
         }
 
         return ret;
