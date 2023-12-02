@@ -31,7 +31,7 @@
 #include <dbus/dbus-glib.h>
 
 #define SM_DBUS_NAME      "org.cafe.SessionManager"
-#define SM_DBUS_PATH      "/org/gnome/SessionManager"
+#define SM_DBUS_PATH      "/org/cafe/SessionManager"
 #define SM_DBUS_INTERFACE "org.cafe.SessionManager"
 
 static GDBusProxy      *sm_proxy = NULL;

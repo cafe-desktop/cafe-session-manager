@@ -31,7 +31,7 @@
 #include <ctk/ctk.h>
 
 #define CSM_SERVICE_DBUS "org.cafe.SessionManager"
-#define CSM_PATH_DBUS "/org/gnome/SessionManager"
+#define CSM_PATH_DBUS "/org/cafe/SessionManager"
 #define CSM_INTERFACE_DBUS "org.cafe.SessionManager"
 
 #define CSM_SERVICE_DBUS_OLD "org.cafe.SessionManager"
