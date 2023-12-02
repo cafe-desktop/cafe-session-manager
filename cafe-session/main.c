@@ -53,10 +53,10 @@
 
 #include "msm-gnome.h"
 
-#define GSM_SCHEMA "org.cafe.session"
-#define GSM_DEFAULT_SESSION_KEY "default-session"
-#define GSM_REQUIRED_COMPONENTS_SCHEMA GSM_SCHEMA ".required-components"
-#define GSM_REQUIRED_COMPONENTS_LIST_KEY "required-components-list"
+#define CSM_SCHEMA "org.cafe.session"
+#define CSM_DEFAULT_SESSION_KEY "default-session"
+#define CSM_REQUIRED_COMPONENTS_SCHEMA CSM_SCHEMA ".required-components"
+#define CSM_REQUIRED_COMPONENTS_LIST_KEY "required-components-list"
 
 #define ACCESSIBILITY_KEY     "accessibility"
 #define ACCESSIBILITY_SCHEMA  "org.cafe.interface"
@@ -75,7 +75,7 @@
 #define CAFE_INTERFACE_SCHEMA "org.cafe.interface"
 #define CTK_OVERLAY_SCROLL    "ctk-overlay-scrolling"
 
-#define GSM_DBUS_NAME "org.gnome.SessionManager"
+#define CSM_DBUS_NAME "org.gnome.SessionManager"
 
 #define KEY_AUTOSAVE "auto-save-session"
 
@@ -92,7 +92,7 @@ initialize_gsettings (void)
 	time_t now = time (0);
 	gboolean ret;
 
-	settings = g_settings_new (GSM_SCHEMA);
+	settings = g_settings_new (CSM_SCHEMA);
 
 	if (!settings)
 		return FALSE;
@@ -187,7 +187,7 @@ static gboolean acquire_name(void)
 
 	bus_proxy = dbus_g_proxy_new_for_name(connection, DBUS_SERVICE_DBUS, DBUS_PATH_DBUS, DBUS_INTERFACE_DBUS);
 
-	if (!acquire_name_on_proxy(bus_proxy, GSM_DBUS_NAME))
+	if (!acquire_name_on_proxy(bus_proxy, CSM_DBUS_NAME))
 	{
 		gsm_util_init_error(TRUE, "%s", "Could not acquire name on session bus");
 		/* not reached */
@@ -211,7 +211,7 @@ static void append_default_apps(GsmManager* manager, const char* default_session
 	g_assert(default_session_key != NULL);
 	g_assert(autostart_dirs != NULL);
 
-	settings = g_settings_new (GSM_SCHEMA);
+	settings = g_settings_new (CSM_SCHEMA);
 	default_apps = g_settings_get_strv (settings, default_session_key);
 	g_object_unref(settings);
 
@@ -245,10 +245,10 @@ static void append_required_apps(GsmManager* manager)
 
 	g_debug("main: *** Adding required apps");
 
-	settings = g_settings_new (GSM_SCHEMA);
-	settings_required_components = g_settings_new (GSM_REQUIRED_COMPONENTS_SCHEMA);
+	settings = g_settings_new (CSM_SCHEMA);
+	settings_required_components = g_settings_new (CSM_REQUIRED_COMPONENTS_SCHEMA);
 
-	required_components = g_settings_get_strv(settings, GSM_REQUIRED_COMPONENTS_LIST_KEY);
+	required_components = g_settings_get_strv(settings, CSM_REQUIRED_COMPONENTS_LIST_KEY);
 
 	if (required_components == NULL)
 	{
@@ -363,13 +363,13 @@ static void maybe_load_saved_session_apps(GsmManager* manager)
 	if (LOGIND_RUNNING()) {
 		systemd = gsm_get_systemd();
 		session_type = gsm_systemd_get_current_session_type(systemd);
-		is_login = g_strcmp0 (session_type, GSM_SYSTEMD_SESSION_TYPE_LOGIN_WINDOW) == 0;
+		is_login = g_strcmp0 (session_type, CSM_SYSTEMD_SESSION_TYPE_LOGIN_WINDOW) == 0;
 	}
 	else {
 #endif
 	consolekit = gsm_get_consolekit();
 	session_type = gsm_consolekit_get_current_session_type(consolekit);
-	is_login = g_strcmp0 (session_type, GSM_CONSOLEKIT_SESSION_TYPE_LOGIN_WINDOW) == 0;
+	is_login = g_strcmp0 (session_type, CSM_CONSOLEKIT_SESSION_TYPE_LOGIN_WINDOW) == 0;
 #ifdef HAVE_SYSTEMD
 	}
 #endif
@@ -379,7 +379,7 @@ static void maybe_load_saved_session_apps(GsmManager* manager)
 		GSettings* settings;
 		gboolean autostart;
 
-		settings = g_settings_new (GSM_SCHEMA);
+		settings = g_settings_new (CSM_SCHEMA);
 		autostart = g_settings_get_boolean (settings, KEY_AUTOSAVE);
 		g_object_unref (settings);
 
@@ -452,7 +452,7 @@ static gboolean signal_cb(int signo, gpointer data)
 		case SIGINT:
 		case SIGTERM:
 			manager = (GsmManager*) data;
-			gsm_manager_logout(manager, GSM_MANAGER_LOGOUT_MODE_FORCE, NULL);
+			gsm_manager_logout(manager, CSM_MANAGER_LOGOUT_MODE_FORCE, NULL);
 
 			/* let the fatal signals interrupt us */
 			g_debug("Caught signal %d, shutting down normally.", signo);
@@ -488,7 +488,7 @@ static void shutdown_cb(gpointer data)
 	 * applications in the off chance a handler is already queued
 	 * to dispatch following the below call to ctk_main_quit.
 	 */
-	gsm_manager_set_phase(manager, GSM_MANAGER_PHASE_EXIT);
+	gsm_manager_set_phase(manager, CSM_MANAGER_PHASE_EXIT);
 
 	ctk_main_quit();
 }
@@ -752,7 +752,7 @@ int main(int argc, char** argv)
 	}
 	else
 	{
-		load_standard_apps(manager, GSM_DEFAULT_SESSION_KEY);
+		load_standard_apps(manager, CSM_DEFAULT_SESSION_KEY);
 	}
 
 	gsm_xsmp_server_start(xsmp_server);

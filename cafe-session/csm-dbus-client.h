@@ -18,27 +18,27 @@
  * 02110-1301, USA.
  */
 
-#ifndef __GSM_DBUS_CLIENT_H__
-#define __GSM_DBUS_CLIENT_H__
+#ifndef __CSM_DBUS_CLIENT_H__
+#define __CSM_DBUS_CLIENT_H__
 
 #include "csm-client.h"
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_DBUS_CLIENT            (gsm_dbus_client_get_type ())
+#define CSM_TYPE_DBUS_CLIENT            (gsm_dbus_client_get_type ())
 G_DECLARE_FINAL_TYPE (GsmDBusClient, gsm_dbus_client, GSM, DBUS_CLIENT, GsmClient)
 
 typedef enum
 {
-        GSM_DBUS_CLIENT_ERROR_GENERAL = 0,
-        GSM_DBUS_CLIENT_ERROR_NOT_CLIENT,
-        GSM_DBUS_CLIENT_NUM_ERRORS
+        CSM_DBUS_CLIENT_ERROR_GENERAL = 0,
+        CSM_DBUS_CLIENT_ERROR_NOT_CLIENT,
+        CSM_DBUS_CLIENT_NUM_ERRORS
 } GsmDBusClientError;
 
-#define GSM_DBUS_CLIENT_ERROR gsm_dbus_client_error_quark ()
+#define CSM_DBUS_CLIENT_ERROR gsm_dbus_client_error_quark ()
 
 GType          gsm_dbus_client_error_get_type     (void);
-#define GSM_DBUS_CLIENT_TYPE_ERROR (gsm_dbus_client_error_get_type ())
+#define CSM_DBUS_CLIENT_TYPE_ERROR (gsm_dbus_client_error_get_type ())
 
 GQuark         gsm_dbus_client_error_quark        (void);
 
@@ -48,4 +48,4 @@ const char *   gsm_dbus_client_get_bus_name       (GsmDBusClient  *client);
 
 G_END_DECLS
 
-#endif /* __GSM_DBUS_CLIENT_H__ */
+#endif /* __CSM_DBUS_CLIENT_H__ */

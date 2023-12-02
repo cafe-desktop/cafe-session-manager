@@ -55,7 +55,7 @@ enum {
         PROP_BUS_NAME
 };
 
-G_DEFINE_TYPE (GsmDBusClient, gsm_dbus_client, GSM_TYPE_CLIENT)
+G_DEFINE_TYPE (GsmDBusClient, gsm_dbus_client, CSM_TYPE_CLIENT)
 
 GQuark
 gsm_dbus_client_error_quark (void)
@@ -77,12 +77,12 @@ gsm_dbus_client_error_get_type (void)
 
         if (etype == 0) {
                 static const GEnumValue values[] = {
-                        ENUM_ENTRY (GSM_DBUS_CLIENT_ERROR_GENERAL, "GeneralError"),
-                        ENUM_ENTRY (GSM_DBUS_CLIENT_ERROR_NOT_CLIENT, "NotClient"),
+                        ENUM_ENTRY (CSM_DBUS_CLIENT_ERROR_GENERAL, "GeneralError"),
+                        ENUM_ENTRY (CSM_DBUS_CLIENT_ERROR_NOT_CLIENT, "NotClient"),
                         { 0, 0, 0 }
                 };
 
-                g_assert (GSM_DBUS_CLIENT_NUM_ERRORS == G_N_ELEMENTS (values) - 1);
+                g_assert (CSM_DBUS_CLIENT_NUM_ERRORS == G_N_ELEMENTS (values) - 1);
 
                 etype = g_enum_register_static ("GsmDbusClientError", values);
         }
@@ -186,7 +186,7 @@ handle_end_session_response (GsmDBusClient *client,
                 g_error ("No memory");
         }
 
-        gsm_client_end_session_response (GSM_CLIENT (client),
+        gsm_client_end_session_response (CSM_CLIENT (client),
                                          is_ok, FALSE, FALSE, reason);
 
 
@@ -202,7 +202,7 @@ client_dbus_filter_function (DBusConnection *connection,
                              DBusMessage    *message,
                              void           *user_data)
 {
-        GsmDBusClient *client = GSM_DBUS_CLIENT (user_data);
+        GsmDBusClient *client = CSM_DBUS_CLIENT (user_data);
         const char    *path;
 
         g_return_val_if_fail (connection != NULL, DBUS_HANDLER_RESULT_NOT_YET_HANDLED);
@@ -216,9 +216,9 @@ client_dbus_filter_function (DBusConnection *connection,
                  dbus_message_get_member (message));
 
         if (dbus_message_is_method_call (message, SM_DBUS_CLIENT_PRIVATE_INTERFACE, "EndSessionResponse")) {
-                g_assert (gsm_client_peek_id (GSM_CLIENT (client)) != NULL);
+                g_assert (gsm_client_peek_id (CSM_CLIENT (client)) != NULL);
 
-                if (path != NULL && strcmp (path, gsm_client_peek_id (GSM_CLIENT (client))) != 0) {
+                if (path != NULL && strcmp (path, gsm_client_peek_id (CSM_CLIENT (client))) != 0) {
                         /* Different object path */
                         return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
                 }
@@ -236,7 +236,7 @@ gsm_dbus_client_constructor (GType                  type,
 {
         GsmDBusClient *client;
 
-        client = GSM_DBUS_CLIENT (G_OBJECT_CLASS (gsm_dbus_client_parent_class)->constructor (type,
+        client = CSM_DBUS_CLIENT (G_OBJECT_CLASS (gsm_dbus_client_parent_class)->constructor (type,
                                                                                               n_construct_properties,
                                                                                               construct_properties));
 
@@ -331,7 +331,7 @@ gsm_dbus_client_set_bus_name (GsmDBusClient  *client,
         uid_t    uid;
         pid_t    pid;
 
-        g_return_if_fail (GSM_IS_DBUS_CLIENT (client));
+        g_return_if_fail (CSM_IS_DBUS_CLIENT (client));
 
         g_free (client->bus_name);
 
@@ -354,7 +354,7 @@ gsm_dbus_client_set_bus_name (GsmDBusClient  *client,
 const char *
 gsm_dbus_client_get_bus_name (GsmDBusClient  *client)
 {
-        g_return_val_if_fail (GSM_IS_DBUS_CLIENT (client), NULL);
+        g_return_val_if_fail (CSM_IS_DBUS_CLIENT (client), NULL);
 
         return client->bus_name;
 }
@@ -367,7 +367,7 @@ gsm_dbus_client_set_property (GObject       *object,
 {
         GsmDBusClient *self;
 
-        self = GSM_DBUS_CLIENT (object);
+        self = CSM_DBUS_CLIENT (object);
 
         switch (prop_id) {
         case PROP_BUS_NAME:
@@ -387,7 +387,7 @@ gsm_dbus_client_get_property (GObject    *object,
 {
         GsmDBusClient *self;
 
-        self = GSM_DBUS_CLIENT (object);
+        self = CSM_DBUS_CLIENT (object);
 
         switch (prop_id) {
         case PROP_BUS_NAME:
@@ -467,13 +467,13 @@ dbus_client_get_app_name (GsmClient *client)
 static GsmClientRestartStyle
 dbus_client_get_restart_style_hint (GsmClient *client)
 {
-        return (GSM_DBUS_CLIENT (client)->restart_style_hint);
+        return (CSM_DBUS_CLIENT (client)->restart_style_hint);
 }
 
 static guint
 dbus_client_get_unix_process_id (GsmClient *client)
 {
-        return (GSM_DBUS_CLIENT (client)->caller_pid);
+        return (CSM_DBUS_CLIENT (client)->caller_pid);
 }
 
 static gboolean
@@ -490,8 +490,8 @@ dbus_client_query_end_session (GsmClient *client,
 
         if (dbus_client->bus_name == NULL) {
                 g_set_error (error,
-                             GSM_CLIENT_ERROR,
-                             GSM_CLIENT_ERROR_NOT_REGISTERED,
+                             CSM_CLIENT_ERROR,
+                             CSM_CLIENT_ERROR_NOT_REGISTERED,
                              "Client is not registered");
                 return FALSE;
         }
@@ -504,15 +504,15 @@ dbus_client_query_end_session (GsmClient *client,
                                            "QueryEndSession");
         if (message == NULL) {
                 g_set_error (error,
-                             GSM_CLIENT_ERROR,
-                             GSM_CLIENT_ERROR_NOT_REGISTERED,
+                             CSM_CLIENT_ERROR,
+                             CSM_CLIENT_ERROR_NOT_REGISTERED,
                              "Unable to send QueryEndSession message");
                 goto out;
         }
         if (!dbus_message_set_destination (message, dbus_client->bus_name)) {
                 g_set_error (error,
-                             GSM_CLIENT_ERROR,
-                             GSM_CLIENT_ERROR_NOT_REGISTERED,
+                             CSM_CLIENT_ERROR,
+                             CSM_CLIENT_ERROR_NOT_REGISTERED,
                              "Unable to send QueryEndSession message");
                 goto out;
         }
@@ -522,8 +522,8 @@ dbus_client_query_end_session (GsmClient *client,
 
         if (!dbus_connection_send (dbus_client->connection, message, NULL)) {
                 g_set_error (error,
-                             GSM_CLIENT_ERROR,
-                             GSM_CLIENT_ERROR_NOT_REGISTERED,
+                             CSM_CLIENT_ERROR,
+                             CSM_CLIENT_ERROR_NOT_REGISTERED,
                              "Unable to send QueryEndSession message");
                 goto out;
         }
@@ -556,15 +556,15 @@ dbus_client_end_session (GsmClient *client,
                                            "EndSession");
         if (message == NULL) {
                 g_set_error (error,
-                             GSM_CLIENT_ERROR,
-                             GSM_CLIENT_ERROR_NOT_REGISTERED,
+                             CSM_CLIENT_ERROR,
+                             CSM_CLIENT_ERROR_NOT_REGISTERED,
                              "Unable to send EndSession message");
                 goto out;
         }
         if (!dbus_message_set_destination (message, dbus_client->bus_name)) {
                 g_set_error (error,
-                             GSM_CLIENT_ERROR,
-                             GSM_CLIENT_ERROR_NOT_REGISTERED,
+                             CSM_CLIENT_ERROR,
+                             CSM_CLIENT_ERROR_NOT_REGISTERED,
                              "Unable to send EndSession message");
                 goto out;
         }
@@ -574,8 +574,8 @@ dbus_client_end_session (GsmClient *client,
 
         if (!dbus_connection_send (dbus_client->connection, message, NULL)) {
                 g_set_error (error,
-                             GSM_CLIENT_ERROR,
-                             GSM_CLIENT_ERROR_NOT_REGISTERED,
+                             CSM_CLIENT_ERROR,
+                             CSM_CLIENT_ERROR_NOT_REGISTERED,
                              "Unable to send EndSession message");
                 goto out;
         }
@@ -603,23 +603,23 @@ dbus_client_cancel_end_session (GsmClient *client,
                                            "CancelEndSession");
         if (message == NULL) {
                 g_set_error (error,
-                             GSM_CLIENT_ERROR,
-                             GSM_CLIENT_ERROR_NOT_REGISTERED,
+                             CSM_CLIENT_ERROR,
+                             CSM_CLIENT_ERROR_NOT_REGISTERED,
                              "Unable to send CancelEndSession message");
                 goto out;
         }
         if (!dbus_message_set_destination (message, dbus_client->bus_name)) {
                 g_set_error (error,
-                             GSM_CLIENT_ERROR,
-                             GSM_CLIENT_ERROR_NOT_REGISTERED,
+                             CSM_CLIENT_ERROR,
+                             CSM_CLIENT_ERROR_NOT_REGISTERED,
                              "Unable to send CancelEndSession message");
                 goto out;
         }
 
         if (!dbus_connection_send (dbus_client->connection, message, NULL)) {
                 g_set_error (error,
-                             GSM_CLIENT_ERROR,
-                             GSM_CLIENT_ERROR_NOT_REGISTERED,
+                             CSM_CLIENT_ERROR,
+                             CSM_CLIENT_ERROR_NOT_REGISTERED,
                              "Unable to send CancelEndSession message");
                 goto out;
         }
@@ -640,9 +640,9 @@ gsm_dbus_client_dispose (GObject *object)
         GsmDBusClient *client;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (GSM_IS_DBUS_CLIENT (object));
+        g_return_if_fail (CSM_IS_DBUS_CLIENT (object));
 
-        client = GSM_DBUS_CLIENT (object);
+        client = CSM_DBUS_CLIENT (object);
 
         dbus_connection_remove_filter (client->connection, client_dbus_filter_function, client);
 
@@ -653,7 +653,7 @@ static void
 gsm_dbus_client_class_init (GsmDBusClientClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
-        GsmClientClass *client_class = GSM_CLIENT_CLASS (klass);
+        GsmClientClass *client_class = CSM_CLIENT_CLASS (klass);
 
         object_class->finalize             = gsm_dbus_client_finalize;
         object_class->constructor          = gsm_dbus_client_constructor;
@@ -685,10 +685,10 @@ gsm_dbus_client_new (const char *startup_id,
 {
         GsmDBusClient *client;
 
-        client = g_object_new (GSM_TYPE_DBUS_CLIENT,
+        client = g_object_new (CSM_TYPE_DBUS_CLIENT,
                                "startup-id", startup_id,
                                "bus-name", bus_name,
                                NULL);
 
-        return GSM_CLIENT (client);
+        return CSM_CLIENT (client);
 }

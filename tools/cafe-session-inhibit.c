@@ -31,11 +31,11 @@
 #include <gio/gio.h>
 
 typedef enum {
-        GSM_INHIBITOR_FLAG_LOGOUT      = 1 << 0,
-        GSM_INHIBITOR_FLAG_SWITCH_USER = 1 << 1,
-        GSM_INHIBITOR_FLAG_SUSPEND     = 1 << 2,
-        GSM_INHIBITOR_FLAG_IDLE        = 1 << 3,
-        GSM_INHIBITOR_FLAG_AUTOMOUNT   = 1 << 4
+        CSM_INHIBITOR_FLAG_LOGOUT      = 1 << 0,
+        CSM_INHIBITOR_FLAG_SWITCH_USER = 1 << 1,
+        CSM_INHIBITOR_FLAG_SUSPEND     = 1 << 2,
+        CSM_INHIBITOR_FLAG_IDLE        = 1 << 3,
+        CSM_INHIBITOR_FLAG_AUTOMOUNT   = 1 << 4
 } GsmInhibitorFlags;
 
 static GsmInhibitorFlags parse_flags (const gchar *arg)
@@ -50,15 +50,15 @@ static GsmInhibitorFlags parse_flags (const gchar *arg)
   for (i = 0; args[i]; i++)
     {
       if (strcmp (args[i], "logout") == 0)
-        flags |= GSM_INHIBITOR_FLAG_LOGOUT;
+        flags |= CSM_INHIBITOR_FLAG_LOGOUT;
       else if (strcmp (args[i], "switch-user") == 0)
-        flags |= GSM_INHIBITOR_FLAG_SWITCH_USER;
+        flags |= CSM_INHIBITOR_FLAG_SWITCH_USER;
       else if (strcmp (args[i], "suspend") == 0)
-        flags |= GSM_INHIBITOR_FLAG_SUSPEND;
+        flags |= CSM_INHIBITOR_FLAG_SUSPEND;
       else if (strcmp (args[i], "idle") == 0)
-        flags |= GSM_INHIBITOR_FLAG_IDLE;
+        flags |= CSM_INHIBITOR_FLAG_IDLE;
       else if (strcmp (args[i], "automount") == 0)
-        flags |= GSM_INHIBITOR_FLAG_AUTOMOUNT;
+        flags |= CSM_INHIBITOR_FLAG_AUTOMOUNT;
       else
         g_print ("Ignoring inhibit argument: %s\n", args[i]);
     }
@@ -208,7 +208,7 @@ int main (int argc, char *argv[])
     }
 
   if (inhibit_flags == 0)
-    inhibit_flags = GSM_INHIBITOR_FLAG_IDLE;
+    inhibit_flags = CSM_INHIBITOR_FLAG_IDLE;
 
   inhibit (app_id, reason, inhibit_flags);
 

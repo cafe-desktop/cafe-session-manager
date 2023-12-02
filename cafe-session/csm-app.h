@@ -19,8 +19,8 @@
  * 02110-1301, USA.
  */
 
-#ifndef __GSM_APP_H__
-#define __GSM_APP_H__
+#ifndef __CSM_APP_H__
+#define __CSM_APP_H__
 
 #include <glib-object.h>
 #include <sys/types.h>
@@ -32,7 +32,7 @@
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_APP            (gsm_app_get_type ())
+#define CSM_TYPE_APP            (gsm_app_get_type ())
 G_DECLARE_DERIVABLE_TYPE (GsmApp, gsm_app, GSM, APP, GObject)
 
 struct _GsmAppClass
@@ -66,13 +66,13 @@ struct _GsmAppClass
 
 typedef enum
 {
-        GSM_APP_ERROR_GENERAL = 0,
-        GSM_APP_ERROR_START,
-        GSM_APP_ERROR_STOP,
-        GSM_APP_NUM_ERRORS
+        CSM_APP_ERROR_GENERAL = 0,
+        CSM_APP_ERROR_START,
+        CSM_APP_ERROR_STOP,
+        CSM_APP_NUM_ERRORS
 } GsmAppError;
 
-#define GSM_APP_ERROR gsm_app_error_quark ()
+#define CSM_APP_ERROR gsm_app_error_quark ()
 
 GQuark           gsm_app_error_quark                    (void);
 
@@ -116,4 +116,4 @@ gboolean         gsm_app_get_phase                      (GsmApp     *app,
 
 G_END_DECLS
 
-#endif /* __GSM_APP_H__ */
+#endif /* __CSM_APP_H__ */

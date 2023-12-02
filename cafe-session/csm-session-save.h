@@ -17,8 +17,8 @@
  * 02110-1301, USA.
  */
 
-#ifndef __GSM_SESSION_SAVE_H__
-#define __GSM_SESSION_SAVE_H__
+#ifndef __CSM_SESSION_SAVE_H__
+#define __CSM_SESSION_SAVE_H__
 
 #include <glib.h>
 
@@ -35,4 +35,4 @@ void      gsm_session_save                 (GsmStore  *client_store,
 }
 #endif
 
-#endif /* __GSM_SESSION_SAVE_H__ */
+#endif /* __CSM_SESSION_SAVE_H__ */

@@ -86,7 +86,7 @@ gsm_consolekit_get_property (GObject    *object,
                              GValue     *value,
                              GParamSpec *pspec)
 {
-        GsmConsolekit *manager = GSM_CONSOLEKIT (object);
+        GsmConsolekit *manager = CSM_CONSOLEKIT (object);
         GsmConsolekitPrivate *priv;
 
         priv = gsm_consolekit_get_instance_private (manager);
@@ -155,7 +155,7 @@ gsm_consolekit_dbus_filter (DBusConnection *connection,
 {
         GsmConsolekit *manager;
 
-        manager = GSM_CONSOLEKIT (user_data);
+        manager = CSM_CONSOLEKIT (user_data);
 
         if (dbus_message_is_signal (message,
                                     DBUS_INTERFACE_LOCAL, "Disconnected") &&
@@ -341,7 +341,7 @@ gsm_consolekit_finalize (GObject *object)
         GsmConsolekit *manager;
         GObjectClass  *parent_class;
 
-        manager = GSM_CONSOLEKIT (object);
+        manager = CSM_CONSOLEKIT (object);
 
         parent_class = G_OBJECT_CLASS (gsm_consolekit_parent_class);
 
@@ -369,7 +369,7 @@ gsm_consolekit_new (void)
 {
         GsmConsolekit *manager;
 
-        manager = g_object_new (GSM_TYPE_CONSOLEKIT, NULL);
+        manager = g_object_new (CSM_TYPE_CONSOLEKIT, NULL);
 
         return manager;
 }
@@ -383,8 +383,8 @@ emit_restart_complete (GsmConsolekit *manager,
         call_error = NULL;
 
         if (error != NULL) {
-                call_error = g_error_new_literal (GSM_CONSOLEKIT_ERROR,
-                                                  GSM_CONSOLEKIT_ERROR_RESTARTING,
+                call_error = g_error_new_literal (CSM_CONSOLEKIT_ERROR,
+                                                  CSM_CONSOLEKIT_ERROR_RESTARTING,
                                                   error->message);
         }
 
@@ -406,8 +406,8 @@ emit_stop_complete (GsmConsolekit *manager,
         call_error = NULL;
 
         if (error != NULL) {
-                call_error = g_error_new_literal (GSM_CONSOLEKIT_ERROR,
-                                                  GSM_CONSOLEKIT_ERROR_STOPPING,
+                call_error = g_error_new_literal (CSM_CONSOLEKIT_ERROR,
+                                                  CSM_CONSOLEKIT_ERROR_STOPPING,
                                                   error->message);
         }
 

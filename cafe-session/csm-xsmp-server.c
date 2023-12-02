@@ -54,12 +54,12 @@
 
 /* ICEauthority stuff */
 /* Various magic numbers stolen from iceauth.c */
-#define GSM_ICE_AUTH_RETRIES      10
-#define GSM_ICE_AUTH_INTERVAL     2   /* 2 seconds */
-#define GSM_ICE_AUTH_LOCK_TIMEOUT 600 /* 10 minutes */
+#define CSM_ICE_AUTH_RETRIES      10
+#define CSM_ICE_AUTH_INTERVAL     2   /* 2 seconds */
+#define CSM_ICE_AUTH_LOCK_TIMEOUT 600 /* 10 minutes */
 
-#define GSM_ICE_MAGIC_COOKIE_AUTH_NAME "MIT-MAGIC-COOKIE-1"
-#define GSM_ICE_MAGIC_COOKIE_LEN       16
+#define CSM_ICE_MAGIC_COOKIE_AUTH_NAME "MIT-MAGIC-COOKIE-1"
+#define CSM_ICE_MAGIC_COOKIE_LEN       16
 
 struct _GsmXsmpServer
 {
@@ -248,7 +248,7 @@ static void
 gsm_xsmp_server_set_client_store (GsmXsmpServer *xsmp_server,
                                   GsmStore      *store)
 {
-        g_return_if_fail (GSM_IS_XSMP_SERVER (xsmp_server));
+        g_return_if_fail (CSM_IS_XSMP_SERVER (xsmp_server));
 
         if (store != NULL) {
                 g_object_ref (store);
@@ -269,7 +269,7 @@ gsm_xsmp_server_set_property (GObject      *object,
 {
         GsmXsmpServer *self;
 
-        self = GSM_XSMP_SERVER (object);
+        self = CSM_XSMP_SERVER (object);
 
         switch (prop_id) {
         case PROP_CLIENT_STORE:
@@ -289,7 +289,7 @@ gsm_xsmp_server_get_property (GObject    *object,
 {
         GsmXsmpServer *self;
 
-        self = GSM_XSMP_SERVER (object);
+        self = CSM_XSMP_SERVER (object);
 
         switch (prop_id) {
         case PROP_CLIENT_STORE:
@@ -335,7 +335,7 @@ accept_xsmp_connection (SmsConn        sms_conn,
         /* the store will own the ref */
         g_object_unref (client);
 
-        gsm_xsmp_client_connect (GSM_XSMP_CLIENT (client), sms_conn, mask_ret, callbacks_ret);
+        gsm_xsmp_client_connect (CSM_XSMP_CLIENT (client), sms_conn, mask_ret, callbacks_ret);
 
         return TRUE;
 }
@@ -407,9 +407,9 @@ auth_entry_new (const char *protocol,
         file_entry->protocol_data = NULL;
         file_entry->protocol_data_length = 0;
         file_entry->network_id = strdup (network_id);
-        file_entry->auth_name = strdup (GSM_ICE_MAGIC_COOKIE_AUTH_NAME);
-        file_entry->auth_data = IceGenerateMagicCookie (GSM_ICE_MAGIC_COOKIE_LEN);
-        file_entry->auth_data_length = GSM_ICE_MAGIC_COOKIE_LEN;
+        file_entry->auth_name = strdup (CSM_ICE_MAGIC_COOKIE_AUTH_NAME);
+        file_entry->auth_data = IceGenerateMagicCookie (CSM_ICE_MAGIC_COOKIE_LEN);
+        file_entry->auth_data_length = CSM_ICE_MAGIC_COOKIE_LEN;
 
         /* Also create an in-memory copy, which is what the server will
          * actually use for checking client auth.
@@ -439,9 +439,9 @@ update_iceauthority (GsmXsmpServer *server,
 
         filename = IceAuthFileName ();
         if (IceLockAuthFile (filename,
-                             GSM_ICE_AUTH_RETRIES,
-                             GSM_ICE_AUTH_INTERVAL,
-                             GSM_ICE_AUTH_LOCK_TIMEOUT) != IceAuthLockSuccess) {
+                             CSM_ICE_AUTH_RETRIES,
+                             CSM_ICE_AUTH_INTERVAL,
+                             CSM_ICE_AUTH_LOCK_TIMEOUT) != IceAuthLockSuccess) {
                 return FALSE;
         }
 
@@ -653,7 +653,7 @@ gsm_xsmp_server_constructor (GType                  type,
 {
         GsmXsmpServer *xsmp_server;
 
-        xsmp_server = GSM_XSMP_SERVER (G_OBJECT_CLASS (gsm_xsmp_server_parent_class)->constructor (type,
+        xsmp_server = CSM_XSMP_SERVER (G_OBJECT_CLASS (gsm_xsmp_server_parent_class)->constructor (type,
                                                                                        n_construct_properties,
                                                                                        construct_properties));
         setup_listener (xsmp_server);
@@ -676,7 +676,7 @@ gsm_xsmp_server_class_init (GsmXsmpServerClass *klass)
                                          g_param_spec_object ("client-store",
                                                               NULL,
                                                               NULL,
-                                                              GSM_TYPE_STORE,
+                                                              CSM_TYPE_STORE,
                                                               G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 }
 
@@ -691,9 +691,9 @@ gsm_xsmp_server_finalize (GObject *object)
         GsmXsmpServer *xsmp_server;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (GSM_IS_XSMP_SERVER (object));
+        g_return_if_fail (CSM_IS_XSMP_SERVER (object));
 
-        xsmp_server = GSM_XSMP_SERVER (object);
+        xsmp_server = CSM_XSMP_SERVER (object);
 
         IceFreeListenObjs (xsmp_server->num_xsmp_sockets,
                            xsmp_server->xsmp_sockets);
@@ -711,7 +711,7 @@ gsm_xsmp_server_new (GsmStore *client_store)
         if (xsmp_server_object != NULL) {
                 g_object_ref (xsmp_server_object);
         } else {
-                xsmp_server_object = g_object_new (GSM_TYPE_XSMP_SERVER,
+                xsmp_server_object = g_object_new (CSM_TYPE_XSMP_SERVER,
                                                    "client-store", client_store,
                                                    NULL);
 
@@ -719,5 +719,5 @@ gsm_xsmp_server_new (GsmStore *client_store)
                                            (gpointer *) &xsmp_server_object);
         }
 
-        return GSM_XSMP_SERVER (xsmp_server_object);
+        return CSM_XSMP_SERVER (xsmp_server_object);
 }

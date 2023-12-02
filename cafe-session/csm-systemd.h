@@ -20,8 +20,8 @@
  *  Stefano Karapetsas <stefano@karapetsas.com>
  */
 
-#ifndef __GSM_SYSTEMD_H__
-#define __GSM_SYSTEMD_H__
+#ifndef __CSM_SYSTEMD_H__
+#define __CSM_SYSTEMD_H__
 
 #include <unistd.h>
 #include <glib.h>
@@ -29,8 +29,8 @@
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_SYSTEMD             (gsm_systemd_get_type ())
-#define GSM_SYSTEMD_ERROR            (gsm_systemd_error_quark ())
+#define CSM_TYPE_SYSTEMD             (gsm_systemd_get_type ())
+#define CSM_SYSTEMD_ERROR            (gsm_systemd_error_quark ())
 G_DECLARE_DERIVABLE_TYPE (GsmSystemd, gsm_systemd, GSM, SYSTEMD, GObject)
 
 #define LOGIND_RUNNING() (access("/run/systemd/seats/", F_OK) >= 0)
@@ -50,11 +50,11 @@ struct _GsmSystemdClass
 };
 
 enum _GsmSystemdError {
-        GSM_SYSTEMD_ERROR_RESTARTING = 0,
-        GSM_SYSTEMD_ERROR_STOPPING
+        CSM_SYSTEMD_ERROR_RESTARTING = 0,
+        CSM_SYSTEMD_ERROR_STOPPING
 };
 
-#define GSM_SYSTEMD_SESSION_TYPE_LOGIN_WINDOW "greeter"
+#define CSM_SYSTEMD_SESSION_TYPE_LOGIN_WINDOW "greeter"
 
 GQuark           gsm_systemd_error_quark     (void);
 
@@ -93,4 +93,4 @@ GsmSystemd      *gsm_get_systemd             (void);
 
 G_END_DECLS
 
-#endif /* __GSM_SYSTEMD_H__ */
+#endif /* __CSM_SYSTEMD_H__ */

@@ -52,7 +52,7 @@ save_one_client (char            *id,
         char       *discard_exec;
         GError     *local_error;
 
-        client = GSM_CLIENT (object);
+        client = CSM_CLIENT (object);
 
         local_error = NULL;
 
@@ -84,7 +84,7 @@ save_one_client (char            *id,
 
         discard_exec = g_key_file_get_string (keyfile,
                                               G_KEY_FILE_DESKTOP_GROUP,
-                                              GSM_AUTOSTART_APP_DISCARD_KEY,
+                                              CSM_AUTOSTART_APP_DISCARD_KEY,
                                               NULL);
         if (discard_exec) {
                 g_hash_table_insert (data->discard_hash,
@@ -184,7 +184,7 @@ gsm_session_clear_one_client (const char *filename,
 
                 discard_exec = g_key_file_get_string (key_file,
                                                       G_KEY_FILE_DESKTOP_GROUP,
-                                                      GSM_AUTOSTART_APP_DISCARD_KEY,
+                                                      CSM_AUTOSTART_APP_DISCARD_KEY,
                                                       NULL);
                 if (!discard_exec)
                         goto out;

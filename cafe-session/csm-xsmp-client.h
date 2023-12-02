@@ -18,8 +18,8 @@
  * 02110-1301, USA.
  */
 
-#ifndef __GSM_XSMP_CLIENT_H__
-#define __GSM_XSMP_CLIENT_H__
+#ifndef __CSM_XSMP_CLIENT_H__
+#define __CSM_XSMP_CLIENT_H__
 
 #include "csm-client.h"
 
@@ -27,7 +27,7 @@
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_XSMP_CLIENT              (gsm_xsmp_client_get_type ())
+#define CSM_TYPE_XSMP_CLIENT              (gsm_xsmp_client_get_type ())
 G_DECLARE_DERIVABLE_TYPE                  (GsmXSMPClient, gsm_xsmp_client, GSM, XSMP_CLIENT, GsmClient)
 
 struct _GsmXSMPClientClass
@@ -69,4 +69,4 @@ void        gsm_xsmp_client_shutdown_cancelled   (GsmXSMPClient  *client);
 
 G_END_DECLS
 
-#endif /* __GSM_XSMP_CLIENT_H__ */
+#endif /* __CSM_XSMP_CLIENT_H__ */

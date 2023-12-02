@@ -268,7 +268,7 @@ gsm_store_set_locked (GsmStore *store,
                       gboolean  locked)
 {
         GsmStorePrivate *priv;
-        g_return_if_fail (GSM_IS_STORE (store));
+        g_return_if_fail (CSM_IS_STORE (store));
         priv = gsm_store_get_instance_private (store);
 
         priv->locked = locked;
@@ -278,7 +278,7 @@ gboolean
 gsm_store_get_locked (GsmStore *store)
 {
         GsmStorePrivate *priv;
-        g_return_val_if_fail (GSM_IS_STORE (store), FALSE);
+        g_return_val_if_fail (CSM_IS_STORE (store), FALSE);
         priv = gsm_store_get_instance_private (store);
 
         return priv->locked;
@@ -292,7 +292,7 @@ gsm_store_set_property (GObject      *object,
 {
         GsmStore *self;
 
-        self = GSM_STORE (object);
+        self = CSM_STORE (object);
 
         switch (prop_id) {
         case PROP_LOCKED:
@@ -313,7 +313,7 @@ gsm_store_get_property (GObject    *object,
         GsmStore *self;
         GsmStorePrivate *priv;
 
-        self = GSM_STORE (object);
+        self = CSM_STORE (object);
         priv = gsm_store_get_instance_private (self);
 
         switch (prop_id) {
@@ -332,9 +332,9 @@ gsm_store_dispose (GObject *object)
         GsmStore *store;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (GSM_IS_STORE (object));
+        g_return_if_fail (CSM_IS_STORE (object));
 
-        store = GSM_STORE (object);
+        store = CSM_STORE (object);
 
         gsm_store_clear (store);
 
@@ -406,9 +406,9 @@ gsm_store_finalize (GObject *object)
         GsmStorePrivate *priv;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (GSM_IS_STORE (object));
+        g_return_if_fail (CSM_IS_STORE (object));
 
-        store = GSM_STORE (object);
+        store = CSM_STORE (object);
         priv = gsm_store_get_instance_private (store);
 
         g_return_if_fail (priv != NULL);
@@ -423,8 +423,8 @@ gsm_store_new (void)
 {
         GObject *object;
 
-        object = g_object_new (GSM_TYPE_STORE,
+        object = g_object_new (CSM_TYPE_STORE,
                                NULL);
 
-        return GSM_STORE (object);
+        return CSM_STORE (object);
 }

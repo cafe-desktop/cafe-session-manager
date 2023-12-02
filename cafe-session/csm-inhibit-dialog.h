@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __GSM_INHIBIT_DIALOG_H
-#define __GSM_INHIBIT_DIALOG_H
+#ifndef __CSM_INHIBIT_DIALOG_H
+#define __CSM_INHIBIT_DIALOG_H
 
 #include <glib-object.h>
 #include <ctk/ctk.h>
@@ -28,17 +28,17 @@
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_INHIBIT_DIALOG         (gsm_inhibit_dialog_get_type ())
+#define CSM_TYPE_INHIBIT_DIALOG         (gsm_inhibit_dialog_get_type ())
 G_DECLARE_FINAL_TYPE (GsmInhibitDialog, gsm_inhibit_dialog, GSM, INHIBIT_DIALOG, CtkDialog)
 
 typedef enum
 {
-        GSM_LOGOUT_ACTION_LOGOUT,
-        GSM_LOGOUT_ACTION_SWITCH_USER,
-        GSM_LOGOUT_ACTION_SHUTDOWN,
-        GSM_LOGOUT_ACTION_REBOOT,
-        GSM_LOGOUT_ACTION_HIBERNATE,
-        GSM_LOGOUT_ACTION_SLEEP
+        CSM_LOGOUT_ACTION_LOGOUT,
+        CSM_LOGOUT_ACTION_SWITCH_USER,
+        CSM_LOGOUT_ACTION_SHUTDOWN,
+        CSM_LOGOUT_ACTION_REBOOT,
+        CSM_LOGOUT_ACTION_HIBERNATE,
+        CSM_LOGOUT_ACTION_SLEEP
 } GsmLogoutAction;
 
 CtkWidget            * gsm_inhibit_dialog_new                (GsmStore         *inhibitors,
@@ -48,4 +48,4 @@ CtkTreeModel         * gsm_inhibit_dialog_get_model          (GsmInhibitDialog *
 
 G_END_DECLS
 
-#endif /* __GSM_INHIBIT_DIALOG_H */
+#endif /* __CSM_INHIBIT_DIALOG_H */

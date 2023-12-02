@@ -17,8 +17,8 @@
  * 02110-1301, USA.
  */
 
-#ifndef __GSM_UTIL_H__
-#define __GSM_UTIL_H__
+#ifndef __CSM_UTIL_H__
+#define __CSM_UTIL_H__
 
 #include <glib.h>
 #include <ctk/ctk.h>
@@ -67,4 +67,4 @@ CtkWidget*  gsm_util_dialog_add_button              (CtkDialog   *dialog,
 }
 #endif
 
-#endif /* __GSM_UTIL_H__ */
+#endif /* __CSM_UTIL_H__ */

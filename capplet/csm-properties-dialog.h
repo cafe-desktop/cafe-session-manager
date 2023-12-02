@@ -18,21 +18,21 @@
  *
  */
 
-#ifndef __GSM_PROPERTIES_DIALOG_H
-#define __GSM_PROPERTIES_DIALOG_H
+#ifndef __CSM_PROPERTIES_DIALOG_H
+#define __CSM_PROPERTIES_DIALOG_H
 
 #include <glib-object.h>
 #include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 
-#define GSM_TYPE_PROPERTIES_DIALOG         (gsm_properties_dialog_get_type ())
+#define CSM_TYPE_PROPERTIES_DIALOG         (gsm_properties_dialog_get_type ())
 G_DECLARE_FINAL_TYPE (GsmPropertiesDialog, gsm_properties_dialog, GSM, PROPERTIES_DIALOG, CtkDialog)
 
 CtkWidget            * gsm_properties_dialog_new                (void);
 
-#define GSM_PROPERTIES_ICON_SIZE CTK_ICON_SIZE_LARGE_TOOLBAR
+#define CSM_PROPERTIES_ICON_SIZE CTK_ICON_SIZE_LARGE_TOOLBAR
 
 G_END_DECLS
 
-#endif /* __GSM_PROPERTIES_DIALOG_H */
+#endif /* __CSM_PROPERTIES_DIALOG_H */
