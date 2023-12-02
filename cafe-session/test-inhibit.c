@@ -61,7 +61,7 @@ typedef enum {
 } GsmInhibitFlag;
 
 static gboolean
-do_inhibit_for_window (GdkWindow *window)
+do_inhibit_for_window (CdkWindow *window)
 {
         GError     *error;
         GVariant   *ret;

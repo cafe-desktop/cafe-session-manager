@@ -412,7 +412,7 @@ gsm_logout_dialog_set_timeout (GsmLogoutDialog *logout_dialog)
 
 static CtkWidget *
 gsm_get_dialog (GsmDialogLogoutType type,
-                GdkScreen          *screen,
+                CdkScreen          *screen,
                 guint32             activate_time)
 {
         GsmLogoutDialog *logout_dialog;
@@ -518,7 +518,7 @@ gsm_get_dialog (GsmDialogLogoutType type,
 }
 
 CtkWidget *
-gsm_get_shutdown_dialog (GdkScreen *screen,
+gsm_get_shutdown_dialog (CdkScreen *screen,
                          guint32    activate_time)
 {
         return gsm_get_dialog (GSM_DIALOG_LOGOUT_TYPE_SHUTDOWN,
@@ -527,7 +527,7 @@ gsm_get_shutdown_dialog (GdkScreen *screen,
 }
 
 CtkWidget *
-gsm_get_logout_dialog (GdkScreen *screen,
+gsm_get_logout_dialog (CdkScreen *screen,
                        guint32    activate_time)
 {
         return gsm_get_dialog (GSM_DIALOG_LOGOUT_TYPE_LOGOUT,

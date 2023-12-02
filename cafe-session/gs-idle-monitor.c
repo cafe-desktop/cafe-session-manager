@@ -214,9 +214,9 @@ handle_alarm_notify_event (GSIdleMonitor         *monitor,
         }
 }
 
-static GdkFilterReturn
-xevent_filter (GdkXEvent     *xevent,
-               GdkEvent      *event,
+static CdkFilterReturn
+xevent_filter (CdkXEvent     *xevent,
+               CdkEvent      *event,
                GSIdleMonitor *monitor)
 {
         XEvent                *ev;
@@ -274,7 +274,7 @@ init_xsync (GSIdleMonitor *monitor)
                 return FALSE;
         }
 
-        cdk_window_add_filter (NULL, (GdkFilterFunc)xevent_filter, monitor);
+        cdk_window_add_filter (NULL, (CdkFilterFunc)xevent_filter, monitor);
 
         return TRUE;
 }

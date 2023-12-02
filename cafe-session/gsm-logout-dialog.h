@@ -41,9 +41,9 @@ enum
         GSM_LOGOUT_RESPONSE_SLEEP
 };
 
-CtkWidget   *gsm_get_logout_dialog        (GdkScreen           *screen,
+CtkWidget   *gsm_get_logout_dialog        (CdkScreen           *screen,
                                            guint32              activate_time);
-CtkWidget   *gsm_get_shutdown_dialog      (GdkScreen           *screen,
+CtkWidget   *gsm_get_shutdown_dialog      (CdkScreen           *screen,
                                            guint32              activate_time);
 
 G_END_DECLS

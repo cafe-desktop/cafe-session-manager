@@ -98,7 +98,7 @@ msm_compat_gnome_smproxy_startup (void)
   Atom gnome_sm_proxy;
   Display *dpy;
   Window root;
-  GdkDisplay *cdkdisplay;
+  CdkDisplay *cdkdisplay;
 
   cdkdisplay = cdk_display_get_default ();
   cdk_x11_display_error_trap_push (cdkdisplay);
@@ -132,7 +132,7 @@ msm_compat_gnome_smproxy_startup (void)
 static void
 msm_compat_gnome_smproxy_shutdown (void)
 {
-  GdkDisplay *cdkdisplay;
+  CdkDisplay *cdkdisplay;
 
   cdkdisplay = cdk_display_get_default ();
   cdk_x11_display_error_trap_push (cdkdisplay);

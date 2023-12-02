@@ -93,7 +93,7 @@ get_gles_renderer (void)
         };
 
         gboolean egl_inited = FALSE;
-        GdkDisplay *cdk_dpy;
+        CdkDisplay *cdk_dpy;
         Display *display;
         Window win = None;
         EGLContext egl_ctx = NULL;
