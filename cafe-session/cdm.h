@@ -39,17 +39,17 @@ typedef enum {
 	CDM_LOGOUT_ACTION_SHUTDOWN = 1 << 0,
 	CDM_LOGOUT_ACTION_REBOOT = 1 << 1,
 	CDM_LOGOUT_ACTION_SUSPEND = 1 << 2
-} MdmLogoutAction;
+} CdmLogoutAction;
 
 gboolean cdm_is_available(void);
 
 void cdm_new_login(void);
 
-void cdm_set_logout_action(MdmLogoutAction action);
+void cdm_set_logout_action(CdmLogoutAction action);
 
-MdmLogoutAction cdm_get_logout_action(void);
+CdmLogoutAction cdm_get_logout_action(void);
 
-gboolean cdm_supports_logout_action(MdmLogoutAction action);
+gboolean cdm_supports_logout_action(CdmLogoutAction action);
 
 #ifdef __cplusplus
 }

@@ -603,7 +603,7 @@ int main(int argc, char** argv)
 	GsmXsmpServer* xsmp_server;
 	GSettings* debug_settings = NULL;
 	GSettings* accessibility_settings;
-	MdmSignalHandler* signal_handler;
+	CdmSignalHandler* signal_handler;
 	static char** override_autostart_dirs = NULL;
 	gboolean gl_failed = FALSE;
 

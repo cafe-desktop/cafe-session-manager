@@ -62,13 +62,13 @@ typedef struct {
 	int fd;
 	char* auth_cookie;
 
-	MdmLogoutAction available_actions;
-	MdmLogoutAction current_actions;
+	CdmLogoutAction available_actions;
+	CdmLogoutAction current_actions;
 
 	time_t last_update;
-} MdmProtocolData;
+} CdmProtocolData;
 
-static MdmProtocolData cdm_protocol_data = {
+static CdmProtocolData cdm_protocol_data = {
 	0,
 	NULL,
 	CDM_LOGOUT_ACTION_NONE,
@@ -76,7 +76,7 @@ static MdmProtocolData cdm_protocol_data = {
 	0
 };
 
-static char* cdm_send_protocol_msg(MdmProtocolData* data, const char* msg)
+static char* cdm_send_protocol_msg(CdmProtocolData* data, const char* msg)
 {
 	GString* retval;
 	char buf[256];
@@ -158,7 +158,7 @@ static char* get_display_number(void)
 	return retval;
 }
 
-static gboolean cdm_authenticate_connection(MdmProtocolData* data)
+static gboolean cdm_authenticate_connection(CdmProtocolData* data)
 {
 	#define CDM_MIT_MAGIC_COOKIE_LEN 16
 
@@ -247,7 +247,7 @@ static gboolean cdm_authenticate_connection(MdmProtocolData* data)
 	#undef CDM_MIT_MAGIC_COOKIE_LEN
 }
 
-static void cdm_shutdown_protocol_connection(MdmProtocolData *data)
+static void cdm_shutdown_protocol_connection(CdmProtocolData *data)
 {
 	if (data->fd)
 	{
@@ -257,7 +257,7 @@ static void cdm_shutdown_protocol_connection(MdmProtocolData *data)
 	data->fd = 0;
 }
 
-static gboolean cdm_init_protocol_connection(MdmProtocolData* data)
+static gboolean cdm_init_protocol_connection(CdmProtocolData* data)
 {
 	struct sockaddr_un addr;
 	char* response;
@@ -323,7 +323,7 @@ static gboolean cdm_init_protocol_connection(MdmProtocolData* data)
 	return TRUE;
 }
 
-static void cdm_parse_query_response(MdmProtocolData* data, const char* response)
+static void cdm_parse_query_response(CdmProtocolData* data, const char* response)
 {
 	char** actions;
 	int i;
@@ -342,7 +342,7 @@ static void cdm_parse_query_response(MdmProtocolData* data, const char* response
 
 	for (i = 0; actions[i]; i++)
 	{
-		MdmLogoutAction action = CDM_LOGOUT_ACTION_NONE;
+		CdmLogoutAction action = CDM_LOGOUT_ACTION_NONE;
 		gboolean selected = FALSE;
 		char* str = actions [i];
 		int len;
@@ -384,7 +384,7 @@ static void cdm_parse_query_response(MdmProtocolData* data, const char* response
 	g_strfreev(actions);
 }
 
-static void cdm_update_logout_actions(MdmProtocolData* data)
+static void cdm_update_logout_actions(CdmProtocolData* data)
 {
 	time_t current_time;
 	char* response;
@@ -424,21 +424,21 @@ gboolean cdm_is_available(void)
 	return TRUE;
 }
 
-gboolean cdm_supports_logout_action(MdmLogoutAction action)
+gboolean cdm_supports_logout_action(CdmLogoutAction action)
 {
 	cdm_update_logout_actions(&cdm_protocol_data);
 
 	return (cdm_protocol_data.available_actions & action) != 0;
 }
 
-MdmLogoutAction cdm_get_logout_action(void)
+CdmLogoutAction cdm_get_logout_action(void)
 {
 	cdm_update_logout_actions(&cdm_protocol_data);
 
 	return cdm_protocol_data.current_actions;
 }
 
-void cdm_set_logout_action(MdmLogoutAction action)
+void cdm_set_logout_action(CdmLogoutAction action)
 {
 	char* action_str = NULL;
 	char* msg;
