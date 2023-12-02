@@ -5,7 +5,7 @@ bin_SCRIPTS = cafe-wm
 uidir = $(pkgdatadir)
 ui_DATA = \
 	session-properties.ui	\
-	gsm-inhibit-dialog.ui
+	csm-inhibit-dialog.ui
 
 hwcompatdir = $(pkgdatadir)
 hwcompat_DATA = hardware-compatibility

@@ -50,19 +50,19 @@
   * systemd: add api for detecting if this is the last session for a user
   * gsm: Disconnect all dbus clients when dbus is disconnected
   * manager: don't wait for all clients to exit before exiting
-  * [gsm-autostart-app] Migrate from dbus-glib to gdbus
-  * gsm-app-dialog: make the seconds translatables in the spinbutton
+  * [csm-autostart-app] Migrate from dbus-glib to gdbus
+  * csm-app-dialog: make the seconds translatables in the spinbutton
   * disable deprecation warnings for distcheck
   * change app startup dalay where it in system path
   * Remove X-GNOME-Autostart-Delay support
   * Add a delay setting to Startup Manager
-  * gsm-properties-dialog: avoid 'ctk_dialog_add_buttons' with stock ids
+  * csm-properties-dialog: avoid 'ctk_dialog_add_buttons' with stock ids
   * avoid 'ctk_dialog_add_button' with stock ids
   * cafe-session-save: show icon in error dialog
   * Migrate from dbus-glib to gdbus
-  * gsm-inhibit-dialog.ui: avoid deprecated CtkVBox
+  * csm-inhibit-dialog.ui: avoid deprecated CtkVBox
   * session-properties.ui: avoid deprecations
-  * gsm-manager: avoid deprecated 'g_settings_list_schemas'
+  * csm-manager: avoid deprecated 'g_settings_list_schemas'
   * Avoid compile warning for g_type_class_add_private
   * Only show application name when run with --version
   * Strip outer single quotes from string value returned by gsettings in cafe-wm script.
@@ -79,7 +79,7 @@
 
   * Translations update
   * require CTK+ 3.22 and GLib 2.50
-  * gsm-manager.c: Fix build warning:
+  * csm-manager.c: Fix build warning:
 
 ### cafe-session-manager 1.19.1
 

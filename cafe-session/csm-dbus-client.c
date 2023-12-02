@@ -32,11 +32,11 @@
 #include <dbus/dbus-glib.h>
 #include <dbus/dbus-glib-lowlevel.h>
 
-#include "gsm-dbus-client.h"
-#include "gsm-marshal.h"
+#include "csm-dbus-client.h"
+#include "csm-marshal.h"
 
-#include "gsm-manager.h"
-#include "gsm-util.h"
+#include "csm-manager.h"
+#include "csm-util.h"
 
 #define SM_DBUS_NAME                     "org.gnome.SessionManager"
 #define SM_DBUS_CLIENT_PRIVATE_INTERFACE "org.gnome.SessionManager.ClientPrivate"

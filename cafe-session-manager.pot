@@ -17,68 +17,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: capplet/gsm-app-dialog.c:124
+#: capplet/csm-app-dialog.c:124
 msgid "Select Command"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:167
+#: capplet/csm-app-dialog.c:167
 msgid "second"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:169
+#: capplet/csm-app-dialog.c:169
 msgid "seconds"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:215 cafe-session/gsm-logout-dialog.c:452
-#: cafe-session/gsm-logout-dialog.c:485
+#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
+#: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:221
+#: capplet/csm-app-dialog.c:221
 msgid "Add Startup Program"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:223 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
 msgid "_Add"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:226
+#: capplet/csm-app-dialog.c:226
 msgid "Edit Startup Program"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:228
+#: capplet/csm-app-dialog.c:228
 msgid "_Save"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:541
+#: capplet/csm-app-dialog.c:541
 msgid "The startup command cannot be empty"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:547
+#: capplet/csm-app-dialog.c:547
 msgid "The startup command is not valid"
 msgstr ""
 
-#: capplet/gsm-properties-dialog.c:514
+#: capplet/csm-properties-dialog.c:514
 msgid "_Help"
 msgstr ""
 
-#: capplet/gsm-properties-dialog.c:518
+#: capplet/csm-properties-dialog.c:518
 msgid "_Close"
 msgstr ""
 
-#: capplet/gsm-properties-dialog.c:558
+#: capplet/csm-properties-dialog.c:558
 msgid "Enabled"
 msgstr ""
 
-#: capplet/gsm-properties-dialog.c:570
+#: capplet/csm-properties-dialog.c:570
 msgid "Icon"
 msgstr ""
 
-#: capplet/gsm-properties-dialog.c:582
+#: capplet/csm-properties-dialog.c:582
 msgid "Program"
 msgstr ""
 
-#: capplet/gsm-properties-dialog.c:789
+#: capplet/csm-properties-dialog.c:789
 msgid "Startup Applications Preferences"
 msgstr ""
 
@@ -238,11 +238,11 @@ msgstr ""
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
 
-#: data/gsm-inhibit-dialog.ui:14
+#: data/csm-inhibit-dialog.ui:14
 msgid "<b>Some programs are still running:</b>"
 msgstr ""
 
-#: data/gsm-inhibit-dialog.ui:52 cafe-session/gsm-inhibit-dialog.c:631
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:631
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -372,113 +372,113 @@ msgstr ""
 msgid "Show session management options"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:249
+#: cafe-session/csm-inhibit-dialog.c:249
 #, c-format
 msgid "Icon '%s' not found"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:579
+#: cafe-session/csm-inhibit-dialog.c:579
 msgid "Unknown"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:630
+#: cafe-session/csm-inhibit-dialog.c:630
 msgid "A program is still running:"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:634
+#: cafe-session/csm-inhibit-dialog.c:634
 msgid "Some programs are still running:"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:635
+#: cafe-session/csm-inhibit-dialog.c:635
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:865
+#: cafe-session/csm-inhibit-dialog.c:865
 msgid "Switch User Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:868
+#: cafe-session/csm-inhibit-dialog.c:868
 msgid "Log Out Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:871
+#: cafe-session/csm-inhibit-dialog.c:871
 msgid "Suspend Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:874
+#: cafe-session/csm-inhibit-dialog.c:874
 msgid "Hibernate Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:877
+#: cafe-session/csm-inhibit-dialog.c:877
 msgid "Shut Down Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:880
+#: cafe-session/csm-inhibit-dialog.c:880
 msgid "Reboot Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:888
+#: cafe-session/csm-inhibit-dialog.c:888
 msgid "Lock Screen"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:891
+#: cafe-session/csm-inhibit-dialog.c:891
 msgid "Cancel"
 msgstr ""
 
-#: cafe-session/gsm-logout-dialog.c:307
+#: cafe-session/csm-logout-dialog.c:307
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/gsm-logout-dialog.c:315
+#: cafe-session/csm-logout-dialog.c:315
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/gsm-logout-dialog.c:361
+#: cafe-session/csm-logout-dialog.c:361
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr ""
 
-#: cafe-session/gsm-logout-dialog.c:441
+#: cafe-session/csm-logout-dialog.c:441
 msgid "Log out of this system now?"
 msgstr ""
 
-#: cafe-session/gsm-logout-dialog.c:447
+#: cafe-session/csm-logout-dialog.c:447
 msgid "_Switch User"
 msgstr ""
 
-#: cafe-session/gsm-logout-dialog.c:456
+#: cafe-session/csm-logout-dialog.c:456
 msgid "_Log Out"
 msgstr ""
 
-#: cafe-session/gsm-logout-dialog.c:462
+#: cafe-session/csm-logout-dialog.c:462
 msgid "Shut down this system now?"
 msgstr ""
 
-#: cafe-session/gsm-logout-dialog.c:468
+#: cafe-session/csm-logout-dialog.c:468
 msgid "S_uspend"
 msgstr ""
 
-#: cafe-session/gsm-logout-dialog.c:474
+#: cafe-session/csm-logout-dialog.c:474
 msgid "_Hibernate"
 msgstr ""
 
-#: cafe-session/gsm-logout-dialog.c:480
+#: cafe-session/csm-logout-dialog.c:480
 msgid "_Restart"
 msgstr ""
 
-#: cafe-session/gsm-logout-dialog.c:490
+#: cafe-session/csm-logout-dialog.c:490
 msgid "_Shut Down"
 msgstr ""
 
-#: cafe-session/gsm-manager.c:1513 cafe-session/gsm-manager.c:2337
+#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
 msgid "Not responding"
 msgstr ""
 
@@ -486,27 +486,27 @@ msgstr ""
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
 #.
-#: cafe-session/gsm-xsmp-client.c:595
+#: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr ""
 
-#: cafe-session/gsm-xsmp-client.c:1262
+#: cafe-session/csm-xsmp-client.c:1262
 msgid "This program is blocking logout."
 msgstr ""
 
-#: cafe-session/gsm-xsmp-server.c:322
+#: cafe-session/csm-xsmp-server.c:322
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr ""
 
-#: cafe-session/gsm-xsmp-server.c:584
+#: cafe-session/csm-xsmp-server.c:584
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr ""
 
 #. Oh well, no X for you!
-#: cafe-session/gsm-util.c:355
+#: cafe-session/csm-util.c:355
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr ""
 

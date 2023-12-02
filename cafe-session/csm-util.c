@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- * gsm-util.c
+ * csm-util.c
  * Copyright (C) 2008 Lucas Rocha.
  *
  * This program is free software; you can redistribute it and/or
@@ -34,7 +34,7 @@
 
 #include <dbus/dbus-glib.h>
 
-#include "gsm-util.h"
+#include "csm-util.h"
 
 static gchar *_saved_session_dir = NULL;
 

@@ -21,7 +21,7 @@
 #ifndef __GSM_DBUS_CLIENT_H__
 #define __GSM_DBUS_CLIENT_H__
 
-#include "gsm-client.h"
+#include "csm-client.h"
 
 G_BEGIN_DECLS
 

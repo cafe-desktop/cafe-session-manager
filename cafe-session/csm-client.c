@@ -25,9 +25,9 @@
 
 #include "eggdesktopfile.h"
 
-#include "gsm-marshal.h"
-#include "gsm-client.h"
-#include "gsm-client-glue.h"
+#include "csm-marshal.h"
+#include "csm-client.h"
+#include "csm-client-glue.h"
 
 static guint32 client_serial = 1;
 

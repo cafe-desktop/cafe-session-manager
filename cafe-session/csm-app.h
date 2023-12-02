@@ -27,8 +27,8 @@
 
 #include "eggdesktopfile.h"
 
-#include "gsm-manager.h"
-#include "gsm-client.h"
+#include "csm-manager.h"
+#include "csm-client.h"
 
 G_BEGIN_DECLS
 

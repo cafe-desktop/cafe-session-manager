@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- * gsm-session-save.c
+ * csm-session-save.c
  * Copyright (C) 2008 Lucas Rocha.
  *
  * This program is free software; you can redistribute it and/or
@@ -23,11 +23,11 @@
 #include <glib.h>
 #include <glib/gstdio.h>
 
-#include "gsm-util.h"
-#include "gsm-autostart-app.h"
-#include "gsm-client.h"
+#include "csm-util.h"
+#include "csm-autostart-app.h"
+#include "csm-client.h"
 
-#include "gsm-session-save.h"
+#include "csm-session-save.h"
 
 static gboolean gsm_session_clear_saved_session (const char *directory,
                                                  GHashTable *discard_hash);

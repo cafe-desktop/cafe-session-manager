@@ -26,8 +26,8 @@
 #include <glib.h>
 #include <string.h>
 
-#include "gsm-app.h"
-#include "gsm-app-glue.h"
+#include "csm-app.h"
+#include "csm-app-glue.h"
 
 typedef struct {
         char            *id;

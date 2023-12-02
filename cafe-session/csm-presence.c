@@ -30,8 +30,8 @@
 
 #include "gs-idle-monitor.h"
 
-#include "gsm-presence.h"
-#include "gsm-presence-glue.h"
+#include "csm-presence.h"
+#include "csm-presence-glue.h"
 
 #define GSM_PRESENCE_DBUS_PATH "/org/gnome/SessionManager/Presence"
 

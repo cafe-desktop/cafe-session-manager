@@ -24,7 +24,7 @@
 #include <glib-object.h>
 #include <ctk/ctk.h>
 
-#include "gsm-store.h"
+#include "csm-store.h"
 
 G_BEGIN_DECLS
 

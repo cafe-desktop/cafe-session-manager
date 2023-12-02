@@ -24,9 +24,9 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#include "gsm-util.h"
+#include "csm-util.h"
 
-#include "gsm-app-dialog.h"
+#include "csm-app-dialog.h"
 
 #define CTKBUILDER_FILE "session-properties.ui"
 

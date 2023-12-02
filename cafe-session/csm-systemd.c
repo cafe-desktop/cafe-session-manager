@@ -35,8 +35,8 @@
 #include <systemd/sd-login.h>
 #endif
 
-#include "gsm-marshal.h"
-#include "gsm-systemd.h"
+#include "csm-marshal.h"
+#include "csm-systemd.h"
 
 #define SD_NAME              "org.freedesktop.login1"
 #define SD_PATH              "/org/freedesktop/login1"
@@ -357,7 +357,7 @@ gsm_systemd_error_quark (void)
     static GQuark error_quark = 0;
 
     if (error_quark == 0) {
-        error_quark = g_quark_from_static_string ("gsm-systemd-error");
+        error_quark = g_quark_from_static_string ("csm-systemd-error");
     }
 
     return error_quark;

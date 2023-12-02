@@ -42,27 +42,27 @@
 #include <gio/gio.h> /* for gsettings */
 #include <cdk/cdkx.h>
 
-#include "gsm-manager.h"
-#include "gsm-manager-glue.h"
+#include "csm-manager.h"
+#include "csm-manager-glue.h"
 
-#include "gsm-store.h"
-#include "gsm-inhibitor.h"
-#include "gsm-presence.h"
+#include "csm-store.h"
+#include "csm-inhibitor.h"
+#include "csm-presence.h"
 
-#include "gsm-xsmp-client.h"
-#include "gsm-dbus-client.h"
+#include "csm-xsmp-client.h"
+#include "csm-dbus-client.h"
 
-#include "gsm-autostart-app.h"
+#include "csm-autostart-app.h"
 
-#include "gsm-util.h"
+#include "csm-util.h"
 #include "cdm.h"
-#include "gsm-logout-dialog.h"
-#include "gsm-inhibit-dialog.h"
-#include "gsm-consolekit.h"
+#include "csm-logout-dialog.h"
+#include "csm-inhibit-dialog.h"
+#include "csm-consolekit.h"
 #ifdef HAVE_SYSTEMD
-#include "gsm-systemd.h"
+#include "csm-systemd.h"
 #endif
-#include "gsm-session-save.h"
+#include "csm-session-save.h"
 
 #define GSM_MANAGER_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GSM_TYPE_MANAGER, GsmManagerPrivate))
 

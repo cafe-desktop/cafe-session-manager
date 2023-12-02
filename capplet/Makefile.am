@@ -11,10 +11,10 @@ AM_CFLAGS = $(WARN_CFLAGS)
 
 cafe_session_properties_SOURCES =			\
 	main.c						\
-	gsm-properties-dialog.h				\
-	gsm-properties-dialog.c				\
-	gsm-app-dialog.h				\
-	gsm-app-dialog.c				\
+	csm-properties-dialog.h				\
+	csm-properties-dialog.c				\
+	csm-app-dialog.h				\
+	csm-app-dialog.c				\
 	gsp-app.h					\
 	gsp-app.c					\
 	gsp-app-manager.h				\

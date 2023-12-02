@@ -31,8 +31,8 @@
 #include <glib.h>
 #include <gio/gio.h>
 
-#include "gsm-autostart-app.h"
-#include "gsm-util.h"
+#include "csm-autostart-app.h"
+#include "csm-util.h"
 
 #ifdef __GNUC__
 #define UNUSED_VARIABLE __attribute__ ((unused))
