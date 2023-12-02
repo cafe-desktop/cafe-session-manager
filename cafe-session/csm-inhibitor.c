@@ -141,7 +141,7 @@ csm_inhibitor_constructor (GType                  type,
                                                                                              construct_properties));
 
         g_free (inhibitor->id);
-        inhibitor->id = g_strdup_printf ("/org/gnome/SessionManager/Inhibitor%u", get_next_inhibitor_serial ());
+        inhibitor->id = g_strdup_printf ("/org/cafe/SessionManager/Inhibitor%u", get_next_inhibitor_serial ());
         res = register_inhibitor (inhibitor);
         if (! res) {
                 g_warning ("Unable to register inhibitor with session bus");
