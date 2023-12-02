@@ -1,23 +1,23 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-capplet/gsm-app-dialog.c
-capplet/gsm-properties-dialog.c
+capplet/csm-app-dialog.c
+capplet/csm-properties-dialog.c
 capplet/gsp-app.c
 capplet/main.c
 data/org.cafe.session.gschema.xml.in
 data/cafe.desktop.in
 data/cafe-wm.desktop.in
-data/gsm-inhibit-dialog.ui
+data/csm-inhibit-dialog.ui
 data/cafe-session-properties.desktop.in
 data/session-properties.ui
 egg/eggdesktopfile.c
 egg/eggsmclient.c
-cafe-session/gsm-inhibit-dialog.c
-cafe-session/gsm-logout-dialog.c
-cafe-session/gsm-manager.c
-cafe-session/gsm-xsmp-client.c
-cafe-session/gsm-xsmp-server.c
-cafe-session/gsm-util.c
+cafe-session/csm-inhibit-dialog.c
+cafe-session/csm-logout-dialog.c
+cafe-session/csm-manager.c
+cafe-session/csm-xsmp-client.c
+cafe-session/csm-xsmp-server.c
+cafe-session/csm-util.c
 cafe-session/main.c
 tools/cafe-session-save.c
 tools/cafe-session-inhibit.c

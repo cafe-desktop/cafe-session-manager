@@ -21,7 +21,7 @@
 #ifndef __GSM_XSMP_CLIENT_H__
 #define __GSM_XSMP_CLIENT_H__
 
-#include "gsm-client.h"
+#include "csm-client.h"
 
 #include <X11/SM/SMlib.h>
 

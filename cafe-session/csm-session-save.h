@@ -1,4 +1,4 @@
-/* gsm-session-save.h
+/* csm-session-save.h
  * Copyright (C) 2008 Lucas Rocha.
  *
  * This program is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
 
 #include <glib.h>
 
-#include "gsm-store.h"
+#include "csm-store.h"
 
 #ifdef __cplusplus
 extern "C" {

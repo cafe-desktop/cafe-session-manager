@@ -20,68 +20,68 @@ msgstr ""
 "Language: ml\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: capplet/gsm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:127
 msgid "Select Command"
 msgstr "കമാന്‍ഡ് തെരഞ്ഞെടുക്കുക"
 
-#: capplet/gsm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:170
 msgid "second"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:172
 msgid "seconds"
 msgstr "സെക്കന്‍ഡുകള്‍"
 
-#: capplet/gsm-app-dialog.c:218 cafe-session/gsm-logout-dialog.c:452
-#: cafe-session/gsm-logout-dialog.c:485
+#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "_റദ്ദാക്കുക"
 
-#: capplet/gsm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:224
 msgid "Add Startup Program"
 msgstr "ആരംഭ നിര്‍ദ്ദേശം ചേര്‍ക്കുക"
 
-#: capplet/gsm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
 msgid "_Add"
 msgstr "_ചേര്‍ക്കുക"
 
-#: capplet/gsm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:229
 msgid "Edit Startup Program"
 msgstr "ആരംഭ നിര്‍ദ്ദേശം ചിട്ടപ്പെടുത്തുക"
 
-#: capplet/gsm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:231
 msgid "_Save"
 msgstr "സംരക്ഷിക്കുക"
 
-#: capplet/gsm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:544
 msgid "The startup command cannot be empty"
 msgstr "ആരംഭ നിര്‍ദ്ദേശം ശൂന്യമായിരിക്കുവാന്‍ പാടില്ല"
 
-#: capplet/gsm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:550
 msgid "The startup command is not valid"
 msgstr "ആരംഭ ആജ്ഞ ശരിയല്ല"
 
-#: capplet/gsm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:516
 msgid "_Help"
 msgstr "_സഹായം"
 
-#: capplet/gsm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:520
 msgid "_Close"
 msgstr "_അടയ്ക്കു:"
 
-#: capplet/gsm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:560
 msgid "Enabled"
 msgstr "പ്രവര്‍ത്തന സജ്ജമാക്കുക"
 
-#: capplet/gsm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:572
 msgid "Icon"
 msgstr "ചിഹ്നം"
 
-#: capplet/gsm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:584
 msgid "Program"
 msgstr "പ്രോഗ്രാം"
 
-#: capplet/gsm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:791
 msgid "Startup Applications Preferences"
 msgstr "പ്രാരംഭ പ്രയോഗങ്ങള്‍ക്കുള്ള മുന്‍ഗണനകള്‍"
 
@@ -258,11 +258,11 @@ msgstr ""
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
 
-#: data/gsm-inhibit-dialog.ui:14
+#: data/csm-inhibit-dialog.ui:14
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>ചില പ്രയോഗങ്ങള്‍ ഇപ്പോഴും പ്രവര്‍ത്തിച്ചു് കൊണ്ടിരിയ്ക്കുന്നു:</b>"
 
-#: data/gsm-inhibit-dialog.ui:52 cafe-session/gsm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -402,24 +402,24 @@ msgstr "സെഷന്‍ മാനേജ്മെന്റ് ഉപാധി�
 msgid "Show session management options"
 msgstr "സെഷന്‍ മാനേജ്മെന്റ് ഉപാധികള്‍ കാണിക്കുക"
 
-#: cafe-session/gsm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:251
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "'%s' ചിഹ്നം കണ്ടില്ല"
 
-#: cafe-session/gsm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:581
 msgid "Unknown"
 msgstr "അപരിചിതമായ"
 
-#: cafe-session/gsm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:632
 msgid "A program is still running:"
 msgstr "ഒരു പ്രയോഗം ഇപ്പോഴും പ്രവര്‍ത്തിച്ചു് കൊണ്ടിരിയ്ക്കുന്നു:"
 
-#: cafe-session/gsm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:636
 msgid "Some programs are still running:"
 msgstr "ചില പ്രയോഗങ്ങള്‍ ഇപ്പോഴും പ്രവര്‍ത്തിച്ചു് കൊണ്ടിരിയ്ക്കുന്നു:"
 
-#: cafe-session/gsm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:637
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
@@ -428,105 +428,105 @@ msgstr ""
 "തടസ്സപ്പെടുത്തുന്നതു് നിങ്ങള്‍ ചെയ്തുകൊണ്ടിരിയ്ക്കുന്ന പണി നഷ്ടപ്പെടുവാന്‍ "
 "കാരണമായേയ്ക്കാം."
 
-#: cafe-session/gsm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:867
 msgid "Switch User Anyway"
 msgstr "എന്തായാലും ഉപയോക്താവിനെ മാറ്റുക"
 
-#: cafe-session/gsm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:870
 msgid "Log Out Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:873
 msgid "Suspend Anyway"
 msgstr "എന്തായാലും മയങ്ങുക"
 
-#: cafe-session/gsm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:876
 msgid "Hibernate Anyway"
 msgstr "എന്തായാലും ശിശിരനിദ്രയിലാഴുക"
 
-#: cafe-session/gsm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:879
 msgid "Shut Down Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:882
 msgid "Reboot Anyway"
 msgstr "എന്തായാലും വീണ്ടും തുടങ്ങുക"
 
-#: cafe-session/gsm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:890
 msgid "Lock Screen"
 msgstr "സ്ക്രീന്‍ പൂട്ടുക"
 
-#: cafe-session/gsm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:893
 msgid "Cancel"
 msgstr "റദ്ദാക്കുക"
 
-#: cafe-session/gsm-logout-dialog.c:307
+#: cafe-session/csm-logout-dialog.c:307
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/gsm-logout-dialog.c:315
+#: cafe-session/csm-logout-dialog.c:315
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/gsm-logout-dialog.c:361
+#: cafe-session/csm-logout-dialog.c:361
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr "നിങ്ങള്‍ നിലവില്‍ \"%s\" ആയി ലോഗിന്‍ ചെയ്തിരിക്കുന്നു."
 
-#: cafe-session/gsm-logout-dialog.c:441
+#: cafe-session/csm-logout-dialog.c:441
 msgid "Log out of this system now?"
 msgstr "ഈ സിസ്റ്റത്തില്‍ നിന്ന് ഇപ്പോള്‍ പുറത്തിറങ്ങണോ?"
 
-#: cafe-session/gsm-logout-dialog.c:447
+#: cafe-session/csm-logout-dialog.c:447
 msgid "_Switch User"
 msgstr "_മറ്റൊരുപയോക്താവാകുക"
 
-#: cafe-session/gsm-logout-dialog.c:456
+#: cafe-session/csm-logout-dialog.c:456
 msgid "_Log Out"
 msgstr "_പുറത്തിറങ്ങുക"
 
-#: cafe-session/gsm-logout-dialog.c:462
+#: cafe-session/csm-logout-dialog.c:462
 msgid "Shut down this system now?"
 msgstr "ഈ സിസ്റ്റം ഇപ്പോള്‍ അടച്ചുപൂട്ടണോ ?"
 
-#: cafe-session/gsm-logout-dialog.c:468
+#: cafe-session/csm-logout-dialog.c:468
 msgid "S_uspend"
 msgstr "_മയങ്ങിക്കോട്ടെ"
 
-#: cafe-session/gsm-logout-dialog.c:474
+#: cafe-session/csm-logout-dialog.c:474
 msgid "_Hibernate"
 msgstr "_ശിശിരനിദ്ര"
 
-#: cafe-session/gsm-logout-dialog.c:480
+#: cafe-session/csm-logout-dialog.c:480
 msgid "_Restart"
 msgstr "വീണ്ടും തുടങ്ങുക"
 
-#: cafe-session/gsm-logout-dialog.c:490
+#: cafe-session/csm-logout-dialog.c:490
 msgid "_Shut Down"
 msgstr "കമ്പ്യൂട്ടര്‍ അടച്ചുപൂട്ടുക"
 
-#: cafe-session/gsm-manager.c:1515 cafe-session/gsm-manager.c:2339
+#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
 msgid "Not responding"
 msgstr "പ്രതികരിയ്ക്കുന്നില്ല"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
-#: cafe-session/gsm-xsmp-client.c:595
+#: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr ""
 
-#: cafe-session/gsm-xsmp-client.c:1262
+#: cafe-session/csm-xsmp-client.c:1262
 msgid "This program is blocking logout."
 msgstr ""
 
-#: cafe-session/gsm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:324
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
@@ -534,13 +534,13 @@ msgstr ""
 "പുതിയ ക്ലയന്റ് ബന്ധം നിരസിക്കുന്നു കാരണം പ്രവര്‍ത്തനവേള ഇപ്പോള്‍ അടച്ചു "
 "പൂട്ടൂകയാണു്\n"
 
-#: cafe-session/gsm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:586
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "'ഐസ് '(ICE) കേള്‍ക്കാനുള്ള സോക്കറ്റ് ഉണ്ടാക്കാന്‍ കഴിഞ്ഞില്ല: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/gsm-util.c:355
+#: cafe-session/csm-util.c:355
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr ""
 "അകത്തുകയറുമ്പോഴുള്ള പ്രവര്‍ത്തനവേള തുടങ്ങാന്‍ കഴിഞ്ഞില്ല "

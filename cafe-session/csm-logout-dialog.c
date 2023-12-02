@@ -27,13 +27,13 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#include "gsm-logout-dialog.h"
+#include "csm-logout-dialog.h"
 #ifdef HAVE_SYSTEMD
-#include "gsm-systemd.h"
+#include "csm-systemd.h"
 #endif
-#include "gsm-consolekit.h"
+#include "csm-consolekit.h"
 #include "cdm.h"
-#include "gsm-util.h"
+#include "csm-util.h"
 
 #define GSM_ICON_LOGOUT   "system-log-out"
 #define GSM_ICON_SHUTDOWN "system-shutdown"

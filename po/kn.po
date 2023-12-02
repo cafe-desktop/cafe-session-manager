@@ -21,68 +21,68 @@ msgstr ""
 "Language: kn\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: capplet/gsm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:127
 msgid "Select Command"
 msgstr "ಆಜ್ಞೆಯನ್ನು ಆರಿಸು"
 
-#: capplet/gsm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:170
 msgid "second"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:172
 msgid "seconds"
 msgstr "ಸೆಕೆಂಡುಗಳು"
 
-#: capplet/gsm-app-dialog.c:218 cafe-session/gsm-logout-dialog.c:452
-#: cafe-session/gsm-logout-dialog.c:485
+#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "ರದ್ದು ಮಾಡಲಾಗಿದೆ(_C)"
 
-#: capplet/gsm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:224
 msgid "Add Startup Program"
 msgstr "ಆರಂಭಿಕ ಪ್ರೊಗ್ರಾಂ ಅನ್ನು ಸೇರಿಸು"
 
-#: capplet/gsm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
 msgid "_Add"
 msgstr "ಸೇರಿಸು(_A)"
 
-#: capplet/gsm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:229
 msgid "Edit Startup Program"
 msgstr "ಆರಂಭಿಕ ಪ್ರೊಗ್ರಾಂ ಅನ್ನು ಸಂಪಾದಿಸು"
 
-#: capplet/gsm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:231
 msgid "_Save"
 msgstr "ಉಳಿಸು(_S)"
 
-#: capplet/gsm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:544
 msgid "The startup command cannot be empty"
 msgstr "ಆರಂಭಿಕ ಆಜ್ಞೆಯು ಖಾಲಿ ಇರುವಂತಿಲ್ಲ"
 
-#: capplet/gsm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:550
 msgid "The startup command is not valid"
 msgstr "ಆರಂಭಿಕ ಆಜ್ಞೆಯು ಮಾನ್ಯವಾದುದಲ್ಲ"
 
-#: capplet/gsm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:516
 msgid "_Help"
 msgstr "ನೆರವು(_H)"
 
-#: capplet/gsm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:520
 msgid "_Close"
 msgstr "ಮುಚ್ಚು (_C)"
 
-#: capplet/gsm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:560
 msgid "Enabled"
 msgstr "ಶಕ್ತಗೊಂಡ"
 
-#: capplet/gsm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:572
 msgid "Icon"
 msgstr "ಚಿಹ್ನೆ"
 
-#: capplet/gsm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:584
 msgid "Program"
 msgstr "ಪ್ರೊಗ್ರಾಂ"
 
-#: capplet/gsm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:791
 msgid "Startup Applications Preferences"
 msgstr "ಆರಂಭಿಕ ಅನ್ವಯಗಳ ಆದ್ಯತೆಗಳು"
 
@@ -259,11 +259,11 @@ msgstr ""
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
 
-#: data/gsm-inhibit-dialog.ui:14
+#: data/csm-inhibit-dialog.ui:14
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>ಕೆಲವು ಪ್ರೊಗ್ರಾಂಗಳು ಇನ್ನೂ ಚಾಲನೆಯಲ್ಲಿವೆ:</b>"
 
-#: data/gsm-inhibit-dialog.ui:52 cafe-session/gsm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -400,24 +400,24 @@ msgstr "ಅಧಿವೇಶನ ವ್ಯವಸ್ಥಾಪನಾ ಆಯ್ಕೆ�
 msgid "Show session management options"
 msgstr "ಅಧಿವೇಶನ ವ್ಯವಸ್ಥಾಪನಾ ಆಯ್ಕೆಗಳನ್ನು ತೋರಿಸು"
 
-#: cafe-session/gsm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:251
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "ಚಿಹ್ನೆ '%s' ಯು ಕಂಡು ಬಂದಿಲ್ಲ"
 
-#: cafe-session/gsm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:581
 msgid "Unknown"
 msgstr "ತಿಳಿಯದ"
 
-#: cafe-session/gsm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:632
 msgid "A program is still running:"
 msgstr "ಒಂದು ಪ್ರೊಗ್ರಾಂಗಳು ಇನ್ನೂ ಚಾಲನೆಯಲ್ಲಿವೆ:"
 
-#: cafe-session/gsm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:636
 msgid "Some programs are still running:"
 msgstr "ಕೆಲವು ಪ್ರೊಗ್ರಾಂಗಳು ಇನ್ನೂ ಚಾಲನೆಯಲ್ಲಿವೆ:"
 
-#: cafe-session/gsm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:637
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
@@ -425,105 +425,105 @@ msgstr ""
 "ಪ್ರೊಗ್ರಾಂಗಳು ಅಂತ್ಯಗೊಳ್ಳುವವರೆಗೆ ಕಾಯಲಾಗುತ್ತಿದೆ.  ಈ ಪ್ರೊಗ್ರಾಂಗಳನ್ನು ಅನ್ನು "
 "ಮಧ್ಯದಲ್ಲಿ ತಡೆಯುವುದರಿಂದ ನಿಮ್ಮ ಕೆಲಸವು ನಾಶಗೊಳ್ಳಬಹುದು."
 
-#: cafe-session/gsm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:867
 msgid "Switch User Anyway"
 msgstr "ಪರವಾಗಿಲ್ಲ ಬಳಕೆದಾರನನ್ನು ಬದಲಾಯಿಸು"
 
-#: cafe-session/gsm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:870
 msgid "Log Out Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:873
 msgid "Suspend Anyway"
 msgstr "ಪರವಾಗಿಲ್ಲ ತಾತ್ಕಾಲಿಕ ಸ್ಥಗಿತಗೊಳಿಸು"
 
-#: cafe-session/gsm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:876
 msgid "Hibernate Anyway"
 msgstr "ಪರವಾಗಿಲ್ಲ ಹೈಬರ್ನೇಟ್ ಮಾಡು"
 
-#: cafe-session/gsm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:879
 msgid "Shut Down Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:882
 msgid "Reboot Anyway"
 msgstr "ಪರವಾಗಿಲ್ಲ ಇನ್ನೊಮ್ಮೆ ಬೂಟ್ ಮಾಡು"
 
-#: cafe-session/gsm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:890
 msgid "Lock Screen"
 msgstr "ತೆರೆಯನ್ನು ಬಂಧಿಸು"
 
-#: cafe-session/gsm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:893
 msgid "Cancel"
 msgstr "ರದ್ದುಗೊಳಿಸು"
 
-#: cafe-session/gsm-logout-dialog.c:307
+#: cafe-session/csm-logout-dialog.c:307
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/gsm-logout-dialog.c:315
+#: cafe-session/csm-logout-dialog.c:315
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/gsm-logout-dialog.c:361
+#: cafe-session/csm-logout-dialog.c:361
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr "ನೀವು ಪ್ರಸಕ್ತ \"%s\" ಆಗಿ ಪ್ರವೇಶಿಸಿದ್ದೀರಿ."
 
-#: cafe-session/gsm-logout-dialog.c:441
+#: cafe-session/csm-logout-dialog.c:441
 msgid "Log out of this system now?"
 msgstr "ಈ ಗಣಕದಿಂದ ಈಗಲೆ ನಿರ್ಗಮಿಸಬೇಕೆ?"
 
-#: cafe-session/gsm-logout-dialog.c:447
+#: cafe-session/csm-logout-dialog.c:447
 msgid "_Switch User"
 msgstr "ಬಳಕೆದಾರನನ್ನು ಬದಲಾಯಿಸು(_S)"
 
-#: cafe-session/gsm-logout-dialog.c:456
+#: cafe-session/csm-logout-dialog.c:456
 msgid "_Log Out"
 msgstr "ನಿರ್ಗಮಿಸು(_L)"
 
-#: cafe-session/gsm-logout-dialog.c:462
+#: cafe-session/csm-logout-dialog.c:462
 msgid "Shut down this system now?"
 msgstr "ಈ ಗಣಕವನ್ನು ಈಗಲೆ ಮುಚ್ಚಬೇಕೆ?"
 
-#: cafe-session/gsm-logout-dialog.c:468
+#: cafe-session/csm-logout-dialog.c:468
 msgid "S_uspend"
 msgstr "ತಾತ್ಕಾಲಿಕ ಸ್ಥಗಿತಗೊಳಿಸು(_u)"
 
-#: cafe-session/gsm-logout-dialog.c:474
+#: cafe-session/csm-logout-dialog.c:474
 msgid "_Hibernate"
 msgstr "ಹೈಬರ್ನೇಟ್(_H)"
 
-#: cafe-session/gsm-logout-dialog.c:480
+#: cafe-session/csm-logout-dialog.c:480
 msgid "_Restart"
 msgstr "ಮತ್ತೆ ಆರಂಭಿಸು(_R)"
 
-#: cafe-session/gsm-logout-dialog.c:490
+#: cafe-session/csm-logout-dialog.c:490
 msgid "_Shut Down"
 msgstr "ಮುಚ್ಚು(_S)"
 
-#: cafe-session/gsm-manager.c:1515 cafe-session/gsm-manager.c:2339
+#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
 msgid "Not responding"
 msgstr "ಪ್ರತಿಕ್ರಿಯಿಸುತ್ತಿಲ್ಲ"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
-#: cafe-session/gsm-xsmp-client.c:595
+#: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr ""
 
-#: cafe-session/gsm-xsmp-client.c:1262
+#: cafe-session/csm-xsmp-client.c:1262
 msgid "This program is blocking logout."
 msgstr ""
 
-#: cafe-session/gsm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:324
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
@@ -531,13 +531,13 @@ msgstr ""
 "ಹೊಸ ಕ್ಲೈಂಟ್ ಸಂಪರ್ಕಗಳನ್ನು ತಿರಸ್ಕರಿಸಲಾಗುತ್ತಿದೆ ಏಕೆಂದರೆ ಅಧೀವೇಶವನವು ಈಗ "
 "ಮುಚ್ಚಲ್ಪಡುತ್ತಿದೆ\n"
 
-#: cafe-session/gsm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:586
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "ICE ಆಲಿಸುವ ಸಾಕೆಟ್ ಅನ್ನು ನಿರ್ಮಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/gsm-util.c:355
+#: cafe-session/csm-util.c:355
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr ""
 "ಪ್ರವೇಶ ಅಧಿವೇಶನವನ್ನು ಆರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ (ಹಾಗು X ಪರಿಚಾರಕಕ್ಕೆ ಸಂಪರ್ಕ ಸಾಧಿಸಲು"

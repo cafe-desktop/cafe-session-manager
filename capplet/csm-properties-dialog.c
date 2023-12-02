@@ -29,9 +29,9 @@
 
 #include <gio/gio.h>
 
-#include "gsm-properties-dialog.h"
-#include "gsm-app-dialog.h"
-#include "gsm-util.h"
+#include "csm-properties-dialog.h"
+#include "csm-app-dialog.h"
+#include "csm-util.h"
 #include "gsp-app.h"
 #include "gsp-app-manager.h"
 

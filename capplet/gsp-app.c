@@ -31,9 +31,9 @@
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 
-#include "gsm-app-dialog.h"
-#include "gsm-properties-dialog.h"
-#include "gsm-util.h"
+#include "csm-app-dialog.h"
+#include "csm-properties-dialog.h"
+#include "csm-util.h"
 #include "gsp-app-manager.h"
 #include "gsp-keyfile.h"
 

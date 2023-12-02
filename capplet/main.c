@@ -27,7 +27,7 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#include "gsm-properties-dialog.h"
+#include "csm-properties-dialog.h"
 
 static gboolean show_version = FALSE;
 

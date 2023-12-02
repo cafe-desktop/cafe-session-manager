@@ -31,8 +31,8 @@
 #include <dbus/dbus-glib.h>
 #include <dbus/dbus-glib-lowlevel.h>
 
-#include "gsm-marshal.h"
-#include "gsm-consolekit.h"
+#include "csm-marshal.h"
+#include "csm-consolekit.h"
 
 #define CK_NAME      "org.freedesktop.ConsoleKit"
 #define CK_PATH      "/org/freedesktop/ConsoleKit"
@@ -358,7 +358,7 @@ gsm_consolekit_error_quark (void)
         static GQuark error_quark = 0;
 
         if (error_quark == 0) {
-                error_quark = g_quark_from_static_string ("gsm-consolekit-error");
+                error_quark = g_quark_from_static_string ("csm-consolekit-error");
         }
 
         return error_quark;

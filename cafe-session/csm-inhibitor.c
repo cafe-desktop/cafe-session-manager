@@ -28,9 +28,9 @@
 
 #include <dbus/dbus-glib.h>
 
-#include "gsm-inhibitor.h"
-#include "gsm-inhibitor-glue.h"
-#include "gsm-util.h"
+#include "csm-inhibitor.h"
+#include "csm-inhibitor-glue.h"
+#include "csm-util.h"
 
 static guint32 inhibitor_serial = 1;
 

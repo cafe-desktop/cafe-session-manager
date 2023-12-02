@@ -28,68 +28,68 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: capplet/gsm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:127
 msgid "Select Command"
 msgstr "コマンドの選択"
 
-#: capplet/gsm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:170
 msgid "second"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:172
 msgid "seconds"
 msgstr "秒"
 
-#: capplet/gsm-app-dialog.c:218 cafe-session/gsm-logout-dialog.c:452
-#: cafe-session/gsm-logout-dialog.c:485
+#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
-#: capplet/gsm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:224
 msgid "Add Startup Program"
 msgstr "自動起動するプログラムの追加"
 
-#: capplet/gsm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
 msgid "_Add"
 msgstr "追加(_A)"
 
-#: capplet/gsm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:229
 msgid "Edit Startup Program"
 msgstr "自動起動するプログラムの編集"
 
-#: capplet/gsm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:231
 msgid "_Save"
 msgstr "保存 (_S)"
 
-#: capplet/gsm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:544
 msgid "The startup command cannot be empty"
 msgstr "自動起動するプログラムのコマンド名を入力してください"
 
-#: capplet/gsm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:550
 msgid "The startup command is not valid"
 msgstr "コマンド名が間違っています"
 
-#: capplet/gsm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:516
 msgid "_Help"
 msgstr "ヘルプ(_H)"
 
-#: capplet/gsm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:520
 msgid "_Close"
 msgstr "閉じる(_C)"
 
-#: capplet/gsm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:560
 msgid "Enabled"
 msgstr "有効"
 
-#: capplet/gsm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:572
 msgid "Icon"
 msgstr "アイコン"
 
-#: capplet/gsm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:584
 msgid "Program"
 msgstr "プログラム"
 
-#: capplet/gsm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:791
 msgid "Startup Applications Preferences"
 msgstr "自動起動するアプリの設定"
 
@@ -260,11 +260,11 @@ msgstr ""
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
 
-#: data/gsm-inhibit-dialog.ui:14
+#: data/csm-inhibit-dialog.ui:14
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>いくつかのプログラムが未だ実行中です:</b>"
 
-#: data/gsm-inhibit-dialog.ui:52 cafe-session/gsm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -401,138 +401,138 @@ msgstr "セッション管理のオプション:"
 msgid "Show session management options"
 msgstr "セッション管理のオプションを表示する"
 
-#: cafe-session/gsm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:251
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "'%s' というアイコンが見つかりませんでした"
 
-#: cafe-session/gsm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:581
 msgid "Unknown"
 msgstr "不明"
 
-#: cafe-session/gsm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:632
 msgid "A program is still running:"
 msgstr "プログラムが未だ実行中です:"
 
-#: cafe-session/gsm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:636
 msgid "Some programs are still running:"
 msgstr "いくつかのプログラムが未だ実行中です:"
 
-#: cafe-session/gsm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:637
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
 msgstr "プログラムが終了するのを待っています。実行中のプログラムを強制終了させてしまうと、作業内容を失うことになるかもしれません。"
 
-#: cafe-session/gsm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:867
 msgid "Switch User Anyway"
 msgstr "とにかくユーザを切り替える"
 
-#: cafe-session/gsm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:870
 msgid "Log Out Anyway"
 msgstr "とにかくログアウトする"
 
-#: cafe-session/gsm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:873
 msgid "Suspend Anyway"
 msgstr "とにかくサスペンドする"
 
-#: cafe-session/gsm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:876
 msgid "Hibernate Anyway"
 msgstr "とにかくハイバネートする"
 
-#: cafe-session/gsm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:879
 msgid "Shut Down Anyway"
 msgstr "とにかくシャットダウンする"
 
-#: cafe-session/gsm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:882
 msgid "Reboot Anyway"
 msgstr "とにかく再起動する"
 
-#: cafe-session/gsm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:890
 msgid "Lock Screen"
 msgstr "画面のロック"
 
-#: cafe-session/gsm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:893
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: cafe-session/gsm-logout-dialog.c:307
+#: cafe-session/csm-logout-dialog.c:307
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
 msgstr[0] ""
 
-#: cafe-session/gsm-logout-dialog.c:315
+#: cafe-session/csm-logout-dialog.c:315
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
 msgstr[0] ""
 
-#: cafe-session/gsm-logout-dialog.c:361
+#: cafe-session/csm-logout-dialog.c:361
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr "あなたは現在 \"%s\" でログインしています。"
 
-#: cafe-session/gsm-logout-dialog.c:441
+#: cafe-session/csm-logout-dialog.c:441
 msgid "Log out of this system now?"
 msgstr "このシステムから今すぐログアウトしますか?"
 
-#: cafe-session/gsm-logout-dialog.c:447
+#: cafe-session/csm-logout-dialog.c:447
 msgid "_Switch User"
 msgstr "ユーザーを切り替える(_S)"
 
-#: cafe-session/gsm-logout-dialog.c:456
+#: cafe-session/csm-logout-dialog.c:456
 msgid "_Log Out"
 msgstr "ログアウト(_L)"
 
-#: cafe-session/gsm-logout-dialog.c:462
+#: cafe-session/csm-logout-dialog.c:462
 msgid "Shut down this system now?"
 msgstr "このシステムを今すぐシャットダウンしますか?"
 
-#: cafe-session/gsm-logout-dialog.c:468
+#: cafe-session/csm-logout-dialog.c:468
 msgid "S_uspend"
 msgstr "サスペンド(_U)"
 
-#: cafe-session/gsm-logout-dialog.c:474
+#: cafe-session/csm-logout-dialog.c:474
 msgid "_Hibernate"
 msgstr "ハイバーネート(_H)"
 
-#: cafe-session/gsm-logout-dialog.c:480
+#: cafe-session/csm-logout-dialog.c:480
 msgid "_Restart"
 msgstr "再起動(_R)"
 
-#: cafe-session/gsm-logout-dialog.c:490
+#: cafe-session/csm-logout-dialog.c:490
 msgid "_Shut Down"
 msgstr "シャットダウン(_S)"
 
-#: cafe-session/gsm-manager.c:1515 cafe-session/gsm-manager.c:2339
+#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
 msgid "Not responding"
 msgstr "応答なし"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
-#: cafe-session/gsm-xsmp-client.c:595
+#: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr "記憶したアプリケーション"
 
-#: cafe-session/gsm-xsmp-client.c:1262
+#: cafe-session/csm-xsmp-client.c:1262
 msgid "This program is blocking logout."
 msgstr "このプログラムがログアウトをブロックしています。"
 
-#: cafe-session/gsm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:324
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr "セッションをシャットダウン中のため、新しいクライアントとの接続を拒否しました。\n"
 
-#: cafe-session/gsm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:586
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "ICE の監視ソケットを生成できませんでした: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/gsm-util.c:355
+#: cafe-session/csm-util.c:355
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr "ログインセッションを起動できません (X サーバーにも接続できません)"
 

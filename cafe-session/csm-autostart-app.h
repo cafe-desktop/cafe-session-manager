@@ -22,7 +22,7 @@
 #ifndef __GSM_AUTOSTART_APP_H__
 #define __GSM_AUTOSTART_APP_H__
 
-#include "gsm-app.h"
+#include "csm-app.h"
 
 #include <X11/SM/SMlib.h>
 

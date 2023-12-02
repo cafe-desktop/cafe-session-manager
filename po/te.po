@@ -22,68 +22,68 @@ msgstr ""
 "Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: capplet/gsm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:127
 msgid "Select Command"
 msgstr "ఆదేశం యెంపికచేయుము"
 
-#: capplet/gsm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:170
 msgid "second"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:172
 msgid "seconds"
 msgstr "క్షణాలు"
 
-#: capplet/gsm-app-dialog.c:218 cafe-session/gsm-logout-dialog.c:452
-#: cafe-session/gsm-logout-dialog.c:485
+#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "రద్దు(_C)"
 
-#: capplet/gsm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:224
 msgid "Add Startup Program"
 msgstr "ప్రారంభ కార్యక్రమాన్ని జతచేయుము"
 
-#: capplet/gsm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
 msgid "_Add"
 msgstr "చేర్చు(_A)"
 
-#: capplet/gsm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:229
 msgid "Edit Startup Program"
 msgstr "ప్రారంభ కార్యక్రమాన్ని సరిచేయు"
 
-#: capplet/gsm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:231
 msgid "_Save"
 msgstr "దాచు(_S)"
 
-#: capplet/gsm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:544
 msgid "The startup command cannot be empty"
 msgstr "ప్రారంభ  ఆదేశం ఖాళీగా  ఉండరాదు"
 
-#: capplet/gsm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:550
 msgid "The startup command is not valid"
 msgstr "ప్రారంభ  ఆదేశం సరియైనదికాదు"
 
-#: capplet/gsm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:516
 msgid "_Help"
 msgstr "సహాయం (_H)"
 
-#: capplet/gsm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:520
 msgid "_Close"
 msgstr "మూసివేయి (_C)"
 
-#: capplet/gsm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:560
 msgid "Enabled"
 msgstr "క్రియాశీలీకరించబడిన"
 
-#: capplet/gsm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:572
 msgid "Icon"
 msgstr "ప్రతీక"
 
-#: capplet/gsm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:584
 msgid "Program"
 msgstr "కార్యక్రమం"
 
-#: capplet/gsm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:791
 msgid "Startup Applications Preferences"
 msgstr "ప్రారంభ అనువర్తనముల అభీష్టములు"
 
@@ -259,11 +259,11 @@ msgstr ""
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
 
-#: data/gsm-inhibit-dialog.ui:14
+#: data/csm-inhibit-dialog.ui:14
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>కొన్ని ప్రోగ్రామ్లు యింకనూ నడుచుచున్నవి:</b>"
 
-#: data/gsm-inhibit-dialog.ui:52 cafe-session/gsm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -402,24 +402,24 @@ msgstr "సెషన్ నిర్వహణా ఐచ్చికములు:
 msgid "Show session management options"
 msgstr "సెషన్ నిర్వహణా ఐచ్చికములను చూపుము"
 
-#: cafe-session/gsm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:251
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "ప్రతిమ '%s' కనబడలేదు"
 
-#: cafe-session/gsm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:581
 msgid "Unknown"
 msgstr "తెలియదు"
 
-#: cafe-session/gsm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:632
 msgid "A program is still running:"
 msgstr "ఒక ప్రోగ్రామ్ యిప్పటికీ నడుచుచున్నది:"
 
-#: cafe-session/gsm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:636
 msgid "Some programs are still running:"
 msgstr "కొన్ని ప్రోగ్రాములు యిప్పటికి నడుచుచున్నవి:"
 
-#: cafe-session/gsm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:637
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
@@ -427,105 +427,105 @@ msgstr ""
 "ప్రాగ్రాముల ముగింపు కొరకు వేచివుంది.  ఈ ప్రోగ్రాములను ఆటంకపరచుట అనునది మీ "
 "పని కోల్పోవుటకు కారణం కావచ్చును."
 
-#: cafe-session/gsm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:867
 msgid "Switch User Anyway"
 msgstr "ఏమైనప్పటికి వినియోగదారిని మార్చుము"
 
-#: cafe-session/gsm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:870
 msgid "Log Out Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:873
 msgid "Suspend Anyway"
 msgstr "ఎలాగైనా అర్దాంతరముగా నిలిపివేయి"
 
-#: cafe-session/gsm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:876
 msgid "Hibernate Anyway"
 msgstr "ఎలాగైనా హైబర్నేట్ చేయుము"
 
-#: cafe-session/gsm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:879
 msgid "Shut Down Anyway"
 msgstr ""
 
-#: cafe-session/gsm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:882
 msgid "Reboot Anyway"
 msgstr "ఎలాగైనా పునఃప్రారంభించుము"
 
-#: cafe-session/gsm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:890
 msgid "Lock Screen"
 msgstr "స్క్రీన్ లాక్‌చేయుము"
 
-#: cafe-session/gsm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:893
 msgid "Cancel"
 msgstr "రద్దు"
 
-#: cafe-session/gsm-logout-dialog.c:307
+#: cafe-session/csm-logout-dialog.c:307
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/gsm-logout-dialog.c:315
+#: cafe-session/csm-logout-dialog.c:315
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/gsm-logout-dialog.c:361
+#: cafe-session/csm-logout-dialog.c:361
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr "మీరు ప్రస్తుతం \"%s\" వలె లాగై వున్నారు."
 
-#: cafe-session/gsm-logout-dialog.c:441
+#: cafe-session/csm-logout-dialog.c:441
 msgid "Log out of this system now?"
 msgstr "ఈ సిస్టమ్ నుండి ఇప్పుడే లాగ్అవుట్ అవ్వాలా?"
 
-#: cafe-session/gsm-logout-dialog.c:447
+#: cafe-session/csm-logout-dialog.c:447
 msgid "_Switch User"
 msgstr "వినియోగదారున్ని మార్చు(_S)"
 
-#: cafe-session/gsm-logout-dialog.c:456
+#: cafe-session/csm-logout-dialog.c:456
 msgid "_Log Out"
 msgstr "నిష్క్రమణ ద్వారం(_L)"
 
-#: cafe-session/gsm-logout-dialog.c:462
+#: cafe-session/csm-logout-dialog.c:462
 msgid "Shut down this system now?"
 msgstr "ఈ సిస్టమ్ ను ఇప్పుడే మూసివేయాలా?"
 
-#: cafe-session/gsm-logout-dialog.c:468
+#: cafe-session/csm-logout-dialog.c:468
 msgid "S_uspend"
 msgstr "అర్ధాంతరంగానిలిపివేయి (_u)"
 
-#: cafe-session/gsm-logout-dialog.c:474
+#: cafe-session/csm-logout-dialog.c:474
 msgid "_Hibernate"
 msgstr "షుప్తావస్థ (_H)"
 
-#: cafe-session/gsm-logout-dialog.c:480
+#: cafe-session/csm-logout-dialog.c:480
 msgid "_Restart"
 msgstr "పునఃప్రారంభించు (_R)"
 
-#: cafe-session/gsm-logout-dialog.c:490
+#: cafe-session/csm-logout-dialog.c:490
 msgid "_Shut Down"
 msgstr "మూసివేయి (_S)"
 
-#: cafe-session/gsm-manager.c:1515 cafe-session/gsm-manager.c:2339
+#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
 msgid "Not responding"
 msgstr "స్పందించుటలేదు"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
-#: cafe-session/gsm-xsmp-client.c:595
+#: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr ""
 
-#: cafe-session/gsm-xsmp-client.c:1262
+#: cafe-session/csm-xsmp-client.c:1262
 msgid "This program is blocking logout."
 msgstr ""
 
-#: cafe-session/gsm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:324
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
@@ -533,13 +533,13 @@ msgstr ""
 "కొత్త కక్షిదారి అనుసంధానమును తిరస్కరిస్తోంది యెంచేతంటే విభాగము అనునది "
 "ప్రస్తుతము మూసివేయబడుతోంది\n"
 
-#: cafe-session/gsm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:586
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "ICE లిజనింగ్ సాకెట్‌ను సృష్టించలేక పోయింది: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/gsm-util.c:355
+#: cafe-session/csm-util.c:355
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr ""
 "లాగిన్ విభాగమును ప్రారంభించలేక పోయింది (మరియు X సేవికకు అనుసంధానము కాలేక "

@@ -20,68 +20,68 @@ msgstr ""
 "Language: pa\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: capplet/gsm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:127
 msgid "Select Command"
 msgstr "ਕਮਾਂਡ ਚੁਣੋ"
 
-#: capplet/gsm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:170
 msgid "second"
 msgstr ""
 
-#: capplet/gsm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:172
 msgid "seconds"
 msgstr "ਸਕਿੰਟ"
 
-#: capplet/gsm-app-dialog.c:218 cafe-session/gsm-logout-dialog.c:452
-#: cafe-session/gsm-logout-dialog.c:485
+#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "ਰੱਦ ਕਰੋ(_C)"
 
-#: capplet/gsm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:224
 msgid "Add Startup Program"
 msgstr "ਸਟਾਰਟਅੱਪ ਪਰੋਗਰਾਮ ਸ਼ਾਮਲ"
 
-#: capplet/gsm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
 msgid "_Add"
 msgstr "ਸ਼ਾਮਲ(_A)"
 
-#: capplet/gsm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:229
 msgid "Edit Startup Program"
 msgstr "ਸਟਾਰਟਅੱਪ ਪਰੋਗਰਾਮ ਸੋਧ"
 
-#: capplet/gsm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:231
 msgid "_Save"
 msgstr "ਸੰਭਾਲੋ(_S)"
 
-#: capplet/gsm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:544
 msgid "The startup command cannot be empty"
 msgstr "ਸ਼ੁਰੂਆਤੀ ਕਮਾਂਡ ਖਾਲੀ ਨਹੀ ਹੋ ਸਕਦੀ ਹੈ"
 
-#: capplet/gsm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:550
 msgid "The startup command is not valid"
 msgstr "ਸ਼ੁਰੂਆਤੀ ਕਮਾਂਡ ਠੀਕ ਨਹੀਂ ਹੈ"
 
-#: capplet/gsm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:516
 msgid "_Help"
 msgstr "ਮੱਦਦ(_H)"
 
-#: capplet/gsm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:520
 msgid "_Close"
 msgstr "ਬੰਦ ਕਰੋ(_C)"
 
-#: capplet/gsm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:560
 msgid "Enabled"
 msgstr "ਯੋਗ"
 
-#: capplet/gsm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:572
 msgid "Icon"
 msgstr "ਆਈਕਾਨ"
 
-#: capplet/gsm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:584
 msgid "Program"
 msgstr "ਪਰੋਗਰਾਮ"
 
-#: capplet/gsm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:791
 msgid "Startup Applications Preferences"
 msgstr "ਸ਼ੁਰੂਆਤੀ ਐਪਲੀਕੇਸ਼ਨ ਪਸੰਦ"
 
@@ -255,11 +255,11 @@ msgstr ""
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
 
-#: data/gsm-inhibit-dialog.ui:14
+#: data/csm-inhibit-dialog.ui:14
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>ਕੁਝ ਪਰੋਗਰਾਮ ਹਾਲੇ ਵੀ ਚੱਲਦੇ ਹਨ:</b>"
 
-#: data/gsm-inhibit-dialog.ui:52 cafe-session/gsm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -398,24 +398,24 @@ msgstr "ਸ਼ੈਸ਼ਨ ਪਰਬੰਧ ਚੋਣਾਂ:"
 msgid "Show session management options"
 msgstr "ਸ਼ੈਸ਼ਨ ਪਰਬੰਧ ਚੋਣਾਂ ਵੇਖੋ"
 
-#: cafe-session/gsm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:251
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "ਆਈਕਾਨ '%s' ਨਹੀਂ ਲੱਭਿਆ"
 
-#: cafe-session/gsm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:581
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
-#: cafe-session/gsm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:632
 msgid "A program is still running:"
 msgstr "ਇੱਕ ਪਰੋਗਰਾਮ ਹਾਲੇ ਵੀ ਚੱਲ ਰਿਹਾ ਹੈ:"
 
-#: cafe-session/gsm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:636
 msgid "Some programs are still running:"
 msgstr "ਕੁਝ ਪਰੋਗਰਾਮ ਹਾਲੇ ਵੀ ਚੱਲ ਰਹੇ ਹਨ:"
 
-#: cafe-session/gsm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:637
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
@@ -423,118 +423,118 @@ msgstr ""
 "ਪਰੋਗਰਾਮ ਨੂੰ ਪੂਰਾ ਹੋਣ ਦੀ ਉਡੀਕ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ। ਇਹ ਪਰੋਗਰਾਮਾਂ 'ਚ ਦਖਲ ਦੇਣ ਨਾਲ "
 "ਤੁਹਾਡਾ ਕੰਮ ਗੁਆਚ ਸਕਦਾ ਹੈ।"
 
-#: cafe-session/gsm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:867
 msgid "Switch User Anyway"
 msgstr "ਕਿਵੇਂ ਵੀ ਯੂਜ਼ਰ ਬਦਲੋ"
 
-#: cafe-session/gsm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:870
 msgid "Log Out Anyway"
 msgstr "ਕਿਵੇਂ ਵੀ ਲਾਗ-ਆਉਟ ਕਰੋ"
 
-#: cafe-session/gsm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:873
 msgid "Suspend Anyway"
 msgstr "ਕਿਵੇਂ ਵੀ ਸਸਪੈਂਡ"
 
-#: cafe-session/gsm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:876
 msgid "Hibernate Anyway"
 msgstr "ਕਿਵੇਂ ਵੀ ਹਾਈਬਰਨੇਟ"
 
-#: cafe-session/gsm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:879
 msgid "Shut Down Anyway"
 msgstr "ਕਿਵੇਂ ਵੀ ਬੰਦ ਕਰੋ"
 
-#: cafe-session/gsm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:882
 msgid "Reboot Anyway"
 msgstr "ਕਿਵੇਂ ਵੀ ਮੁੜ-ਚਾਲੂ ਕਰੋ"
 
-#: cafe-session/gsm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:890
 msgid "Lock Screen"
 msgstr "ਸਕਰੀਨ ਲਾਕ ਕਰੋ"
 
-#: cafe-session/gsm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:893
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: cafe-session/gsm-logout-dialog.c:307
+#: cafe-session/csm-logout-dialog.c:307
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/gsm-logout-dialog.c:315
+#: cafe-session/csm-logout-dialog.c:315
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/gsm-logout-dialog.c:361
+#: cafe-session/csm-logout-dialog.c:361
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr "ਹੁਣ ਤੁਸੀਂ  \"%s\" ਵਜੋਂ ਲਾਗਇਨ ਹੋ।"
 
-#: cafe-session/gsm-logout-dialog.c:441
+#: cafe-session/csm-logout-dialog.c:441
 msgid "Log out of this system now?"
 msgstr "ਇਸ ਸਿਸਟਮ ਲਈ ਹੁਣੇ ਲਾਗ ਆਉਟ ਕਰਨਾ ਹੈ?"
 
-#: cafe-session/gsm-logout-dialog.c:447
+#: cafe-session/csm-logout-dialog.c:447
 msgid "_Switch User"
 msgstr "ਯੂਜ਼ਰ ਸਵਿੱਚ ਕਰੋ(_S)..."
 
-#: cafe-session/gsm-logout-dialog.c:456
+#: cafe-session/csm-logout-dialog.c:456
 msgid "_Log Out"
 msgstr "ਲਾਗਆਉਟ(_L)"
 
-#: cafe-session/gsm-logout-dialog.c:462
+#: cafe-session/csm-logout-dialog.c:462
 msgid "Shut down this system now?"
 msgstr "ਕੀ ਸਿਸਟਮ ਹੁਣੇ ਬੰਦ ਕਰਨਾ ਹੈ?"
 
-#: cafe-session/gsm-logout-dialog.c:468
+#: cafe-session/csm-logout-dialog.c:468
 msgid "S_uspend"
 msgstr "ਸਸਪੈਂਡ(_u)"
 
-#: cafe-session/gsm-logout-dialog.c:474
+#: cafe-session/csm-logout-dialog.c:474
 msgid "_Hibernate"
 msgstr "ਹਾਈਬਰਨੇਟ(_H)"
 
-#: cafe-session/gsm-logout-dialog.c:480
+#: cafe-session/csm-logout-dialog.c:480
 msgid "_Restart"
 msgstr "ਰੀ-ਸਟਾਰਟ(_R)"
 
-#: cafe-session/gsm-logout-dialog.c:490
+#: cafe-session/csm-logout-dialog.c:490
 msgid "_Shut Down"
 msgstr "ਬੰਦ ਕਰੋ(_S)"
 
-#: cafe-session/gsm-manager.c:1515 cafe-session/gsm-manager.c:2339
+#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
 msgid "Not responding"
 msgstr "ਕੋਈ ਜਵਾਬ ਨਹੀਂ"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
-#: cafe-session/gsm-xsmp-client.c:595
+#: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr ""
 
-#: cafe-session/gsm-xsmp-client.c:1262
+#: cafe-session/csm-xsmp-client.c:1262
 msgid "This program is blocking logout."
 msgstr "ਇਹ ਪਰੋਗਰਾਮ ਲਾਗ-ਆਉਟ ਨੂੰ ਰੋਕ ਰਿਹਾ ਹੈ।"
 
-#: cafe-session/gsm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:324
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr ""
 "ਨਵਾਂ ਕਲਾਇਟ ਕੁਨੈਕਸ਼ਨ ਤੋਂ ਇਨਕਾਰ ਕੀਤਾ ਗਿਆ ਹੈ, ਕਿਉਂਕਿ ਸ਼ੈਸ਼ਨ ਬੰਦ ਹੋ ਰਿਹਾ ਹੈ\n"
 
-#: cafe-session/gsm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:586
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "ICE ਲਿਸਨਿੰਗ ਸਾਕਟ ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕੀ: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/gsm-util.c:355
+#: cafe-session/csm-util.c:355
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr ""
 "ਲਾਗਇਨ ਸ਼ੈਸ਼ਨ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਅਸਮਰੱਥ (ਅਤੇ X ਸਰਵਰ ਨਾਲ ਕੁਨੈਕਟ ਕਰਨ ਲਈ ਵੀ ਅਸਮਰੱਥ)"

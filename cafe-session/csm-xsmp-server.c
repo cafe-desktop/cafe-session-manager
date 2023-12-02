@@ -48,9 +48,9 @@
 #undef TRANS_SERVER
 #endif /* HAVE_XTRANS */
 
-#include "gsm-xsmp-server.h"
-#include "gsm-xsmp-client.h"
-#include "gsm-util.h"
+#include "csm-xsmp-server.h"
+#include "csm-xsmp-client.h"
+#include "csm-util.h"
 
 /* ICEauthority stuff */
 /* Various magic numbers stolen from iceauth.c */

@@ -32,18 +32,18 @@
 #include <cdk/cdkx.h>
 #include <cairo-xlib.h>
 
-#include "gsm-inhibit-dialog.h"
-#include "gsm-store.h"
-#include "gsm-client.h"
-#include "gsm-inhibitor.h"
+#include "csm-inhibit-dialog.h"
+#include "csm-store.h"
+#include "csm-client.h"
+#include "csm-inhibitor.h"
 #include "eggdesktopfile.h"
-#include "gsm-util.h"
+#include "csm-util.h"
 
 #ifdef HAVE_XRENDER
 #include <X11/extensions/Xrender.h>
 #endif
 
-#define CTKBUILDER_FILE "gsm-inhibit-dialog.ui"
+#define CTKBUILDER_FILE "csm-inhibit-dialog.ui"
 
 #ifndef DEFAULT_ICON_SIZE
 #define DEFAULT_ICON_SIZE 32

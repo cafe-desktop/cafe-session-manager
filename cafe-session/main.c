@@ -42,14 +42,14 @@
 #include "cdm-signal-handler.h"
 #include "cdm-log.h"
 
-#include "gsm-consolekit.h"
+#include "csm-consolekit.h"
 #ifdef HAVE_SYSTEMD
-#include "gsm-systemd.h"
+#include "csm-systemd.h"
 #endif
-#include "gsm-util.h"
-#include "gsm-manager.h"
-#include "gsm-xsmp-server.h"
-#include "gsm-store.h"
+#include "csm-util.h"
+#include "csm-manager.h"
+#include "csm-xsmp-server.h"
+#include "csm-store.h"
 
 #include "msm-gnome.h"
 

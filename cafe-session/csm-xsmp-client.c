@@ -31,12 +31,12 @@
 #include <gio/gio.h>
 #include <glib/gi18n.h>
 
-#include "gsm-xsmp-client.h"
-#include "gsm-marshal.h"
+#include "csm-xsmp-client.h"
+#include "csm-marshal.h"
 
-#include "gsm-util.h"
-#include "gsm-autostart-app.h"
-#include "gsm-manager.h"
+#include "csm-util.h"
+#include "csm-autostart-app.h"
+#include "csm-manager.h"
 
 #define GsmDesktopFile "_GSM_DesktopFile"
 

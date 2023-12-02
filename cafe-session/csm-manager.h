@@ -25,7 +25,7 @@
 #include <glib-object.h>
 #include <dbus/dbus-glib.h>
 
-#include "gsm-store.h"
+#include "csm-store.h"
 
 G_BEGIN_DECLS
 

@@ -1,4 +1,4 @@
-/* gsm-util.h
+/* csm-util.h
  * Copyright (C) 2008 Lucas Rocha.
  *
  * This program is free software; you can redistribute it and/or

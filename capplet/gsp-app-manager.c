@@ -23,7 +23,7 @@
 
 #include <string.h>
 
-#include "gsm-util.h"
+#include "csm-util.h"
 #include "gsp-app.h"
 
 #include "gsp-app-manager.h"

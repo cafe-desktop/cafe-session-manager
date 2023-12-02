@@ -13,30 +13,30 @@ AM_CPPFLAGS =					\
 AM_CFLAGS = $(WARN_CFLAGS)
 
 cafe_session_SOURCES =				\
-	gsm-app.h				\
-	gsm-app.c				\
-	gsm-autostart-app.h			\
-	gsm-autostart-app.c			\
-	gsm-client.c				\
-	gsm-client.h				\
-	gsm-xsmp-client.h			\
-	gsm-xsmp-client.c			\
-	gsm-dbus-client.h			\
-	gsm-dbus-client.c			\
-	gsm-marshal.h				\
-	gsm-marshal.c				\
-	gsm-consolekit.c			\
-	gsm-consolekit.h			\
-	gsm-systemd.c 				\
-	gsm-systemd.h				\
-	gsm-logout-dialog.h			\
-	gsm-logout-dialog.c			\
-	gsm-inhibit-dialog.h			\
-	gsm-inhibit-dialog.c			\
+	csm-app.h				\
+	csm-app.c				\
+	csm-autostart-app.h			\
+	csm-autostart-app.c			\
+	csm-client.c				\
+	csm-client.h				\
+	csm-xsmp-client.h			\
+	csm-xsmp-client.c			\
+	csm-dbus-client.h			\
+	csm-dbus-client.c			\
+	csm-marshal.h				\
+	csm-marshal.c				\
+	csm-consolekit.c			\
+	csm-consolekit.h			\
+	csm-systemd.c 				\
+	csm-systemd.h				\
+	csm-logout-dialog.h			\
+	csm-logout-dialog.c			\
+	csm-inhibit-dialog.h			\
+	csm-inhibit-dialog.c			\
 	gs-idle-monitor.h			\
 	gs-idle-monitor.c			\
-	gsm-presence.h				\
-	gsm-presence.c				\
+	csm-presence.h				\
+	csm-presence.c				\
 	cdm.h					\
 	cdm.c					\
 	cdm-signal-handler.h			\
@@ -46,16 +46,16 @@ cafe_session_SOURCES =				\
 	msm-gnome.c				\
 	msm-gnome.h				\
 	main.c					\
-	gsm-store.h				\
-	gsm-store.c				\
-	gsm-inhibitor.h				\
-	gsm-inhibitor.c				\
-	gsm-manager.c				\
-	gsm-manager.h				\
-	gsm-session-save.c			\
-	gsm-session-save.h			\
-	gsm-xsmp-server.c			\
-	gsm-xsmp-server.h
+	csm-store.h				\
+	csm-store.c				\
+	csm-inhibitor.h				\
+	csm-inhibitor.c				\
+	csm-manager.c				\
+	csm-manager.h				\
+	csm-session-save.c			\
+	csm-session-save.h			\
+	csm-xsmp-server.c			\
+	csm-xsmp-server.h
 
 cafe_session_CPPFLAGS =			\
 	$(AM_CPPFLAGS)				\
@@ -85,8 +85,8 @@ cafe_session_LDADD =				\
 	$(EXECINFO_LIBS)
 
 libgsmutil_la_SOURCES =				\
-	gsm-util.c				\
-	gsm-util.h
+	csm-util.c				\
+	csm-util.h
 
 libgsmutil_la_LIBADD = 				\
 	$(CAFE_SESSION_LIBS)
@@ -97,40 +97,40 @@ test_inhibit_LDADD = $(CAFE_SESSION_LIBS)
 test_client_dbus_SOURCES = test-client-dbus.c
 test_client_dbus_LDADD = $(CAFE_SESSION_LIBS)
 
-gsm-marshal.c: gsm-marshal.list
-	$(AM_V_GEN)echo "#include \"gsm-marshal.h\"" > $@ && \
+csm-marshal.c: csm-marshal.list
+	$(AM_V_GEN)echo "#include \"csm-marshal.h\"" > $@ && \
 	$(GLIB_GENMARSHAL) $< --prefix=gsm_marshal --body >> $@
 
-gsm-marshal.h: gsm-marshal.list
+csm-marshal.h: csm-marshal.list
 	$(AM_V_GEN)$(GLIB_GENMARSHAL) $< --prefix=gsm_marshal --header > $@
 
-gsm-manager-glue.h: org.gnome.SessionManager.xml Makefile.am
-	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_manager --mode=glib-server --output=gsm-manager-glue.h $(srcdir)/org.gnome.SessionManager.xml
+csm-manager-glue.h: org.gnome.SessionManager.xml Makefile.am
+	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_manager --mode=glib-server --output=csm-manager-glue.h $(srcdir)/org.gnome.SessionManager.xml
 
-gsm-client-glue.h: org.gnome.SessionManager.Client.xml Makefile.am
-	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_client --mode=glib-server --output=gsm-client-glue.h $(srcdir)/org.gnome.SessionManager.Client.xml
+csm-client-glue.h: org.gnome.SessionManager.Client.xml Makefile.am
+	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_client --mode=glib-server --output=csm-client-glue.h $(srcdir)/org.gnome.SessionManager.Client.xml
 
-gsm-app-glue.h: org.gnome.SessionManager.App.xml Makefile.am
-	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_app --mode=glib-server --output=gsm-app-glue.h $(srcdir)/org.gnome.SessionManager.App.xml
+csm-app-glue.h: org.gnome.SessionManager.App.xml Makefile.am
+	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_app --mode=glib-server --output=csm-app-glue.h $(srcdir)/org.gnome.SessionManager.App.xml
 
-gsm-inhibitor-glue.h: org.gnome.SessionManager.Inhibitor.xml Makefile.am
-	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_inhibitor --mode=glib-server --output=gsm-inhibitor-glue.h $(srcdir)/org.gnome.SessionManager.Inhibitor.xml
+csm-inhibitor-glue.h: org.gnome.SessionManager.Inhibitor.xml Makefile.am
+	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_inhibitor --mode=glib-server --output=csm-inhibitor-glue.h $(srcdir)/org.gnome.SessionManager.Inhibitor.xml
 
-gsm-presence-glue.h: org.gnome.SessionManager.Presence.xml Makefile.am
-	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_presence --mode=glib-server --output=gsm-presence-glue.h $(srcdir)/org.gnome.SessionManager.Presence.xml
+csm-presence-glue.h: org.gnome.SessionManager.Presence.xml Makefile.am
+	$(AM_V_GEN)dbus-binding-tool --prefix=gsm_presence --mode=glib-server --output=csm-presence-glue.h $(srcdir)/org.gnome.SessionManager.Presence.xml
 
 BUILT_SOURCES =			\
-	gsm-marshal.c		\
-	gsm-marshal.h		\
-	gsm-manager-glue.h	\
-	gsm-presence-glue.h	\
-	gsm-inhibitor-glue.h	\
-	gsm-client-glue.h	\
-	gsm-app-glue.h
+	csm-marshal.c		\
+	csm-marshal.h		\
+	csm-manager-glue.h	\
+	csm-presence-glue.h	\
+	csm-inhibitor-glue.h	\
+	csm-client-glue.h	\
+	csm-app-glue.h
 
 EXTRA_DIST =						\
 	README						\
-	gsm-marshal.list				\
+	csm-marshal.list				\
 	org.gnome.SessionManager.xml			\
 	org.gnome.SessionManager.App.xml		\
 	org.gnome.SessionManager.Client.xml		\
