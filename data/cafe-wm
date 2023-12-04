@@ -75,8 +75,8 @@ if [ -z "$WINDOW_MANAGER" ] ; then
   if [ $IS_X_COMPOSITED -eq 0 ] ; then
     KNOWN_WM="mutter compiz-manager compiz beryl $KNOWN_WM"
   fi
-  # marco is still the default wm in CAFE
-  KNOWN_WM="marco $KNOWN_WM"
+  # croma is still the default wm in CAFE
+  KNOWN_WM="croma $KNOWN_WM"
 
   OLDIFS=$IFS
   if [ -z "$DEFWM" -o "x$DEFWM" = "xcafe-wm" ]; then
@@ -112,7 +112,7 @@ OPT3=
 OPT4=
 if [ ! -z "$SMID" ] ; then
   case `basename $WINDOW_MANAGER` in
-    sawfish|sawmill|marco|mutter)
+    sawfish|sawmill|croma|mutter)
       OPT1=--sm-client-id=$SMID
       ;;
     openbox|enlightenment|e16)
