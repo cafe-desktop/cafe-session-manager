@@ -554,7 +554,7 @@ msgstr "Carga pas las aplicacions demandadas per l'utilizaire"
 
 #: cafe-session/main.c:615
 msgid "Disable hardware acceleration check"
-msgstr "Desactivar la verificacion de l'acceleracion caferiala"
+msgstr "Desactivar la verificacion de l'acceleracion materiala"
 
 #: cafe-session/main.c:635
 msgid " - the CAFE session manager"
