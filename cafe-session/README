@@ -36,7 +36,7 @@ Startup is divided into 6 phases (CsmSessionPhase):
       where things actually appear on the screen.
 
     * CSM_SESSION_PHASE_DESKTOP includes anything that draws directly
-      on the desktop (eg, caja).
+      on the desktop (eg, baul).
 
     * CSM_SESSION_PHASE_APPLICATION is everything else (normal apps,
       tray icons, etc)

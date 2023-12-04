@@ -60,7 +60,7 @@
       <description>The panel provides the bar at the top or bottom of the screen containing menus, the window list, status icons, the clock, etc.</description>
     </key>
     <key name="filemanager" type="s">
-      <default>'caja'</default>
+      <default>'baul'</default>
       <summary>File Manager</summary>
       <description>The file manager provides the desktop icons and allows you to interact with your saved files.</description>
     </key>

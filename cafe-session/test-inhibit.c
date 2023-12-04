@@ -72,7 +72,7 @@ do_inhibit_for_window (CdkWindow *window)
         guint       flags;
 
         startup_id = g_getenv ("DESKTOP_AUTOSTART_ID");
-        app_id = "caja-cd-burner";
+        app_id = "baul-cd-burner";
         reason = "A CD burn is in progress.";
         toplevel_xid = cdk_x11_window_get_xid (window);
 
