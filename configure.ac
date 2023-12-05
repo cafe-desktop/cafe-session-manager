@@ -273,11 +273,11 @@ if test $enable_ipv6 = yes; then
   dnl ====================================================================
   dnl Code for checking presence of AF_INET6 on the system....
   dnl ====================================================================
-  AC_TRY_COMPILE([
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
     #include <sys/types.h>
-    #include <sys/socket.h>], [
+    #include <sys/socket.h>]], [[
     socket(AF_INET6, SOCK_STREAM, 0)
-    ],
+    ]])],
     have_ipv6=yes,
     have_ipv6=no
   )
