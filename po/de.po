@@ -11,7 +11,7 @@
 # clefebvre <clement.lefebvre@linuxmint.com>, 2020
 # Martin Wimpress <code@flexion.org>, 2020
 # qazwsxedc <qazwsxedc@gmx.net>, 2020
-# Wolfgang Ulbrich <cafe@raveit.de>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
 # Julian Rüger <jr98@gmx.net>, 2020
 # valsu <valsu@hylia.de>, 2020
 # 
