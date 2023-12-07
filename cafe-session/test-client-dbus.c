@@ -29,11 +29,11 @@
 #include <glib.h>
 #include <gio/gio.h>
 
-#define SM_DBUS_NAME      "org.cafe.SessionManager"
+#define SM_DBUS_NAME      "org.gnome.SessionManager"
 #define SM_DBUS_PATH      "/org/gnome/SessionManager"
-#define SM_DBUS_INTERFACE "org.cafe.SessionManager"
+#define SM_DBUS_INTERFACE "org.gnome.SessionManager"
 
-#define SM_CLIENT_DBUS_INTERFACE "org.cafe.SessionManager.ClientPrivate"
+#define SM_CLIENT_DBUS_INTERFACE "org.gnome.SessionManager.ClientPrivate"
 
 static GDBusConnection *bus_connection = NULL;
 static GDBusProxy      *sm_proxy = NULL;

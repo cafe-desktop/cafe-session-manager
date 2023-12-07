@@ -75,7 +75,7 @@
 #define CAFE_INTERFACE_SCHEMA "org.cafe.interface"
 #define CTK_OVERLAY_SCROLL    "ctk-overlay-scrolling"
 
-#define CSM_DBUS_NAME "org.cafe.SessionManager"
+#define CSM_DBUS_NAME "org.gnome.SessionManager"
 
 #define KEY_AUTOSAVE "auto-save-session"
 

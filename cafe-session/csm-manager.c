@@ -67,7 +67,7 @@
 #define CSM_MANAGER_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), CSM_TYPE_MANAGER, CsmManagerPrivate))
 
 #define CSM_MANAGER_DBUS_PATH "/org/gnome/SessionManager"
-#define CSM_MANAGER_DBUS_NAME "org.cafe.SessionManager"
+#define CSM_MANAGER_DBUS_NAME "org.gnome.SessionManager"
 
 #define CSM_MANAGER_PHASE_TIMEOUT 30 /* seconds */
 
@@ -3528,7 +3528,7 @@ user_logout (CsmManager           *manager,
 
 /*
   dbus-send --session --type=method_call --print-reply
-      --dest=org.cafe.SessionManager
+      --dest=org.gnome.SessionManager
       /org/gnome/SessionManager
       org.freedesktop.DBus.Introspectable.Introspect
 */
