@@ -33,7 +33,7 @@
 #include "csm-presence.h"
 #include "csm-presence-glue.h"
 
-#define CSM_PRESENCE_DBUS_PATH "/org/cafe/SessionManager/Presence"
+#define CSM_PRESENCE_DBUS_PATH "/org/gnome/SessionManager/Presence"
 
 #define GS_NAME      "org.cafe.ScreenSaver"
 #define GS_PATH      "/org/cafe/ScreenSaver"

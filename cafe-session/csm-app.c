@@ -122,7 +122,7 @@ csm_app_constructor (GType                  type,
         priv = csm_app_get_instance_private (app);
 
         g_free (priv->id);
-        priv->id = g_strdup_printf ("/org/cafe/SessionManager/App%u", get_next_app_serial ());
+        priv->id = g_strdup_printf ("/org/gnome/SessionManager/App%u", get_next_app_serial ());
 
         res = register_app (app);
         if (! res) {

@@ -141,7 +141,7 @@ csm_client_constructor (GType                  type,
                                                                                     construct_properties));
         priv = csm_client_get_instance_private (client);
         g_free (priv->id);
-        priv->id = g_strdup_printf ("/org/cafe/SessionManager/Client%u", get_next_client_serial ());
+        priv->id = g_strdup_printf ("/org/gnome/SessionManager/Client%u", get_next_client_serial ());
 
         res = register_client (client);
         if (! res) {

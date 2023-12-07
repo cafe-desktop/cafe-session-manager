@@ -87,7 +87,7 @@ static gboolean inhibit (const gchar       *app_id,
 
   ret = g_dbus_connection_call_sync (bus,
                                "org.cafe.SessionManager",
-                               "/org/cafe/SessionManager",
+                               "/org/gnome/SessionManager",
                                "org.cafe.SessionManager",
                                "Inhibit",
                                g_variant_new ("(susu)",
