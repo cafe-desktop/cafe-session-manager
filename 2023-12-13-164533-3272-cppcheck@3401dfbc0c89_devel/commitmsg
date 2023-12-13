@@ -1,0 +1,4 @@
+csm-util: Blacklist some session-specific variables
+
+based in mate-session-manager debian patch:
+https://salsa.debian.org/debian-mate-team/mate-session-manager/-/commit/09d3bf1742f5e95f86e99ce4d74033d339f2bc9a
