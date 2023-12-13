@@ -658,9 +658,3 @@ msgstr "%s require un argumento\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Produciuse un fallo ao executar %s\n"
-
-#~ msgid "Type=Application"
-#~ msgstr "Tipo=Aplicación"
-
-#~ msgid "cafe-session-properties"
-#~ msgstr "cafe-session-properties"

@@ -658,6 +658,3 @@ msgstr "%s потребує арґументу\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Не вдалося виконати %s\n"
-
-#~ msgid "cafe-session-properties"
-#~ msgstr "cafe-session-properties"

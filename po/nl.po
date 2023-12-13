@@ -659,9 +659,3 @@ msgstr "%s vereist een argument\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Kon %s niet uitvoeren\n"
-
-#~ msgid "Type=Application"
-#~ msgstr "Type=Toepassing"
-
-#~ msgid "cafe-session-properties"
-#~ msgstr "cafe-session-properties"

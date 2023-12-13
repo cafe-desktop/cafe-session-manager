@@ -651,9 +651,3 @@ msgstr "„%s“ захтева аргумент\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Нисам успео да извршим „%s“\n"
-
-#~ msgid "Type=Application"
-#~ msgstr "Врста=Програм"
-
-#~ msgid "cafe-session-properties"
-#~ msgstr "cafe-session-properties"

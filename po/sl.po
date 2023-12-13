@@ -645,6 +645,3 @@ msgstr "%s zahteva argument\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Ni bilo mogoče izvesti %s\n"
-
-#~ msgid "Type=Application"
-#~ msgstr "Vrsta=Program"

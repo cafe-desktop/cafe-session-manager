@@ -632,9 +632,3 @@ msgstr "%s 需要一個參數\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "執行 %s 失敗\n"
-
-#~ msgid "Type=Application"
-#~ msgstr "Type=Application"
-
-#~ msgid "cafe-session-properties"
-#~ msgstr "cafe-session-properties"

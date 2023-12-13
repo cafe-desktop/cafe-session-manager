@@ -649,9 +649,3 @@ msgstr "%s kræver et argument\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Kunne ikke køre %s\n"
-
-#~ msgid "Type=Application"
-#~ msgstr "Type=Program"
-
-#~ msgid "cafe-session-properties"
-#~ msgstr "cafe-session-properties"

@@ -668,6 +668,3 @@ msgstr "%s requiert an argument\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Échec d’exécution de %s\n"
-
-#~ msgid "cafe-session-properties"
-#~ msgstr "cafe-session-properties"

@@ -668,9 +668,3 @@ msgstr "%s требует аргумент\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Не удалось выполнить %s\n"
-
-#~ msgid "Type=Application"
-#~ msgstr "Type=Application"
-
-#~ msgid "cafe-session-properties"
-#~ msgstr "cafe-session-properties"

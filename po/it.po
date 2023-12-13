@@ -663,9 +663,3 @@ msgstr "%s richiede un argomento\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Esecuzione di %s fallita\n"
-
-#~ msgid "Type=Application"
-#~ msgstr "Type=Application"
-
-#~ msgid "cafe-session-properties"
-#~ msgstr "cafe-session-properties"
