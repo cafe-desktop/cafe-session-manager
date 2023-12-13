@@ -2,88 +2,88 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # ప్రవీణ్ ఇళ్ళ <mail2ipn@gmail.com>, 2020
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # parijathakumar <parijathakumar@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-session-manager 1.23.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 13:25+0100\n"
+"POT-Creation-Date: 2023-12-13 17:42+0100\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: parijathakumar <parijathakumar@gmail.com>, 2020\n"
 "Language-Team: Telugu (https://www.transifex.com/cafe/teams/13566/te/)\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: capplet/csm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:124
 msgid "Select Command"
 msgstr "ఆదేశం యెంపికచేయుము"
 
-#: capplet/csm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:167
 msgid "second"
 msgstr ""
 
-#: capplet/csm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:169
 msgid "seconds"
 msgstr "క్షణాలు"
 
-#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
 #: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "రద్దు(_C)"
 
-#: capplet/csm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:221
 msgid "Add Startup Program"
 msgstr "ప్రారంభ కార్యక్రమాన్ని జతచేయుము"
 
-#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
 msgid "_Add"
 msgstr "చేర్చు(_A)"
 
-#: capplet/csm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:226
 msgid "Edit Startup Program"
 msgstr "ప్రారంభ కార్యక్రమాన్ని సరిచేయు"
 
-#: capplet/csm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:228
 msgid "_Save"
 msgstr "దాచు(_S)"
 
-#: capplet/csm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:541
 msgid "The startup command cannot be empty"
 msgstr "ప్రారంభ  ఆదేశం ఖాళీగా  ఉండరాదు"
 
-#: capplet/csm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:547
 msgid "The startup command is not valid"
 msgstr "ప్రారంభ  ఆదేశం సరియైనదికాదు"
 
-#: capplet/csm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:514
 msgid "_Help"
 msgstr "సహాయం (_H)"
 
-#: capplet/csm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:518
 msgid "_Close"
 msgstr "మూసివేయి (_C)"
 
-#: capplet/csm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:558
 msgid "Enabled"
 msgstr "క్రియాశీలీకరించబడిన"
 
-#: capplet/csm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:570
 msgid "Icon"
 msgstr "ప్రతీక"
 
-#: capplet/csm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:582
 msgid "Program"
 msgstr "కార్యక్రమం"
 
-#: capplet/csm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:789
 msgid "Startup Applications Preferences"
 msgstr "ప్రారంభ అనువర్తనముల అభీష్టములు"
 
@@ -134,9 +134,7 @@ msgstr "నిష్క్రమణ ద్వారం"
 
 #: data/org.cafe.session.gschema.xml.in:21
 msgid "If enabled, cafe-session will prompt the user before ending a session."
-msgstr ""
-"క్రియాశీలీకరించిన,సమకూర్పు ముగిసే ముందు గ్నోమ్-సమకూర్పు  వినియోగదారుడిని "
-"అడుగుతుంది "
+msgstr "క్రియాశీలీకరించిన,సమకూర్పు ముగిసే ముందు గ్నోమ్-సమకూర్పు  వినియోగదారుడిని అడుగుతుంది "
 
 #: data/org.cafe.session.gschema.xml.in:26
 msgid "Logout timeout"
@@ -196,9 +194,8 @@ msgid ""
 "The window manager is the program that draws the title bar and borders "
 "around windows, and allows you to move and resize windows."
 msgstr ""
-"విండో నిర్వాహిక అనునది ప్రోగ్రామ్ అది శీర్షిక పట్టీని మరియు హద్దులను "
-"విండోలచూట్టూ గీస్తుంది, మరియు విండోను పునఃపరిమాణం చేయుటకు కదుల్చుటకు "
-"మిమ్ములను అనుమతిస్తుంది."
+"విండో నిర్వాహిక అనునది ప్రోగ్రామ్ అది శీర్షిక పట్టీని మరియు హద్దులను విండోలచూట్టూ గీస్తుంది, మరియు విండోను "
+"పునఃపరిమాణం చేయుటకు కదుల్చుటకు మిమ్ములను అనుమతిస్తుంది."
 
 #: data/org.cafe.session.gschema.xml.in:59
 msgid "Panel"
@@ -209,9 +206,8 @@ msgid ""
 "The panel provides the bar at the top or bottom of the screen containing "
 "menus, the window list, status icons, the clock, etc."
 msgstr ""
-"ఆ ప్యానల్ అనునది పైన కాని లేదా తెర క్రిందవైపున కాని పట్టీను అందిస్తుంది, అది"
-" మెనూలను, విండొ జాబితాను, స్థితి ప్రతిమలను, గడియారాన్ని, మొదలైనవి "
-"అందిస్తుంది."
+"ఆ ప్యానల్ అనునది పైన కాని లేదా తెర క్రిందవైపున కాని పట్టీను అందిస్తుంది, అది మెనూలను, విండొ జాబితాను, "
+"స్థితి ప్రతిమలను, గడియారాన్ని, మొదలైనవి అందిస్తుంది."
 
 #: data/org.cafe.session.gschema.xml.in:64
 msgid "File Manager"
@@ -222,8 +218,8 @@ msgid ""
 "The file manager provides the desktop icons and allows you to interact with "
 "your saved files."
 msgstr ""
-"దస్త్ర నిర్వాహిక డెస్కుటాప్ ప్రతిమలను అందిస్తుంది మరియు మీరు దాచిన "
-"దస్త్రములతో మీరు యింటరాక్టు అగుటకు అనుమతించును."
+"దస్త్ర నిర్వాహిక డెస్కుటాప్ ప్రతిమలను అందిస్తుంది మరియు మీరు దాచిన దస్త్రములతో మీరు యింటరాక్టు అగుటకు "
+"అనుమతించును."
 
 #: data/org.cafe.session.gschema.xml.in:69
 msgid "Dock"
@@ -243,18 +239,12 @@ msgstr "CAFE"
 msgid "This session logs you into CAFE"
 msgstr "ఈ విభాగము CAFEనకు లాగ్ చేస్తుంది"
 
-#: data/cafe.desktop.in:8
-msgid "Type=Application"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
 msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
@@ -263,7 +253,7 @@ msgstr ""
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>కొన్ని ప్రోగ్రామ్లు యింకనూ నడుచుచున్నవి:</b>"
 
-#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:631
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -277,14 +267,7 @@ msgstr "ప్రారంభ అనువర్తనములు"
 msgid "Choose what applications to start when you log in"
 msgstr "మీరు లాగిన్ అయినప్పుడు ఏ అనువర్తనములు ప్రారంభము కావలెనో యెంచుకొనుము"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/cafe-session-properties.desktop.in:7
-msgid "cafe-session-properties"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
@@ -311,9 +294,7 @@ msgstr "ప్రారంభ కార్యక్రమాలు"
 
 #: data/session-properties.ui:183
 msgid "_Automatically remember running applications when logging out"
-msgstr ""
-"నిష్క్రమించేటప్పుడు నడుస్తున్న కార్యక్షేత్రాలని స్వయంచాలకంగా గుర్తుంచుకొనుము"
-" (_A)"
+msgstr "నిష్క్రమించేటప్పుడు నడుస్తున్న కార్యక్షేత్రాలని స్వయంచాలకంగా గుర్తుంచుకొనుము (_A)"
 
 #: data/session-properties.ui:225
 msgid "_Remember Currently Running Application"
@@ -402,60 +383,60 @@ msgstr "సెషన్ నిర్వహణా ఐచ్చికములు:
 msgid "Show session management options"
 msgstr "సెషన్ నిర్వహణా ఐచ్చికములను చూపుము"
 
-#: cafe-session/csm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:249
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "ప్రతిమ '%s' కనబడలేదు"
 
-#: cafe-session/csm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:579
 msgid "Unknown"
 msgstr "తెలియదు"
 
-#: cafe-session/csm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:630
 msgid "A program is still running:"
 msgstr "ఒక ప్రోగ్రామ్ యిప్పటికీ నడుచుచున్నది:"
 
-#: cafe-session/csm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:634
 msgid "Some programs are still running:"
 msgstr "కొన్ని ప్రోగ్రాములు యిప్పటికి నడుచుచున్నవి:"
 
-#: cafe-session/csm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:635
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
 msgstr ""
-"ప్రాగ్రాముల ముగింపు కొరకు వేచివుంది.  ఈ ప్రోగ్రాములను ఆటంకపరచుట అనునది మీ "
-"పని కోల్పోవుటకు కారణం కావచ్చును."
+"ప్రాగ్రాముల ముగింపు కొరకు వేచివుంది.  ఈ ప్రోగ్రాములను ఆటంకపరచుట అనునది మీ పని కోల్పోవుటకు కారణం "
+"కావచ్చును."
 
-#: cafe-session/csm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:865
 msgid "Switch User Anyway"
 msgstr "ఏమైనప్పటికి వినియోగదారిని మార్చుము"
 
-#: cafe-session/csm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:868
 msgid "Log Out Anyway"
 msgstr ""
 
-#: cafe-session/csm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:871
 msgid "Suspend Anyway"
 msgstr "ఎలాగైనా అర్దాంతరముగా నిలిపివేయి"
 
-#: cafe-session/csm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:874
 msgid "Hibernate Anyway"
 msgstr "ఎలాగైనా హైబర్నేట్ చేయుము"
 
-#: cafe-session/csm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:877
 msgid "Shut Down Anyway"
 msgstr ""
 
-#: cafe-session/csm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:880
 msgid "Reboot Anyway"
 msgstr "ఎలాగైనా పునఃప్రారంభించుము"
 
-#: cafe-session/csm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:888
 msgid "Lock Screen"
 msgstr "స్క్రీన్ లాక్‌చేయుము"
 
-#: cafe-session/csm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:891
 msgid "Cancel"
 msgstr "రద్దు"
 
@@ -510,13 +491,14 @@ msgstr "పునఃప్రారంభించు (_R)"
 msgid "_Shut Down"
 msgstr "మూసివేయి (_S)"
 
-#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
+#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
 msgid "Not responding"
 msgstr "స్పందించుటలేదు"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
+#.
 #: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr ""
@@ -525,25 +507,22 @@ msgstr ""
 msgid "This program is blocking logout."
 msgstr ""
 
-#: cafe-session/csm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:322
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr ""
-"కొత్త కక్షిదారి అనుసంధానమును తిరస్కరిస్తోంది యెంచేతంటే విభాగము అనునది "
-"ప్రస్తుతము మూసివేయబడుతోంది\n"
+"కొత్త కక్షిదారి అనుసంధానమును తిరస్కరిస్తోంది యెంచేతంటే విభాగము అనునది ప్రస్తుతము మూసివేయబడుతోంది\n"
 
-#: cafe-session/csm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:584
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "ICE లిజనింగ్ సాకెట్‌ను సృష్టించలేక పోయింది: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/csm-util.c:355
+#: cafe-session/csm-util.c:362
 msgid "Unable to start login session (and unable to connect to the X server)"
-msgstr ""
-"లాగిన్ విభాగమును ప్రారంభించలేక పోయింది (మరియు X సేవికకు అనుసంధానము కాలేక "
-"పోయింది)"
+msgstr "లాగిన్ విభాగమును ప్రారంభించలేక పోయింది (మరియు X సేవికకు అనుసంధానము కాలేక పోయింది)"
 
 #: cafe-session/main.c:611
 msgid "Override standard autostart directories"

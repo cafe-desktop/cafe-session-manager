@@ -2,90 +2,93 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # zubr139, 2020
 # Микола Ткач <chistomov@gmail.com>, 2020
 # Шаповалов Анатолій Романович <elrond.716.smith@gmail.com>, 2020
 # Bohdan Kovalchuk <neostanniy@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-session-manager 1.23.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 13:25+0100\n"
+"POT-Creation-Date: 2023-12-13 17:42+0100\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Bohdan Kovalchuk <neostanniy@gmail.com>, 2020\n"
 "Language-Team: Ukrainian (https://www.transifex.com/cafe/teams/13566/uk/)\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: capplet/csm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:124
 msgid "Select Command"
 msgstr "Оберіть команду"
 
-#: capplet/csm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:167
 msgid "second"
 msgstr "секунда"
 
-#: capplet/csm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:169
 msgid "seconds"
 msgstr "секунд"
 
-#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
 #: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "_Скасувати"
 
-#: capplet/csm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:221
 msgid "Add Startup Program"
 msgstr "Додати програму, що запускається на початку"
 
-#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
 msgid "_Add"
 msgstr "Д_одати"
 
-#: capplet/csm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:226
 msgid "Edit Startup Program"
 msgstr "Змінити програму"
 
-#: capplet/csm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:228
 msgid "_Save"
 msgstr "З_берегти"
 
-#: capplet/csm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:541
 msgid "The startup command cannot be empty"
 msgstr "Початкова команда не може бути порожньою"
 
-#: capplet/csm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:547
 msgid "The startup command is not valid"
 msgstr "Початкова команда некоректна"
 
-#: capplet/csm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:514
 msgid "_Help"
 msgstr "_Допомога"
 
-#: capplet/csm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:518
 msgid "_Close"
 msgstr "_Закрити"
 
-#: capplet/csm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:558
 msgid "Enabled"
 msgstr "Увімкнено"
 
-#: capplet/csm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:570
 msgid "Icon"
 msgstr "Піктограма"
 
-#: capplet/csm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:582
 msgid "Program"
 msgstr "Програма"
 
-#: capplet/csm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:789
 msgid "Startup Applications Preferences"
 msgstr "Параметри програм, що запускаються"
 
@@ -152,9 +155,9 @@ msgid ""
 "If logout prompt is enabled, this set the timeout in seconds before logout "
 "automatically. If 0, automatic logout is disabled."
 msgstr ""
-"Якщо увімкнено діялоґ виходу, це встановлює час очікування у секундах, перед"
-" автоматичним виходом. При значенні, що дорівнює 0 самочинний вихід з сеансу"
-" вимкнуто. "
+"Якщо увімкнено діялоґ виходу, це встановлює час очікування у секундах, перед "
+"автоматичним виходом. При значенні, що дорівнює 0 самочинний вихід з сеансу "
+"вимкнуто. "
 
 #: data/org.cafe.session.gschema.xml.in:31
 msgid "Time before session is considered idle"
@@ -187,11 +190,11 @@ msgid ""
 "if they do get removed."
 msgstr ""
 "Перелік компонентів, які потрібно запустити як частину цього сеансу. (Кожен "
-"елемент відповідає ключу у піддереві "
-"«/org/cafe/desktop/session/required_components»). Додаток «Параметри "
-"додатків що запускаються», як правило, не дозволяє користувачу вилучати з "
-"сеансу потрібні компоненти, і керівник сеансів автоматично додасть потрібні "
-"компоненти, якщо вони були вилучені."
+"елемент відповідає ключу у піддереві «/org/cafe/desktop/session/"
+"required_components»). Додаток «Параметри додатків що запускаються», як "
+"правило, не дозволяє користувачу вилучати з сеансу потрібні компоненти, і "
+"керівник сеансів автоматично додасть потрібні компоненти, якщо вони були "
+"вилучені."
 
 #: data/org.cafe.session.gschema.xml.in:46
 msgid "Control gnome compatibility component startup"
@@ -257,18 +260,12 @@ msgstr "CAFE"
 msgid "This session logs you into CAFE"
 msgstr "Це - сеанс входу у CAFE"
 
-#: data/cafe.desktop.in:8
-msgid "Type=Application"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
 msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
@@ -277,7 +274,7 @@ msgstr ""
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>Деякі програми досі працюють:</b>"
 
-#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:631
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -293,14 +290,7 @@ msgstr "Стартові програми"
 msgid "Choose what applications to start when you log in"
 msgstr "Оберіть програми, що запускаються при вході у сеанс"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/cafe-session-properties.desktop.in:7
-msgid "cafe-session-properties"
-msgstr "cafe-session-properties"
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
@@ -416,24 +406,24 @@ msgstr "Параметри керування сеансом"
 msgid "Show session management options"
 msgstr "Показати параметри взаємодії з керівником сеансів"
 
-#: cafe-session/csm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:249
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "Піктограми «%s» не знайдено"
 
-#: cafe-session/csm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:579
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: cafe-session/csm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:630
 msgid "A program is still running:"
 msgstr "Програма досі працює:"
 
-#: cafe-session/csm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:634
 msgid "Some programs are still running:"
 msgstr "Деякі програми досі працюють:"
 
-#: cafe-session/csm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:635
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
@@ -441,35 +431,35 @@ msgstr ""
 "Очікування завершення роботи програм.  Переривання цих програм може "
 "призвести до втрати Вашої роботи."
 
-#: cafe-session/csm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:865
 msgid "Switch User Anyway"
 msgstr "Перемикнути користувача попри усе"
 
-#: cafe-session/csm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:868
 msgid "Log Out Anyway"
 msgstr "Усе одно вийти з системи"
 
-#: cafe-session/csm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:871
 msgid "Suspend Anyway"
 msgstr "Призупинити систему попри усе"
 
-#: cafe-session/csm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:874
 msgid "Hibernate Anyway"
 msgstr "Перевести у режим сну попри усе"
 
-#: cafe-session/csm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:877
 msgid "Shut Down Anyway"
 msgstr "Усе одно вимкнути"
 
-#: cafe-session/csm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:880
 msgid "Reboot Anyway"
 msgstr "Перезавантажити попри усе"
 
-#: cafe-session/csm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:888
 msgid "Lock Screen"
 msgstr "Заблокувати екран"
 
-#: cafe-session/csm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:891
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -528,13 +518,14 @@ msgstr "Пе_резавантажити"
 msgid "_Shut Down"
 msgstr "_Вимкнути"
 
-#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
+#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
 msgid "Not responding"
 msgstr "Не відповідає"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
+#.
 #: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr "Запам’ятовані програми"
@@ -543,19 +534,19 @@ msgstr "Запам’ятовані програми"
 msgid "This program is blocking logout."
 msgstr "Ця програма блокує вихід з системи."
 
-#: cafe-session/csm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:322
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr "Відхиляються нові клієнти, бо система знаходиться у стані вимикання.\n"
 
-#: cafe-session/csm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:584
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "Не вдається створити сокет прослуховування ICE: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/csm-util.c:355
+#: cafe-session/csm-util.c:362
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr "Не вдається запустити сеанс (та з'єднатися з X-сервером)"
 
@@ -652,7 +643,8 @@ msgstr ""
 "                    при інгібуванні (опційно)\n"
 "  --reason REASON   Причина для інгібування (опційно)\n"
 "  --inhibit ARG     Речі для інгібування, розділений двокрапкою перелік:\n"
-"                    вихід, перемикач користувачів, призупинка, режим очікування, автомонтування\n"
+"                    вихід, перемикач користувачів, призупинка, режим "
+"очікування, автомонтування\n"
 "\n"
 "If no --inhibit опція не вказана, означає бездіяльність.\n"
 
@@ -666,3 +658,6 @@ msgstr "%s потребує арґументу\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Не вдалося виконати %s\n"
+
+#~ msgid "cafe-session-properties"
+#~ msgstr "cafe-session-properties"

@@ -2,7 +2,7 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Pavol Šimo <palo.simo@gmail.com>, 2020
 # Dušan Kazik <prescott66@gmail.com>, 2020
@@ -12,83 +12,84 @@
 # Martin Wimpress <code@flexion.org>, 2020
 # peter, 2020
 # Ján Ďanovský <dagsoftware@yahoo.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-session-manager 1.23.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 13:25+0100\n"
+"POT-Creation-Date: 2023-12-13 17:42+0100\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Ján Ďanovský <dagsoftware@yahoo.com>, 2020\n"
 "Language-Team: Slovak (https://www.transifex.com/cafe/teams/13566/sk/)\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n "
+">= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 
-#: capplet/csm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:124
 msgid "Select Command"
 msgstr "Vybrať príkaz"
 
-#: capplet/csm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:167
 msgid "second"
 msgstr ""
 
-#: capplet/csm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:169
 msgid "seconds"
 msgstr "sekúnd"
 
-#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
 #: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
-#: capplet/csm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:221
 msgid "Add Startup Program"
 msgstr "Pridanie programu spúšťaného pri štarte"
 
-#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
 msgid "_Add"
 msgstr "_Pridať"
 
-#: capplet/csm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:226
 msgid "Edit Startup Program"
 msgstr "Úprava programu spúšťaného pri štarte"
 
-#: capplet/csm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:228
 msgid "_Save"
 msgstr "_Uložiť"
 
-#: capplet/csm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:541
 msgid "The startup command cannot be empty"
 msgstr "Príkaz na spustenie pri štarte nemôže byť prázdny"
 
-#: capplet/csm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:547
 msgid "The startup command is not valid"
 msgstr "Príkaz na spustenie pri štarte je neplatný"
 
-#: capplet/csm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:514
 msgid "_Help"
 msgstr "_Nápoveda"
 
-#: capplet/csm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:518
 msgid "_Close"
 msgstr "Zat_voriť"
 
-#: capplet/csm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:558
 msgid "Enabled"
 msgstr "Povolený"
 
-#: capplet/csm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:570
 msgid "Icon"
 msgstr "Ikona"
 
-#: capplet/csm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:582
 msgid "Program"
 msgstr "Program"
 
-#: capplet/csm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:789
 msgid "Startup Applications Preferences"
 msgstr "Nastavenia programov spúšťaných pri štarte"
 
@@ -256,18 +257,12 @@ msgstr "CAFE"
 msgid "This session logs you into CAFE"
 msgstr "Táto relácia vás prihlási do CAFE"
 
-#: data/cafe.desktop.in:8
-msgid "Type=Application"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
 msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
@@ -276,13 +271,13 @@ msgstr ""
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>Niektoré programy stále bežia:</b>"
 
-#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:631
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
 msgstr ""
-"Čaká se na ukončenie programu. Prerušenie behu programu môže spôsobiť stratu"
-" rozrobenej práce."
+"Čaká se na ukončenie programu. Prerušenie behu programu môže spôsobiť stratu "
+"rozrobenej práce."
 
 #: data/cafe-session-properties.desktop.in:3
 msgid "Startup Applications"
@@ -292,14 +287,7 @@ msgstr "Programy spúšťané pri štarte"
 msgid "Choose what applications to start when you log in"
 msgstr "Vyberá programy, ktoré sa majú spustiť po prihlásení"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/cafe-session-properties.desktop.in:7
-msgid "cafe-session-properties"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
@@ -416,24 +404,24 @@ msgstr "Možnosti správy relácií:"
 msgid "Show session management options"
 msgstr "Zobraziť možnosti správy relácie"
 
-#: cafe-session/csm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:249
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "Ikona „%s“ sa nenašla"
 
-#: cafe-session/csm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:579
 msgid "Unknown"
 msgstr "Neznámy"
 
-#: cafe-session/csm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:630
 msgid "A program is still running:"
 msgstr "Program stále beží:"
 
-#: cafe-session/csm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:634
 msgid "Some programs are still running:"
 msgstr "Niektoré programy stále bežia:"
 
-#: cafe-session/csm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:635
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
@@ -441,35 +429,35 @@ msgstr ""
 "Čaká sa na ukončenie programov. Prerušenie týchto programov môže spôsobiť "
 "stratu vašej práce."
 
-#: cafe-session/csm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:865
 msgid "Switch User Anyway"
 msgstr "Prepnúť používateľa napriek tomu"
 
-#: cafe-session/csm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:868
 msgid "Log Out Anyway"
 msgstr "Odhlásiť sa napriek tomu"
 
-#: cafe-session/csm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:871
 msgid "Suspend Anyway"
 msgstr "Uspať napriek tomu"
 
-#: cafe-session/csm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:874
 msgid "Hibernate Anyway"
 msgstr "Hibernovať napriek tomu"
 
-#: cafe-session/csm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:877
 msgid "Shut Down Anyway"
 msgstr "Vypnúť napriek tomu"
 
-#: cafe-session/csm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:880
 msgid "Reboot Anyway"
 msgstr "Reštartovať napriek tomu"
 
-#: cafe-session/csm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:888
 msgid "Lock Screen"
 msgstr "Uzamknúť obrazovku"
 
-#: cafe-session/csm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:891
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -528,13 +516,14 @@ msgstr "_Reštartovať"
 msgid "_Shut Down"
 msgstr "_Vypnúť"
 
-#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
+#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
 msgid "Not responding"
 msgstr "Neodpovedá"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
+#.
 #: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr "Zapamätané programy"
@@ -543,22 +532,21 @@ msgstr "Zapamätané programy"
 msgid "This program is blocking logout."
 msgstr "Tento program bráni odhláseniu."
 
-#: cafe-session/csm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:322
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr "Nové pripojenie klienta odmietnuté, pretože sa relácia práve vypína\n"
 
-#: cafe-session/csm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:584
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "Nepodarilo sa vytvoriť načúvajúci ICE soket: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/csm-util.c:355
+#: cafe-session/csm-util.c:362
 msgid "Unable to start login session (and unable to connect to the X server)"
-msgstr ""
-"Nedá sa spustiť relácia prihlasovania (a nedá sa pripojiť k serveru X)"
+msgstr "Nedá sa spustiť relácia prihlasovania (a nedá sa pripojiť k serveru X)"
 
 #: cafe-session/main.c:611
 msgid "Override standard autostart directories"

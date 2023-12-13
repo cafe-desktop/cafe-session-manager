@@ -2,89 +2,89 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # samson <sambelet@yahoo.com>, 2020
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # clefebvre <clement.lefebvre@linuxmint.com>, 2020
 # Martin Wimpress <code@flexion.org>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-session-manager 1.23.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 13:25+0100\n"
+"POT-Creation-Date: 2023-12-13 17:42+0100\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>, 2020\n"
 "Language-Team: Amharic (https://www.transifex.com/cafe/teams/13566/am/)\n"
+"Language: am\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: am\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: capplet/csm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:124
 msgid "Select Command"
 msgstr "ትእዛዝ ይምረጡ "
 
-#: capplet/csm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:167
 msgid "second"
 msgstr ""
 
-#: capplet/csm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:169
 msgid "seconds"
 msgstr "ሰኮንዶች"
 
-#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
 #: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "_መሰረዣ "
 
-#: capplet/csm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:221
 msgid "Add Startup Program"
 msgstr "ፕሮግራም ማስጀመሪያ መጨመሪያ "
 
-#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
 msgid "_Add"
 msgstr "_መጨመሪያ"
 
-#: capplet/csm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:226
 msgid "Edit Startup Program"
 msgstr "ፕሮግራም ማስጀመሪያ ማረሚያ "
 
-#: capplet/csm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:228
 msgid "_Save"
 msgstr "_ማስቀመጫ"
 
-#: capplet/csm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:541
 msgid "The startup command cannot be empty"
 msgstr "ማስጀመሪያ ትእዛዝ ባዶ መሆን የለበትም "
 
-#: capplet/csm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:547
 msgid "The startup command is not valid"
 msgstr "ማስጀመሪያ ትእዛዙ ዋጋ የሌለው ነው "
 
-#: capplet/csm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:514
 msgid "_Help"
 msgstr "_እርዳታ"
 
-#: capplet/csm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:518
 msgid "_Close"
 msgstr "_መዝጊያ"
 
-#: capplet/csm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:558
 msgid "Enabled"
 msgstr "ተችሏል "
 
-#: capplet/csm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:570
 msgid "Icon"
 msgstr "ምልክት "
 
-#: capplet/csm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:582
 msgid "Program"
 msgstr "ፕሮግራም"
 
-#: capplet/csm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:789
 msgid "Startup Applications Preferences"
 msgstr "የ መተግበሪያዎች ማስጀመሪያ ምርጫዎች"
 
@@ -179,10 +179,10 @@ msgid ""
 "automatically add the required components back to the session at login time "
 "if they do get removed."
 msgstr ""
-"ለ ክፍለ ጊዜው የሚያስፈልጉ አካላቶች (የ እያንዳንዱ አካል ስም ቁልፍ በ "
-"\"/org/cafe/desktop/session/required_components\"). የ መተግበሪያ ማስጀመሪያ መሳሪያ ምርጫ"
-" በ መደበኛ ተጠቃሚውን አያስችልም ማስወገድ የሚያስፈልግ አካላት ለ ክፍለ ጊዜ: እና የ ክፍለ ጊዜ አስተዳዳሪ ራሱ በራሱ"
-" ይጨምራል የሚያስፈልገውን አካል መልሶ ይጨምራል ለ ክፍለ ጊዜው:በ መግቢያ ጊዜ ተወግደው ከ ነበረ:"
+"ለ ክፍለ ጊዜው የሚያስፈልጉ አካላቶች (የ እያንዳንዱ አካል ስም ቁልፍ በ \"/org/cafe/desktop/session/"
+"required_components\"). የ መተግበሪያ ማስጀመሪያ መሳሪያ ምርጫ በ መደበኛ ተጠቃሚውን አያስችልም ማስወገድ "
+"የሚያስፈልግ አካላት ለ ክፍለ ጊዜ: እና የ ክፍለ ጊዜ አስተዳዳሪ ራሱ በራሱ ይጨምራል የሚያስፈልገውን አካል መልሶ "
+"ይጨምራል ለ ክፍለ ጊዜው:በ መግቢያ ጊዜ ተወግደው ከ ነበረ:"
 
 #: data/org.cafe.session.gschema.xml.in:46
 msgid "Control gnome compatibility component startup"
@@ -213,8 +213,8 @@ msgid ""
 "The panel provides the bar at the top or bottom of the screen containing "
 "menus, the window list, status icons, the clock, etc."
 msgstr ""
-"ይህ የ ክፍል መደርደሪያ የሚያቀርበው ከ ላይ ወይንም ከ ታች በኩል ዝርዝር የያዘውን መመልከቻ ነው: የ መስኮት ዝርዝር:"
-" ሁኔታዎች: ምልክቶች: ሰአት እና ወዘተ ነው:"
+"ይህ የ ክፍል መደርደሪያ የሚያቀርበው ከ ላይ ወይንም ከ ታች በኩል ዝርዝር የያዘውን መመልከቻ ነው: የ መስኮት ዝርዝር: "
+"ሁኔታዎች: ምልክቶች: ሰአት እና ወዘተ ነው:"
 
 #: data/org.cafe.session.gschema.xml.in:64
 msgid "File Manager"
@@ -247,18 +247,12 @@ msgstr "ሜት "
 msgid "This session logs you into CAFE"
 msgstr "ይህ ክፍለ ጊዜ እርስዎን ወደ ሜት ውስጥ ይስገባዎታል"
 
-#: data/cafe.desktop.in:8
-msgid "Type=Application"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
 msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
@@ -267,7 +261,7 @@ msgstr ""
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>አንዳንድ ፕሮግራሞች እየሄዱ ነው:</b>"
 
-#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:631
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -281,14 +275,7 @@ msgstr "መተግበሪያዎች ማስጀመሪያ"
 msgid "Choose what applications to start when you log in"
 msgstr "ማስጀመር የሚፈልጉትን መተግበሪያ ይምረጡ በሚገቡ ጊዜ"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/cafe-session-properties.desktop.in:7
-msgid "cafe-session-properties"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
@@ -404,58 +391,58 @@ msgstr "የ ክፍለ ጊዜ አስተዳዳሪ ምርጫ"
 msgid "Show session management options"
 msgstr "የ ክፍለ ጊዜ አስተዳዳሪ ምርጫ ማሳያ"
 
-#: cafe-session/csm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:249
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "ምልክት '%s' አልተገኘም"
 
-#: cafe-session/csm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:579
 msgid "Unknown"
 msgstr "ያልታወቀ"
 
-#: cafe-session/csm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:630
 msgid "A program is still running:"
 msgstr "ፕሮግራም እየሄደ ነው:"
 
-#: cafe-session/csm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:634
 msgid "Some programs are still running:"
 msgstr "አንዳንድ ፕሮግራሞች እየሄዱ ነው:"
 
-#: cafe-session/csm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:635
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
 msgstr "ፕሮግራም እስኪጨርስ በ መጠበቅ ላይ: እነዚህን ፕሮግራሞች ማቋረጥ እርስዎ የ ሰሩትን ሊያሳጣዎት ይችላል"
 
-#: cafe-session/csm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:865
 msgid "Switch User Anyway"
 msgstr "ለማንኛውም ተጠቃሚ መቀየሪያ"
 
-#: cafe-session/csm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:868
 msgid "Log Out Anyway"
 msgstr "ለማንኛውም መውጫ"
 
-#: cafe-session/csm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:871
 msgid "Suspend Anyway"
 msgstr "ለማንኛውም ማገጃ"
 
-#: cafe-session/csm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:874
 msgid "Hibernate Anyway"
 msgstr "ለማንኛውም ማስተኛ"
 
-#: cafe-session/csm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:877
 msgid "Shut Down Anyway"
 msgstr "ለማንኛውም ማጥፊያ"
 
-#: cafe-session/csm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:880
 msgid "Reboot Anyway"
 msgstr "ለማንኛውም እንደገና ማስነሻ"
 
-#: cafe-session/csm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:888
 msgid "Lock Screen"
 msgstr "መመልከቻ _መቆለፊያ"
 
-#: cafe-session/csm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:891
 msgid "Cancel"
 msgstr "መሰረዣ"
 
@@ -510,13 +497,14 @@ msgstr "_እንደገና ማስጀመሪያ "
 msgid "_Shut Down"
 msgstr "_ማጥፊያ"
 
-#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
+#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
 msgid "Not responding"
 msgstr "ምንም አይመልስም "
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
+#.
 #: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr "መተግበሪያውን አስታውስ"
@@ -525,19 +513,19 @@ msgstr "መተግበሪያውን አስታውስ"
 msgid "This program is blocking logout."
 msgstr "ይህ ፕሮግራም መውጣት ይከለክለል"
 
-#: cafe-session/csm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:322
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr "አዲስ የ ደንበኛ ግንኙነት አልተቀበለም: ምክንያቱም ክፍለ ጊዜው አሁን በ መዘጋት ላይ ነው \n"
 
-#: cafe-session/csm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:584
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "መፍጠር አልተቻለም የ ICE ማድማጫ ለ ተሰኪ: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/csm-util.c:355
+#: cafe-session/csm-util.c:362
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr "የ መግቢያ ክፍለ ጊዜ ማስጀመር አልተቻለም (እና መገናኘት አልተቻለም ከ X ሰርቨር ጋር)"
 

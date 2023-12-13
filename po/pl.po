@@ -2,7 +2,7 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Piotr Drąg <piotrdrag@gmail.com>, 2020
 # Piotr Strębski <strebski@gmail.com>, 2020
@@ -19,83 +19,85 @@
 # Przemek P <ppjg@dami.pl>, 2020
 # pietrasagh <pietrasagh@gmail.com>, 2020
 # Daniel Tokarzewski <bezimo@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-session-manager 1.23.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 13:25+0100\n"
+"POT-Creation-Date: 2023-12-13 17:42+0100\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Daniel Tokarzewski <bezimo@gmail.com>, 2020\n"
 "Language-Team: Polish (https://www.transifex.com/cafe/teams/13566/pl/)\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
+"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
+"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: capplet/csm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:124
 msgid "Select Command"
 msgstr "Wybór polecenia"
 
-#: capplet/csm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:167
 msgid "second"
 msgstr "drugi"
 
-#: capplet/csm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:169
 msgid "seconds"
 msgstr "sekund"
 
-#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
 #: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: capplet/csm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:221
 msgid "Add Startup Program"
 msgstr "Nowy program startowy"
 
-#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: capplet/csm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:226
 msgid "Edit Startup Program"
 msgstr "Modyfikacja programu startowego"
 
-#: capplet/csm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:228
 msgid "_Save"
 msgstr "_Zapisz"
 
-#: capplet/csm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:541
 msgid "The startup command cannot be empty"
 msgstr "Polecenie startowe nie może być puste"
 
-#: capplet/csm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:547
 msgid "The startup command is not valid"
 msgstr "Polecenie startowe jest nieprawidłowe"
 
-#: capplet/csm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:514
 msgid "_Help"
 msgstr "_Pomoc"
 
-#: capplet/csm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:518
 msgid "_Close"
 msgstr "_Zamknij"
 
-#: capplet/csm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:558
 msgid "Enabled"
 msgstr "Włączone"
 
-#: capplet/csm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:570
 msgid "Icon"
 msgstr "Ikona"
 
-#: capplet/csm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:582
 msgid "Program"
 msgstr "Program"
 
-#: capplet/csm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:789
 msgid "Startup Applications Preferences"
 msgstr "Preferencje programów startowych"
 
@@ -161,8 +163,8 @@ msgid ""
 "If logout prompt is enabled, this set the timeout in seconds before logout "
 "automatically. If 0, automatic logout is disabled."
 msgstr ""
-"Jeśli znak zachęty wylogowania jest włączony, to ustawia timeout w sekundach"
-" zanim nastąpi automatyczne wylogowanie. Jeśli 0, automatyczne wylogowanie "
+"Jeśli znak zachęty wylogowania jest włączony, to ustawia timeout w sekundach "
+"zanim nastąpi automatyczne wylogowanie. Jeśli 0, automatyczne wylogowanie "
 "jest wyłączone."
 
 #: data/org.cafe.session.gschema.xml.in:31
@@ -233,8 +235,8 @@ msgid ""
 "The panel provides the bar at the top or bottom of the screen containing "
 "menus, the window list, status icons, the clock, etc."
 msgstr ""
-"Panel wyświetla paski na górze i na dole ekranu, które zawierają menu, listę"
-" okien, ikony stanu, zegar, itp."
+"Panel wyświetla paski na górze i na dole ekranu, które zawierają menu, listę "
+"okien, ikony stanu, zegar, itp."
 
 #: data/org.cafe.session.gschema.xml.in:64
 msgid "File Manager"
@@ -268,18 +270,12 @@ msgstr "CAFE"
 msgid "This session logs you into CAFE"
 msgstr "Ta sesja loguje użytkownika do środowiska CAFE"
 
-#: data/cafe.desktop.in:8
-msgid "Type=Application"
-msgstr "Typ=Aplikacja"
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
 msgid "launch;CAFE;desktop;session;"
 msgstr "uruchom;Cafe;pulpit;sesja;"
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr "CAFE;okno;menedżer;uruchom;CDM;  "
@@ -288,7 +284,7 @@ msgstr "CAFE;okno;menedżer;uruchom;CDM;  "
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>Niektóre programy są nadal uruchomione:</b>"
 
-#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:631
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -304,14 +300,7 @@ msgstr "Programy startowe"
 msgid "Choose what applications to start when you log in"
 msgstr "Wybór programów do uruchomienia podczas logowania"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/cafe-session-properties.desktop.in:7
-msgid "cafe-session-properties"
-msgstr "cafe-session-properties"
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr "CAFE;sesja;właściwości;aplikacje;logowanie;start;"
@@ -428,24 +417,24 @@ msgstr "Opcje zarządzania sesją:"
 msgid "Show session management options"
 msgstr "Wyświetla opcje zarządzania sesją"
 
-#: cafe-session/csm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:249
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "Nie odnaleziono ikony \"%s\""
 
-#: cafe-session/csm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:579
 msgid "Unknown"
 msgstr "Nieznany"
 
-#: cafe-session/csm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:630
 msgid "A program is still running:"
 msgstr "Program jest nadal uruchomiony:"
 
-#: cafe-session/csm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:634
 msgid "Some programs are still running:"
 msgstr "Niektóre programy są nadal uruchomione:"
 
-#: cafe-session/csm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:635
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
@@ -453,35 +442,35 @@ msgstr ""
 "Oczekiwanie na zakończenie działania programów. Przerwanie działania "
 "programów może spowodować utratę niezapisanych wyników pracy."
 
-#: cafe-session/csm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:865
 msgid "Switch User Anyway"
 msgstr "Przełącz użytkownika mimo to"
 
-#: cafe-session/csm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:868
 msgid "Log Out Anyway"
 msgstr "Wyloguj mimo to"
 
-#: cafe-session/csm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:871
 msgid "Suspend Anyway"
 msgstr "Uśpij mimo to"
 
-#: cafe-session/csm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:874
 msgid "Hibernate Anyway"
 msgstr "Zahibernuj mimo to"
 
-#: cafe-session/csm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:877
 msgid "Shut Down Anyway"
 msgstr "Wyłącz mimo to"
 
-#: cafe-session/csm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:880
 msgid "Reboot Anyway"
 msgstr "Uruchom ponownie mimo to"
 
-#: cafe-session/csm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:888
 msgid "Lock Screen"
 msgstr "Zablokuj ekran"
 
-#: cafe-session/csm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:891
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -540,13 +529,14 @@ msgstr "_Uruchom ponownie"
 msgid "_Shut Down"
 msgstr "_Wyłącz komputer"
 
-#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
+#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
 msgid "Not responding"
 msgstr "Brak odpowiedzi"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
+#.
 #: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr "Zapamiętane programy"
@@ -555,19 +545,19 @@ msgstr "Zapamiętane programy"
 msgid "This program is blocking logout."
 msgstr "Ten program uniemożliwia wylogowanie."
 
-#: cafe-session/csm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:322
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr "Odmowa połączenia nowego klienta z powodu trwającego zamykania sesji\n"
 
-#: cafe-session/csm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:584
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "Nie można utworzyć gniazda nasłuchującego ICE: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/csm-util.c:355
+#: cafe-session/csm-util.c:362
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr ""
 "Nie można uruchomić sesji logowania (oraz nie można się połączyć z serwerem "
@@ -665,7 +655,8 @@ msgstr ""
 "--app-id ID id aplikacji do użycia\n"
 "gdy blokowanie (opcjonalne)\n"
 "--reason REASON Powód blokowania (opcjonalne)\n"
-"--inhibit ARG Rzeczy do zablokowania, rozdzielona dwukropkiem lista złożona z:\n"
+"--inhibit ARG Rzeczy do zablokowania, rozdzielona dwukropkiem lista złożona "
+"z:\n"
 "logout, switch-user, suspend, idle, automount\n"
 "\n"
 "Jeśli nie podano opcji --inhibit, przyjmowana jest idle.\n"
@@ -680,3 +671,9 @@ msgstr "%s wymaga argumentu\n"
 #, c-format
 msgid "Failed to execute %s\n"
 msgstr "Wykonywanie nie powiodło się%s\n"
+
+#~ msgid "Type=Application"
+#~ msgstr "Typ=Aplikacja"
+
+#~ msgid "cafe-session-properties"
+#~ msgstr "cafe-session-properties"

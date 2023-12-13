@@ -2,7 +2,7 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Lasse Liehu <larso@gmx.com>, 2020
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
@@ -13,83 +13,83 @@
 # nomen omen, 2020
 # Ammuu5, 2020
 # Kimmo Kujansuu <mrkujansuu@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-session-manager 1.23.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 13:25+0100\n"
+"POT-Creation-Date: 2023-12-13 17:42+0100\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Kimmo Kujansuu <mrkujansuu@gmail.com>, 2020\n"
 "Language-Team: Finnish (https://www.transifex.com/cafe/teams/13566/fi/)\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: capplet/csm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:124
 msgid "Select Command"
 msgstr "Valitse komento"
 
-#: capplet/csm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:167
 msgid "second"
 msgstr "toinen"
 
-#: capplet/csm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:169
 msgid "seconds"
 msgstr "sekuntia"
 
-#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
 #: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "_Peru"
 
-#: capplet/csm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:221
 msgid "Add Startup Program"
 msgstr "Lisää käynnistyvä sovellus"
 
-#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
 msgid "_Add"
 msgstr "_Lisää"
 
-#: capplet/csm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:226
 msgid "Edit Startup Program"
 msgstr "Muokkaa käynnistyvää ohjelmaa"
 
-#: capplet/csm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:228
 msgid "_Save"
 msgstr "_Tallenna"
 
-#: capplet/csm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:541
 msgid "The startup command cannot be empty"
 msgstr "Käynnistyskomento ei voi olla tyhjä"
 
-#: capplet/csm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:547
 msgid "The startup command is not valid"
 msgstr "Käynnistyskomento ei ole kelvollinen"
 
-#: capplet/csm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:514
 msgid "_Help"
 msgstr "_Ohje"
 
-#: capplet/csm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:518
 msgid "_Close"
 msgstr "_Sulje"
 
-#: capplet/csm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:558
 msgid "Enabled"
 msgstr "Käytössä"
 
-#: capplet/csm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:570
 msgid "Icon"
 msgstr "Kuvake"
 
-#: capplet/csm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:582
 msgid "Program"
 msgstr "Sovellus"
 
-#: capplet/csm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:789
 msgid "Startup Applications Preferences"
 msgstr "Aloitusohjelmien asetukset"
 
@@ -153,8 +153,8 @@ msgid ""
 "automatically. If 0, automatic logout is disabled."
 msgstr ""
 "Jos uloskirjautumiskehote on käytössä, kirjaudutaan automaattisesti ulos "
-"valitun sekuntimäärän kuluttua. Jos aika on 0, niin uloskirjautuminen ei ole"
-" automaattista."
+"valitun sekuntimäärän kuluttua. Jos aika on 0, niin uloskirjautuminen ei ole "
+"automaattista."
 
 #: data/org.cafe.session.gschema.xml.in:31
 msgid "Time before session is considered idle"
@@ -186,8 +186,8 @@ msgid ""
 "automatically add the required components back to the session at login time "
 "if they do get removed."
 msgstr ""
-"Luettelo komponenteista, jotka vaaditaan osaksi istuntoa (jokainen elementti"
-" nimeää avaimen polun \"/org/cafe/desktop/session/required-components\" "
+"Luettelo komponenteista, jotka vaaditaan osaksi istuntoa (jokainen elementti "
+"nimeää avaimen polun \"/org/cafe/desktop/session/required-components\" "
 "alla). Istuntojen asetukset ei tavallisesti salli käyttäjän poistaa "
 "vaadittua komponenttia istunnosta, ja istunnonhallinta lisää poistetut "
 "vaaditut komponentit automaattisesti takaisin istuntoon."
@@ -209,8 +209,8 @@ msgid ""
 "The window manager is the program that draws the title bar and borders "
 "around windows, and allows you to move and resize windows."
 msgstr ""
-"Ikkunointiohjelma piirtää otsikkopalkin ja reunat ikkunoiden ympärille, sekä"
-" mahdollistaa ikkunoiden siirtämisen ja koon muuttamisen."
+"Ikkunointiohjelma piirtää otsikkopalkin ja reunat ikkunoiden ympärille, sekä "
+"mahdollistaa ikkunoiden siirtämisen ja koon muuttamisen."
 
 #: data/org.cafe.session.gschema.xml.in:59
 msgid "Panel"
@@ -256,18 +256,12 @@ msgstr "CAFE"
 msgid "This session logs you into CAFE"
 msgstr "Tämä istunto kirjautuu CAFEn"
 
-#: data/cafe.desktop.in:8
-msgid "Type=Application"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
 msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
@@ -276,7 +270,7 @@ msgstr ""
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>Joitakin ohjelmia on vielä käynnissä:</b>"
 
-#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:631
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -292,14 +286,7 @@ msgstr "Käynnistettävät ohjelmat"
 msgid "Choose what applications to start when you log in"
 msgstr "Valitse sisäänkirjauduttaessa käynnistettävät ohjelmat"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/cafe-session-properties.desktop.in:7
-msgid "cafe-session-properties"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
@@ -416,24 +403,24 @@ msgstr "Istunnonhallinan valitsimet:"
 msgid "Show session management options"
 msgstr "Näytä istunnonhallinan valitsimet"
 
-#: cafe-session/csm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:249
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "Kuvaketta \"%s\" ei löydy"
 
-#: cafe-session/csm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:579
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: cafe-session/csm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:630
 msgid "A program is still running:"
 msgstr "Ohjelma on vielä käynnissä:"
 
-#: cafe-session/csm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:634
 msgid "Some programs are still running:"
 msgstr "Joitakin ohjelmia on vielä käynnissä:"
 
-#: cafe-session/csm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:635
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
@@ -441,35 +428,35 @@ msgstr ""
 "Odotetaan ohjelmien lopettamista. Ohjelmien suorituksen keskeyttäminen voi "
 "aiheuttaa töiden häviämistä."
 
-#: cafe-session/csm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:865
 msgid "Switch User Anyway"
 msgstr "Vaihda käyttäjää kaikesta huolimatta"
 
-#: cafe-session/csm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:868
 msgid "Log Out Anyway"
 msgstr "Kirjaudu silti ulos"
 
-#: cafe-session/csm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:871
 msgid "Suspend Anyway"
 msgstr "Siirry valmiustilaan kaikesta huolimatta"
 
-#: cafe-session/csm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:874
 msgid "Hibernate Anyway"
 msgstr "Siirry lepotilaan kaikesta huolimatta"
 
-#: cafe-session/csm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:877
 msgid "Shut Down Anyway"
 msgstr "Sammuta silti"
 
-#: cafe-session/csm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:880
 msgid "Reboot Anyway"
 msgstr "Käynnistä uudelleen kaikesta huolimatta"
 
-#: cafe-session/csm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:888
 msgid "Lock Screen"
 msgstr "Lukitusnäyttö"
 
-#: cafe-session/csm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:891
 msgid "Cancel"
 msgstr "Peru"
 
@@ -524,13 +511,14 @@ msgstr "Käynnistä _uudelleen"
 msgid "_Shut Down"
 msgstr "_Sammuta"
 
-#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
+#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
 msgid "Not responding"
 msgstr "Ei vastaa"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
+#.
 #: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr "Muistettava sovellus"
@@ -539,7 +527,7 @@ msgstr "Muistettava sovellus"
 msgid "This program is blocking logout."
 msgstr "Tämä ohjelma estää uloskirjautumisen."
 
-#: cafe-session/csm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:322
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
@@ -547,13 +535,13 @@ msgstr ""
 "Kieltäydytään uudesta asiakasyhteydestä, koska istuntoa ollaan parhaillaan "
 "sulkemassa\n"
 
-#: cafe-session/csm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:584
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "ICE-kuuntelupistoketta ei voi luoda: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/csm-util.c:355
+#: cafe-session/csm-util.c:362
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr ""
 "Kirjautumisistuntoa ei voi käynnistää (eikä X-palvelimeen voitu yhdistää)"

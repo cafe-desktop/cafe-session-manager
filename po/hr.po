@@ -2,7 +2,7 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Ivica  Kolić <ikoli@yahoo.com>, 2020
 # Tomislav Krznar <tomislav.krznar@gmail.com>, 2020
@@ -11,83 +11,84 @@
 # Martin Wimpress <code@flexion.org>, 2020
 # Tedo Vrbanec <tedo.vrbanec@gmail.com>, 2020
 # Ivan Branimir Škorić <ivanskrc123@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-session-manager 1.23.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 13:25+0100\n"
+"POT-Creation-Date: 2023-12-13 17:42+0100\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Ivan Branimir Škorić <ivanskrc123@gmail.com>, 2020\n"
 "Language-Team: Croatian (https://www.transifex.com/cafe/teams/13566/hr/)\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: capplet/csm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:124
 msgid "Select Command"
 msgstr "Odaberi naredbu"
 
-#: capplet/csm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:167
 msgid "second"
 msgstr "sekunda"
 
-#: capplet/csm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:169
 msgid "seconds"
 msgstr "sekundi/e"
 
-#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
 #: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "_Opozovi"
 
-#: capplet/csm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:221
 msgid "Add Startup Program"
 msgstr "Dodaj početni program"
 
-#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: capplet/csm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:226
 msgid "Edit Startup Program"
 msgstr "Uredi početni program"
 
-#: capplet/csm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:228
 msgid "_Save"
 msgstr "_Spremi"
 
-#: capplet/csm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:541
 msgid "The startup command cannot be empty"
 msgstr "Pokretačka naredba ne može biti prazna"
 
-#: capplet/csm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:547
 msgid "The startup command is not valid"
 msgstr "Pokretačka naredba nije ispravna"
 
-#: capplet/csm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:514
 msgid "_Help"
 msgstr "_Pomoć"
 
-#: capplet/csm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:518
 msgid "_Close"
 msgstr "_Zatvori"
 
-#: capplet/csm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:558
 msgid "Enabled"
 msgstr "Omogućeno"
 
-#: capplet/csm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:570
 msgid "Icon"
 msgstr "Sličica"
 
-#: capplet/csm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:582
 msgid "Program"
 msgstr "Program"
 
-#: capplet/csm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:789
 msgid "Startup Applications Preferences"
 msgstr "Prilagodbe početnih programa"
 
@@ -188,12 +189,11 @@ msgid ""
 "if they do get removed."
 msgstr ""
 "Popis sastavnica koje su potrebne kao dio pristupne dionice. (Svaka "
-"sastavnica daje ime ključu pod "
-"\"/org/cafe/desktop/session/required_components\"). Pomagalo prilagodbi "
-"početnih programa obično neće korisnicima dopustiti uklanjanje potrebne "
-"sastavnice iz pristupne dionice, a upravitelj pristupne dionice će joj "
-"samostalno vratiti potrebne sastavnice u trenutku prijave ako one budu "
-"uklonjene."
+"sastavnica daje ime ključu pod \"/org/cafe/desktop/session/"
+"required_components\"). Pomagalo prilagodbi početnih programa obično neće "
+"korisnicima dopustiti uklanjanje potrebne sastavnice iz pristupne dionice, a "
+"upravitelj pristupne dionice će joj samostalno vratiti potrebne sastavnice u "
+"trenutku prijave ako one budu uklonjene."
 
 #: data/org.cafe.session.gschema.xml.in:46
 msgid "Control gnome compatibility component startup"
@@ -224,8 +224,8 @@ msgid ""
 "The panel provides the bar at the top or bottom of the screen containing "
 "menus, the window list, status icons, the clock, etc."
 msgstr ""
-"Ploča omogućava traku pri vrhu ili dnu zaslona sadržavajući izbornike, popis"
-" prozora, sličice slanja, uru itd."
+"Ploča omogućava traku pri vrhu ili dnu zaslona sadržavajući izbornike, popis "
+"prozora, sličice slanja, uru itd."
 
 #: data/org.cafe.session.gschema.xml.in:64
 msgid "File Manager"
@@ -248,8 +248,8 @@ msgid ""
 "A dock provides a dockable area, similar to a panel, for launching and "
 "switching applications."
 msgstr ""
-"Sidrište pruža područje usidrenja za pokretanje i izmjenu aplikacija, slično"
-" ploči."
+"Sidrište pruža područje usidrenja za pokretanje i izmjenu aplikacija, slično "
+"ploči."
 
 #: data/cafe.desktop.in:3
 msgid "CAFE"
@@ -259,18 +259,12 @@ msgstr "CAFE"
 msgid "This session logs you into CAFE"
 msgstr "Ova pristupna dionica prijavljuje te u CAFE"
 
-#: data/cafe.desktop.in:8
-msgid "Type=Application"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
 msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
@@ -279,7 +273,7 @@ msgstr ""
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>Pojedini programi su još uvijek pokrenuti:</b>"
 
-#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:631
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -295,14 +289,7 @@ msgstr "Početni programi"
 msgid "Choose what applications to start when you log in"
 msgstr "Izaberi programe koje treba pokrenuti nakon prijave"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/cafe-session-properties.desktop.in:7
-msgid "cafe-session-properties"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
@@ -419,24 +406,24 @@ msgstr "Opcije upravljanja sesijom:"
 msgid "Show session management options"
 msgstr "Prikaži opcije upravitelja prijava"
 
-#: cafe-session/csm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:249
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "Sličica '%s' nije pronađena"
 
-#: cafe-session/csm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:579
 msgid "Unknown"
 msgstr "Nepoznato"
 
-#: cafe-session/csm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:630
 msgid "A program is still running:"
 msgstr "Program se još uvijek izvodi:"
 
-#: cafe-session/csm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:634
 msgid "Some programs are still running:"
 msgstr "Pojedini programi se još uvijek izvode:"
 
-#: cafe-session/csm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:635
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
@@ -444,35 +431,35 @@ msgstr ""
 "Čekanje na svršetak programa. Prekidanje ovih programa može ti prouzročiti "
 "gubitak rada."
 
-#: cafe-session/csm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:865
 msgid "Switch User Anyway"
 msgstr "Ipak zamijeni korisnika"
 
-#: cafe-session/csm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:868
 msgid "Log Out Anyway"
 msgstr "Ipak se odjavi"
 
-#: cafe-session/csm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:871
 msgid "Suspend Anyway"
 msgstr "Ipak obustavi"
 
-#: cafe-session/csm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:874
 msgid "Hibernate Anyway"
 msgstr "Ipak hiberniraj"
 
-#: cafe-session/csm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:877
 msgid "Shut Down Anyway"
 msgstr "Ipak isključi"
 
-#: cafe-session/csm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:880
 msgid "Reboot Anyway"
 msgstr "Ipak ponovno pokreni"
 
-#: cafe-session/csm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:888
 msgid "Lock Screen"
 msgstr "Zaključaj zaslon"
 
-#: cafe-session/csm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:891
 msgid "Cancel"
 msgstr "Opozovi"
 
@@ -529,13 +516,14 @@ msgstr "_Ponovno pokreni"
 msgid "_Shut Down"
 msgstr "_Isključi"
 
-#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
+#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
 msgid "Not responding"
 msgstr "Nema odziva"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
+#.
 #: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr "Upamćeni program"
@@ -544,7 +532,7 @@ msgstr "Upamćeni program"
 msgid "This program is blocking logout."
 msgstr "Ovaj program sprječava odjavu."
 
-#: cafe-session/csm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:322
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
@@ -552,13 +540,13 @@ msgstr ""
 "Odbija se veza novoga klijenta jer je pristupna dionica trenutno u "
 "isključivanju\n"
 
-#: cafe-session/csm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:584
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "Nije bilo moguće stvoriti ICE pricafeljsku spojnicu: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/csm-util.c:355
+#: cafe-session/csm-util.c:362
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr ""
 "Nije moguće pokrenuti pristupnu dionicu prijave (i nije moguće povezati se "
@@ -649,7 +637,8 @@ msgid ""
 msgstr ""
 "%s [MOGUĆNOST...] NAREDBA\n"
 "\n"
-"Izvrši NAREDBU pri onemogućavanju neke od funkcionalnosti pristupne dionice.\n"
+"Izvrši NAREDBU pri onemogućavanju neke od funkcionalnosti pristupne "
+"dionice.\n"
 "\n"
 "  -h, --help        Prikaži ovu pomoć\n"
 "  --version         Prikaži programsku inačicu\n"
@@ -657,9 +646,11 @@ msgstr ""
 "                    pri onemogućavanju (mogućnost)\n"
 "  --reason REASON   Razlog za onemogućavanje (mogućnost)\n"
 "  --inhibit ARG     Radnje za onemogućenje, popis u stupcima:\n"
-"                    odjavi, zamijeni-korisnika, obustavi, mirovanje, samopostavi\n"
+"                    odjavi, zamijeni-korisnika, obustavi, mirovanje, "
+"samopostavi\n"
 "\n"
-"Ako nijedna --inhibit mogućnost nije određena, pretpostavljeno je mirovanje.\n"
+"Ako nijedna --inhibit mogućnost nije određena, pretpostavljeno je "
+"mirovanje.\n"
 
 #: tools/cafe-session-inhibit.c:169 tools/cafe-session-inhibit.c:179
 #: tools/cafe-session-inhibit.c:189

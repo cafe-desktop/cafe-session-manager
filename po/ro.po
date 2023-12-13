@@ -2,90 +2,92 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-session-manager package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # corneliu.e <corneliueva@yahoo.com>, 2020
 # Daniel <danny3@tutanota.com>, 2020
 # Martin Wimpress <code@flexion.org>, 2020
 # 54fe8adf15118d4933fd984b443faf69_2c58d9d <5559450f29f617d4a2e3698d44575f32_462992>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-session-manager 1.23.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 13:25+0100\n"
+"POT-Creation-Date: 2023-12-13 17:42+0100\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
-"Last-Translator: 54fe8adf15118d4933fd984b443faf69_2c58d9d <5559450f29f617d4a2e3698d44575f32_462992>, 2020\n"
+"Last-Translator: 54fe8adf15118d4933fd984b443faf69_2c58d9d "
+"<5559450f29f617d4a2e3698d44575f32_462992>, 2020\n"
 "Language-Team: Romanian (https://www.transifex.com/cafe/teams/13566/ro/)\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
 
-#: capplet/csm-app-dialog.c:127
+#: capplet/csm-app-dialog.c:124
 msgid "Select Command"
 msgstr "Alegere comandă"
 
-#: capplet/csm-app-dialog.c:170
+#: capplet/csm-app-dialog.c:167
 msgid "second"
 msgstr ""
 
-#: capplet/csm-app-dialog.c:172
+#: capplet/csm-app-dialog.c:169
 msgid "seconds"
 msgstr "secunde"
 
-#: capplet/csm-app-dialog.c:218 cafe-session/csm-logout-dialog.c:452
+#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
 #: cafe-session/csm-logout-dialog.c:485
 msgid "_Cancel"
 msgstr "_Renunță"
 
-#: capplet/csm-app-dialog.c:224
+#: capplet/csm-app-dialog.c:221
 msgid "Add Startup Program"
 msgstr "Adaugă un program de pornit"
 
-#: capplet/csm-app-dialog.c:226 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
 msgid "_Add"
 msgstr "_Adaugă"
 
-#: capplet/csm-app-dialog.c:229
+#: capplet/csm-app-dialog.c:226
 msgid "Edit Startup Program"
 msgstr "Editare program de pornit"
 
-#: capplet/csm-app-dialog.c:231
+#: capplet/csm-app-dialog.c:228
 msgid "_Save"
 msgstr "_Salvează"
 
-#: capplet/csm-app-dialog.c:544
+#: capplet/csm-app-dialog.c:541
 msgid "The startup command cannot be empty"
 msgstr "Comanda de pornire nu poate fi nulă"
 
-#: capplet/csm-app-dialog.c:550
+#: capplet/csm-app-dialog.c:547
 msgid "The startup command is not valid"
 msgstr "Comanda de start nu este validă"
 
-#: capplet/csm-properties-dialog.c:516
+#: capplet/csm-properties-dialog.c:514
 msgid "_Help"
 msgstr "_Ajutor"
 
-#: capplet/csm-properties-dialog.c:520
+#: capplet/csm-properties-dialog.c:518
 msgid "_Close"
 msgstr "În_chide"
 
-#: capplet/csm-properties-dialog.c:560
+#: capplet/csm-properties-dialog.c:558
 msgid "Enabled"
 msgstr "Activat"
 
-#: capplet/csm-properties-dialog.c:572
+#: capplet/csm-properties-dialog.c:570
 msgid "Icon"
 msgstr "Pictogramă"
 
-#: capplet/csm-properties-dialog.c:584
+#: capplet/csm-properties-dialog.c:582
 msgid "Program"
 msgstr "Program"
 
-#: capplet/csm-properties-dialog.c:791
+#: capplet/csm-properties-dialog.c:789
 msgid "Startup Applications Preferences"
 msgstr "Preferințe aplicații pornire"
 
@@ -186,12 +188,11 @@ msgid ""
 "if they do get removed."
 msgstr ""
 "Listă de componente care sunt necesare ca parte a acestei sesiuni. (Fiecare "
-"element numește o cheie sub "
-"„/org/cafe/desktop/session/required_components”). The Unealta de preferințe "
-"pentru aplicațiile de pornire nu va permite în mod normal utilizatorilor să "
-"elimine o componentă necesară din sesiune, și administratorul de sesiune va "
-"adăuga automat componentele necesare înapoi în sesiune la autentificare dacă"
-" sunt eliminate."
+"element numește o cheie sub „/org/cafe/desktop/session/"
+"required_components”). The Unealta de preferințe pentru aplicațiile de "
+"pornire nu va permite în mod normal utilizatorilor să elimine o componentă "
+"necesară din sesiune, și administratorul de sesiune va adăuga automat "
+"componentele necesare înapoi în sesiune la autentificare dacă sunt eliminate."
 
 #: data/org.cafe.session.gschema.xml.in:46
 msgid "Control gnome compatibility component startup"
@@ -258,18 +259,12 @@ msgstr "CAFE"
 msgid "This session logs you into CAFE"
 msgstr "Această sesiune vă va autentifica în CAFE"
 
-#: data/cafe.desktop.in:8
-msgid "Type=Application"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe.desktop.in:11
 msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-wm.desktop.in:7
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
@@ -278,7 +273,7 @@ msgstr ""
 msgid "<b>Some programs are still running:</b>"
 msgstr "<b>O parte din programe sunt încă în funcțiune:</b>"
 
-#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:633
+#: data/csm-inhibit-dialog.ui:52 cafe-session/csm-inhibit-dialog.c:631
 msgid ""
 "Waiting for the program to finish.  Interrupting the program may cause you "
 "to lose work."
@@ -294,14 +289,7 @@ msgstr "Aplicații pornite după autentificare"
 msgid "Choose what applications to start when you log in"
 msgstr "Alegeți ce aplicații să fie pornite după ce vă autentificați"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/cafe-session-properties.desktop.in:7
-msgid "cafe-session-properties"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-session-properties.desktop.in:13
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
@@ -417,24 +405,24 @@ msgstr "Opțiuni administrator de sesiune:"
 msgid "Show session management options"
 msgstr "Afișează opțiunile administratorului de sesiune"
 
-#: cafe-session/csm-inhibit-dialog.c:251
+#: cafe-session/csm-inhibit-dialog.c:249
 #, c-format
 msgid "Icon '%s' not found"
 msgstr "Pictograma „%s” nu a fost găsită"
 
-#: cafe-session/csm-inhibit-dialog.c:581
+#: cafe-session/csm-inhibit-dialog.c:579
 msgid "Unknown"
 msgstr "Necunoscut"
 
-#: cafe-session/csm-inhibit-dialog.c:632
+#: cafe-session/csm-inhibit-dialog.c:630
 msgid "A program is still running:"
 msgstr "Un program este încă în funcțiune:"
 
-#: cafe-session/csm-inhibit-dialog.c:636
+#: cafe-session/csm-inhibit-dialog.c:634
 msgid "Some programs are still running:"
 msgstr "Unele programe sunt încă în funcțiune:"
 
-#: cafe-session/csm-inhibit-dialog.c:637
+#: cafe-session/csm-inhibit-dialog.c:635
 msgid ""
 "Waiting for programs to finish.  Interrupting these programs may cause you "
 "to lose work."
@@ -442,35 +430,35 @@ msgstr ""
 "Se așteaptă ca programele să termine. Întreruperea acestora poate duce la "
 "pierderea activității."
 
-#: cafe-session/csm-inhibit-dialog.c:867
+#: cafe-session/csm-inhibit-dialog.c:865
 msgid "Switch User Anyway"
 msgstr "Schimbă oricum utilizatorul"
 
-#: cafe-session/csm-inhibit-dialog.c:870
+#: cafe-session/csm-inhibit-dialog.c:868
 msgid "Log Out Anyway"
 msgstr "Deconectează oricum"
 
-#: cafe-session/csm-inhibit-dialog.c:873
+#: cafe-session/csm-inhibit-dialog.c:871
 msgid "Suspend Anyway"
 msgstr "Suspendă oricum"
 
-#: cafe-session/csm-inhibit-dialog.c:876
+#: cafe-session/csm-inhibit-dialog.c:874
 msgid "Hibernate Anyway"
 msgstr "Hibernează oricum"
 
-#: cafe-session/csm-inhibit-dialog.c:879
+#: cafe-session/csm-inhibit-dialog.c:877
 msgid "Shut Down Anyway"
 msgstr "Oprește oricum"
 
-#: cafe-session/csm-inhibit-dialog.c:882
+#: cafe-session/csm-inhibit-dialog.c:880
 msgid "Reboot Anyway"
 msgstr "Repornește oricum"
 
-#: cafe-session/csm-inhibit-dialog.c:890
+#: cafe-session/csm-inhibit-dialog.c:888
 msgid "Lock Screen"
 msgstr "Blochează ecranul"
 
-#: cafe-session/csm-inhibit-dialog.c:893
+#: cafe-session/csm-inhibit-dialog.c:891
 msgid "Cancel"
 msgstr "Renunță"
 
@@ -527,13 +515,14 @@ msgstr "_Repornește"
 msgid "_Shut Down"
 msgstr "_Oprește"
 
-#: cafe-session/csm-manager.c:1515 cafe-session/csm-manager.c:2339
+#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
 msgid "Not responding"
 msgstr "Nu răspunde"
 
 #. It'd be really surprising to reach this code: if we're here,
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
+#.
 #: cafe-session/csm-xsmp-client.c:595
 msgid "Remembered Application"
 msgstr "Aplicație memorată"
@@ -542,25 +531,24 @@ msgstr "Aplicație memorată"
 msgid "This program is blocking logout."
 msgstr "Acest program blochează deconectarea."
 
-#: cafe-session/csm-xsmp-server.c:324
+#: cafe-session/csm-xsmp-server.c:322
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr ""
-"Se refuză conexiunea noului client deoarece sesiunea este în curs de "
-"oprire\n"
+"Se refuză conexiunea noului client deoarece sesiunea este în curs de oprire\n"
 
-#: cafe-session/csm-xsmp-server.c:586
+#: cafe-session/csm-xsmp-server.c:584
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "Nu s-a putut crea socket-ul de detectare ICE: %s"
 
 #. Oh well, no X for you!
-#: cafe-session/csm-util.c:355
+#: cafe-session/csm-util.c:362
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr ""
-"Nu s-a putut porni sesiunea de autentificare (iar conexiunea la servitorul X"
-" nu a putut fi realizată)"
+"Nu s-a putut porni sesiunea de autentificare (iar conexiunea la servitorul X "
+"nu a putut fi realizată)"
 
 #: cafe-session/main.c:611
 msgid "Override standard autostart directories"
@@ -654,7 +642,8 @@ msgstr ""
 "  --app-id ID       ID-ul aplicației de folosit\n"
 "                    când se împiedică (opțional)\n"
 "  --reason MOTIVUL   Motivul pentru împiedicare (opțional)\n"
-"  --inhibit ARG     Lucruri de împiedicat, listă separată prin două puncte, de:\n"
+"  --inhibit ARG     Lucruri de împiedicat, listă separată prin două puncte, "
+"de:\n"
 "                    logout, switch-user, suspend, idle, automount\n"
 "\n"
 "Dacă nicio opțiune --inhibit nu este specificată, idle este asumată.\n"
