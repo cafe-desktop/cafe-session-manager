@@ -1,0 +1,4 @@
+Support xscreensaver when cafe-screensaver is not available
+
+based in mate-session-manager commit:
+https://github.com/mate-desktop/mate-session-manager/commit/81b6185eb3d47cba4d8f1232556e176b9f810015
