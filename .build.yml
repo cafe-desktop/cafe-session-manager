@@ -41,7 +41,7 @@ before_scripts:
 
 build_scripts:
   - ./before-build
-  - ./make-scanbuild '--enable-compile-warnings=maximum'
+  - ./make-scanbuild '--enable-compile-warnings=maximum --enable-deprecations'
   - ./after-build
 
 after_scripts:
