@@ -15,7 +15,6 @@ requires:
     - gcc
     - git
     - intltool
-    - libdbus-glib-1-dev
     - libgl1-mesa-dev
     - libgles2-mesa-dev
     - libglib2.0-dev
