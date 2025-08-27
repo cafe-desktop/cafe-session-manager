@@ -152,7 +152,7 @@ csm_client_constructor (GType                  type,
 }
 
 static void
-csm_client_init (CsmClient *client)
+csm_client_init (CsmClient *client G_GNUC_UNUSED)
 {
 }
 
@@ -285,7 +285,7 @@ csm_client_get_property (GObject    *object,
 
 static gboolean
 default_stop (CsmClient *client,
-              GError   **error)
+	      GError   **error G_GNUC_UNUSED)
 {
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
 
@@ -434,8 +434,8 @@ csm_client_peek_restart_style_hint (CsmClient *client)
 
 gboolean
 csm_client_get_startup_id (CsmClient *client,
-                           char     **id,
-                           GError   **error)
+			   char     **id,
+			   GError   **error G_GNUC_UNUSED)
 {
         CsmClientPrivate *priv;
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
@@ -449,8 +449,8 @@ csm_client_get_startup_id (CsmClient *client,
 
 gboolean
 csm_client_get_app_id (CsmClient *client,
-                       char     **id,
-                       GError   **error)
+		       char     **id,
+		       GError   **error G_GNUC_UNUSED)
 {
         CsmClientPrivate *priv;
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
@@ -464,8 +464,8 @@ csm_client_get_app_id (CsmClient *client,
 
 gboolean
 csm_client_get_restart_style_hint (CsmClient *client,
-                                   guint     *hint,
-                                   GError   **error)
+				   guint     *hint,
+				   GError   **error G_GNUC_UNUSED)
 {
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
 
@@ -476,8 +476,8 @@ csm_client_get_restart_style_hint (CsmClient *client,
 
 gboolean
 csm_client_get_status (CsmClient *client,
-                       guint     *status,
-                       GError   **error)
+		       guint     *status,
+		       GError   **error G_GNUC_UNUSED)
 {
         CsmClientPrivate *priv;
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
@@ -491,8 +491,8 @@ csm_client_get_status (CsmClient *client,
 
 gboolean
 csm_client_get_unix_process_id (CsmClient  *client,
-                                guint      *pid,
-                                GError    **error)
+				guint      *pid,
+				GError    **error G_GNUC_UNUSED)
 {
         g_return_val_if_fail (CSM_IS_CLIENT (client), FALSE);
 
