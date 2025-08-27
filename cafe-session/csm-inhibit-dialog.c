@@ -89,7 +89,7 @@ static void     csm_inhibit_dialog_finalize    (GObject               *object);
 G_DEFINE_TYPE (CsmInhibitDialog, csm_inhibit_dialog, CTK_TYPE_DIALOG)
 
 static void
-lock_screen (CsmInhibitDialog *dialog)
+lock_screen (CsmInhibitDialog *dialog G_GNUC_UNUSED)
 {
         GError *error;
         error = NULL;
@@ -676,9 +676,9 @@ on_store_inhibitor_added (CsmStore          *store,
 }
 
 static void
-on_store_inhibitor_removed (CsmStore          *store,
-                            const char        *id,
-                            CsmInhibitDialog  *dialog)
+on_store_inhibitor_removed (CsmStore         *store G_GNUC_UNUSED,
+			    const char       *id,
+			    CsmInhibitDialog *dialog)
 {
         CtkTreeIter   iter;
 
@@ -804,11 +804,11 @@ csm_inhibit_dialog_get_property (GObject        *object,
 }
 
 static void
-name_cell_data_func (CtkTreeViewColumn *tree_column,
-                     CtkCellRenderer   *cell,
-                     CtkTreeModel      *model,
-                     CtkTreeIter       *iter,
-                     CsmInhibitDialog  *dialog)
+name_cell_data_func (CtkTreeViewColumn *tree_column G_GNUC_UNUSED,
+		     CtkCellRenderer   *cell,
+		     CtkTreeModel      *model,
+		     CtkTreeIter       *iter,
+		     CsmInhibitDialog  *dialog G_GNUC_UNUSED)
 {
         char    *name;
         char    *reason;
@@ -835,9 +835,9 @@ name_cell_data_func (CtkTreeViewColumn *tree_column,
 }
 
 static gboolean
-add_to_model (const char       *id,
-              CsmInhibitor     *inhibitor,
-              CsmInhibitDialog *dialog)
+add_to_model (const char       *id G_GNUC_UNUSED,
+	      CsmInhibitor     *inhibitor,
+	      CsmInhibitDialog *dialog)
 {
         add_inhibitor (dialog, inhibitor);
         return FALSE;
