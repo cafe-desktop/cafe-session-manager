@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 Novell, Inc.
  * Copyright (C) 2008 Red Hat, Inc.
  *
@@ -133,7 +132,7 @@ csm_app_constructor (GType                  type,
 }
 
 static void
-csm_app_init (CsmApp *app)
+csm_app_init (CsmApp *app G_GNUC_UNUSED)
 {
 }
 
@@ -182,9 +181,9 @@ csm_app_set_startup_id (CsmApp     *app,
 
 static void
 csm_app_set_property (GObject      *object,
-                      guint         prop_id,
-                      const GValue *value,
-                      GParamSpec   *pspec)
+		      guint         prop_id,
+		      const GValue *value,
+		      GParamSpec   *pspec G_GNUC_UNUSED)
 {
         CsmApp *app = CSM_APP (object);
 
@@ -205,9 +204,9 @@ csm_app_set_property (GObject      *object,
 
 static void
 csm_app_get_property (GObject    *object,
-                      guint       prop_id,
-                      GValue     *value,
-                      GParamSpec *pspec)
+		      guint       prop_id,
+		      GValue     *value,
+		      GParamSpec *pspec G_GNUC_UNUSED)
 {
         CsmAppPrivate *priv;
         CsmApp *app = CSM_APP (object);
@@ -502,9 +501,9 @@ csm_app_died (CsmApp *app)
 }
 
 gboolean
-csm_app_get_app_id (CsmApp     *app,
-                    char      **id,
-                    GError    **error)
+csm_app_get_app_id (CsmApp  *app,
+		    char   **id,
+		    GError **error G_GNUC_UNUSED)
 {
         g_return_val_if_fail (CSM_IS_APP (app), FALSE);
         *id = g_strdup (CSM_APP_GET_CLASS (app)->impl_get_app_id (app));
@@ -512,9 +511,9 @@ csm_app_get_app_id (CsmApp     *app,
 }
 
 gboolean
-csm_app_get_startup_id (CsmApp     *app,
-                        char      **id,
-                        GError    **error)
+csm_app_get_startup_id (CsmApp  *app,
+			char   **id,
+			GError **error G_GNUC_UNUSED)
 {
         CsmAppPrivate *priv;
         g_return_val_if_fail (CSM_IS_APP (app), FALSE);
@@ -525,9 +524,9 @@ csm_app_get_startup_id (CsmApp     *app,
 }
 
 gboolean
-csm_app_get_phase (CsmApp     *app,
-                   guint      *phase,
-                   GError    **error)
+csm_app_get_phase (CsmApp  *app,
+		   guint   *phase,
+		   GError **error G_GNUC_UNUSED)
 {
         CsmAppPrivate *priv;
         g_return_val_if_fail (CSM_IS_APP (app), FALSE);
