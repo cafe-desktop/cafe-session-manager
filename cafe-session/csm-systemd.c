@@ -149,9 +149,9 @@ csm_systemd_class_init (CsmSystemdClass *manager_class)
 }
 
 static DBusHandlerResult
-csm_systemd_dbus_filter (DBusConnection *connection,
-                         DBusMessage    *message,
-                         void           *user_data)
+csm_systemd_dbus_filter (DBusConnection *connection G_GNUC_UNUSED,
+			 DBusMessage    *message,
+			 void           *user_data)
 {
     CsmSystemd *manager;
 
@@ -271,11 +271,11 @@ out:
 }
 
 static void
-csm_systemd_on_name_owner_changed (DBusGProxy    *bus_proxy,
-                                   const char    *name,
-                                   const char    *prev_owner,
-                                   const char    *new_owner,
-                                   CsmSystemd    *manager)
+csm_systemd_on_name_owner_changed (DBusGProxy *bus_proxy G_GNUC_UNUSED,
+				   const char *name,
+				   const char *prev_owner G_GNUC_UNUSED,
+				   const char *new_owner G_GNUC_UNUSED,
+				   CsmSystemd *manager)
 {
     CsmSystemdPrivate *priv;
 
@@ -420,7 +420,7 @@ emit_stop_complete (CsmSystemd *manager,
 }
 
 gboolean
-csm_systemd_is_last_session_for_user (CsmSystemd *manager)
+csm_systemd_is_last_session_for_user (CsmSystemd *manager G_GNUC_UNUSED)
 {
         char **sessions = NULL;
         char *session = NULL;
