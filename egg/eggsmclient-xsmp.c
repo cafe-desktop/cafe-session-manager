@@ -441,7 +441,7 @@ sm_client_xsmp_will_quit (EggSMClient *client,
 
 static gboolean
 sm_client_xsmp_end_session (EggSMClient         *client,
-			    EggSMClientEndStyle  style,
+			    EggSMClientEndStyle  style G_GNUC_UNUSED,
 			    gboolean             request_confirmation)
 {
   EggSMClientXSMP *xsmp = (EggSMClientXSMP *)client;
@@ -604,7 +604,7 @@ fix_broken_state (EggSMClientXSMP *xsmp, const char *message,
 /* SM callbacks */
 
 static void
-xsmp_save_yourself (SmcConn   smc_conn,
+xsmp_save_yourself (SmcConn   smc_conn G_GNUC_UNUSED,
 		    SmPointer client_data,
 		    int       save_type,
 		    Bool      shutdown,
@@ -923,7 +923,7 @@ save_state (EggSMClientXSMP *xsmp)
 }
 
 static void
-xsmp_interact (SmcConn   smc_conn,
+xsmp_interact (SmcConn   smc_conn G_GNUC_UNUSED,
 	       SmPointer client_data)
 {
   EggSMClientXSMP *xsmp = client_data;
@@ -943,7 +943,7 @@ xsmp_interact (SmcConn   smc_conn,
 }
 
 static void
-xsmp_die (SmcConn   smc_conn,
+xsmp_die (SmcConn   smc_conn G_GNUC_UNUSED,
 	  SmPointer client_data)
 {
   EggSMClientXSMP *xsmp = client_data;
@@ -957,7 +957,7 @@ xsmp_die (SmcConn   smc_conn,
 }
 
 static void
-xsmp_save_complete (SmcConn   smc_conn,
+xsmp_save_complete (SmcConn   smc_conn G_GNUC_UNUSED,
 		    SmPointer client_data)
 {
   EggSMClientXSMP *xsmp = client_data;
@@ -972,7 +972,7 @@ xsmp_save_complete (SmcConn   smc_conn,
 }
 
 static void
-xsmp_shutdown_cancelled (SmcConn   smc_conn,
+xsmp_shutdown_cancelled (SmcConn   smc_conn G_GNUC_UNUSED,
 			 SmPointer client_data)
 {
   EggSMClientXSMP *xsmp = client_data;
@@ -1298,8 +1298,8 @@ process_ice_messages (IceConn ice_conn)
 }
 
 static gboolean
-ice_iochannel_watch (GIOChannel   *channel,
-		     GIOCondition  condition,
+ice_iochannel_watch (GIOChannel   *channel G_GNUC_UNUSED,
+		     GIOCondition  condition G_GNUC_UNUSED,
 		     gpointer      client_data)
 {
   return process_ice_messages (client_data);
@@ -1307,7 +1307,7 @@ ice_iochannel_watch (GIOChannel   *channel,
 
 static void
 ice_connection_watch (IceConn     ice_conn,
-		      IcePointer  client_data,
+		      IcePointer  client_data G_GNUC_UNUSED,
 		      Bool        opening,
 		      IcePointer *watch_data)
 {
@@ -1334,31 +1334,31 @@ ice_connection_watch (IceConn     ice_conn,
 }
 
 static void
-ice_error_handler (IceConn       ice_conn,
-		   Bool          swap,
-		   int           offending_minor_opcode,
-		   unsigned long offending_sequence,
-		   int           error_class,
-		   int           severity,
-		   IcePointer    values)
+ice_error_handler (IceConn       ice_conn G_GNUC_UNUSED,
+		   Bool          swap G_GNUC_UNUSED,
+		   int           offending_minor_opcode G_GNUC_UNUSED,
+		   unsigned long offending_sequence G_GNUC_UNUSED,
+		   int           error_class G_GNUC_UNUSED,
+		   int           severity G_GNUC_UNUSED,
+		   IcePointer    values G_GNUC_UNUSED)
 {
   /* Do nothing */
 }
 
 static void
-ice_io_error_handler (IceConn ice_conn)
+ice_io_error_handler (IceConn ice_conn G_GNUC_UNUSED)
 {
   /* Do nothing */
 }
 
 static void
-smc_error_handler (SmcConn       smc_conn,
-                   Bool          swap,
-                   int           offending_minor_opcode,
-                   unsigned long offending_sequence,
-                   int           error_class,
-                   int           severity,
-                   SmPointer     values)
+smc_error_handler (SmcConn       smc_conn G_GNUC_UNUSED,
+		   Bool          swap G_GNUC_UNUSED,
+		   int           offending_minor_opcode G_GNUC_UNUSED,
+		   unsigned long offending_sequence G_GNUC_UNUSED,
+		   int           error_class G_GNUC_UNUSED,
+		   int           severity G_GNUC_UNUSED,
+		   SmPointer     values G_GNUC_UNUSED)
 {
   /* Do nothing */
 }
