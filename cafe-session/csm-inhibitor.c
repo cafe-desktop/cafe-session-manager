@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2008 Red Hat, Inc.
  *
  * This program is free software; you can redistribute it and/or
@@ -151,7 +150,7 @@ csm_inhibitor_constructor (GType                  type,
 }
 
 static void
-csm_inhibitor_init (CsmInhibitor *inhibitor)
+csm_inhibitor_init (CsmInhibitor *inhibitor G_GNUC_UNUSED)
 {
 }
 
@@ -263,8 +262,8 @@ csm_inhibitor_peek_bus_name (CsmInhibitor  *inhibitor)
 
 gboolean
 csm_inhibitor_get_app_id (CsmInhibitor *inhibitor,
-                          char        **id,
-                          GError      **error)
+			  char        **id,
+			  GError      **error G_GNUC_UNUSED)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), FALSE);
 
@@ -302,8 +301,8 @@ csm_inhibitor_get_client_id (CsmInhibitor *inhibitor,
 
 gboolean
 csm_inhibitor_get_reason (CsmInhibitor *inhibitor,
-                          char        **reason,
-                          GError      **error)
+			  char        **reason,
+			  GError      **error G_GNUC_UNUSED)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), FALSE);
 
@@ -318,8 +317,8 @@ csm_inhibitor_get_reason (CsmInhibitor *inhibitor,
 
 gboolean
 csm_inhibitor_get_flags (CsmInhibitor *inhibitor,
-                         guint        *flags,
-                         GError      **error)
+			 guint        *flags,
+			 GError      **error G_GNUC_UNUSED)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), FALSE);
 
@@ -330,8 +329,8 @@ csm_inhibitor_get_flags (CsmInhibitor *inhibitor,
 
 gboolean
 csm_inhibitor_get_toplevel_xid (CsmInhibitor *inhibitor,
-                                guint        *xid,
-                                GError      **error)
+				guint        *xid,
+				GError      **error G_GNUC_UNUSED)
 {
         g_return_val_if_fail (CSM_IS_INHIBITOR (inhibitor), FALSE);
 
