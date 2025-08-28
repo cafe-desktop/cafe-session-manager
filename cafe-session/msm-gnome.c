@@ -51,9 +51,9 @@ static gboolean gnome_compat_started = FALSE;
 static Window gnome_smproxy_window = None;
 
 static void
-gnome_keyring_daemon_finished (GPid pid,
-                               gint status,
-                               gpointer user_data)
+gnome_keyring_daemon_finished (GPid     pid G_GNUC_UNUSED,
+			       gint     status,
+			       gpointer user_data G_GNUC_UNUSED)
 {
   if (WEXITSTATUS (status) != 0)
     {
