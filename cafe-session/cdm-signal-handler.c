@@ -98,7 +98,9 @@ static void block_signals_pop(void)
 	}
 }
 
-static gboolean signal_io_watch(GIOChannel* ioc, GIOCondition condition, CdmSignalHandler* handler)
+static gboolean signal_io_watch (GIOChannel       *ioc,
+				 GIOCondition      condition G_GNUC_UNUSED,
+				 CdmSignalHandler *handler)
 {
 	char buf[256];
 	gboolean is_fatal;
