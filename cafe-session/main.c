@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2006 Novell, Inc.
  * Copyright (C) 2008 Red Hat, Inc.
  *
@@ -106,7 +105,9 @@ initialize_gsettings (void)
         return ret;
 }
 
-static void on_bus_name_lost(DBusGProxy* bus_proxy, const char* name, gpointer data)
+static void on_bus_name_lost (DBusGProxy *bus_proxy G_GNUC_UNUSED,
+			      const char *name,
+			      gpointer    data G_GNUC_UNUSED)
 {
 	g_warning("Lost name on bus: %s, exiting", name);
 	exit(1);
@@ -535,7 +536,9 @@ static gboolean require_dbus_session(int argc, char** argv, GError** error)
 }
 
 static void
-debug_changed (GSettings *settings, gchar *key, gpointer user_data)
+debug_changed (GSettings *settings,
+	       gchar     *key G_GNUC_UNUSED,
+	       gpointer   user_data G_GNUC_UNUSED)
 {
 	debug = g_settings_get_boolean (settings, DEBUG_KEY);
 	cdm_log_set_debug (debug);
