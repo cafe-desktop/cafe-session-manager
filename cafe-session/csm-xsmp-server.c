@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 Novell, Inc.
  * Copyright (C) 2008 Red Hat, Inc.
  * Copyright (C) 2008 William Jon McCann <jmccann@redhat.com>
@@ -133,9 +132,9 @@ ice_protocol_timeout (IceConn ice_conn)
 }
 
 static gboolean
-auth_iochannel_watch (GIOChannel   *source,
-                      GIOCondition  condition,
-                      IceConn       ice_conn)
+auth_iochannel_watch (GIOChannel   *source G_GNUC_UNUSED,
+		      GIOCondition  condition G_GNUC_UNUSED,
+		      IceConn       ice_conn)
 {
 
         CsmIceConnectionWatch *data;
@@ -200,9 +199,9 @@ auth_ice_connection (IceConn ice_conn)
  * connection is first received on the ICE listening socket.
  */
 static gboolean
-accept_ice_connection (GIOChannel           *source,
-                       GIOCondition          condition,
-                       CsmIceConnectionData *data)
+accept_ice_connection (GIOChannel           *source G_GNUC_UNUSED,
+		       GIOCondition          condition G_GNUC_UNUSED,
+		       CsmIceConnectionData *data)
 {
         IceConn         ice_conn;
         IceAcceptStatus status;
@@ -342,12 +341,12 @@ accept_xsmp_connection (SmsConn        sms_conn,
 
 static void
 ice_error_handler (IceConn       conn,
-                   Bool          swap,
-                   int           offending_minor_opcode,
-                   unsigned long offending_sequence,
-                   int           error_class,
-                   int           severity,
-                   IcePointer    values)
+		   Bool          swap,
+		   int           offending_minor_opcode,
+		   unsigned long offending_sequence,
+		   int           error_class,
+		   int           severity,
+		   IcePointer    values G_GNUC_UNUSED)
 {
         g_debug ("CsmXsmpServer: ice_error_handler (%p, %s, %d, %lx, %d, %d)",
                  conn, swap ? "TRUE" : "FALSE", offending_minor_opcode,
@@ -378,12 +377,12 @@ ice_io_error_handler (IceConn conn)
 
 static void
 sms_error_handler (SmsConn       conn,
-                   Bool          swap,
-                   int           offending_minor_opcode,
-                   unsigned long offending_sequence_num,
-                   int           error_class,
-                   int           severity,
-                   IcePointer    values)
+		   Bool          swap,
+		   int           offending_minor_opcode,
+		   unsigned long offending_sequence_num,
+		   int           error_class,
+		   int           severity,
+		   IcePointer    values G_GNUC_UNUSED)
 {
         g_debug ("CsmXsmpServer: sms_error_handler (%p, %s, %d, %lx, %d, %d)",
                  conn, swap ? "TRUE" : "FALSE", offending_minor_opcode,
@@ -681,7 +680,7 @@ csm_xsmp_server_class_init (CsmXsmpServerClass *klass)
 }
 
 static void
-csm_xsmp_server_init (CsmXsmpServer *xsmp_server)
+csm_xsmp_server_init (CsmXsmpServer *xsmp_server G_GNUC_UNUSED)
 {
 }
 

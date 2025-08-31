@@ -85,9 +85,9 @@ G_DEFINE_TYPE (CsmLogoutDialog, csm_logout_dialog, CTK_TYPE_MESSAGE_DIALOG);
 
 static void
 csm_logout_dialog_set_property (GObject      *object,
-                                guint         prop_id,
-                                const GValue *value,
-                                GParamSpec   *pspec)
+				guint         prop_id,
+				const GValue *value G_GNUC_UNUSED,
+				GParamSpec   *pspec)
 {
         switch (prop_id) {
         case PROP_MESSAGE_TYPE:
@@ -168,7 +168,7 @@ csm_logout_dialog_init (CsmLogoutDialog *logout_dialog)
 
 static void
 csm_logout_dialog_destroy (CsmLogoutDialog *logout_dialog,
-                           gpointer         data)
+			   gpointer         data G_GNUC_UNUSED)
 {
         if (logout_dialog->timeout_id != 0) {
                 g_source_remove (logout_dialog->timeout_id);
@@ -279,7 +279,8 @@ csm_logout_supports_shutdown (CsmLogoutDialog *logout_dialog)
 }
 
 static void
-csm_logout_dialog_show (CsmLogoutDialog *logout_dialog, gpointer user_data)
+csm_logout_dialog_show (CsmLogoutDialog *logout_dialog,
+			gpointer         user_data G_GNUC_UNUSED)
 {
         csm_logout_dialog_set_timeout (logout_dialog);
 }
@@ -412,8 +413,8 @@ csm_logout_dialog_set_timeout (CsmLogoutDialog *logout_dialog)
 
 static CtkWidget *
 csm_get_dialog (CsmDialogLogoutType type,
-                CdkScreen          *screen,
-                guint32             activate_time)
+		CdkScreen          *screen,
+		guint32             activate_time G_GNUC_UNUSED)
 {
         CsmLogoutDialog *logout_dialog;
         CtkWidget       *hbox;

@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007-2008 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -215,9 +214,9 @@ csm_store_foreach_remove (CsmStore    *store,
 }
 
 static gboolean
-_remove_all (const char *id,
-             GObject    *object,
-             gpointer    data)
+_remove_all (const char *id G_GNUC_UNUSED,
+	     GObject    *object G_GNUC_UNUSED,
+	     gpointer    data G_GNUC_UNUSED)
 {
         return TRUE;
 }

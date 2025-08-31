@@ -103,9 +103,9 @@ gs_idle_monitor_dispose (GObject *object)
 }
 
 static gboolean
-_find_alarm (gpointer            key,
-             GSIdleMonitorWatch *watch,
-             XSyncAlarm         *alarm)
+_find_alarm (gpointer            key G_GNUC_UNUSED,
+	     GSIdleMonitorWatch *watch,
+	     XSyncAlarm         *alarm)
 {
         g_debug ("Searching for %d in %d,%d", (int)*alarm, (int)watch->xalarm_positive, (int)watch->xalarm_negative);
         if (watch->xalarm_positive == *alarm
@@ -216,8 +216,8 @@ handle_alarm_notify_event (GSIdleMonitor         *monitor,
 
 static CdkFilterReturn
 xevent_filter (CdkXEvent     *xevent,
-               CdkEvent      *event,
-               GSIdleMonitor *monitor)
+	       CdkEvent      *event G_GNUC_UNUSED,
+	       GSIdleMonitor *monitor)
 {
         XEvent                *ev;
         XSyncAlarmNotifyEvent *alarm_event;

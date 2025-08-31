@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2008 William Jon McCann <jmccann@redhat.com>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -101,8 +100,8 @@ make_exec_uri (const char *exec)
 }
 
 static void
-on_browse_button_clicked (CtkWidget    *widget,
-                          CsmAppDialog *dialog)
+on_browse_button_clicked (CtkWidget    *widget G_GNUC_UNUSED,
+			  CsmAppDialog *dialog)
 {
         CtkWidget *chooser;
         int        response;
@@ -146,8 +145,8 @@ on_browse_button_clicked (CtkWidget    *widget,
 }
 
 static void
-on_entry_activate (CtkEntry     *entry,
-                   CsmAppDialog *dialog)
+on_entry_activate (CtkEntry     *entry G_GNUC_UNUSED,
+		   CsmAppDialog *dialog)
 {
         ctk_dialog_response (CTK_DIALOG (dialog), CTK_RESPONSE_OK);
 }
@@ -485,7 +484,7 @@ csm_app_dialog_class_init (CsmAppDialogClass *klass)
 }
 
 static void
-csm_app_dialog_init (CsmAppDialog *dialog)
+csm_app_dialog_init (CsmAppDialog *dialog G_GNUC_UNUSED)
 {
 
 }

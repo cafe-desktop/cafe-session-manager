@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 1999 Free Software Foundation, Inc.
  * Copyright (C) 2007 Vincent Untz.
  * Copyright (C) 2008 Lucas Rocha.
@@ -193,16 +192,16 @@ append_app (CsmPropertiesDialog *dialog,
 
 static void
 _app_added (CsmPropertiesDialog *dialog,
-            GspApp              *app,
-            GspAppManager       *manager)
+	    GspApp              *app,
+	    GspAppManager       *manager G_GNUC_UNUSED)
 {
         append_app (dialog, app);
 }
 
 static void
 _app_removed (CsmPropertiesDialog *dialog,
-              GspApp              *app,
-              GspAppManager       *manager)
+	      GspApp              *app,
+	      GspAppManager       *manager G_GNUC_UNUSED)
 {
         CtkTreeIter iter;
 
@@ -273,13 +272,13 @@ on_startup_enabled_toggled (CtkCellRendererToggle *cell_renderer,
 
 static void
 on_drag_data_received (CtkWidget           *widget,
-                       CdkDragContext      *drag_context,
-                       gint                 x,
-                       gint                 y,
-                       CtkSelectionData    *data,
-                       guint                info,
-                       guint                time,
-                       CsmPropertiesDialog *dialog)
+		       CdkDragContext      *drag_context,
+		       gint                 x G_GNUC_UNUSED,
+		       gint                 y G_GNUC_UNUSED,
+		       CtkSelectionData    *data,
+		       guint                info G_GNUC_UNUSED,
+		       guint                time,
+		       CsmPropertiesDialog *dialog G_GNUC_UNUSED)
 {
         gboolean dnd_success;
 
@@ -333,12 +332,12 @@ on_drag_begin (CtkWidget           *widget,
 }
 
 static void
-on_drag_data_get (CtkWidget           *widget,
-                  CdkDragContext      *context,
-                  CtkSelectionData    *selection_data,
-                  guint                info,
-                  guint                time,
-                  CsmPropertiesDialog *dialog)
+on_drag_data_get (CtkWidget           *widget G_GNUC_UNUSED,
+		  CdkDragContext      *context,
+		  CtkSelectionData    *selection_data,
+		  guint                info G_GNUC_UNUSED,
+		  guint                time G_GNUC_UNUSED,
+		  CsmPropertiesDialog *dialog G_GNUC_UNUSED)
 {
         GspApp *app;
 
@@ -358,8 +357,8 @@ on_drag_data_get (CtkWidget           *widget,
 }
 
 static void
-on_add_app_clicked (CtkWidget           *widget,
-                    CsmPropertiesDialog *dialog)
+on_add_app_clicked (CtkWidget           *widget G_GNUC_UNUSED,
+		    CsmPropertiesDialog *dialog)
 {
         CtkWidget  *add_dialog;
         char       *name;
@@ -381,8 +380,8 @@ on_add_app_clicked (CtkWidget           *widget,
 }
 
 static void
-on_delete_app_clicked (CtkWidget           *widget,
-                       CsmPropertiesDialog *dialog)
+on_delete_app_clicked (CtkWidget           *widget G_GNUC_UNUSED,
+		       CsmPropertiesDialog *dialog)
 {
         CtkTreeSelection *selection;
         CtkTreeIter       iter;
@@ -407,8 +406,8 @@ on_delete_app_clicked (CtkWidget           *widget,
 }
 
 static void
-on_edit_app_clicked (CtkWidget           *widget,
-                     CsmPropertiesDialog *dialog)
+on_edit_app_clicked (CtkWidget           *widget G_GNUC_UNUSED,
+		     CsmPropertiesDialog *dialog)
 {
         CtkTreeSelection *selection;
         CtkTreeIter       iter;
@@ -453,10 +452,10 @@ on_edit_app_clicked (CtkWidget           *widget,
 }
 
 static void
-on_row_activated (CtkTreeView         *tree_view,
-                  CtkTreePath         *path,
-                  CtkTreeViewColumn   *column,
-                  CsmPropertiesDialog *dialog)
+on_row_activated (CtkTreeView         *tree_view G_GNUC_UNUSED,
+		  CtkTreePath         *path G_GNUC_UNUSED,
+		  CtkTreeViewColumn   *column G_GNUC_UNUSED,
+		  CsmPropertiesDialog *dialog)
 {
         on_edit_app_clicked (NULL, dialog);
 }
@@ -486,15 +485,15 @@ update_tree_view (CsmPropertiesDialog *dialog)
 }
 
 static void
-on_show_hidden_clicked (CtkWidget           *widget,
-                        CsmPropertiesDialog *dialog)
+on_show_hidden_clicked (CtkWidget           *widget G_GNUC_UNUSED,
+			CsmPropertiesDialog *dialog)
 {
         update_tree_view (dialog);
 }
 
 static void
-on_save_session_clicked (CtkWidget           *widget,
-                         CsmPropertiesDialog *dialog)
+on_save_session_clicked (CtkWidget           *widget G_GNUC_UNUSED,
+			 CsmPropertiesDialog *dialog G_GNUC_UNUSED)
 {
         g_debug ("Session saving is not implemented yet!");
 }

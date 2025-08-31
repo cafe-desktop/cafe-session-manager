@@ -149,9 +149,9 @@ csm_consolekit_class_init (CsmConsolekitClass *manager_class)
 }
 
 static DBusHandlerResult
-csm_consolekit_dbus_filter (DBusConnection *connection,
-                            DBusMessage    *message,
-                            void           *user_data)
+csm_consolekit_dbus_filter (DBusConnection *connection G_GNUC_UNUSED,
+			    DBusMessage    *message,
+			    void           *user_data)
 {
         CsmConsolekit *manager;
 
@@ -271,11 +271,11 @@ out:
 }
 
 static void
-csm_consolekit_on_name_owner_changed (DBusGProxy    *bus_proxy,
-                                      const char    *name,
-                                      const char    *prev_owner,
-                                      const char    *new_owner,
-                                      CsmConsolekit *manager)
+csm_consolekit_on_name_owner_changed (DBusGProxy    *bus_proxy G_GNUC_UNUSED,
+				      const char    *name,
+				      const char    *prev_owner G_GNUC_UNUSED,
+				      const char    *new_owner G_GNUC_UNUSED,
+				      CsmConsolekit *manager)
 {
         CsmConsolekitPrivate *priv;
 

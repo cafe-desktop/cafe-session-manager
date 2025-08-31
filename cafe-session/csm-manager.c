@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 Novell, Inc.
  * Copyright (C) 2008 Red Hat, Inc.
  * Copyright (C) 2008 William Jon McCann <jmccann@redhat.com>
@@ -229,9 +228,9 @@ csm_manager_error_get_type (void)
 }
 
 static gboolean
-_debug_client (const char *id,
-               CsmClient  *client,
-               CsmManager *manager)
+_debug_client (const char *id G_GNUC_UNUSED,
+	       CsmClient  *client,
+	       CsmManager *manager G_GNUC_UNUSED)
 {
         g_debug ("CsmManager: Client %s", csm_client_peek_id (client));
         return FALSE;
@@ -248,9 +247,9 @@ debug_clients (CsmManager *manager)
 }
 
 static gboolean
-_debug_inhibitor (const char    *id,
-                  CsmInhibitor  *inhibitor,
-                  CsmManager    *manager)
+_debug_inhibitor (const char   *id G_GNUC_UNUSED,
+		  CsmInhibitor *inhibitor,
+		  CsmManager   *manager G_GNUC_UNUSED)
 {
         g_debug ("CsmManager: Inhibitor app:%s client:%s bus-name:%s reason:%s",
                  csm_inhibitor_peek_app_id (inhibitor),
@@ -272,9 +271,9 @@ debug_inhibitors (CsmManager *manager)
 }
 
 static gboolean
-_find_by_cookie (const char   *id,
-                 CsmInhibitor *inhibitor,
-                 guint        *cookie_ap)
+_find_by_cookie (const char   *id G_GNUC_UNUSED,
+		 CsmInhibitor *inhibitor,
+		 guint        *cookie_ap)
 {
         guint cookie_b;
 
@@ -284,9 +283,9 @@ _find_by_cookie (const char   *id,
 }
 
 static gboolean
-_find_by_startup_id (const char *id,
-                     CsmClient  *client,
-                     const char *startup_id_a)
+_find_by_startup_id (const char *id G_GNUC_UNUSED,
+		     CsmClient  *client,
+		     const char *startup_id_a)
 {
         const char *startup_id_b;
 
@@ -794,9 +793,9 @@ _client_end_session (CsmClient            *client,
 }
 
 static gboolean
-_client_end_session_helper (const char           *id,
-                            CsmClient            *client,
-                            ClientEndSessionData *data)
+_client_end_session_helper (const char           *id G_GNUC_UNUSED,
+			    CsmClient            *client,
+			    ClientEndSessionData *data)
 {
         return _client_end_session (client, data);
 }
@@ -870,9 +869,9 @@ do_phase_end_session_part_2 (CsmManager *manager)
 }
 
 static gboolean
-_client_stop (const char *id,
-              CsmClient  *client,
-              gpointer    user_data)
+_client_stop (const char *id G_GNUC_UNUSED,
+	      CsmClient  *client,
+	      gpointer    user_data G_GNUC_UNUSED)
 {
         gboolean ret;
         GError  *error;
@@ -955,9 +954,9 @@ do_phase_exit (CsmManager *manager)
 }
 
 static gboolean
-_client_query_end_session (const char           *id,
-                           CsmClient            *client,
-                           ClientEndSessionData *data)
+_client_query_end_session (const char           *id G_GNUC_UNUSED,
+			   CsmClient            *client,
+			   ClientEndSessionData *data)
 {
         gboolean ret;
         GError  *error;
@@ -980,9 +979,9 @@ _client_query_end_session (const char           *id,
 }
 
 static gboolean
-inhibitor_has_flag (gpointer      key,
-                    CsmInhibitor *inhibitor,
-                    gpointer      data)
+inhibitor_has_flag (gpointer      key G_GNUC_UNUSED,
+		    CsmInhibitor *inhibitor,
+		    gpointer      data)
 {
         guint flag;
         guint flags;
@@ -1037,9 +1036,9 @@ csm_manager_is_idle_inhibited (CsmManager *manager)
 }
 
 static gboolean
-_client_cancel_end_session (const char *id,
-                            CsmClient  *client,
-                            CsmManager *manager)
+_client_cancel_end_session (const char *id G_GNUC_UNUSED,
+			    CsmClient  *client,
+			    CsmManager *manager G_GNUC_UNUSED)
 {
         gboolean res;
         GError  *error;
@@ -1055,9 +1054,9 @@ _client_cancel_end_session (const char *id,
 }
 
 static gboolean
-inhibitor_is_jit (gpointer      key,
-                  CsmInhibitor *inhibitor,
-                  CsmManager   *manager)
+inhibitor_is_jit (gpointer      key G_GNUC_UNUSED,
+		  CsmInhibitor *inhibitor,
+		  CsmManager   *manager G_GNUC_UNUSED)
 {
         gboolean    matches;
         const char *id;
@@ -1626,9 +1625,9 @@ start_phase (CsmManager *manager)
 }
 
 static gboolean
-_debug_app_for_phase (const char *id,
-                      CsmApp     *app,
-                      gpointer    data)
+_debug_app_for_phase (const char *id G_GNUC_UNUSED,
+		      CsmApp     *app,
+		      gpointer    data)
 {
         guint phase;
 
@@ -1687,9 +1686,9 @@ _csm_manager_set_renderer (CsmManager *manager,
 }
 
 static gboolean
-_app_has_app_id (const char   *id,
-                 CsmApp       *app,
-                 const char   *app_id_a)
+_app_has_app_id (const char *id G_GNUC_UNUSED,
+		 CsmApp     *app,
+		 const char *app_id_a)
 {
         const char *app_id_b;
 
@@ -1712,9 +1711,9 @@ find_app_for_app_id (CsmManager *manager,
 }
 
 static gboolean
-inhibitor_has_client_id (gpointer      key,
-                         CsmInhibitor *inhibitor,
-                         const char   *client_id_a)
+inhibitor_has_client_id (gpointer      key G_GNUC_UNUSED,
+			 CsmInhibitor *inhibitor,
+			 const char   *client_id_a)
 {
         gboolean    matches;
         const char *client_id_b;
@@ -1735,9 +1734,9 @@ inhibitor_has_client_id (gpointer      key,
 }
 
 static gboolean
-_app_has_startup_id (const char *id,
-                     CsmApp     *app,
-                     const char *startup_id_a)
+_app_has_startup_id (const char *id G_GNUC_UNUSED,
+		     CsmApp     *app,
+		     const char *startup_id_a)
 {
         const char *startup_id_b;
 
@@ -1908,9 +1907,9 @@ typedef struct {
 } RemoveClientData;
 
 static gboolean
-_disconnect_dbus_client (const char       *id,
-                         CsmClient        *client,
-                         RemoveClientData *data)
+_disconnect_dbus_client (const char       *id G_GNUC_UNUSED,
+			 CsmClient        *client,
+			 RemoveClientData *data)
 {
         const char *name;
 
@@ -1970,9 +1969,9 @@ remove_clients_for_connection (CsmManager *manager,
 }
 
 static gboolean
-inhibitor_has_bus_name (gpointer          key,
-                        CsmInhibitor     *inhibitor,
-                        RemoveClientData *data)
+inhibitor_has_bus_name (gpointer          key G_GNUC_UNUSED,
+			CsmInhibitor     *inhibitor,
+			RemoveClientData *data)
 {
         gboolean    matches;
         const char *bus_name_b;
@@ -2013,11 +2012,11 @@ remove_inhibitors_for_connection (CsmManager *manager,
 }
 
 static void
-bus_name_owner_changed (DBusGProxy  *bus_proxy,
-                        const char  *service_name,
-                        const char  *old_service_name,
-                        const char  *new_service_name,
-                        CsmManager  *manager)
+bus_name_owner_changed (DBusGProxy *bus_proxy G_GNUC_UNUSED,
+			const char *service_name G_GNUC_UNUSED,
+			const char *old_service_name,
+			const char *new_service_name,
+			CsmManager *manager)
 {
         if (strlen (new_service_name) == 0
             && strlen (old_service_name) > 0) {
@@ -2034,9 +2033,9 @@ bus_name_owner_changed (DBusGProxy  *bus_proxy,
 }
 
 static DBusHandlerResult
-csm_manager_bus_filter (DBusConnection *connection,
-                        DBusMessage    *message,
-                        void           *user_data)
+csm_manager_bus_filter (DBusConnection *connection G_GNUC_UNUSED,
+			DBusMessage    *message,
+			void           *user_data)
 {
         CsmManager *manager;
         CsmManagerPrivate *priv;
@@ -2117,9 +2116,9 @@ csm_manager_set_failsafe (CsmManager *manager,
 }
 
 static gboolean
-_client_has_startup_id (const char *id,
-                        CsmClient  *client,
-                        const char *startup_id_a)
+_client_has_startup_id (const char *id G_GNUC_UNUSED,
+			CsmClient  *client,
+			const char *startup_id_a)
 {
         const char *startup_id_b;
 
@@ -2393,9 +2392,9 @@ on_client_end_session_response (CsmClient  *client,
 }
 
 static void
-on_xsmp_client_logout_request (CsmXSMPClient *client,
-                               gboolean       show_dialog,
-                               CsmManager    *manager)
+on_xsmp_client_logout_request (CsmXSMPClient *client G_GNUC_UNUSED,
+			       gboolean       show_dialog,
+			       CsmManager    *manager)
 {
         GError *error;
         int     logout_mode;
@@ -2447,9 +2446,9 @@ on_store_client_added (CsmStore   *store,
 }
 
 static void
-on_store_client_removed (CsmStore   *store,
-                         const char *id,
-                         CsmManager *manager)
+on_store_client_removed (CsmStore   *store G_GNUC_UNUSED,
+			 const char *id,
+			 CsmManager *manager)
 {
         g_debug ("CsmManager: Client removed: %s", id);
 
@@ -2549,9 +2548,9 @@ csm_manager_get_property (GObject    *object,
 }
 
 static gboolean
-_find_app_provides (const char *id,
-                    CsmApp     *app,
-                    const char *service)
+_find_app_provides (const char *id G_GNUC_UNUSED,
+		    CsmApp     *app,
+		    const char *service)
 {
         return csm_app_provides (app, service);
 }
@@ -2570,9 +2569,9 @@ csm_manager_constructor (GType                  type,
 }
 
 static void
-on_store_inhibitor_added (CsmStore   *store,
-                          const char *id,
-                          CsmManager *manager)
+on_store_inhibitor_added (CsmStore   *store G_GNUC_UNUSED,
+			  const char *id,
+			  CsmManager *manager)
 {
         g_debug ("CsmManager: Inhibitor added: %s", id);
         g_signal_emit (manager, signals [INHIBITOR_ADDED], 0, id);
@@ -2580,9 +2579,9 @@ on_store_inhibitor_added (CsmStore   *store,
 }
 
 static void
-on_store_inhibitor_removed (CsmStore   *store,
-                            const char *id,
-                            CsmManager *manager)
+on_store_inhibitor_removed (CsmStore   *store G_GNUC_UNUSED,
+			    const char *id,
+			    CsmManager *manager)
 {
         g_debug ("CsmManager: Inhibitor removed: %s", id);
         g_signal_emit (manager, signals [INHIBITOR_REMOVED], 0, id);
@@ -2797,9 +2796,9 @@ on_gsettings_key_changed (GSettings   *settings,
 }
 
 static void
-on_presence_status_changed (CsmPresence  *presence,
-                            guint         status,
-                            CsmManager   *manager)
+on_presence_status_changed (CsmPresence  *presence G_GNUC_UNUSED,
+			    guint         status,
+			    CsmManager   *manager G_GNUC_UNUSED)
 {
 #ifdef HAVE_SYSTEMD
         if (LOGIND_RUNNING()) {
@@ -3015,10 +3014,10 @@ csm_manager_is_suspend_inhibited (CsmManager *manager)
 
 static void
 request_reboot_privileges_completed_consolekit (CsmConsolekit *consolekit,
-                                                gboolean       success,
-                                                gboolean       ask_later,
-                                                GError        *error,
-                                                CsmManager    *manager)
+						gboolean       success,
+						gboolean       ask_later,
+						GError        *error G_GNUC_UNUSED,
+						CsmManager    *manager)
 {
         CsmManagerPrivate *priv;
 
@@ -3046,10 +3045,10 @@ request_reboot_privileges_completed_consolekit (CsmConsolekit *consolekit,
 #ifdef HAVE_SYSTEMD
 static void
 request_reboot_privileges_completed_systemd (CsmSystemd *systemd,
-                                             gboolean    success,
-                                             gboolean    ask_later,
-                                             GError     *error,
-                                             CsmManager *manager)
+					     gboolean    success,
+					     gboolean    ask_later,
+					     GError     *error G_GNUC_UNUSED,
+CsmManager *manager)
 {
         CsmManagerPrivate *priv;
 
@@ -3155,10 +3154,10 @@ request_reboot (CsmManager *manager)
 
 static void
 request_shutdown_privileges_completed_consolekit (CsmConsolekit *consolekit,
-                                                  gboolean       success,
-                                                  gboolean       ask_later,
-                                                  GError        *error,
-                                                  CsmManager    *manager)
+						  gboolean       success,
+						  gboolean       ask_later,
+						  GError        *error G_GNUC_UNUSED,
+CsmManager    *manager)
 {
         CsmManagerPrivate *priv;
 
@@ -3186,10 +3185,10 @@ request_shutdown_privileges_completed_consolekit (CsmConsolekit *consolekit,
 #ifdef HAVE_SYSTEMD
 static void
 request_shutdown_privileges_completed_systemd (CsmSystemd *systemd,
-                                               gboolean    success,
-                                               gboolean    ask_later,
-                                               GError     *error,
-                                               CsmManager *manager)
+					       gboolean    success,
+					       gboolean    ask_later,
+					       GError     *error G_GNUC_UNUSED,
+CsmManager *manager)
 {
         CsmManagerPrivate *priv;
 
@@ -3647,8 +3646,8 @@ csm_manager_shutdown (CsmManager *manager,
 
 gboolean
 csm_manager_can_shutdown (CsmManager *manager,
-                          gboolean   *shutdown_available,
-                          GError    **error)
+			  gboolean   *shutdown_available,
+			  GError    **error G_GNUC_UNUSED)
 {
         CsmConsolekit *consolekit;
 #ifdef HAVE_SYSTEMD
@@ -4000,9 +3999,9 @@ csm_manager_uninhibit (CsmManager            *manager,
 
 gboolean
 csm_manager_is_inhibited (CsmManager *manager,
-                          guint       flags,
-                          gboolean   *is_inhibited,
-                          GError     *error)
+			  guint       flags,
+			  gboolean   *is_inhibited,
+			  GError     *error G_GNUC_UNUSED)
 {
         CsmInhibitor *inhibitor;
         CsmManagerPrivate *priv;
@@ -4031,8 +4030,8 @@ csm_manager_is_inhibited (CsmManager *manager,
 
 static gboolean
 listify_store_ids (char       *id,
-                   GObject    *object,
-                   GPtrArray **array)
+		   GObject    *object G_GNUC_UNUSED,
+		   GPtrArray **array)
 {
         g_ptr_array_add (*array, g_strdup (id));
         return FALSE;
@@ -4040,8 +4039,8 @@ listify_store_ids (char       *id,
 
 gboolean
 csm_manager_get_clients (CsmManager *manager,
-                         GPtrArray **clients,
-                         GError    **error)
+			 GPtrArray **clients,
+			 GError    **error G_GNUC_UNUSED)
 {
         CsmManagerPrivate *priv;
         g_return_val_if_fail (CSM_IS_MANAGER (manager), FALSE);
@@ -4059,8 +4058,8 @@ csm_manager_get_clients (CsmManager *manager,
 
 gboolean
 csm_manager_get_inhibitors (CsmManager *manager,
-                            GPtrArray **inhibitors,
-                            GError    **error)
+			    GPtrArray **inhibitors,
+			    GError    **error G_GNUC_UNUSED)
 {
         CsmManagerPrivate *priv;
 
@@ -4081,9 +4080,9 @@ csm_manager_get_inhibitors (CsmManager *manager,
 
 
 static gboolean
-_app_has_autostart_condition (const char *id,
-                              CsmApp     *app,
-                              const char *condition)
+_app_has_autostart_condition (const char *id G_GNUC_UNUSED,
+			      CsmApp     *app,
+			      const char *condition)
 {
         gboolean has;
         gboolean disabled;
@@ -4096,9 +4095,9 @@ _app_has_autostart_condition (const char *id,
 
 gboolean
 csm_manager_is_autostart_condition_handled (CsmManager *manager,
-                                            const char *condition,
-                                            gboolean   *handled,
-                                            GError    **error)
+					    const char *condition,
+					    gboolean   *handled,
+					    GError    **error G_GNUC_UNUSED)
 {
         CsmApp *app;
         CsmManagerPrivate *priv;
@@ -4230,8 +4229,8 @@ csm_manager_add_autostart_apps_from_dir (CsmManager *manager,
 
 gboolean
 csm_manager_is_session_running (CsmManager *manager,
-                                gboolean *running,
-                                GError **error)
+				gboolean   *running,
+				GError    **error G_GNUC_UNUSED)
 {
         CsmManagerPrivate *priv;
 
