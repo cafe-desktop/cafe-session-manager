@@ -252,16 +252,16 @@ csm_dbus_client_constructor (GType                  type,
 }
 
 static void
-csm_dbus_client_init (CsmDBusClient *client)
+csm_dbus_client_init (CsmDBusClient *client G_GNUC_UNUSED)
 {
 }
 
 /* adapted from PolicyKit */
 static gboolean
-get_caller_info (CsmDBusClient *client,
-                 const char    *sender,
-                 uid_t         *calling_uid,
-                 pid_t         *calling_pid)
+get_caller_info (CsmDBusClient *client G_GNUC_UNUSED,
+		 const char    *sender,
+		 uid_t         *calling_uid,
+		 pid_t         *calling_pid)
 {
         gboolean         res;
         GError          *error;
@@ -411,7 +411,7 @@ csm_dbus_client_finalize (GObject *object)
 
 static GKeyFile *
 dbus_client_save (CsmClient *client,
-                  GError   **error)
+		  GError   **error G_GNUC_UNUSED)
 {
         g_debug ("CsmDBusClient: saving client with id %s",
                  csm_client_peek_id (client));
@@ -424,7 +424,7 @@ dbus_client_save (CsmClient *client,
 
 static gboolean
 dbus_client_stop (CsmClient *client,
-                  GError   **error)
+		  GError   **error G_GNUC_UNUSED)
 {
         CsmDBusClient  *dbus_client = (CsmDBusClient *) client;
         DBusMessage    *message;
@@ -458,7 +458,7 @@ dbus_client_stop (CsmClient *client,
 }
 
 static char *
-dbus_client_get_app_name (CsmClient *client)
+dbus_client_get_app_name (CsmClient *client G_GNUC_UNUSED)
 {
         /* Always use app-id instead */
         return NULL;

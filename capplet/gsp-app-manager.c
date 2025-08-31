@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 1999 Free Software Foundation, Inc.
  * Copyright (C) 2007, 2009 Vincent Untz.
  * Copyright (C) 2008 Lucas Rocha.
@@ -366,11 +365,11 @@ _gsp_app_manager_handle_delete (GspAppManager *manager,
 }
 
 static gboolean
-gsp_app_manager_xdg_dir_monitor (GFileMonitor      *monitor,
-                                 GFile             *child,
-                                 GFile             *other_file,
-                                 GFileMonitorEvent  flags,
-                                 gpointer           data)
+gsp_app_manager_xdg_dir_monitor (GFileMonitor      *monitor G_GNUC_UNUSED,
+				 GFile             *child,
+				 GFile             *other_file G_GNUC_UNUSED,
+				 GFileMonitorEvent  flags,
+				 gpointer           data)
 {
         GspAppManager *manager;
         GspApp        *old_app;

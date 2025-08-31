@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2008 Red Hat, Inc.
  *
  * This program is free software; you can redistribute it and/or
@@ -125,11 +124,11 @@ on_client_stop (void)
 }
 
 static void
-on_client_dbus_signal (GDBusProxy  *proxy,
-                       gchar       *sender_name,
-                       gchar       *signal_name,
-                       GVariant    *parameters,
-                       gpointer     user_data)
+on_client_dbus_signal (GDBusProxy *proxy,
+		       gchar      *sender_name G_GNUC_UNUSED,
+		       gchar      *signal_name,
+		       GVariant   *parameters,
+		       gpointer    user_data G_GNUC_UNUSED)
 {
         if (g_strcmp0 (signal_name, "Stop") == 0) {
                 on_client_stop ();
@@ -230,15 +229,15 @@ unregister_client (void)
 }
 
 static gboolean
-quit_test (gpointer data)
+quit_test (gpointer data G_GNUC_UNUSED)
 {
         g_main_loop_quit (main_loop);
         return FALSE;
 }
 
 int
-main (int   argc,
-      char *argv[])
+main (int   argc G_GNUC_UNUSED,
+      char *argv[] G_GNUC_UNUSED)
 {
         gboolean res;
 

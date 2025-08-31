@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -100,9 +99,9 @@ log_level_to_priority_and_prefix (GLogLevelFlags log_level,
 
 void
 cdm_log_default_handler (const gchar   *log_domain,
-                         GLogLevelFlags log_level,
-                         const gchar   *message,
-                         gpointer       unused_data)
+			 GLogLevelFlags log_level,
+			 const gchar   *message,
+			 gpointer       unused_data G_GNUC_UNUSED)
 {
         GString     *gstring;
         int          priority;

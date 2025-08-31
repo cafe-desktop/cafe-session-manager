@@ -1,4 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
+/*
  * main.c
  * Copyright (C) 1999 Free Software Foundation, Inc.
  * Copyright (C) 2008 Lucas Rocha.
@@ -36,7 +36,9 @@ static GOptionEntry options[] = {
 	{NULL, 0, 0, 0, NULL, NULL, NULL}
 };
 
-static void dialog_response(CsmPropertiesDialog* dialog, guint response_id, gpointer data)
+static void dialog_response (CsmPropertiesDialog *dialog,
+			     guint                response_id,
+			     gpointer             data G_GNUC_UNUSED)
 {
 	GError* error;
 

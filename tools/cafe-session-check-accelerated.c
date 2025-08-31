@@ -1,4 +1,3 @@
-/* -*- mode:c; c-basic-offset: 8; indent-tabs-mode: nil; -*- */
 /* Tool to set the property _GNOME_SESSION_ACCELERATED on the root window */
 /*
  * Copyright (C) 2011 Red Hat, Inc.
@@ -49,7 +48,7 @@ static Atom renderer_atom;
 static gboolean property_changed;
 
 static gboolean
-on_property_notify_timeout (gpointer data)
+on_property_notify_timeout (gpointer data G_GNUC_UNUSED)
 {
         ctk_main_quit ();
         return FALSE;
@@ -57,8 +56,8 @@ on_property_notify_timeout (gpointer data)
 
 static CdkFilterReturn
 property_notify_filter (CdkXEvent *xevent,
-                        CdkEvent  *event,
-                        gpointer   data)
+			CdkEvent  *event G_GNUC_UNUSED,
+			gpointer   data G_GNUC_UNUSED)
 {
         XPropertyEvent *ev = xevent;
 
@@ -128,7 +127,8 @@ is_discrete_gpu_check (void)
 }
 
 int
-main (int argc, char **argv)
+main (int    argc G_GNUC_UNUSED,
+      char **argv G_GNUC_UNUSED)
 {
         CdkDisplay *display = NULL;
         int estatus;

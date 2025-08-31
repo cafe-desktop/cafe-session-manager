@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2008 Red Hat, Inc.
  *
  * This program is free software; you can redistribute it and/or
@@ -139,7 +138,7 @@ do_uninhibit (void)
 
 static void
 on_widget_show (CtkWidget *dialog,
-                gpointer   data)
+		gpointer   data G_GNUC_UNUSED)
 {
         gboolean res;
 

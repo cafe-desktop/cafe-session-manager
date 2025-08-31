@@ -136,10 +136,10 @@ set_session_idle (CsmPresence   *presence,
 }
 
 static gboolean
-on_idle_timeout (GSIdleMonitor *monitor,
-                 guint          id,
-                 gboolean       condition,
-                 CsmPresence   *presence)
+on_idle_timeout (GSIdleMonitor *monitor G_GNUC_UNUSED,
+		 guint          id G_GNUC_UNUSED,
+		 gboolean       condition,
+		 CsmPresence   *presence)
 {
         gboolean handled;
 
@@ -179,9 +179,9 @@ reset_idle_watch (CsmPresence  *presence)
 }
 
 static void
-on_screensaver_active_changed (DBusGProxy  *proxy,
-                               gboolean     is_active,
-                               CsmPresence *presence)
+on_screensaver_active_changed (DBusGProxy  *proxy G_GNUC_UNUSED,
+			       gboolean     is_active,
+			       CsmPresence *presence)
 {
         CsmPresencePrivate *priv;
 
@@ -195,8 +195,8 @@ on_screensaver_active_changed (DBusGProxy  *proxy,
 }
 
 static void
-on_screensaver_proxy_destroy (GObject     *proxy,
-                              CsmPresence *presence)
+on_screensaver_proxy_destroy (GObject     *proxy G_GNUC_UNUSED,
+			      CsmPresence *presence)
 {
         CsmPresencePrivate *priv;
 
@@ -210,11 +210,11 @@ on_screensaver_proxy_destroy (GObject     *proxy,
 }
 
 static void
-on_bus_name_owner_changed (DBusGProxy  *bus_proxy,
-                           const char  *service_name,
-                           const char  *old_service_name,
-                           const char  *new_service_name,
-                           CsmPresence *presence)
+on_bus_name_owner_changed (DBusGProxy  *bus_proxy G_GNUC_UNUSED,
+			   const char  *service_name,
+			   const char  *old_service_name,
+			   const char  *new_service_name,
+			   CsmPresence *presence)
 {
         GError *error;
         CsmPresencePrivate *priv;
@@ -383,9 +383,9 @@ csm_presence_set_status_text (CsmPresence  *presence,
 }
 
 gboolean
-csm_presence_set_status (CsmPresence  *presence,
-                         guint         status,
-                         GError      **error)
+csm_presence_set_status (CsmPresence *presence,
+			 guint        status,
+			 GError     **error G_GNUC_UNUSED)
 {
         CsmPresencePrivate *priv;
 
