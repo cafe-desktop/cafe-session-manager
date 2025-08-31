@@ -22,7 +22,8 @@ if USE_CAFE_WM
 desktop_DATA += cafe-wm.desktop
 endif
 
-%.desktop: %.desktop.in Makefile
+SUFFIXES = .desktop.in .desktop
+.desktop.in.desktop:
 	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 gsettingsschema_in_files = org.cafe.session.gschema.xml.in
