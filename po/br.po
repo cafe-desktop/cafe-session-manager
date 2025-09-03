@@ -9,9 +9,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-session-manager 1.25.0\n"
+"Project-Id-Version: cafe-session-manager 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2023-12-13 17:42+0100\n"
+"POT-Creation-Date: 2025-09-03 18:04+0200\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Alan Monfort <alan.monfort@free.fr>, 2020\n"
 "Language-Team: Breton (https://www.transifex.com/cafe/teams/13566/br/)\n"
@@ -25,68 +25,68 @@ msgstr ""
 "> 19) && (n%100 < 70 || n%100 > 79) && (n%100 < 90 || n%100 > 99) ? 2 :(n != "
 "0 && n % 1000000 == 0) ? 3 : 4);\n"
 
-#: capplet/csm-app-dialog.c:124
+#: capplet/csm-app-dialog.c:123
 msgid "Select Command"
 msgstr "Dibabit un arc'had"
 
-#: capplet/csm-app-dialog.c:167
+#: capplet/csm-app-dialog.c:166
 msgid "second"
 msgstr ""
 
-#: capplet/csm-app-dialog.c:169
+#: capplet/csm-app-dialog.c:168
 msgid "seconds"
 msgstr "eilenn"
 
-#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
-#: cafe-session/csm-logout-dialog.c:485
+#: capplet/csm-app-dialog.c:214 cafe-session/csm-logout-dialog.c:453
+#: cafe-session/csm-logout-dialog.c:486
 msgid "_Cancel"
 msgstr "_Nullañ"
 
-#: capplet/csm-app-dialog.c:221
+#: capplet/csm-app-dialog.c:220
 msgid "Add Startup Program"
 msgstr "Ouzhpennañ ur goulev-loc'hañ"
 
-#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:222 data/session-properties.ui:86
 msgid "_Add"
 msgstr "_Ouzhpennañ"
 
-#: capplet/csm-app-dialog.c:226
+#: capplet/csm-app-dialog.c:225
 msgid "Edit Startup Program"
 msgstr "Kemmañ ar goulev-loc'hañ"
 
-#: capplet/csm-app-dialog.c:228
+#: capplet/csm-app-dialog.c:227
 msgid "_Save"
 msgstr "_Enrollañ"
 
-#: capplet/csm-app-dialog.c:541
+#: capplet/csm-app-dialog.c:540
 msgid "The startup command cannot be empty"
 msgstr "N'hell ket an arc'had-loc'hañ bezañ goullo"
 
-#: capplet/csm-app-dialog.c:547
+#: capplet/csm-app-dialog.c:546
 msgid "The startup command is not valid"
 msgstr "N'eo ket talvoudek an arc'had loc'hañ"
 
-#: capplet/csm-properties-dialog.c:514
+#: capplet/csm-properties-dialog.c:513
 msgid "_Help"
 msgstr "_Skoazell"
 
-#: capplet/csm-properties-dialog.c:518
+#: capplet/csm-properties-dialog.c:517
 msgid "_Close"
 msgstr "_Serriñ"
 
-#: capplet/csm-properties-dialog.c:558
+#: capplet/csm-properties-dialog.c:557
 msgid "Enabled"
 msgstr "Gweredekaet"
 
-#: capplet/csm-properties-dialog.c:570
+#: capplet/csm-properties-dialog.c:569
 msgid "Icon"
 msgstr "Arlun"
 
-#: capplet/csm-properties-dialog.c:582
+#: capplet/csm-properties-dialog.c:581
 msgid "Program"
 msgstr "Goulev"
 
-#: capplet/csm-properties-dialog.c:789
+#: capplet/csm-properties-dialog.c:788
 msgid "Startup Applications Preferences"
 msgstr "Gwellvezioù an arloadoù loc'hañ"
 
@@ -98,11 +98,11 @@ msgstr "Anv ebet"
 msgid "No description"
 msgstr "Deskrivadur ebet"
 
-#: capplet/main.c:35 cafe-session/main.c:614
+#: capplet/main.c:35 cafe-session/main.c:617
 msgid "Version of this application"
 msgstr "Handlev an arload"
 
-#: capplet/main.c:51
+#: capplet/main.c:53
 msgid "Could not display help document"
 msgstr "N'haller ket skrammañ an teul skoazell"
 
@@ -200,7 +200,7 @@ msgstr "Mestroniañ loc'hadur ar parzh evit ar geverlec'h gant gnome"
 msgid "Control which compatibility components to start."
 msgstr "Mestroniañ pe barzh e vo loc'het evit ar c'heverlec'h."
 
-#: data/org.cafe.session.gschema.xml.in:54 data/cafe-wm.desktop.in:4
+#: data/org.cafe.session.gschema.xml.in:54 data/cafe-wm.desktop.in:3
 msgid "Window Manager"
 msgstr "ardoer prenestroù"
 
@@ -246,21 +246,21 @@ msgid ""
 "switching applications."
 msgstr ""
 
-#: data/cafe.desktop.in:3
+#: data/cafe.desktop.in:2
 msgid "CAFE"
 msgstr "CAFE"
 
-#: data/cafe.desktop.in:4
+#: data/cafe.desktop.in:3
 msgid "This session logs you into CAFE"
 msgstr "An estez-mañ a lug ac'hanoc'h davet CAFE"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe.desktop.in:11
+#: data/cafe.desktop.in:10
 msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-wm.desktop.in:7
+#: data/cafe-wm.desktop.in:6
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
 
@@ -276,16 +276,16 @@ msgstr ""
 "Emañ o c'hortoz ma'z echuo ar goulev. Mar bez arsavet ar goulev e kollot ul "
 "lod eus ho labour marteze."
 
-#: data/cafe-session-properties.desktop.in:3
+#: data/cafe-session-properties.desktop.in:2
 msgid "Startup Applications"
 msgstr "Arloadoù loc'hañ"
 
-#: data/cafe-session-properties.desktop.in:4
+#: data/cafe-session-properties.desktop.in:3
 msgid "Choose what applications to start when you log in"
 msgstr "Diuziñ arloadoù da lañsañ er gevreadur"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-session-properties.desktop.in:13
+#: data/cafe-session-properties.desktop.in:12
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
 
@@ -456,7 +456,7 @@ msgstr "Prennañ ar skramm"
 msgid "Cancel"
 msgstr "Nullañ"
 
-#: cafe-session/csm-logout-dialog.c:307
+#: cafe-session/csm-logout-dialog.c:308
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
@@ -466,7 +466,7 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: cafe-session/csm-logout-dialog.c:315
+#: cafe-session/csm-logout-dialog.c:316
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
@@ -476,44 +476,44 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: cafe-session/csm-logout-dialog.c:361
+#: cafe-session/csm-logout-dialog.c:362
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr "Kennasket oc'h emgefre a-vremañ e-giz \"%s\"."
 
-#: cafe-session/csm-logout-dialog.c:441
+#: cafe-session/csm-logout-dialog.c:442
 msgid "Log out of this system now?"
 msgstr "En em dilugañ eus ar reizhiad bremañ ?"
 
-#: cafe-session/csm-logout-dialog.c:447
+#: cafe-session/csm-logout-dialog.c:448
 msgid "_Switch User"
 msgstr "_Kemmañ an arveriad"
 
-#: cafe-session/csm-logout-dialog.c:456
+#: cafe-session/csm-logout-dialog.c:457
 msgid "_Log Out"
 msgstr "Di_lugañ"
 
-#: cafe-session/csm-logout-dialog.c:462
+#: cafe-session/csm-logout-dialog.c:463
 msgid "Shut down this system now?"
 msgstr "Lazhañ ar reizhiad bremañ ?"
 
-#: cafe-session/csm-logout-dialog.c:468
+#: cafe-session/csm-logout-dialog.c:469
 msgid "S_uspend"
 msgstr "L_akaat da gousket"
 
-#: cafe-session/csm-logout-dialog.c:474
+#: cafe-session/csm-logout-dialog.c:475
 msgid "_Hibernate"
 msgstr "_Goañviñ"
 
-#: cafe-session/csm-logout-dialog.c:480
+#: cafe-session/csm-logout-dialog.c:481
 msgid "_Restart"
 msgstr "_Adloc'hañ"
 
-#: cafe-session/csm-logout-dialog.c:490
+#: cafe-session/csm-logout-dialog.c:491
 msgid "_Shut Down"
 msgstr "_Lazhañ"
 
-#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
+#: cafe-session/csm-manager.c:1512 cafe-session/csm-manager.c:2336
 msgid "Not responding"
 msgstr "Respont ebet"
 
@@ -521,22 +521,22 @@ msgstr "Respont ebet"
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
 #.
-#: cafe-session/csm-xsmp-client.c:595
+#: cafe-session/csm-xsmp-client.c:594
 msgid "Remembered Application"
 msgstr "Arload dalc'het soñj ennañ"
 
-#: cafe-session/csm-xsmp-client.c:1262
+#: cafe-session/csm-xsmp-client.c:1261
 msgid "This program is blocking logout."
 msgstr "O virout ouzh an digennaskañ emañ ar goulev-mañ."
 
-#: cafe-session/csm-xsmp-server.c:322
+#: cafe-session/csm-xsmp-server.c:321
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr ""
 "N'eo ket aotret ar c'hennask nevez arval rak eo an estez a-vremañ o serriñ\n"
 
-#: cafe-session/csm-xsmp-server.c:584
+#: cafe-session/csm-xsmp-server.c:583
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "N'eus ket tu da grouiñ ur soked selaou ICE : %s"
@@ -546,23 +546,23 @@ msgstr "N'eus ket tu da grouiñ ur soked selaou ICE : %s"
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr "N'eus ket tu da lañsañ an estez (ha kennaskañ ouzh an dafariad X)"
 
-#: cafe-session/main.c:611
+#: cafe-session/main.c:614
 msgid "Override standard autostart directories"
 msgstr "Erlec'hiañ kavlec'hioù autostart skoueriek"
 
-#: cafe-session/main.c:612
+#: cafe-session/main.c:615
 msgid "Enable debugging code"
 msgstr "Gweredekaat ar boneg diveugañ"
 
-#: cafe-session/main.c:613
+#: cafe-session/main.c:616
 msgid "Do not load user-specified applications"
 msgstr "Ne garg ket an arloadoù goulennet gant an arveriad"
 
-#: cafe-session/main.c:615
+#: cafe-session/main.c:618
 msgid "Disable hardware acceleration check"
 msgstr ""
 
-#: cafe-session/main.c:635
+#: cafe-session/main.c:638
 msgid " - the CAFE session manager"
 msgstr " - ardoer estezioù CAFE"
 

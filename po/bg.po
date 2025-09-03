@@ -15,9 +15,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-session-manager 1.25.0\n"
+"Project-Id-Version: cafe-session-manager 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2023-12-13 17:42+0100\n"
+"POT-Creation-Date: 2025-09-03 18:04+0200\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Замфир Йончев <zamfir.yonchev@gmail.com>, 2020\n"
 "Language-Team: Bulgarian (https://www.transifex.com/cafe/teams/13566/bg/)\n"
@@ -27,68 +27,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: capplet/csm-app-dialog.c:124
+#: capplet/csm-app-dialog.c:123
 msgid "Select Command"
 msgstr "Избор на команда"
 
-#: capplet/csm-app-dialog.c:167
+#: capplet/csm-app-dialog.c:166
 msgid "second"
 msgstr ""
 
-#: capplet/csm-app-dialog.c:169
+#: capplet/csm-app-dialog.c:168
 msgid "seconds"
 msgstr "секунди"
 
-#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
-#: cafe-session/csm-logout-dialog.c:485
+#: capplet/csm-app-dialog.c:214 cafe-session/csm-logout-dialog.c:453
+#: cafe-session/csm-logout-dialog.c:486
 msgid "_Cancel"
 msgstr "_Отказ"
 
-#: capplet/csm-app-dialog.c:221
+#: capplet/csm-app-dialog.c:220
 msgid "Add Startup Program"
 msgstr "Добавяне на програма стартираща при влизане"
 
-#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:222 data/session-properties.ui:86
 msgid "_Add"
 msgstr "_Добавяне"
 
-#: capplet/csm-app-dialog.c:226
+#: capplet/csm-app-dialog.c:225
 msgid "Edit Startup Program"
 msgstr "Редактиране на програмите стартиращи при влизане"
 
-#: capplet/csm-app-dialog.c:228
+#: capplet/csm-app-dialog.c:227
 msgid "_Save"
 msgstr "_Запазване"
 
-#: capplet/csm-app-dialog.c:541
+#: capplet/csm-app-dialog.c:540
 msgid "The startup command cannot be empty"
 msgstr "Командата за програма стартираща при влизане не може да е празна"
 
-#: capplet/csm-app-dialog.c:547
+#: capplet/csm-app-dialog.c:546
 msgid "The startup command is not valid"
 msgstr "Командата за програма стартираща при влизане е неправилна"
 
-#: capplet/csm-properties-dialog.c:514
+#: capplet/csm-properties-dialog.c:513
 msgid "_Help"
 msgstr "_Помощ"
 
-#: capplet/csm-properties-dialog.c:518
+#: capplet/csm-properties-dialog.c:517
 msgid "_Close"
 msgstr "_Затваряне"
 
-#: capplet/csm-properties-dialog.c:558
+#: capplet/csm-properties-dialog.c:557
 msgid "Enabled"
 msgstr "Разрешено"
 
-#: capplet/csm-properties-dialog.c:570
+#: capplet/csm-properties-dialog.c:569
 msgid "Icon"
 msgstr "Иконка"
 
-#: capplet/csm-properties-dialog.c:582
+#: capplet/csm-properties-dialog.c:581
 msgid "Program"
 msgstr "Програма"
 
-#: capplet/csm-properties-dialog.c:789
+#: capplet/csm-properties-dialog.c:788
 msgid "Startup Applications Preferences"
 msgstr "Настройки за автоматично стартиране на програми"
 
@@ -100,11 +100,11 @@ msgstr "Без име"
 msgid "No description"
 msgstr "Без описание"
 
-#: capplet/main.c:35 cafe-session/main.c:614
+#: capplet/main.c:35 cafe-session/main.c:617
 msgid "Version of this application"
 msgstr "Версия на програмата"
 
-#: capplet/main.c:51
+#: capplet/main.c:53
 msgid "Could not display help document"
 msgstr "Документът от помощта не може да бъде показан"
 
@@ -197,7 +197,7 @@ msgstr "Управление на използването на компонен
 msgid "Control which compatibility components to start."
 msgstr "Управление на това кои компоненти за съвместимост да се използват."
 
-#: data/org.cafe.session.gschema.xml.in:54 data/cafe-wm.desktop.in:4
+#: data/org.cafe.session.gschema.xml.in:54 data/cafe-wm.desktop.in:3
 msgid "Window Manager"
 msgstr "Диспечер на прозорци"
 
@@ -245,21 +245,21 @@ msgstr ""
 "Докът е област за прикачане, подобна на панел, от където могат да се пускат "
 "и превключват приложения."
 
-#: data/cafe.desktop.in:3
+#: data/cafe.desktop.in:2
 msgid "CAFE"
 msgstr "CAFE"
 
-#: data/cafe.desktop.in:4
+#: data/cafe.desktop.in:3
 msgid "This session logs you into CAFE"
 msgstr "Влизане в CAFE"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe.desktop.in:11
+#: data/cafe.desktop.in:10
 msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-wm.desktop.in:7
+#: data/cafe-wm.desktop.in:6
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
 
@@ -275,17 +275,17 @@ msgstr ""
 "Изчакване на програмата да завърши. Прекъсването ѝ може да доведе до загуба "
 "на информация."
 
-#: data/cafe-session-properties.desktop.in:3
+#: data/cafe-session-properties.desktop.in:2
 msgid "Startup Applications"
 msgstr "Автоматично стартирани програми"
 
-#: data/cafe-session-properties.desktop.in:4
+#: data/cafe-session-properties.desktop.in:3
 msgid "Choose what applications to start when you log in"
 msgstr ""
 "Изберете програмите, които да се стартират при влизането ви в системата"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-session-properties.desktop.in:13
+#: data/cafe-session-properties.desktop.in:12
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
 
@@ -457,58 +457,58 @@ msgstr "Заключване на екрана"
 msgid "Cancel"
 msgstr "Отказ"
 
-#: cafe-session/csm-logout-dialog.c:307
+#: cafe-session/csm-logout-dialog.c:308
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/csm-logout-dialog.c:315
+#: cafe-session/csm-logout-dialog.c:316
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: cafe-session/csm-logout-dialog.c:361
+#: cafe-session/csm-logout-dialog.c:362
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr "В момента сте влезли като „%s“."
 
-#: cafe-session/csm-logout-dialog.c:441
+#: cafe-session/csm-logout-dialog.c:442
 msgid "Log out of this system now?"
 msgstr "Излизане от системата?"
 
-#: cafe-session/csm-logout-dialog.c:447
+#: cafe-session/csm-logout-dialog.c:448
 msgid "_Switch User"
 msgstr "_Смяна на потребител"
 
-#: cafe-session/csm-logout-dialog.c:456
+#: cafe-session/csm-logout-dialog.c:457
 msgid "_Log Out"
 msgstr "_Изход"
 
-#: cafe-session/csm-logout-dialog.c:462
+#: cafe-session/csm-logout-dialog.c:463
 msgid "Shut down this system now?"
 msgstr "Изключване на системата?"
 
-#: cafe-session/csm-logout-dialog.c:468
+#: cafe-session/csm-logout-dialog.c:469
 msgid "S_uspend"
 msgstr "_Приспиване"
 
-#: cafe-session/csm-logout-dialog.c:474
+#: cafe-session/csm-logout-dialog.c:475
 msgid "_Hibernate"
 msgstr "_Дълбоко приспиване"
 
-#: cafe-session/csm-logout-dialog.c:480
+#: cafe-session/csm-logout-dialog.c:481
 msgid "_Restart"
 msgstr "_Рестартиране"
 
-#: cafe-session/csm-logout-dialog.c:490
+#: cafe-session/csm-logout-dialog.c:491
 msgid "_Shut Down"
 msgstr "Изключване на _компютъра"
 
-#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
+#: cafe-session/csm-manager.c:1512 cafe-session/csm-manager.c:2336
 msgid "Not responding"
 msgstr "Не отговаря"
 
@@ -516,15 +516,15 @@ msgstr "Не отговаря"
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
 #.
-#: cafe-session/csm-xsmp-client.c:595
+#: cafe-session/csm-xsmp-client.c:594
 msgid "Remembered Application"
 msgstr "Запомнени програми"
 
-#: cafe-session/csm-xsmp-client.c:1262
+#: cafe-session/csm-xsmp-client.c:1261
 msgid "This program is blocking logout."
 msgstr "Тази програма блокира излизането."
 
-#: cafe-session/csm-xsmp-server.c:322
+#: cafe-session/csm-xsmp-server.c:321
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
@@ -532,7 +532,7 @@ msgstr ""
 "Отхвърляне на свързванията с нови клиенти, защото тази сесия в момента се "
 "затваря\n"
 
-#: cafe-session/csm-xsmp-server.c:584
+#: cafe-session/csm-xsmp-server.c:583
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "Неуспех при създаването на гнездо на ICE за слушане: %s"
@@ -544,23 +544,23 @@ msgstr ""
 "Неуспех при стартирането на входната сесия (и неуспех при свързването с X "
 "сървъра)"
 
-#: cafe-session/main.c:611
+#: cafe-session/main.c:614
 msgid "Override standard autostart directories"
 msgstr "Използване на различни от стандартните папки за стартиране при влизане"
 
-#: cafe-session/main.c:612
+#: cafe-session/main.c:615
 msgid "Enable debugging code"
 msgstr "Да се включи режим на изчистване на грешки"
 
-#: cafe-session/main.c:613
+#: cafe-session/main.c:616
 msgid "Do not load user-specified applications"
 msgstr "Да не се зареждат програми, зададени от потребителя"
 
-#: cafe-session/main.c:615
+#: cafe-session/main.c:618
 msgid "Disable hardware acceleration check"
 msgstr ""
 
-#: cafe-session/main.c:635
+#: cafe-session/main.c:638
 msgid " - the CAFE session manager"
 msgstr "— управление на сесиите на CAFE"
 

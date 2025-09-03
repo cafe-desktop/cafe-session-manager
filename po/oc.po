@@ -10,81 +10,81 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-session-manager 1.25.0\n"
+"Project-Id-Version: cafe-session-manager 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2023-12-13 17:42+0100\n"
+"POT-Creation-Date: 2025-09-03 18:04+0200\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Quentin PAGÈS, 2020\n"
-"Language-Team: Occitan (post 1500) (https://www.transifex.com/cafe/"
-"teams/13566/oc/)\n"
+"Language-Team: Occitan (post 1500) (https://www.transifex.com/cafe/teams/"
+"13566/oc/)\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: capplet/csm-app-dialog.c:124
+#: capplet/csm-app-dialog.c:123
 msgid "Select Command"
 msgstr "Seleccionar una comanda"
 
-#: capplet/csm-app-dialog.c:167
+#: capplet/csm-app-dialog.c:166
 msgid "second"
 msgstr "segond"
 
-#: capplet/csm-app-dialog.c:169
+#: capplet/csm-app-dialog.c:168
 msgid "seconds"
 msgstr "segondas"
 
-#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
-#: cafe-session/csm-logout-dialog.c:485
+#: capplet/csm-app-dialog.c:214 cafe-session/csm-logout-dialog.c:453
+#: cafe-session/csm-logout-dialog.c:486
 msgid "_Cancel"
 msgstr "_Anullar"
 
-#: capplet/csm-app-dialog.c:221
+#: capplet/csm-app-dialog.c:220
 msgid "Add Startup Program"
 msgstr "Ajustar un programa al lançament"
 
-#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:222 data/session-properties.ui:86
 msgid "_Add"
 msgstr "_Apondre"
 
-#: capplet/csm-app-dialog.c:226
+#: capplet/csm-app-dialog.c:225
 msgid "Edit Startup Program"
 msgstr "Editar lo programa de lançament"
 
-#: capplet/csm-app-dialog.c:228
+#: capplet/csm-app-dialog.c:227
 msgid "_Save"
 msgstr "_Enregistrar"
 
-#: capplet/csm-app-dialog.c:541
+#: capplet/csm-app-dialog.c:540
 msgid "The startup command cannot be empty"
 msgstr "La comanda de lançament pòt pas èsser voida"
 
-#: capplet/csm-app-dialog.c:547
+#: capplet/csm-app-dialog.c:546
 msgid "The startup command is not valid"
 msgstr "La comanda d’aviada es pas valida"
 
-#: capplet/csm-properties-dialog.c:514
+#: capplet/csm-properties-dialog.c:513
 msgid "_Help"
 msgstr "Aju_da"
 
-#: capplet/csm-properties-dialog.c:518
+#: capplet/csm-properties-dialog.c:517
 msgid "_Close"
 msgstr "_Tampar"
 
-#: capplet/csm-properties-dialog.c:558
+#: capplet/csm-properties-dialog.c:557
 msgid "Enabled"
 msgstr "Activat"
 
-#: capplet/csm-properties-dialog.c:570
+#: capplet/csm-properties-dialog.c:569
 msgid "Icon"
 msgstr "Icòna"
 
-#: capplet/csm-properties-dialog.c:582
+#: capplet/csm-properties-dialog.c:581
 msgid "Program"
 msgstr "Programa"
 
-#: capplet/csm-properties-dialog.c:789
+#: capplet/csm-properties-dialog.c:788
 msgid "Startup Applications Preferences"
 msgstr "Preferéncias de las aplicacions al lançament"
 
@@ -96,11 +96,11 @@ msgstr "Pas de nom"
 msgid "No description"
 msgstr "Pas de descripcion"
 
-#: capplet/main.c:35 cafe-session/main.c:614
+#: capplet/main.c:35 cafe-session/main.c:617
 msgid "Version of this application"
 msgstr "Version d'aquesta aplicacion"
 
-#: capplet/main.c:51
+#: capplet/main.c:53
 msgid "Could not display help document"
 msgstr "Impossible de visualizar lo document d'ajuda"
 
@@ -188,7 +188,7 @@ msgstr ""
 msgid "Control which compatibility components to start."
 msgstr ""
 
-#: data/org.cafe.session.gschema.xml.in:54 data/cafe-wm.desktop.in:4
+#: data/org.cafe.session.gschema.xml.in:54 data/cafe-wm.desktop.in:3
 msgid "Window Manager"
 msgstr "Gestionari de fenèstras"
 
@@ -228,21 +228,21 @@ msgid ""
 "switching applications."
 msgstr ""
 
-#: data/cafe.desktop.in:3
+#: data/cafe.desktop.in:2
 msgid "CAFE"
 msgstr "CAFE"
 
-#: data/cafe.desktop.in:4
+#: data/cafe.desktop.in:3
 msgid "This session logs you into CAFE"
 msgstr "La session vos connectarà dins CAFE"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe.desktop.in:11
+#: data/cafe.desktop.in:10
 msgid "launch;CAFE;desktop;session;"
 msgstr "launch;CAFE;desktop;session;aviada;compte;"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-wm.desktop.in:7
+#: data/cafe-wm.desktop.in:6
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr "CAFE;window;manager;launch;CDM;"
 
@@ -258,16 +258,16 @@ msgstr ""
 "En espèra de la fin del programa. L’arrestar poiriá causar de pèrda de "
 "trabalha."
 
-#: data/cafe-session-properties.desktop.in:3
+#: data/cafe-session-properties.desktop.in:2
 msgid "Startup Applications"
 msgstr "Aplicacions en aviar"
 
-#: data/cafe-session-properties.desktop.in:4
+#: data/cafe-session-properties.desktop.in:3
 msgid "Choose what applications to start when you log in"
 msgstr "Causissètz las aplicacions a aviar quand vos connectatz"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-session-properties.desktop.in:13
+#: data/cafe-session-properties.desktop.in:12
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr "CAFE;session;properties;applications;login;start;"
 
@@ -443,58 +443,58 @@ msgstr "Varrolhar l'ecran"
 msgid "Cancel"
 msgstr "Anullar"
 
-#: cafe-session/csm-logout-dialog.c:307
+#: cafe-session/csm-logout-dialog.c:308
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
 msgstr[0] "Seretz automaticament desconnectat d’aquí %d segonda"
 msgstr[1] "Seretz automaticament desconnectat d’aquí %d segondas"
 
-#: cafe-session/csm-logout-dialog.c:315
+#: cafe-session/csm-logout-dialog.c:316
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
 msgstr[0] "Aqueste sistèma serà automaticament atudat d’aquí %d segonda"
 msgstr[1] "Aqueste sistèma serà automaticament atudat d’aquí %d segondas"
 
-#: cafe-session/csm-logout-dialog.c:361
+#: cafe-session/csm-logout-dialog.c:362
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr "Sètz actualament connectat coma « %s »."
 
-#: cafe-session/csm-logout-dialog.c:441
+#: cafe-session/csm-logout-dialog.c:442
 msgid "Log out of this system now?"
 msgstr "Se desconnectar del sistèma ara ?"
 
-#: cafe-session/csm-logout-dialog.c:447
+#: cafe-session/csm-logout-dialog.c:448
 msgid "_Switch User"
 msgstr "Cambiar d'utili_zaire"
 
-#: cafe-session/csm-logout-dialog.c:456
+#: cafe-session/csm-logout-dialog.c:457
 msgid "_Log Out"
 msgstr "_Tampar la session"
 
-#: cafe-session/csm-logout-dialog.c:462
+#: cafe-session/csm-logout-dialog.c:463
 msgid "Shut down this system now?"
 msgstr "Atudar lo sistèma ara ?"
 
-#: cafe-session/csm-logout-dialog.c:468
+#: cafe-session/csm-logout-dialog.c:469
 msgid "S_uspend"
 msgstr "M_etre en velha"
 
-#: cafe-session/csm-logout-dialog.c:474
+#: cafe-session/csm-logout-dialog.c:475
 msgid "_Hibernate"
 msgstr "_Ivernar"
 
-#: cafe-session/csm-logout-dialog.c:480
+#: cafe-session/csm-logout-dialog.c:481
 msgid "_Restart"
 msgstr "_Reaviar"
 
-#: cafe-session/csm-logout-dialog.c:490
+#: cafe-session/csm-logout-dialog.c:491
 msgid "_Shut Down"
 msgstr "_Atudar"
 
-#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
+#: cafe-session/csm-manager.c:1512 cafe-session/csm-manager.c:2336
 msgid "Not responding"
 msgstr "Abséncia de responsa"
 
@@ -502,15 +502,15 @@ msgstr "Abséncia de responsa"
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
 #.
-#: cafe-session/csm-xsmp-client.c:595
+#: cafe-session/csm-xsmp-client.c:594
 msgid "Remembered Application"
 msgstr "Aplicacions memorizadas"
 
-#: cafe-session/csm-xsmp-client.c:1262
+#: cafe-session/csm-xsmp-client.c:1261
 msgid "This program is blocking logout."
 msgstr "Aqueste programa blòca la desconnexion."
 
-#: cafe-session/csm-xsmp-server.c:322
+#: cafe-session/csm-xsmp-server.c:321
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
@@ -518,7 +518,7 @@ msgstr ""
 "Refús de la connexion d'un novèl client perque la sesilha es actualament en "
 "cors de tampadura\n"
 
-#: cafe-session/csm-xsmp-server.c:584
+#: cafe-session/csm-xsmp-server.c:583
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "Impossible de crear lo connectador d'escota ICE : %s"
@@ -528,23 +528,23 @@ msgstr "Impossible de crear lo connectador d'escota ICE : %s"
 msgid "Unable to start login session (and unable to connect to the X server)"
 msgstr "Aviada de la session impossibla (e connexion impossibla al servidor X)"
 
-#: cafe-session/main.c:611
+#: cafe-session/main.c:614
 msgid "Override standard autostart directories"
 msgstr "Remplaça los repertòris autostart estandards"
 
-#: cafe-session/main.c:612
+#: cafe-session/main.c:615
 msgid "Enable debugging code"
 msgstr "Activa lo còdi de desbugatge"
 
-#: cafe-session/main.c:613
+#: cafe-session/main.c:616
 msgid "Do not load user-specified applications"
 msgstr "Carga pas las aplicacions demandadas per l'utilizaire"
 
-#: cafe-session/main.c:615
+#: cafe-session/main.c:618
 msgid "Disable hardware acceleration check"
 msgstr "Desactivar la verificacion de l'acceleracion materiala"
 
-#: cafe-session/main.c:635
+#: cafe-session/main.c:638
 msgid " - the CAFE session manager"
 msgstr " - gestionari de session CAFE"
 

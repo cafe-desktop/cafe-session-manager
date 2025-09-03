@@ -13,9 +13,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-session-manager 1.25.0\n"
+"Project-Id-Version: cafe-session-manager 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2023-12-13 17:42+0100\n"
+"POT-Creation-Date: 2025-09-03 18:04+0200\n"
 "PO-Revision-Date: 2020-02-16 14:58+0000\n"
 "Last-Translator: Horazone Detex <thmmt2017d@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/cafe/teams/13566/vi/)\n"
@@ -25,68 +25,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: capplet/csm-app-dialog.c:124
+#: capplet/csm-app-dialog.c:123
 msgid "Select Command"
 msgstr "Chọn câu lệnh"
 
-#: capplet/csm-app-dialog.c:167
+#: capplet/csm-app-dialog.c:166
 msgid "second"
 msgstr "giây"
 
-#: capplet/csm-app-dialog.c:169
+#: capplet/csm-app-dialog.c:168
 msgid "seconds"
 msgstr "giây"
 
-#: capplet/csm-app-dialog.c:215 cafe-session/csm-logout-dialog.c:452
-#: cafe-session/csm-logout-dialog.c:485
+#: capplet/csm-app-dialog.c:214 cafe-session/csm-logout-dialog.c:453
+#: cafe-session/csm-logout-dialog.c:486
 msgid "_Cancel"
 msgstr "Th_ôi"
 
-#: capplet/csm-app-dialog.c:221
+#: capplet/csm-app-dialog.c:220
 msgid "Add Startup Program"
 msgstr "Thêm chương trình khởi động"
 
-#: capplet/csm-app-dialog.c:223 data/session-properties.ui:86
+#: capplet/csm-app-dialog.c:222 data/session-properties.ui:86
 msgid "_Add"
 msgstr "Thê_m"
 
-#: capplet/csm-app-dialog.c:226
+#: capplet/csm-app-dialog.c:225
 msgid "Edit Startup Program"
 msgstr "Sửa chương trình khởi động"
 
-#: capplet/csm-app-dialog.c:228
+#: capplet/csm-app-dialog.c:227
 msgid "_Save"
 msgstr "_Lưu"
 
-#: capplet/csm-app-dialog.c:541
+#: capplet/csm-app-dialog.c:540
 msgid "The startup command cannot be empty"
 msgstr "Không cho phép tạo lệnh khởi động rỗng"
 
-#: capplet/csm-app-dialog.c:547
+#: capplet/csm-app-dialog.c:546
 msgid "The startup command is not valid"
 msgstr "Lệnh khởi động không hợp lệ"
 
-#: capplet/csm-properties-dialog.c:514
+#: capplet/csm-properties-dialog.c:513
 msgid "_Help"
 msgstr "Trợ _giúp"
 
-#: capplet/csm-properties-dialog.c:518
+#: capplet/csm-properties-dialog.c:517
 msgid "_Close"
 msgstr "Đón_g"
 
-#: capplet/csm-properties-dialog.c:558
+#: capplet/csm-properties-dialog.c:557
 msgid "Enabled"
 msgstr "Bật"
 
-#: capplet/csm-properties-dialog.c:570
+#: capplet/csm-properties-dialog.c:569
 msgid "Icon"
 msgstr "Biểu tượng"
 
-#: capplet/csm-properties-dialog.c:582
+#: capplet/csm-properties-dialog.c:581
 msgid "Program"
 msgstr "Chương trình"
 
-#: capplet/csm-properties-dialog.c:789
+#: capplet/csm-properties-dialog.c:788
 msgid "Startup Applications Preferences"
 msgstr "Tùy chỉnh Ứng dụng Khởi chạy"
 
@@ -98,11 +98,11 @@ msgstr "Không tên"
 msgid "No description"
 msgstr "Không mô tả"
 
-#: capplet/main.c:35 cafe-session/main.c:614
+#: capplet/main.c:35 cafe-session/main.c:617
 msgid "Version of this application"
 msgstr "Phiên bản ứng dụng này"
 
-#: capplet/main.c:51
+#: capplet/main.c:53
 msgid "Could not display help document"
 msgstr "Không thể hiển thị tài liệu trợ giúp"
 
@@ -197,7 +197,7 @@ msgstr "Kiểm soát khởi động thành phần tương thích gnome."
 msgid "Control which compatibility components to start."
 msgstr "Kiểm soát những thành phần tương thích nào khởi động."
 
-#: data/org.cafe.session.gschema.xml.in:54 data/cafe-wm.desktop.in:4
+#: data/org.cafe.session.gschema.xml.in:54 data/cafe-wm.desktop.in:3
 msgid "Window Manager"
 msgstr "Trình Quản lý cửa sổ:"
 
@@ -245,21 +245,21 @@ msgstr ""
 "Một thanh dock tạo một khu vực có thể ghim được, tương tự như một thanh "
 "bảng, để chạy và chuyển đổi các ứng dụng."
 
-#: data/cafe.desktop.in:3
+#: data/cafe.desktop.in:2
 msgid "CAFE"
 msgstr "CAFE"
 
-#: data/cafe.desktop.in:4
+#: data/cafe.desktop.in:3
 msgid "This session logs you into CAFE"
 msgstr "Phiên chạy này sẽ đăng nhập bạn vào CAFE"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe.desktop.in:11
+#: data/cafe.desktop.in:10
 msgid "launch;CAFE;desktop;session;"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-wm.desktop.in:7
+#: data/cafe-wm.desktop.in:6
 msgid "CAFE;window;manager;launch;CDM;"
 msgstr ""
 
@@ -275,16 +275,16 @@ msgstr ""
 "Đang chờ chương trình kết thúc. Ngắt những chương trình này có thể dẫn đến "
 "mất dữ liệu."
 
-#: data/cafe-session-properties.desktop.in:3
+#: data/cafe-session-properties.desktop.in:2
 msgid "Startup Applications"
 msgstr "Ứng dụng Khởi chạy"
 
-#: data/cafe-session-properties.desktop.in:4
+#: data/cafe-session-properties.desktop.in:3
 msgid "Choose what applications to start when you log in"
 msgstr "Hãy chọn những ứng dụng nào cần khởi chạy khi bạn đăng nhập"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-session-properties.desktop.in:13
+#: data/cafe-session-properties.desktop.in:12
 msgid "CAFE;session;properties;applications;login;start;"
 msgstr ""
 
@@ -456,56 +456,56 @@ msgstr "Khoá màn hình"
 msgid "Cancel"
 msgstr "Thôi"
 
-#: cafe-session/csm-logout-dialog.c:307
+#: cafe-session/csm-logout-dialog.c:308
 #, c-format
 msgid "You will be automatically logged out in %d second"
 msgid_plural "You will be automatically logged out in %d seconds"
 msgstr[0] ""
 
-#: cafe-session/csm-logout-dialog.c:315
+#: cafe-session/csm-logout-dialog.c:316
 #, c-format
 msgid "This system will be automatically shut down in %d second"
 msgid_plural "This system will be automatically shut down in %d seconds"
 msgstr[0] ""
 
-#: cafe-session/csm-logout-dialog.c:361
+#: cafe-session/csm-logout-dialog.c:362
 #, c-format
 msgid "You are currently logged in as \"%s\"."
 msgstr "Bạn đã đăng nhập dưới « %s »"
 
-#: cafe-session/csm-logout-dialog.c:441
+#: cafe-session/csm-logout-dialog.c:442
 msgid "Log out of this system now?"
 msgstr "Đăng xuất ra hệ thống này ngay bây giờ ?"
 
-#: cafe-session/csm-logout-dialog.c:447
+#: cafe-session/csm-logout-dialog.c:448
 msgid "_Switch User"
 msgstr "_Chuyển đổi người dùng"
 
-#: cafe-session/csm-logout-dialog.c:456
+#: cafe-session/csm-logout-dialog.c:457
 msgid "_Log Out"
 msgstr "Đăng _xuất"
 
-#: cafe-session/csm-logout-dialog.c:462
+#: cafe-session/csm-logout-dialog.c:463
 msgid "Shut down this system now?"
 msgstr "Tắt hệ thống này ngày bây giờ ?"
 
-#: cafe-session/csm-logout-dialog.c:468
+#: cafe-session/csm-logout-dialog.c:469
 msgid "S_uspend"
 msgstr "N_gưng"
 
-#: cafe-session/csm-logout-dialog.c:474
+#: cafe-session/csm-logout-dialog.c:475
 msgid "_Hibernate"
 msgstr "_Ngủ đông"
 
-#: cafe-session/csm-logout-dialog.c:480
+#: cafe-session/csm-logout-dialog.c:481
 msgid "_Restart"
 msgstr "_Khởi chạy lại"
 
-#: cafe-session/csm-logout-dialog.c:490
+#: cafe-session/csm-logout-dialog.c:491
 msgid "_Shut Down"
 msgstr "_Tắt máy"
 
-#: cafe-session/csm-manager.c:1513 cafe-session/csm-manager.c:2337
+#: cafe-session/csm-manager.c:1512 cafe-session/csm-manager.c:2336
 msgid "Not responding"
 msgstr "Không trả lời"
 
@@ -513,21 +513,21 @@ msgstr "Không trả lời"
 #. * then the XSMP client already has set several XSMP
 #. * properties. But it could still be that SmProgram is not set.
 #.
-#: cafe-session/csm-xsmp-client.c:595
+#: cafe-session/csm-xsmp-client.c:594
 msgid "Remembered Application"
 msgstr "Ứng dụng Đã nhớ"
 
-#: cafe-session/csm-xsmp-client.c:1262
+#: cafe-session/csm-xsmp-client.c:1261
 msgid "This program is blocking logout."
 msgstr "Chương trình này đang ngăn chặn việc đăng xuất"
 
-#: cafe-session/csm-xsmp-server.c:322
+#: cafe-session/csm-xsmp-server.c:321
 msgid ""
 "Refusing new client connection because the session is currently being shut "
 "down\n"
 msgstr "Đang từ chối kết nối khách mới vì phiên chạy đang bị tắt\n"
 
-#: cafe-session/csm-xsmp-server.c:584
+#: cafe-session/csm-xsmp-server.c:583
 #, c-format
 msgid "Could not create ICE listening socket: %s"
 msgstr "Không thể tạo ổ cắm lắng nghe ICE: %s"
@@ -539,23 +539,23 @@ msgstr ""
 "Không thể khởi chạy buổi hợp đăng nhập (và không thể kết nối đến trình phục "
 "vụ X)"
 
-#: cafe-session/main.c:611
+#: cafe-session/main.c:614
 msgid "Override standard autostart directories"
 msgstr "Đè thư mục autostart chuẩn"
 
-#: cafe-session/main.c:612
+#: cafe-session/main.c:615
 msgid "Enable debugging code"
 msgstr "Bật chạy mã gỡ lỗi"
 
-#: cafe-session/main.c:613
+#: cafe-session/main.c:616
 msgid "Do not load user-specified applications"
 msgstr "Đừng nạp ứng dụng do người dùng xác định"
 
-#: cafe-session/main.c:615
+#: cafe-session/main.c:618
 msgid "Disable hardware acceleration check"
 msgstr "Tắt kiểm tra tăng tốc phần cứng"
 
-#: cafe-session/main.c:635
+#: cafe-session/main.c:638
 msgid " - the CAFE session manager"
 msgstr " — Bộ Quản lý Phiên chạy CAFE"
 
