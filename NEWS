@@ -1,3 +1,12 @@
+### cafe-session-manager 2.0.0
+
+  * ci: some improvements
+  * csm-presence: org.freedesktop.ScreenSaver instead org.cafe.ScreenSaver
+  * add G_GNUC_UNUSED in unused parameters
+  * data: Fix warning in Makefile
+  * update translations
+
+
 ### cafe-session-manager 1.25.0
 
   * initial release: mate-session-manager 1.24.1 fork

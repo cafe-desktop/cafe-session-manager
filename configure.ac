@@ -1,4 +1,4 @@
-AC_INIT([cafe-session-manager], [1.25.0], [https://cafe-desktop.org/])
+AC_INIT([cafe-session-manager], [2.0.0], [https://cafe-desktop.org/])
 AC_CONFIG_SRCDIR([cafe-session])
 AC_CONFIG_HEADERS([config.h])
 
