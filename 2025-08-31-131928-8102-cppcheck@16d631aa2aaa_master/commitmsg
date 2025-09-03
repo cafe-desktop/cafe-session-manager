@@ -1,0 +1,4 @@
+data: Fix warning in Makefile:
+
+Fixes the warning:
+data/Makefile.am:25: warning: '%'-style pattern rules are a GNU make extension
