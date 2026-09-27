@@ -302,7 +302,7 @@ scale_pixbuf (GdkPixbuf *pixbuf,
                 return cdk_pixbuf_scale_simple (pixbuf,
                                                 scale_x,
                                                 scale_y,
-                                                GDK_INTERP_BILINEAR);
+                                                CDK_INTERP_BILINEAR);
         } else {
                 return g_object_ref (pixbuf);
         }
@@ -899,7 +899,7 @@ setup_dialog (CsmInhibitDialog *dialog)
                           dialog);
 
         dialog->list_store = ctk_list_store_new (NUMBER_OF_COLUMNS,
-                                                 GDK_TYPE_PIXBUF,
+                                                 CDK_TYPE_PIXBUF,
                                                  G_TYPE_STRING,
                                                  G_TYPE_STRING,
                                                  G_TYPE_STRING);
