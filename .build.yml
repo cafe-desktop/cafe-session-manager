@@ -3,46 +3,12 @@
 ##########################################################
 requires:
   debian:
-    # Useful URL: https://github.com/cafe-desktop/debian-packages
-    # cafe B-D: libctk-3-dev cafe-common
-    - aptitude
-    - autoconf-archive
-    - autopoint
-    - clang
-    - clang-tools
-    - cppcheck
-    - expect #required for unbuffer
-    - gcc
-    - git
-    - intltool
-    - libdbus-glib-1-dev
-    - libgl1-mesa-dev
-    - libgles2-mesa-dev
-    - libglib2.0-dev
-    - libice-dev
-    - libsm-dev
-    - libstartup-notification0-dev
-    - libsystemd-dev
-    - libtool
-    - libx11-dev
-    - libxau-dev
-    - libxext-dev
-    - libxrender-dev
-    - libxt-dev
-    - libxtst-dev
-    - make
-    - xmlto
-    - xsltproc
 
 before_scripts:
-  - ./html-cppcheck
-  - ./debrepo-install 'libctk-3-dev'
-  - ./install-from-git https://github.com/cafe-desktop/cafe-common master
+  - ./debrepo-install
 
 build_scripts:
-  - ./before-build
-  - ./make-scanbuild '--enable-compile-warnings=maximum'
-  - ./after-build
+  - ./build-debs https://github.com/cafe-desktop/debian-packages devel cafe-session-manager
 
 after_scripts:
   - if [ -f "gen-index" ]; then ./gen-index -l 20; fi
